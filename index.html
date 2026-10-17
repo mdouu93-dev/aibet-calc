@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>AiBet Money — Калькулятор ставок</title>
+  <!-- Скрипт Telegram Mini App -->
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-page: #070B12;
+      --bg-card: #0E1523;
+      --cream: #F5EFE4;
+      --cream-focus: #FFFFFF;
+      --gold: #CFA35E;
+      --gold-emblem: #E1A856;
+      --gold-light: #E2B976;
+      --gold-border: rgba(207, 163, 94, 0.45);
+      --gold-glow: rgba(207, 163, 94, 0.14);
+      --text-main: #F1F5F9;
+      --text-secondary: #CBD5E1;
+      --text-muted: #8E9BAE;
+      --text-dark: #0A101D;
+      --border-subtle: rgba(255, 255, 255, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background-color: var(--bg-page);
+      background-image: 
+        radial-gradient(circle at 15% 15%, rgba(207, 163, 94, 0.05) 0%, transparent 45%),
+        radial-gradient(circle at 85% 80%, rgba(18, 27, 45, 0.8) 0%, transparent 50%);
+      color: var(--text-main);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ВЕРХНЯЯ ШАПКА */
+    .site-header {
+      background: rgba(14, 21, 35, 0.82);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(207, 163, 94, 0.25);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    .header-inner {
+      display: grid;
+      grid-template-columns: 400px 1fr;
+      gap: 36px;
+      align-items: center;
+      padding: 16px 0;
+    }
+
+    /* Верхний логотип AiBet MONEY */
+    .brand-logo {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      width: 138px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .brand-logo:hover {
+      transform: translateY(-1px);
+    }
+
+    .brand-logo-top {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 38px;
+      font-weight: 600;
+      color: #FFFFFF;
+      letter-spacing: 0.5px;
+      line-height: 1;
+    }
+
+    .brand-logo-bottom {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      margin-top: 5px;
+      gap: 7px;
+    }
+
+    .brand-logo-bottom::before,
+    .brand-logo-bottom::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.85;
+    }
+
+    .brand-logo-bottom span {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 10.5px;
+      font-weight: 600;
+      color: var(--gold);
+      letter-spacing: 3.8px;
+      padding-left: 3.8px;
+    }
+
+    .header-info {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .kicker {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .channel-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--gold-light);
+      font-size: 15.5px;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 8px 16px;
+      background: var(--gold-glow);
+      border: 1px solid var(--gold-border);
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .channel-pill:hover {
+      background: rgba(207, 163, 94, 0.22);
+      border-color: var(--gold-light);
+    }
+
+    .channel-pill svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+      flex-shrink: 0;
+    }
+
+    /* ОСНОВНАЯ ДВУХКОЛОНОЧНАЯ СЕТКА */
+    .workspace {
+      display: grid;
+      grid-template-columns: 400px 1fr;
+      gap: 36px;
+      padding: 28px 0 44px 0;
+      align-items: start;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      padding: 22px;
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.4);
+    }
+
+    .block-label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.9px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .block-label-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .block-label-left::before {
+      content: "";
+      display: inline-block;
+      width: 3px;
+      height: 14px;
+      background: var(--gold);
+      border-radius: 2px;
+    }
+
+    .saved-badge {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-transform: none;
+      letter-spacing: 0;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+
+    .saved-badge.show {
+      opacity: 1;
+    }
+
+    /* ЛЕВАЯ КОЛОНКА */
+    .left-column {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .input-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .field-row {
+      display: grid;
+      grid-template-columns: 1fr 165px;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255, 255, 255, 0.02);
+      padding: 6px 6px 6px 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    .field-title {
+      font-size: 14.5px;
+      font-weight: 500;
+      color: var(--text-secondary);
+    }
+
+    .gold-input-box {
+      position: relative;
+      height: 44px;
+      background: var(--cream);
+      border: 1.5px solid var(--gold);
+      border-radius: 9px;
+      display: flex;
+      align-items: center;
+      transition: all 0.2s ease;
+      box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.08);
+    }
+
+    .gold-input-box:hover {
+      background: var(--cream-focus);
+    }
+
+    .gold-input-box:focus-within {
+      background: var(--cream-focus);
+      border-color: var(--gold-light);
+      box-shadow: 0 0 0 3px rgba(207, 163, 94, 0.28);
+    }
+
+    .gold-input-box input,
+    .gold-input-box select {
+      width: 100%;
+      height: 100%;
+      background: transparent;
+      border: none;
+      outline: none;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-dark);
+      text-align: center;
+      padding: 0 12px;
+    }
+
+    .gold-input-box select {
+      cursor: pointer;
+      appearance: none;
+      -webkit-appearance: none;
+      padding-right: 28px;
+      text-align-last: center;
+    }
+
+    .select-chevron {
+      position: absolute;
+      right: 11px;
+      pointer-events: none;
+      width: 0;
+      height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 6px solid #7C5821;
+    }
+
+    /* БЛОК РЕЗУЛЬТАТА */
+    .result-card {
+      background: linear-gradient(180deg, #131D31 0%, #0E1523 100%);
+      border: 1px solid var(--gold-border);
+      border-radius: 16px;
+      padding: 20px 22px;
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.45);
+    }
+
+    .result-sublabel {
+      text-align: center;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      margin-bottom: 10px;
+    }
+
+    .result-display {
+      background: #090E18;
+      border: 1.5px solid var(--gold);
+      border-radius: 12px;
+      height: 88px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      position: relative;
+      transition: transform 0.12s ease, border-color 0.2s ease;
+      box-shadow: inset 0 0 24px rgba(207, 163, 94, 0.08);
+    }
+
+    .result-display:active {
+      transform: scale(0.985);
+    }
+
+    .result-number {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 40px;
+      font-weight: 800;
+      color: #FFFFFF;
+      letter-spacing: 0.5px;
+      user-select: none;
+    }
+
+    .result-meta {
+      text-align: center;
+      font-size: 13.5px;
+      font-style: italic;
+      color: var(--gold-light);
+      margin-top: 10px;
+      min-height: 20px;
+    }
+
+    /* Подсказки и кнопка Telegram */
+    .tips-block {
+      font-size: 12.5px;
+      font-style: italic;
+      color: var(--text-muted);
+      line-height: 1.65;
+      padding: 0 4px;
+    }
+
+    .tg-cta-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      padding: 13px 18px;
+      background: rgba(207, 163, 94, 0.1);
+      border: 1px solid var(--gold-border);
+      border-radius: 12px;
+      color: var(--gold-light);
+      font-size: 14.5px;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .tg-cta-link:hover {
+      background: rgba(207, 163, 94, 0.2);
+      border-color: var(--gold-light);
+      transform: translateY(-1px);
+    }
+
+    /* Нижний фирменный знак "A" (100% по точкам оригинала) */
+    .emblem-box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px 0 4px 0;
+    }
+
+    .emblem-svg {
+      width: 145px;
+      height: auto;
+      display: block;
+    }
+
+    /* ПРАВАЯ КОЛОНКА */
+    .right-column {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .info-card {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .info-item-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    .info-item-text {
+      font-size: 14.5px;
+      line-height: 1.6;
+      color: var(--text-main);
+    }
+
+    /* Карточка ГЛАВНОЕ ПРАВИЛО */
+    .rule-card {
+      background: linear-gradient(145deg, rgba(207, 163, 94, 0.07) 0%, rgba(14, 21, 35, 0.95) 100%);
+      border: 1.5px solid var(--gold);
+      border-radius: 16px;
+      padding: 22px 24px;
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.4);
+    }
+
+    .rule-heading {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      margin-bottom: 12px;
+    }
+
+    .rule-content {
+      font-size: 14.5px;
+      line-height: 1.6;
+      color: var(--text-main);
+    }
+
+    .rule-content p + p {
+      margin-top: 14px;
+      font-weight: 600;
+      color: var(--gold-light);
+    }
+
+    .footer-note {
+      font-size: 13px;
+      font-style: italic;
+      color: var(--text-muted);
+      line-height: 1.55;
+      padding: 0 4px;
+    }
+
+    /* АДАПТИВ ПОД TELEGRAM MINI APP И СМАРТФОНЫ */
+    @media (max-width: 860px) {
+      .container {
+        padding: 0 14px;
+      }
+
+      .header-inner {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        padding: 12px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .brand-logo {
+        width: 112px;
+      }
+
+      .brand-logo-top {
+        font-size: 30px;
+      }
+
+      .brand-logo-bottom span {
+        font-size: 9px;
+        letter-spacing: 3px;
+        padding-left: 3px;
+      }
+
+      .header-info .kicker {
+        display: none;
+      }
+
+      .channel-pill {
+        font-size: 13px;
+        padding: 7px 12px;
+      }
+
+      .workspace {
+        grid-template-columns: 1fr;
+        gap: 18px;
+        padding: 16px 0 32px 0;
+      }
+
+      .left-column,
+      .right-column {
+        gap: 16px;
+      }
+
+      .card,
+      .result-card,
+      .rule-card {
+        padding: 18px;
+      }
+
+      .field-row {
+        grid-template-columns: 1fr 148px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ВЕРХНЯЯ ШАПКА -->
+  <header class="site-header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="https://t.me/aibetmoney" onclick="openTgLink(event, 'https://t.me/aibetmoney')" class="brand-logo">
+          <div class="brand-logo-top">AiBet</div>
+          <div class="brand-logo-bottom"><span>MONEY</span></div>
+        </a>
+
+        <div class="header-info">
+          <span class="kicker">КОРОТКО О ГЛАВНОМ</span>
+          <a href="https://t.me/aibetmoney" onclick="openTgLink(event, 'https://t.me/aibetmoney')" class="channel-pill">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.02-1.96 1.25-5.54 3.69-.52.36-1 .53-1.42.52-.47-.01-1.37-.26-2.03-.48-.82-.27-1.47-.42-1.42-.88.03-.24.35-.49.96-.75 3.78-1.65 6.31-2.74 7.58-3.27 3.61-1.51 4.35-1.77 4.84-1.78.11 0 .35.03.5.16.13.1.17.24.18.34.01.07.02.21.01.3z"/>
+            </svg>
+            Официальный канал AiBet Money
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ОСНОВНАЯ ЧАСТЬ -->
+  <main class="container">
+    <div class="workspace">
+
+      <!-- ЛЕВАЯ КОЛОНКА -->
+      <div class="left-column">
+        <!-- Блок ввода -->
+        <div class="card">
+          <div class="block-label">
+            <span class="block-label-left">ТВОИ ДАННЫЕ</span>
+            <span class="saved-badge" id="savedBadge">Сохранено ✓</span>
+          </div>
+
+          <div class="input-list">
+            <div class="field-row">
+              <div class="field-title">Банк, ₽</div>
+              <div class="gold-input-box">
+                <input type="text" id="bankInput" value="100 000" inputmode="numeric" autocomplete="off">
+              </div>
+            </div>
+
+            <div class="field-row">
+              <div class="field-title">Коэффициент (кэф)</div>
+              <div class="gold-input-box">
+                <input type="text" id="oddsInput" value="1.5" inputmode="decimal" autocomplete="off">
+              </div>
+            </div>
+
+            <div class="field-row">
+              <div class="field-title">Профиль риска</div>
+              <div class="gold-input-box">
+                <select id="riskSelect">
+                  <option value="0.01">Осторожно</option>
+                  <option value="0.02">Стандарт</option>
+                  <option value="0.03" selected>Смело</option>
+                </select>
+                <span class="select-chevron"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Блок результата -->
+        <div class="result-card">
+          <div class="block-label">
+            <span class="block-label-left">РЕЗУЛЬТАТ</span>
+          </div>
+          <div class="result-sublabel">СКОЛЬКО СТАВИТЬ</div>
+          <div class="result-display" id="resultBox" title="Нажми, чтобы скопировать сумму">
+            <div class="result-number" id="resultValue">4,000 ₽</div>
+          </div>
+          <div class="result-meta" id="resultSub">≈ 4.0% банка при кэфе 1.50</div>
+        </div>
+
+        <!-- Подсказки -->
+        <div class="tips-block">
+          <div>Золотая рамка = поле для ввода. Остальное — не трогать.</div>
+          <div>Банк можно ввести как угодно: 500000, 500 000 или 500,000.</div>
+        </div>
+
+        <!-- Кнопка Telegram -->
+        <a href="https://t.me/aibetmoney" onclick="openTgLink(event, 'https://t.me/aibetmoney')" class="tg-cta-link">
+          Забрать готовые разборы в Telegram →
+        </a>
+
+        <!-- Оригинальная нижняя иконка "A" (точные координаты из твоего файла) -->
+        <div class="emblem-box">
+          <svg class="emblem-svg" viewBox="150 100 725 745" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="512,121 174,824 565,594 401,594 512,365 645,648 805,727" fill="#EAEAEB" />
+            <polygon points="645,648 725,820 848,820 805,727" fill="#E1A856" />
+          </svg>
+        </div>
+      </div>
+
+      <!-- ПРАВАЯ КОЛОНКА -->
+      <div class="right-column">
+        <div class="card info-card">
+          <div>
+            <div class="info-item-title">Профиль риска - это "какой % банка тратим на ставку"</div>
+            <div class="info-item-text">
+              Осторожно - банк расходуется медленно. Стандарт - средний темп. Смело - заметно больше на ставку, если ты уверен в прогнозе. Дальше калькулятор сам чуть увеличивает или уменьшает сумму в зависимости от коэффициента.
+            </div>
+          </div>
+
+          <div>
+            <div class="info-item-title">Почему при высоком кэфе ставка меньше</div>
+            <div class="info-item-text">
+              Высокий кэф - это более рискованный исход. Калькулятор автоматически снижает сумму ставки, чтобы одна неудача не съедала банк. Низкий кэф - исход более вероятный, поэтому доля банка на ставку немного выше.
+            </div>
+          </div>
+        </div>
+
+        <!-- Главное правило -->
+        <div class="rule-card">
+          <div class="rule-heading">ГЛАВНОЕ ПРАВИЛО</div>
+          <div class="rule-content">
+            <p>
+              Не удваивай ставку после проигрыша, чтобы отыграться. Пример: банк 10 000 ₽, 7 минусов подряд: 100+200+400+800+1600+3200+6400 = 12 700 ₽ проиграно. Банк сгорел в минус: −2 700 ₽. Но если ставить флэтом (5% от остатка общего баланса) при тех же 7 минусах на балансе останется 6 983 ₽. Сохранено 70% банка.
+            </p>
+            <p>
+              Фиксированный процент - единственный безопасный путь на дистанции.
+            </p>
+          </div>
+        </div>
+
+        <div class="footer-note">
+          Если сомневаешься — выбирай "Осторожно". Меньше сумма на одну ставку - дольше банк держится в игре.
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <script>
+    // Инициализация Telegram Mini App
+    const tg = window.Telegram && window.Telegram.WebApp ? window.Telegram.WebApp : null;
+    if (tg) {
+      tg.ready();
+      tg.expand();
+      try {
+        tg.setHeaderColor('#070B12');
+        tg.setBackgroundColor('#070B12');
+      } catch (e) {}
+    }
+
+    function triggerHaptic(type = 'light') {
+      if (tg && tg.HapticFeedback) {
+        tg.HapticFeedback.impactOccurred(type);
+      }
+    }
+
+    function openTgLink(event, url) {
+      if (tg && tg.initDataUnsafe && Object.keys(tg.initDataUnsafe).length > 0) {
+        event.preventDefault();
+        tg.openTelegramLink(url);
+      }
+    }
+
+    const bankInput = document.getElementById('bankInput');
+    const oddsInput = document.getElementById('oddsInput');
+    const riskSelect = document.getElementById('riskSelect');
+    const resultValue = document.getElementById('resultValue');
+    const resultSub = document.getElementById('resultSub');
+    const resultBox = document.getElementById('resultBox');
+    const savedBadge = document.getElementById('savedBadge');
+
+    let currentBetRaw = 4000;
+    let lastMetaText = '≈ 4.0% банка при кэфе 1.50';
+    let saveTimer = null;
+
+    // Восстановление сохранённых данных пользователя
+    try {
+      const savedBank = localStorage.getItem('aibet_bank');
+      const savedRisk = localStorage.getItem('aibet_risk');
+      if (savedBank) bankInput.value = savedBank;
+      if (savedRisk) riskSelect.value = savedRisk;
+    } catch (e) {}
+
+    function showSavedIndicator() {
+      savedBadge.classList.add('show');
+      clearTimeout(saveTimer);
+      saveTimer = setTimeout(() => savedBadge.classList.remove('show'), 1400);
+    }
+
+    function parseBank(val) {
+      const cleaned = String(val).replace(/[\s,]/g, '');
+      return parseFloat(cleaned) || 0;
+    }
+
+    function parseOdds(val) {
+      const cleaned = String(val).replace(',', '.').replace(/[^\d.]/g, '');
+      return parseFloat(cleaned) || 0;
+    }
+
+    function calculate(savePrefs = false) {
+      const bank = parseBank(bankInput.value);
+      const odds = parseOdds(oddsInput.value);
+      const baseRisk = parseFloat(riskSelect.value) || 0.03;
+
+      if (savePrefs) {
+        try {
+          localStorage.setItem('aibet_bank', bankInput.value);
+          localStorage.setItem('aibet_risk', riskSelect.value);
+          showSavedIndicator();
+        } catch (e) {}
+      }
+
+      if (bank <= 0 || odds <= 1) {
+        currentBetRaw = 0;
+        resultValue.textContent = '0 ₽';
+        lastMetaText = 'Введите банк и кэф больше 1.00';
+        resultSub.textContent = lastMetaText;
+        return;
+      }
+
+      const finalShare = baseRisk * (2 / odds);
+      const betAmount = Math.round(bank * finalShare);
+      currentBetRaw = betAmount;
+
+      resultValue.textContent = betAmount.toLocaleString('en-US') + ' ₽';
+      lastMetaText = `≈ ${(finalShare * 100).toFixed(1)}% банка при кэфе ${odds.toFixed(2)}`;
+      resultSub.textContent = lastMetaText;
+    }
+
+    // Выделение текста целиком при тапе для быстрого ввода с телефона
+    bankInput.addEventListener('focus', () => bankInput.select());
+    oddsInput.addEventListener('focus', () => oddsInput.select());
+
+    bankInput.addEventListener('input', () => calculate(true));
+    oddsInput.addEventListener('input', () => calculate(false));
+    riskSelect.addEventListener('change', () => {
+      triggerHaptic('light');
+      calculate(true);
+    });
+
+    // Копирование суммы ставки при нажатии на блок результата
+    resultBox.addEventListener('click', () => {
+      if (currentBetRaw <= 0) return;
+      triggerHaptic('medium');
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(String(currentBetRaw));
+      }
+      resultSub.textContent = `Сумма ${currentBetRaw.toLocaleString('ru-RU')} ₽ скопирована в буфер ✓`;
+      setTimeout(() => {
+        resultSub.textContent = lastMetaText;
+      }, 1800);
+    });
+
+    calculate(false);
+  </script>
+</body>
+</html>
