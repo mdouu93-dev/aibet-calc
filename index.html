@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>AiBet Money — Калькулятор ставок</title>
+  <title>AiBet Money — Платформа и Калькулятор</title>
   <!-- Скрипт Telegram Mini App -->
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -56,12 +56,12 @@
 
     /* ВЕРХНЯЯ ШАПКА */
     .site-header {
-      background: rgba(14, 21, 35, 0.85);
+      background: rgba(14, 21, 35, 0.88);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid rgba(207, 163, 94, 0.25);
       position: sticky;
       top: 0;
-      z-index: 20;
+      z-index: 30;
     }
 
     .container {
@@ -72,11 +72,17 @@
     }
 
     .header-inner {
-      display: grid;
-      grid-template-columns: 420px 1fr;
-      gap: 36px;
+      display: flex;
+      justify-content: space-between;
       align-items: center;
       padding: 15px 0;
+      gap: 20px;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
     }
 
     /* Верхний логотип AiBet MONEY */
@@ -132,9 +138,7 @@
     .header-info {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 12px;
+      gap: 18px;
     }
 
     .kicker {
@@ -151,7 +155,7 @@
       align-items: center;
       gap: 8px;
       color: var(--gold-light);
-      font-size: 15px;
+      font-size: 14.5px;
       font-weight: 600;
       text-decoration: none;
       padding: 8px 16px;
@@ -174,12 +178,333 @@
       flex-shrink: 0;
     }
 
-    /* ОСНОВНАЯ ДВУХКОЛОНОЧНАЯ СЕТКА */
+    /* ПЕРЕКЛЮЧЕНИЕ ЭКРАНОВ */
+    .view-screen {
+      display: none;
+      animation: fadeIn 0.22s ease-out;
+    }
+
+    .view-screen.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* =====================================================
+       ЭКРАН 1: ГЛАВНОЕ МЕНЮ ПЛАТФОРМЫ (ХАБ)
+       ===================================================== */
+    .hub-wrap {
+      padding: 30px 0 48px 0;
+    }
+
+    .hub-hero {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto 30px auto;
+    }
+
+    .hub-badge {
+      display: inline-block;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.4px;
+      color: var(--gold-light);
+      background: var(--gold-glow);
+      border: 1px solid var(--gold-border);
+      padding: 5px 14px;
+      border-radius: 999px;
+      margin-bottom: 12px;
+    }
+
+    .hub-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 28px;
+      font-weight: 800;
+      color: #FFFFFF;
+      letter-spacing: -0.3px;
+      margin-bottom: 8px;
+    }
+
+    .hub-subtitle {
+      font-size: 14.5px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* Сетка карточек меню */
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+      max-width: 920px;
+      margin: 0 auto;
+    }
+
+    .menu-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 18px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      transition: all 0.22s ease;
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.42);
+      position: relative;
+    }
+
+    .menu-card.available {
+      border: 1.5px solid var(--gold);
+      background: linear-gradient(165deg, #131E33 0%, #0E1523 100%);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5), 0 0 28px rgba(207, 163, 94, 0.12);
+    }
+
+    .menu-card.available:hover {
+      transform: translateY(-3px);
+      border-color: var(--gold-light);
+      box-shadow: 0 20px 44px rgba(0, 0, 0, 0.55), 0 0 34px rgba(207, 163, 94, 0.22);
+    }
+
+    .menu-card.soon {
+      opacity: 0.88;
+    }
+
+    .menu-card.soon:hover {
+      opacity: 1;
+      border-color: rgba(207, 163, 94, 0.35);
+      transform: translateY(-2px);
+    }
+
+    /* Обложка карточки */
+    .card-cover {
+      height: 138px;
+      background: var(--bg-dark-inner);
+      border-bottom: 1px solid var(--border-subtle);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding: 16px;
+    }
+
+    .menu-card.available .card-cover {
+      background: radial-gradient(circle at 50% 30%, rgba(207, 163, 94, 0.22) 0%, #090E18 75%);
+      border-bottom: 1px solid rgba(207, 163, 94, 0.28);
+    }
+
+    /* Статус-плашка в углу обложки */
+    .status-pill {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 10.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 5px 10px;
+      border-radius: 999px;
+      z-index: 2;
+    }
+
+    .status-pill.active-pill {
+      background: rgba(52, 211, 153, 0.16);
+      border: 1px solid rgba(52, 211, 153, 0.45);
+      color: var(--green);
+    }
+
+    .status-pill.soon-pill {
+      background: rgba(207, 163, 94, 0.14);
+      border: 1px solid rgba(207, 163, 94, 0.38);
+      color: var(--gold-light);
+    }
+
+    .card-num {
+      position: absolute;
+      top: 12px;
+      left: 14px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.28);
+    }
+
+    /* Мини-обложка калькулятора внутри карточки 1 */
+    .calc-cover-preview {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: rgba(14, 21, 35, 0.9);
+      border: 1.5px solid var(--gold);
+      border-radius: 12px;
+      padding: 10px 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+    }
+
+    .calc-cover-mini-inputs {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .mini-cream-bar {
+      width: 68px;
+      height: 14px;
+      background: var(--cream);
+      border: 1px solid var(--gold);
+      border-radius: 4px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 9px;
+      font-weight: 800;
+      color: var(--text-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .calc-cover-mini-res {
+      padding-left: 12px;
+      border-left: 1px solid rgba(255, 255, 255, 0.1);
+      text-align: left;
+    }
+
+    .calc-cover-mini-res span {
+      display: block;
+      font-size: 9px;
+      color: var(--gold);
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .calc-cover-mini-res strong {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 18px;
+      font-weight: 800;
+      color: #FFFFFF;
+    }
+
+    /* Иконки обложек 2, 3, 4 */
+    .cover-icon-box {
+      width: 62px;
+      height: 62px;
+      border-radius: 16px;
+      background: rgba(207, 163, 94, 0.08);
+      border: 1px solid rgba(207, 163, 94, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold-light);
+    }
+
+    .cover-icon-box svg {
+      width: 30px;
+      height: 30px;
+      stroke: var(--gold-light);
+    }
+
+    /* Текстовая часть карточки меню */
+    .card-body {
+      padding: 20px 22px 22px 22px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .card-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 6px;
+    }
+
+    .card-desc {
+      font-size: 13.5px;
+      line-height: 1.55;
+      color: var(--text-secondary);
+    }
+
+    .card-action-btn {
+      width: 100%;
+      padding: 12px 16px;
+      border-radius: 10px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13.5px;
+      font-weight: 700;
+      text-align: center;
+      transition: all 0.2s ease;
+    }
+
+    .menu-card.available .card-action-btn {
+      background: var(--cream);
+      border: 1.5px solid var(--gold);
+      color: var(--text-dark);
+      box-shadow: 0 4px 14px rgba(207, 163, 94, 0.22);
+    }
+
+    .menu-card.available:hover .card-action-btn {
+      background: #FFFFFF;
+    }
+
+    .menu-card.soon .card-action-btn {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--text-muted);
+    }
+
+    .hub-footer-emblem {
+      margin-top: 38px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    /* =====================================================
+       КНОПКА ВОЗВРАТА В МЕНЮ (ВНУТРИ КАЛЬКУЛЯТОРА)
+       ===================================================== */
+    .back-bar {
+      padding-top: 20px;
+    }
+
+    .back-to-menu-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--bg-card);
+      border: 1px solid var(--gold-border);
+      color: var(--gold-light);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 9px 16px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .back-to-menu-btn:hover {
+      background: var(--gold-glow);
+      border-color: var(--gold-light);
+      transform: translateX(-2px);
+    }
+
+    /* =====================================================
+       ЭКРАН 2: КАЛЬКУЛЯТОР СТАВОК (ТВОЙ ДИЗАЙН)
+       ===================================================== */
     .workspace {
       display: grid;
       grid-template-columns: 420px 1fr;
       gap: 36px;
-      padding: 26px 0 44px 0;
+      padding: 18px 0 44px 0;
       align-items: start;
     }
 
@@ -234,7 +559,6 @@
       opacity: 1;
     }
 
-    /* ЛЕВАЯ КОЛОНКА */
     .left-column {
       display: flex;
       flex-direction: column;
@@ -319,7 +643,6 @@
       padding: 0 12px;
     }
 
-    /* Кнопки выбора профиля риска в 1 клик */
     .segmented-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -354,7 +677,6 @@
       box-shadow: 0 2px 10px rgba(207, 163, 94, 0.2);
     }
 
-    /* Мини-переключатель округления */
     .round-row {
       display: flex;
       align-items: center;
@@ -391,7 +713,6 @@
       color: var(--gold-light);
     }
 
-    /* БЛОК РЕЗУЛЬТАТА */
     .result-card {
       background: linear-gradient(180deg, #131D31 0%, #0E1523 100%);
       border: 1px solid var(--gold-border);
@@ -459,7 +780,6 @@
       min-height: 19px;
     }
 
-    /* Плашки Чистая прибыль и Выплата */
     .profit-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -494,7 +814,6 @@
       color: var(--green);
     }
 
-    /* Кнопки учёта банка: Заход / Минус */
     .bank-actions {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -527,18 +846,10 @@
       color: var(--green);
     }
 
-    .btn-win:hover {
-      background: rgba(52, 211, 153, 0.2);
-    }
-
     .btn-loss {
       background: var(--red-bg);
       border: 1px solid var(--red-border);
       color: var(--red);
-    }
-
-    .btn-loss:hover {
-      background: rgba(248, 113, 113, 0.18);
     }
 
     .undo-wrap {
@@ -560,11 +871,6 @@
       cursor: pointer;
     }
 
-    .undo-btn:hover {
-      color: var(--gold-light);
-    }
-
-    /* Кнопка Telegram */
     .tg-cta-link {
       display: inline-flex;
       align-items: center;
@@ -586,10 +892,8 @@
     .tg-cta-link:hover {
       background: rgba(207, 163, 94, 0.2);
       border-color: var(--gold-light);
-      transform: translateY(-1px);
     }
 
-    /* Оригинальная нижняя иконка "A" */
     .emblem-box {
       display: flex;
       justify-content: center;
@@ -603,7 +907,6 @@
       display: block;
     }
 
-    /* ПРАВАЯ КОЛОНКА И МОБИЛЬНЫЙ СПОЙЛЕР */
     .right-column {
       display: flex;
       flex-direction: column;
@@ -652,7 +955,6 @@
       color: var(--text-main);
     }
 
-    /* Карточка ГЛАВНОЕ ПРАВИЛО */
     .rule-card {
       background: linear-gradient(145deg, rgba(207, 163, 94, 0.07) 0%, rgba(14, 21, 35, 0.95) 100%);
       border: 1.5px solid var(--gold);
@@ -691,6 +993,100 @@
       padding: 0 4px;
     }
 
+    /* =====================================================
+       МОДАЛЬНОЕ ОКНО ДЛЯ РАЗДЕЛОВ "СКОРО"
+       ===================================================== */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(4, 7, 12, 0.78);
+      backdrop-filter: blur(6px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      z-index: 100;
+    }
+
+    .modal-overlay.open {
+      display: flex;
+    }
+
+    .modal-box {
+      width: 100%;
+      max-width: 420px;
+      background: var(--bg-card);
+      border: 1.5px solid var(--gold);
+      border-radius: 18px;
+      padding: 24px 22px;
+      text-align: center;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.65);
+      animation: fadeIn 0.18s ease-out;
+    }
+
+    .modal-pill {
+      display: inline-block;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--gold-light);
+      background: var(--gold-glow);
+      border: 1px solid var(--gold-border);
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .modal-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 20px;
+      font-weight: 800;
+      color: #FFFFFF;
+      margin-bottom: 10px;
+    }
+
+    .modal-text {
+      font-size: 14px;
+      line-height: 1.55;
+      color: var(--text-secondary);
+      margin-bottom: 20px;
+    }
+
+    .modal-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .modal-tg-btn {
+      width: 100%;
+      padding: 12px 16px;
+      background: var(--cream);
+      border: 1.5px solid var(--gold);
+      border-radius: 10px;
+      color: var(--text-dark);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13.5px;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .modal-close-btn {
+      width: 100%;
+      padding: 10px 16px;
+      background: transparent;
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      color: var(--text-muted);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
     /* АДАПТИВ ПОД TELEGRAM MINI APP И СМАРТФОНЫ */
     @media (max-width: 860px) {
       .container {
@@ -698,9 +1094,6 @@
       }
 
       .header-inner {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
         padding: 12px 0;
       }
 
@@ -727,10 +1120,27 @@
         padding: 7px 12px;
       }
 
+      .hub-wrap {
+        padding: 20px 0 36px 0;
+      }
+
+      .hub-title {
+        font-size: 22px;
+      }
+
+      .menu-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .card-cover {
+        height: 120px;
+      }
+
       .workspace {
         grid-template-columns: 1fr;
         gap: 16px;
-        padding: 16px 0 32px 0;
+        padding: 14px 0 32px 0;
       }
 
       .left-column {
@@ -747,7 +1157,6 @@
         grid-template-columns: 1fr 150px;
       }
 
-      /* На телефонах прячем длинную теорию под удобную кнопку-спойлер */
       .mobile-spoiler-btn {
         display: flex;
       }
@@ -769,13 +1178,15 @@
   <header class="site-header">
     <div class="container">
       <div class="header-inner">
-        <a href="https://t.me/aibetmoney" onclick="openTgLink(event, 'https://t.me/aibetmoney')" class="brand-logo">
-          <div class="brand-logo-top">AiBet</div>
-          <div class="brand-logo-bottom"><span>MONEY</span></div>
-        </a>
+        <div class="header-left">
+          <a href="#" onclick="showScreen('hub', event)" class="brand-logo">
+            <div class="brand-logo-top">AiBet</div>
+            <div class="brand-logo-bottom"><span>MONEY</span></div>
+          </a>
+        </div>
 
         <div class="header-info">
-          <span class="kicker">КОРОТКО О ГЛАВНОМ</span>
+          <span class="kicker" id="headerKicker">ПЛАТФОРМА КЛУБА</span>
           <a href="https://t.me/aibetmoney" onclick="openTgLink(event, 'https://t.me/aibetmoney')" class="channel-pill">
             <svg viewBox="0 0 24 24">
               <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.02-1.96 1.25-5.54 3.69-.52.36-1 .53-1.42.52-.47-.01-1.37-.26-2.03-.48-.82-.27-1.47-.42-1.42-.88.03-.24.35-.49.96-.75 3.78-1.65 6.31-2.74 7.58-3.27 3.61-1.51 4.35-1.77 4.84-1.78.11 0 .35.03.5.16.13.1.17.24.18.34.01.07.02.21.01.3z"/>
@@ -787,160 +1198,303 @@
     </div>
   </header>
 
-  <!-- ОСНОВНАЯ ЧАСТЬ -->
-  <main class="container">
-    <div class="workspace">
+  <!-- =========================================================
+       ЭКРАН 1: ГЛАВНОЕ МЕНЮ ПЛАТФОРМЫ (4 РАЗДЕЛА)
+       ========================================================= -->
+  <section class="view-screen active" id="screenHub">
+    <div class="container">
+      <div class="hub-wrap">
 
-      <!-- ЛЕВАЯ КОЛОНКА -->
-      <div class="left-column">
-        <!-- Блок ввода -->
-        <div class="card">
-          <div class="block-label">
-            <span class="block-label-left">ТВОИ ДАННЫЕ</span>
-            <span class="saved-badge" id="savedBadge">Сохранено ✓</span>
+        <div class="hub-hero">
+          <div class="hub-badge">Экосистема AiBet Money</div>
+          <h1 class="hub-title">Выбери нужный раздел</h1>
+          <p class="hub-subtitle">
+            Инструменты математического управления банком и закрытые продукты аналитического клуба
+          </p>
+        </div>
+
+        <div class="menu-grid">
+          <!-- 1. КАЛЬКУЛЯТОР СТАВОК (ДОСТУПНО) -->
+          <div class="menu-card available" onclick="showScreen('calc')">
+            <div class="card-cover">
+              <span class="card-num">01</span>
+              <span class="status-pill active-pill">● Доступно</span>
+              <!-- Графическая обложка калькулятора -->
+              <div class="calc-cover-preview">
+                <div class="calc-cover-mini-inputs">
+                  <div class="mini-cream-bar">100 000 ₽</div>
+                  <div class="mini-cream-bar">КЭФ 1.50</div>
+                </div>
+                <div class="calc-cover-mini-res">
+                  <span>Ставка</span>
+                  <strong>4 000 ₽</strong>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <div>
+                <div class="card-title">Калькулятор ставок</div>
+                <div class="card-desc">
+                  Математический расчёт суммы ставки по адаптивному флэту, контроль риска и учёт твоего банка в один клик.
+                </div>
+              </div>
+              <div class="card-action-btn">Открыть калькулятор →</div>
+            </div>
           </div>
 
-          <div class="input-list">
-            <!-- Банк -->
-            <div class="field-row">
-              <div class="field-title">Банк, ₽</div>
-              <div class="gold-input-box">
-                <input type="text" id="bankInput" value="100 000" inputmode="numeric" autocomplete="off">
+          <!-- 2. ДОСТУП В ВИПКУ (СКОРО) -->
+          <div class="menu-card soon" onclick="openSoonModal('Доступ в VIP-клуб', 'Здесь появится полное описание закрытого VIP-канала AiBet Money, статистика на дистанции и прямая кнопка оформления доступа в личные сообщения.')">
+            <div class="card-cover">
+              <span class="card-num">02</span>
+              <span class="status-pill soon-pill">⏳ Скоро</span>
+              <div class="cover-icon-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M2 4l3 12h14l3-12-6 7-4-7-4 7-6-7zm3 16h14"/>
+                </svg>
               </div>
             </div>
+            <div class="card-body">
+              <div>
+                <div class="card-title">Доступ в VIP-клуб</div>
+                <div class="card-desc">
+                  Закрытая линия прогнозов с главной аналитикой клуба, повышенной проходимостью и поддержкой.
+                </div>
+              </div>
+              <div class="card-action-btn">Скоро открытие</div>
+            </div>
+          </div>
 
-            <!-- Коэффициент -->
-            <div class="field-row">
-              <div class="field-title">Коэффициент (кэф)</div>
-              <div class="gold-input-box">
-                <input type="text" id="oddsInput" value="1.5" inputmode="decimal" autocomplete="off">
+          <!-- 3. ЛИЧНОЕ ВЕДЕНИЕ (СКОРО) -->
+          <div class="menu-card soon" onclick="openSoonModal('Личное ведение', 'В этом разделе будут условия индивидуальной работы 1-на-1: персональное распределение твоего банка и прямое сопровождение по каждому матчу.')">
+            <div class="card-cover">
+              <span class="card-num">03</span>
+              <span class="status-pill soon-pill">⏳ Скоро</span>
+              <div class="cover-icon-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                  <path d="M9 12l2 2 4-4"/>
+                </svg>
               </div>
             </div>
-
-            <!-- Профиль риска (кнопки в 1 клик) -->
-            <div class="field-block">
-              <div class="field-title">
-                <span>Профиль риска</span>
-                <span class="field-title-hint" id="riskHintText">База 3%</span>
+            <div class="card-body">
+              <div>
+                <div class="card-title">Личное ведение</div>
+                <div class="card-desc">
+                  Индивидуальная работа с твоим банком до результата: личный контроль ставок, рисков и дисциплины.
+                </div>
               </div>
-              <div class="segmented-grid" id="riskGroup">
-                <button type="button" class="seg-btn" data-risk="0.01" data-label="База 1%">Осторожно</button>
-                <button type="button" class="seg-btn" data-risk="0.02" data-label="База 2%">Стандарт</button>
-                <button type="button" class="seg-btn active" data-risk="0.03" data-label="База 3%">Смело</button>
+              <div class="card-action-btn">Скоро открытие</div>
+            </div>
+          </div>
+
+          <!-- 4. КУПИТЬ СТАВКИ (СКОРО) -->
+          <div class="menu-card soon" onclick="openSoonModal('Покупка ставок', 'Здесь можно будет приобрести штучные уверенные разборы и готовые купоны на главные матчи игрового дня.')">
+            <div class="card-cover">
+              <span class="card-num">04</span>
+              <span class="status-pill soon-pill">⏳ Скоро</span>
+              <div class="cover-icon-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                </svg>
               </div>
             </div>
-
-            <!-- Округление для БК -->
-            <div class="round-row">
-              <span class="round-label">Округление суммы:</span>
-              <div class="round-pills" id="roundGroup">
-                <button type="button" class="round-pill active" data-step="1">Точно</button>
-                <button type="button" class="round-pill" data-step="50">до 50 ₽</button>
-                <button type="button" class="round-pill" data-step="100">до 100 ₽</button>
+            <div class="card-body">
+              <div>
+                <div class="card-title">Купить ставки</div>
+                <div class="card-desc">
+                  Точечные прогнозы и собранные купоны с максимальным перевесом под конкретный игровой день.
+                </div>
               </div>
+              <div class="card-action-btn">Скоро открытие</div>
             </div>
           </div>
         </div>
 
-        <!-- Блок результата -->
-        <div class="result-card">
-          <div class="block-label">
-            <span class="block-label-left">РЕЗУЛЬТАТ</span>
-          </div>
-          <div class="result-sublabel">
-            <span>СКОЛЬКО СТАВИТЬ</span>
-            <span class="copy-hint">нажми, чтобы скопировать</span>
-          </div>
-          <div class="result-display" id="resultBox">
-            <div class="result-number" id="resultValue">4 000 ₽</div>
-          </div>
-          <div class="result-meta" id="resultSub">≈ 4.0% банка при кэфе 1.50</div>
-
-          <!-- Чистая прибыль и Общая выплата -->
-          <div class="profit-grid">
-            <div class="profit-box">
-              <div class="profit-box-label">Чистая прибыль</div>
-              <div class="profit-box-val green" id="netProfitVal">+2 000 ₽</div>
-            </div>
-            <div class="profit-box">
-              <div class="profit-box-label">Общая выплата</div>
-              <div class="profit-box-val" id="totalPayoutVal">6 000 ₽</div>
-            </div>
-          </div>
-
-          <!-- Кнопки автообновления банка -->
-          <div class="bank-actions">
-            <button type="button" class="action-btn btn-win" id="btnWin">
-              ✅ Заход <span id="winBtnDelta">(+2 000 ₽)</span>
-            </button>
-            <button type="button" class="action-btn btn-loss" id="btnLoss">
-              ❌ Минус <span id="lossBtnDelta">(−4 000 ₽)</span>
-            </button>
-          </div>
-          <div class="undo-wrap" id="undoWrap">
-            <button type="button" class="undo-btn" id="undoBtn">↺ Отменить последнее изменение банка</button>
-          </div>
-        </div>
-
-        <!-- Кнопка Telegram -->
-        <a href="https://t.me/aibetmoney" onclick="openTgLink(event, 'https://t.me/aibetmoney')" class="tg-cta-link">
-          Забрать готовые разборы в Telegram →
-        </a>
-
-        <!-- Оригинальная нижняя иконка "A" -->
-        <div class="emblem-box">
+        <!-- Фирменная нижняя иконка "A" внизу главного меню -->
+        <div class="hub-footer-emblem">
           <svg class="emblem-svg" viewBox="150 100 725 745" fill="none" xmlns="http://www.w3.org/2000/svg">
             <polygon points="512,121 174,824 565,594 401,594 512,365 645,648 805,727" fill="#EAEAEB" />
             <polygon points="645,648 725,820 848,820 805,727" fill="#E1A856" />
           </svg>
         </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       ЭКРАН 2: ТВОЙ КАЛЬКУЛЯТОР СТАВОК
+       ========================================================= -->
+  <section class="view-screen" id="screenCalc">
+    <div class="container">
+      <!-- Кнопка возврата в главное меню -->
+      <div class="back-bar">
+        <button type="button" class="back-to-menu-btn" onclick="showScreen('hub')">
+          ← Назад в главное меню
+        </button>
       </div>
 
-      <!-- ПРАВАЯ КОЛОНКА (на телефоне сворачивается в кнопку) -->
-      <div class="right-column">
-        <button type="button" class="mobile-spoiler-btn" id="spoilerBtn">
-          <span>📘 Памятка и Главное правило</span>
-          <span id="spoilerArrow">▼</span>
-        </button>
-
-        <div class="spoiler-content" id="spoilerContent">
-          <div class="card info-card">
-            <div>
-              <div class="info-item-title">Профиль риска - это "какой % банка тратим на ставку"</div>
-              <div class="info-item-text">
-                Осторожно - банк расходуется медленно. Стандарт - средний темп. Смело - заметно больше на ставку, если ты уверен в прогнозе. Дальше калькулятор сам чуть увеличивает или уменьшает сумму в зависимости от коэффициента.
-              </div>
+      <div class="workspace">
+        <!-- ЛЕВАЯ КОЛОНКА -->
+        <div class="left-column">
+          <div class="card">
+            <div class="block-label">
+              <span class="block-label-left">ТВОИ ДАННЫЕ</span>
+              <span class="saved-badge" id="savedBadge">Сохранено ✓</span>
             </div>
 
-            <div>
-              <div class="info-item-title">Почему при высоком кэфе ставка меньше</div>
-              <div class="info-item-text">
-                Высокий кэф - это более рискованный исход. Калькулятор автоматически снижает сумму ставки, чтобы одна неудача не съедала банк. Низкий кэф - исход более вероятный, поэтому доля банка на ставку немного выше.
+            <div class="input-list">
+              <div class="field-row">
+                <div class="field-title">Банк, ₽</div>
+                <div class="gold-input-box">
+                  <input type="text" id="bankInput" value="100 000" inputmode="numeric" autocomplete="off">
+                </div>
+              </div>
+
+              <div class="field-row">
+                <div class="field-title">Коэффициент (кэф)</div>
+                <div class="gold-input-box">
+                  <input type="text" id="oddsInput" value="1.5" inputmode="decimal" autocomplete="off">
+                </div>
+              </div>
+
+              <div class="field-block">
+                <div class="field-title">
+                  <span>Профиль риска</span>
+                  <span class="field-title-hint" id="riskHintText">База 3%</span>
+                </div>
+                <div class="segmented-grid" id="riskGroup">
+                  <button type="button" class="seg-btn" data-risk="0.01" data-label="База 1%">Осторожно</button>
+                  <button type="button" class="seg-btn" data-risk="0.02" data-label="База 2%">Стандарт</button>
+                  <button type="button" class="seg-btn active" data-risk="0.03" data-label="База 3%">Смело</button>
+                </div>
+              </div>
+
+              <div class="round-row">
+                <span class="round-label">Округление суммы:</span>
+                <div class="round-pills" id="roundGroup">
+                  <button type="button" class="round-pill active" data-step="1">Точно</button>
+                  <button type="button" class="round-pill" data-step="50">до 50 ₽</button>
+                  <button type="button" class="round-pill" data-step="100">до 100 ₽</button>
+                </div>
               </div>
             </div>
           </div>
 
-          <!-- Главное правило -->
-          <div class="rule-card">
-            <div class="rule-heading">ГЛАВНОЕ ПРАВИЛО</div>
-            <div class="rule-content">
-              <p>
-                Не удваивай ставку после проигрыша, чтобы отыграться. Пример: банк 10 000 ₽, 7 минусов подряд: 100+200+400+800+1600+3200+6400 = 12 700 ₽ проиграно. Банк сгорел в минус: −2 700 ₽. Но если ставить флэтом (5% от остатка общего баланса) при тех же 7 минусах на балансе останется 6 983 ₽. Сохранено 70% банка.
-              </p>
-              <p>
-                Фиксированный процент - единственный безопасный путь на дистанции.
-              </p>
+          <!-- Блок результата -->
+          <div class="result-card">
+            <div class="block-label">
+              <span class="block-label-left">РЕЗУЛЬТАТ</span>
+            </div>
+            <div class="result-sublabel">
+              <span>СКОЛЬКО СТАВИТЬ</span>
+              <span class="copy-hint">нажми, чтобы скопировать</span>
+            </div>
+            <div class="result-display" id="resultBox">
+              <div class="result-number" id="resultValue">4 000 ₽</div>
+            </div>
+            <div class="result-meta" id="resultSub">≈ 4.0% банка при кэфе 1.50</div>
+
+            <div class="profit-grid">
+              <div class="profit-box">
+                <div class="profit-box-label">Чистая прибыль</div>
+                <div class="profit-box-val green" id="netProfitVal">+2 000 ₽</div>
+              </div>
+              <div class="profit-box">
+                <div class="profit-box-label">Общая выплата</div>
+                <div class="profit-box-val" id="totalPayoutVal">6 000 ₽</div>
+              </div>
+            </div>
+
+            <div class="bank-actions">
+              <button type="button" class="action-btn btn-win" id="btnWin">
+                ✅ Заход <span id="winBtnDelta">(+2 000 ₽)</span>
+              </button>
+              <button type="button" class="action-btn btn-loss" id="btnLoss">
+                ❌ Минус <span id="lossBtnDelta">(−4 000 ₽)</span>
+              </button>
+            </div>
+            <div class="undo-wrap" id="undoWrap">
+              <button type="button" class="undo-btn" id="undoBtn">↺ Отменить последнее изменение банка</button>
             </div>
           </div>
 
-          <div class="footer-note">
-            Если сомневаешься — выбирай "Осторожно". Меньше сумма на одну ставку - дольше банк держится в игре.
+          <a href="https://t.me/aibetmoney" onclick="openTgLink(event, 'https://t.me/aibetmoney')" class="tg-cta-link">
+            Забрать готовые разборы в Telegram →
+          </a>
+
+          <!-- Оригинальная нижняя иконка "A" -->
+          <div class="emblem-box">
+            <svg class="emblem-svg" viewBox="150 100 725 745" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <polygon points="512,121 174,824 565,594 401,594 512,365 645,648 805,727" fill="#EAEAEB" />
+              <polygon points="645,648 725,820 848,820 805,727" fill="#E1A856" />
+            </svg>
+          </div>
+        </div>
+
+        <!-- ПРАВАЯ КОЛОНКА -->
+        <div class="right-column">
+          <button type="button" class="mobile-spoiler-btn" id="spoilerBtn">
+            <span>📘 Памятка и Главное правило</span>
+            <span id="spoilerArrow">▼</span>
+          </button>
+
+          <div class="spoiler-content" id="spoilerContent">
+            <div class="card info-card">
+              <div>
+                <div class="info-item-title">Профиль риска - это "какой % банка тратим на ставку"</div>
+                <div class="info-item-text">
+                  Осторожно - банк расходуется медленно. Стандарт - средний темп. Смело - заметно больше на ставку, если ты уверен в прогнозе. Дальше калькулятор сам чуть увеличивает или уменьшает сумму в зависимости от коэффициента.
+                </div>
+              </div>
+
+              <div>
+                <div class="info-item-title">Почему при высоком кэфе ставка меньше</div>
+                <div class="info-item-text">
+                  Высокий кэф - это более рискованный исход. Калькулятор автоматически снижает сумму ставки, чтобы одна неудача не съедала банк. Низкий кэф - исход более вероятный, поэтому доля банка на ставку немного выше.
+                </div>
+              </div>
+            </div>
+
+            <div class="rule-card">
+              <div class="rule-heading">ГЛАВНОЕ ПРАВИЛО</div>
+              <div class="rule-content">
+                <p>
+                  Не удваивай ставку после проигрыша, чтобы отыграться. Пример: банк 10 000 ₽, 7 минусов подряд: 100+200+400+800+1600+3200+6400 = 12 700 ₽ проиграно. Банк сгорел в минус: −2 700 ₽. Но если ставить флэтом (5% от остатка общего баланса) при тех же 7 минусах на балансе останется 6 983 ₽. Сохранено 70% банка.
+                </p>
+                <p>
+                  Фиксированный процент - единственный безопасный путь на дистанции.
+                </p>
+              </div>
+            </div>
+
+            <div class="footer-note">
+              Если сомневаешься — выбирай "Осторожно". Меньше сумма на одну ставку - дольше банк держится в игре.
+            </div>
           </div>
         </div>
       </div>
-
     </div>
-  </main>
+  </section>
+
+  <!-- МОДАЛЬНОЕ ОКНО ДЛЯ РАЗДЕЛОВ "СКОРО" -->
+  <div class="modal-overlay" id="soonModal" onclick="closeSoonModal(event)">
+    <div class="modal-box" onclick="event.stopPropagation()">
+      <div class="modal-pill">⏳ Раздел в разработке</div>
+      <div class="modal-title" id="modalTitle">Скоро открытие</div>
+      <div class="modal-text" id="modalText">
+        Этот раздел готовится к запуску. Следи за анонсами в официальном канале клуба.
+      </div>
+      <div class="modal-actions">
+        <a href="https://t.me/aibetmoney" onclick="openTgLink(event, 'https://t.me/aibetmoney')" class="modal-tg-btn">
+          Перейти в канал AiBet Money →
+        </a>
+        <button type="button" class="modal-close-btn" onclick="closeSoonModal()">
+          Вернуться в меню
+        </button>
+      </div>
+    </div>
+  </div>
 
   <script>
     // Инициализация Telegram Mini App
@@ -952,6 +1506,13 @@
         tg.setHeaderColor('#070B12');
         tg.setBackgroundColor('#070B12');
       } catch (e) {}
+
+      // Поддержка системной кнопки "Назад" в шапке Telegram
+      if (tg.BackButton) {
+        tg.BackButton.onClick(() => {
+          showScreen('hub');
+        });
+      }
     }
 
     function triggerHaptic(type = 'light') {
@@ -967,7 +1528,49 @@
       }
     }
 
-    const MAX_BANK_SHARE = 0.05; // Защитный потолок 5% от банка на мелких кэфах
+    // Переключение между Главным Меню и Калькулятором
+    const screenHub = document.getElementById('screenHub');
+    const screenCalc = document.getElementById('screenCalc');
+    const headerKicker = document.getElementById('headerKicker');
+
+    function showScreen(screenName, event) {
+      if (event) event.preventDefault();
+      triggerHaptic('light');
+
+      if (screenName === 'calc') {
+        screenHub.classList.remove('active');
+        screenCalc.classList.add('active');
+        headerKicker.textContent = 'КОРОТКО О ГЛАВНОМ';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        if (tg && tg.BackButton) tg.BackButton.show();
+      } else {
+        screenCalc.classList.remove('active');
+        screenHub.classList.add('active');
+        headerKicker.textContent = 'ПЛАТФОРМА КЛУБА';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        if (tg && tg.BackButton) tg.BackButton.hide();
+      }
+    }
+
+    // Модальное окно для карточек со статусом "СКОРО"
+    const soonModal = document.getElementById('soonModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalText = document.getElementById('modalText');
+
+    function openSoonModal(title, text) {
+      triggerHaptic('medium');
+      modalTitle.textContent = title;
+      modalText.textContent = text;
+      soonModal.classList.add('open');
+    }
+
+    function closeSoonModal() {
+      triggerHaptic('light');
+      soonModal.classList.remove('open');
+    }
+
+    // Логика калькулятора
+    const MAX_BANK_SHARE = 0.05;
 
     const bankInput = document.getElementById('bankInput');
     const oddsInput = document.getElementById('oddsInput');
@@ -1017,7 +1620,6 @@
       saveTimer = setTimeout(() => savedBadge.classList.remove('show'), 1500);
     }
 
-    // Загрузка сохранённых настроек
     try {
       const savedBank = localStorage.getItem('aibet_bank');
       const savedRisk = localStorage.getItem('aibet_risk');
@@ -1069,14 +1671,12 @@
         return;
       }
 
-      // Расчёт доли с учётом защитного потолка 5%
       const rawShare = currentRisk * (2 / odds);
       const isCapped = rawShare > MAX_BANK_SHARE;
       const finalShare = isCapped ? MAX_BANK_SHARE : rawShare;
 
       let betAmount = Math.round(bank * finalShare);
 
-      // Умное округление до 50 / 100 ₽ (если ставка больше шага округления)
       if (currentRoundStep > 1 && betAmount >= currentRoundStep) {
         betAmount = Math.round(betAmount / currentRoundStep) * currentRoundStep;
       }
@@ -1101,7 +1701,6 @@
       lossBtnDelta.textContent = `(−${formatSpaces(betAmount)} ₽)`;
     }
 
-    // Автоформатирование банка пробелами при вводе
     bankInput.addEventListener('input', () => {
       const rawDigits = bankInput.value.replace(/\D/g, '');
       bankInput.value = rawDigits ? formatSpaces(parseInt(rawDigits, 10)) : '';
@@ -1110,11 +1709,9 @@
 
     oddsInput.addEventListener('input', () => calculate(false));
 
-    // Выделение значения при клике
     bankInput.addEventListener('focus', () => bankInput.select());
     oddsInput.addEventListener('focus', () => oddsInput.select());
 
-    // Переключение профиля риска
     document.querySelectorAll('#riskGroup .seg-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         triggerHaptic('light');
@@ -1126,7 +1723,6 @@
       });
     });
 
-    // Переключение шага округления
     document.querySelectorAll('#roundGroup .round-pill').forEach(btn => {
       btn.addEventListener('click', () => {
         triggerHaptic('light');
@@ -1137,7 +1733,6 @@
       });
     });
 
-    // Кнопки Заход / Минус для автообновления банка
     function updateBankBalance(delta, label) {
       const currentBank = parseBank(bankInput.value);
       if (currentBank <= 0 || currentBetRaw <= 0) return;
@@ -1170,7 +1765,6 @@
       }
     });
 
-    // Копирование суммы ставки при нажатии на табло
     resultBox.addEventListener('click', () => {
       if (currentBetRaw <= 0) return;
       triggerHaptic('medium');
@@ -1183,7 +1777,6 @@
       }, 1700);
     });
 
-    // Мобильный спойлер для правой колонки
     spoilerBtn.addEventListener('click', () => {
       triggerHaptic('light');
       const isOpen = spoilerContent.classList.toggle('open');
