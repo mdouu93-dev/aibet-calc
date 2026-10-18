@@ -1,39 +1,45 @@
 <!DOCTYPE html>
-<html lang="ru" style="--tg-theme-accent-text-color: #6ab2f2; --tg-color-scheme: dark; --tg-theme-bg-color: #17212b; --tg-theme-bottom-bar-bg-color: #17212b; --tg-theme-button-color: #5288c1; --tg-theme-button-text-color: #ffffff; --tg-theme-destructive-text-color: #ec3942; --tg-theme-header-bg-color: #17212b; --tg-theme-hint-color: #708499; --tg-theme-link-color: #6ab3f3; --tg-theme-secondary-bg-color: #232e3c; --tg-theme-section-bg-color: #17212b; --tg-theme-section-header-text-color: #6ab3f3; --tg-theme-section-separator-color: #111921; --tg-theme-subtitle-text-color: #708499; --tg-theme-text-color: #f5f5f5; --tg-viewport-height: 568px; --tg-viewport-stable-height: 568px; --tg-safe-area-inset-top: 0px; --tg-safe-area-inset-bottom: 0px; --tg-safe-area-inset-left: 0px; --tg-safe-area-inset-right: 0px; --tg-content-safe-area-inset-top: 0px; --tg-content-safe-area-inset-bottom: 0px; --tg-content-safe-area-inset-left: 0px; --tg-content-safe-area-inset-right: 0px;"><head>
+<html lang="ru">
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>AiBet Money — Платформа</title>
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Montserrat:wght@500;600;700;800&amp;display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    /* ОФИЦИАЛЬНАЯ ДИЗАЙН-СИСТЕМА AIBET MONEY */
     :root {
-      --deep-navy: #0B1220;         /* 03. DEEP NAVY #0B1220 */
-      --navy-card: #10192B;         /* Карточки на 1 тон светлее фона */
-      --navy-inner: #080E1A;        /* Внутренние плашки */
-      --platinum: #E2E8F0;          /* 03. PLATINUM #E2E8F0 */
-      --platinum-muted: #94A3B8;    /* Вторичный платиновый текст */
-      --matte-gold: #C9A876;        /* 03. MUTED MATTE GOLD #C9A876 */
-      --gold-border: rgba(201, 168, 118, 0.38);
-      --gold-subtle: rgba(201, 168, 118, 0.10);
-      --platinum-border: rgba(226, 232, 240, 0.08);
+      --bg-page: #050B16;           /* Глубокий ночной фон как на полотне брендбука */
+      --bg-card: #0D1525;           /* Фирменный тёмно-синий тон карточек */
+      --bg-dark-inner: #080E1A;     /* Внутренние плашки */
+      --platinum: #E2E8F0;          /* PLATINUM для заголовков и текста */
+      --text-secondary: #CBD5E1;
+      --text-muted: #8E9BAE;
+      --cream: #F5EFE4;             /* Тёплый кремовый для полей ввода и главной кнопки */
+      --cream-focus: #FFFFFF;
+      --gold: #DEAD5E;              /* Реальный цвет золотой плашки и точки из брендбука */
+      --gold-emblem: #E1A856;       /* Точный цвет золотого скоса иконки "A" */
+      --gold-light: #E5B96F;
+      --gold-border: rgba(222, 173, 94, 0.42);
+      --gold-glow: rgba(222, 173, 94, 0.12);
       --green: #34D399;
       --green-bg: rgba(52, 211, 153, 0.12);
       --green-border: rgba(52, 211, 153, 0.35);
       --red: #F87171;
       --red-bg: rgba(248, 113, 113, 0.10);
       --red-border: rgba(248, 113, 113, 0.32);
+      --text-dark: #0A101D;
+      --border-subtle: rgba(226, 232, 240, 0.08);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
 
     body {
-      background-color: var(--deep-navy);
+      background-color: var(--bg-page);
       background-image: 
-        radial-gradient(circle at 50% 0%, rgba(226, 232, 240, 0.03) 0%, transparent 55%),
-        radial-gradient(circle at 85% 90%, rgba(201, 168, 118, 0.03) 0%, transparent 45%);
+        radial-gradient(circle at 18% 12%, rgba(222, 173, 94, 0.04) 0%, transparent 45%),
+        radial-gradient(circle at 85% 85%, rgba(16, 26, 46, 0.75) 0%, transparent 50%);
       color: var(--platinum);
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       min-height: 100vh;
@@ -44,9 +50,9 @@
 
     /* ВЕРХНЯЯ ШАПКА */
     .site-header {
-      background: rgba(11, 18, 32, 0.92);
+      background: rgba(8, 14, 26, 0.92);
       backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--platinum-border);
+      border-bottom: 1px solid rgba(222, 173, 94, 0.22);
       position: sticky;
       top: 0;
       z-index: 30;
@@ -62,39 +68,92 @@
       gap: 10px;
     }
 
-    /* 02. WORDMARK: AiBet с золотой точкой над i */
+    /* ИСПРАВЛЕННЫЙ ФИРМЕННЫЙ ЛОГОТИП AiBet MONEY С ЗОЛОТОЙ ТОЧКОЙ НАД i */
     .brand-logo {
       display: inline-flex;
       flex-direction: column;
       align-items: center;
-      width: 108px;
+      width: 106px;
       text-decoration: none;
       cursor: pointer;
+      user-select: none;
     }
 
-    .wordmark-svg {
+    .brand-logo-top {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--platinum);
+      letter-spacing: 0.4px;
+      line-height: 1;
+      display: inline-flex;
+      align-items: baseline;
+    }
+
+    /* Буква i: скрываем стандартную белую точку и ставим идеально ровную круглую золотую */
+    .brand-logo-top .i-wrap {
+      position: relative;
+      display: inline-block;
+      color: transparent;
+      background: linear-gradient(180deg, transparent 0%, transparent 31%, var(--platinum) 31%, var(--platinum) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+    }
+
+    .brand-logo-top .i-wrap::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 0.06em;
+      transform: translateX(-50%);
+      width: 0.22em;
+      height: 0.22em;
+      border-radius: 50%;
+      background-color: var(--gold);
+    }
+
+    .brand-logo-bottom {
+      display: flex;
+      align-items: center;
       width: 100%;
-      height: auto;
-      display: block;
+      margin-top: 4px;
+      gap: 5px;
+    }
+
+    .brand-logo-bottom::before,
+    .brand-logo-bottom::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.85;
+    }
+
+    .brand-logo-bottom span {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 8px;
+      font-weight: 600;
+      color: var(--gold);
+      letter-spacing: 2.8px;
+      padding-left: 2.8px;
     }
 
     .channel-pill {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      color: var(--platinum);
+      color: var(--gold-light);
       font-size: 12px;
       font-weight: 600;
       text-decoration: none;
-      padding: 6px 12px;
-      background: rgba(226, 232, 240, 0.04);
+      padding: 6px 11px;
+      background: var(--gold-glow);
       border: 1px solid var(--gold-border);
       border-radius: 8px;
       cursor: pointer;
-      transition: border-color 0.2s;
     }
 
-    .channel-pill svg { width: 14px; height: 14px; fill: var(--matte-gold); flex-shrink: 0; }
+    .channel-pill svg { width: 14px; height: 14px; fill: currentColor; flex-shrink: 0; }
 
     .view-screen { display: none; }
     .view-screen.active { display: block; }
@@ -118,7 +177,7 @@
       margin-bottom: 2px;
     }
 
-    .hub-subtitle { font-size: 11.5px; color: var(--platinum-muted); }
+    .hub-subtitle { font-size: 11.5px; color: var(--text-muted); }
 
     .menu-grid {
       display: grid;
@@ -127,37 +186,42 @@
     }
 
     .menu-card {
-      background: var(--navy-card);
-      border: 1px solid var(--platinum-border);
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
       border-radius: 14px;
       overflow: hidden;
       display: flex;
       flex-direction: column;
       cursor: pointer;
       transition: transform 0.15s ease, border-color 0.15s ease;
-      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.35);
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.45);
       position: relative;
     }
 
     .menu-card:active { transform: scale(0.98); }
 
-    /* Gold Usage Max 5%: тонкий деликатный золотой контур только у активного главного инструмента */
     .menu-card.available {
-      border: 1px solid var(--matte-gold);
-      background: linear-gradient(165deg, #131F35 0%, var(--navy-card) 100%);
+      border: 1.5px solid var(--gold);
+      background: linear-gradient(165deg, #131E34 0%, var(--bg-card) 100%);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), 0 0 16px rgba(222, 173, 94, 0.1);
     }
 
     /* Обложка 2:1 (под 800x400 px) */
     .card-cover {
       width: 100%;
       height: 82px;
-      background: var(--navy-inner);
-      border-bottom: 1px solid var(--platinum-border);
+      background: var(--bg-dark-inner);
+      border-bottom: 1px solid var(--border-subtle);
       position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
       overflow: hidden;
+    }
+
+    .menu-card.available .card-cover {
+      background: radial-gradient(circle at 50% 45%, rgba(222, 173, 94, 0.2) 0%, #080E1A 82%);
+      border-bottom: 1px solid rgba(222, 173, 94, 0.24);
     }
 
     .card-cover-img {
@@ -183,14 +247,14 @@
 
     .status-pill.active-pill {
       background: rgba(8, 14, 26, 0.9);
-      border: 1px solid rgba(52, 211, 153, 0.5);
+      border: 1px solid rgba(52, 211, 153, 0.55);
       color: var(--green);
     }
 
     .status-pill.soon-pill {
       background: rgba(8, 14, 26, 0.9);
       border: 1px solid var(--gold-border);
-      color: var(--matte-gold);
+      color: var(--gold-light);
     }
 
     .default-cover-art {
@@ -206,8 +270,8 @@
       display: flex;
       align-items: center;
       gap: 6px;
-      background: var(--navy-card);
-      border: 1px solid var(--gold-border);
+      background: rgba(13, 21, 37, 0.94);
+      border: 1px solid var(--gold);
       border-radius: 7px;
       padding: 4px 8px;
     }
@@ -215,8 +279,8 @@
     .calc-mini-left { display: flex; flex-direction: column; gap: 2px; }
 
     .calc-mini-pill {
-      background: var(--platinum);
-      color: var(--deep-navy);
+      background: var(--cream);
+      color: var(--text-dark);
       font-family: 'Montserrat', sans-serif;
       font-size: 7px;
       font-weight: 800;
@@ -227,14 +291,14 @@
 
     .calc-mini-right {
       padding-left: 6px;
-      border-left: 1px solid var(--platinum-border);
+      border-left: 1px solid rgba(255, 255, 255, 0.14);
       line-height: 1.1;
     }
 
     .calc-mini-right span {
       display: block;
       font-size: 6px;
-      color: var(--matte-gold);
+      color: var(--gold);
       text-transform: uppercase;
       font-weight: 700;
     }
@@ -243,14 +307,14 @@
       font-family: 'Montserrat', sans-serif;
       font-size: 11px;
       font-weight: 800;
-      color: var(--platinum);
+      color: #FFFFFF;
     }
 
     .cover-icon-circle {
       width: 38px;
       height: 38px;
       border-radius: 10px;
-      background: rgba(201, 168, 118, 0.08);
+      background: rgba(222, 173, 94, 0.1);
       border: 1px solid var(--gold-border);
       display: flex;
       align-items: center;
@@ -279,7 +343,7 @@
     .card-desc {
       font-size: 11px;
       line-height: 1.3;
-      color: var(--platinum-muted);
+      color: var(--text-muted);
     }
 
     .card-action-btn {
@@ -293,21 +357,21 @@
     }
 
     .menu-card.available .card-action-btn {
-      background: var(--platinum);
-      border: 1px solid var(--matte-gold);
-      color: var(--deep-navy);
+      background: var(--cream);
+      border: 1px solid var(--gold);
+      color: var(--text-dark);
     }
 
     .menu-card.soon .card-action-btn {
       background: rgba(226, 232, 240, 0.04);
-      border: 1px solid var(--platinum-border);
-      color: var(--platinum-muted);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-muted);
     }
 
     /* ЭФФЕКТ БЛЮРА (РАЗМЫТИЯ) КАРТОЧКИ */
     .menu-card.blurred .card-inner-blur {
       filter: blur(5px);
-      opacity: 0.45;
+      opacity: 0.42;
       pointer-events: none;
       user-select: none;
     }
@@ -321,18 +385,18 @@
       justify-content: center;
       gap: 6px;
       z-index: 3;
-      background: rgba(11, 18, 32, 0.35);
+      background: rgba(5, 11, 22, 0.35);
       backdrop-filter: blur(2px);
       padding: 12px;
       text-align: center;
     }
 
     .blur-lock-badge {
-      background: rgba(8, 14, 26, 0.92);
+      background: rgba(8, 14, 26, 0.94);
       border: 1px solid var(--gold-border);
-      color: var(--matte-gold);
+      color: var(--gold-light);
       font-family: 'Montserrat', sans-serif;
-      font-size: 10px;
+      font-size: 9.5px;
       font-weight: 700;
       padding: 5px 10px;
       border-radius: 8px;
@@ -365,9 +429,9 @@
 
     .admin-open-pill {
       display: none;
-      background: var(--gold-subtle);
-      border: 1px solid var(--matte-gold);
-      color: var(--matte-gold);
+      background: var(--gold-glow);
+      border: 1px solid var(--gold);
+      color: var(--gold-light);
       font-family: 'Montserrat', sans-serif;
       font-size: 11px;
       font-weight: 700;
@@ -384,8 +448,8 @@
     .promo-wrap { max-width: 600px; margin: 0 auto; padding: 14px 0 36px 0; }
 
     .promo-card {
-      background: var(--navy-card);
-      border: 1px solid var(--gold-border);
+      background: var(--bg-card);
+      border: 1.5px solid var(--gold-border);
       border-radius: 16px;
       overflow: hidden;
       margin-top: 12px;
@@ -394,8 +458,8 @@
     .promo-cover {
       width: 100%;
       height: 170px;
-      background: var(--navy-inner);
-      border-bottom: 1px solid var(--platinum-border);
+      background: var(--bg-dark-inner);
+      border-bottom: 1px solid var(--border-subtle);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -405,7 +469,7 @@
     .promo-cover img { width: 100%; height: 100%; object-fit: cover; }
     .promo-body { padding: 20px 18px; }
     .promo-title { font-family: 'Montserrat', sans-serif; font-size: 20px; font-weight: 800; color: var(--platinum); margin-bottom: 12px; }
-    .promo-text { font-size: 14px; line-height: 1.6; color: var(--platinum); opacity: 0.9; white-space: pre-line; margin-bottom: 20px; }
+    .promo-text { font-size: 14px; line-height: 1.6; color: var(--text-secondary); white-space: pre-line; margin-bottom: 20px; }
 
     .promo-cta-btn {
       display: flex;
@@ -413,10 +477,10 @@
       justify-content: center;
       width: 100%;
       padding: 14px 18px;
-      background: var(--platinum);
-      border: 1px solid var(--matte-gold);
+      background: var(--cream);
+      border: 1.5px solid var(--gold);
       border-radius: 11px;
-      color: var(--deep-navy);
+      color: var(--text-dark);
       font-family: 'Montserrat', sans-serif;
       font-size: 14px;
       font-weight: 800;
@@ -432,9 +496,9 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      background: var(--navy-card);
+      background: var(--bg-card);
       border: 1px solid var(--gold-border);
-      color: var(--matte-gold);
+      color: var(--gold-light);
       font-family: 'Montserrat', sans-serif;
       font-size: 12px;
       font-weight: 700;
@@ -452,18 +516,18 @@
     }
 
     .card {
-      background: var(--navy-card);
-      border: 1px solid var(--platinum-border);
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
       border-radius: 15px;
       padding: 18px;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
     }
 
     .block-label {
       font-family: 'Montserrat', sans-serif;
       font-size: 12.5px;
       font-weight: 700;
-      color: var(--matte-gold);
+      color: var(--gold);
       text-transform: uppercase;
       letter-spacing: 0.8px;
       margin-bottom: 12px;
@@ -473,13 +537,13 @@
     }
 
     .block-label-left { display: flex; align-items: center; gap: 7px; }
-    .block-label-left::before { content: ""; display: inline-block; width: 3px; height: 13px; background: var(--matte-gold); border-radius: 2px; }
+    .block-label-left::before { content: ""; display: inline-block; width: 3px; height: 13px; background: var(--gold); border-radius: 2px; }
 
     .saved-badge {
       font-family: 'Inter', sans-serif;
       font-size: 11px;
       font-weight: 500;
-      color: var(--matte-gold);
+      color: var(--gold-light);
       text-transform: none;
       opacity: 0;
       transition: opacity 0.25s ease;
@@ -495,37 +559,37 @@
       grid-template-columns: 1fr 150px;
       align-items: center;
       gap: 10px;
-      background: rgba(226, 232, 240, 0.02);
+      background: rgba(255, 255, 255, 0.02);
       padding: 5px 5px 5px 12px;
       border-radius: 11px;
-      border: 1px solid var(--platinum-border);
+      border: 1px solid rgba(255, 255, 255, 0.04);
     }
 
     .field-block {
       display: flex;
       flex-direction: column;
       gap: 7px;
-      background: rgba(226, 232, 240, 0.02);
+      background: rgba(255, 255, 255, 0.02);
       padding: 9px 10px 10px 12px;
       border-radius: 11px;
-      border: 1px solid var(--platinum-border);
+      border: 1px solid rgba(255, 255, 255, 0.04);
     }
 
     .field-title {
       font-size: 13.5px;
       font-weight: 500;
-      color: var(--platinum);
+      color: var(--text-secondary);
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
 
-    .field-title-hint { font-size: 11px; color: var(--platinum-muted); font-weight: 400; }
+    .field-title-hint { font-size: 11px; color: var(--text-muted); font-weight: 400; }
 
     .gold-input-box {
       height: 40px;
-      background: var(--platinum);
-      border: 1.5px solid var(--matte-gold);
+      background: var(--cream);
+      border: 1.5px solid var(--gold);
       border-radius: 8px;
       display: flex;
       align-items: center;
@@ -540,7 +604,7 @@
       font-family: 'Montserrat', sans-serif;
       font-size: 15px;
       font-weight: 700;
-      color: var(--deep-navy);
+      color: var(--text-dark);
       text-align: center;
       padding: 0 10px;
     }
@@ -548,21 +612,21 @@
     .segmented-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
 
     .seg-btn {
-      background: var(--navy-inner);
-      border: 1px solid var(--platinum-border);
+      background: var(--bg-dark-inner);
+      border: 1px solid rgba(222, 173, 94, 0.3);
       border-radius: 7px;
       padding: 8px 4px;
       font-family: 'Montserrat', sans-serif;
       font-size: 12px;
       font-weight: 600;
-      color: var(--platinum-muted);
+      color: var(--text-secondary);
       cursor: pointer;
     }
 
     .seg-btn.active {
-      background: var(--platinum);
-      border: 1.5px solid var(--matte-gold);
-      color: var(--deep-navy);
+      background: var(--cream);
+      border: 1.5px solid var(--gold);
+      color: var(--text-dark);
       font-weight: 700;
     }
 
@@ -574,28 +638,28 @@
       padding: 3px 2px 0 4px;
     }
 
-    .round-label { font-size: 12px; color: var(--platinum-muted); }
+    .round-label { font-size: 12px; color: var(--text-muted); }
     .round-pills { display: flex; gap: 4px; }
 
     .round-pill {
-      background: var(--navy-inner);
-      border: 1px solid var(--platinum-border);
+      background: var(--bg-dark-inner);
+      border: 1px solid var(--border-subtle);
       border-radius: 6px;
       padding: 4px 8px;
       font-size: 11px;
       font-weight: 600;
-      color: var(--platinum-muted);
+      color: var(--text-muted);
       cursor: pointer;
     }
 
     .round-pill.active {
-      background: var(--gold-subtle);
-      border-color: var(--matte-gold);
-      color: var(--matte-gold);
+      background: var(--gold-glow);
+      border-color: var(--gold);
+      color: var(--gold-light);
     }
 
     .result-card {
-      background: var(--navy-card);
+      background: linear-gradient(180deg, #131E34 0%, var(--bg-card) 100%);
       border: 1px solid var(--gold-border);
       border-radius: 15px;
       padding: 16px 18px;
@@ -608,16 +672,16 @@
       font-family: 'Montserrat', sans-serif;
       font-size: 11px;
       font-weight: 700;
-      color: var(--platinum-muted);
+      color: var(--text-muted);
       text-transform: uppercase;
       margin-bottom: 7px;
     }
 
-    .copy-hint { font-family: 'Inter', sans-serif; font-size: 10.5px; font-weight: 400; text-transform: none; color: var(--matte-gold); }
+    .copy-hint { font-family: 'Inter', sans-serif; font-size: 10.5px; font-weight: 400; text-transform: none; color: var(--gold); }
 
     .result-display {
-      background: var(--navy-inner);
-      border: 1px solid var(--matte-gold);
+      background: var(--bg-dark-inner);
+      border: 1.5px solid var(--gold);
       border-radius: 11px;
       height: 76px;
       display: flex;
@@ -626,8 +690,8 @@
       cursor: pointer;
     }
 
-    .result-number { font-family: 'Montserrat', sans-serif; font-size: 34px; font-weight: 800; color: var(--platinum); }
-    .result-meta { text-align: center; font-size: 12.5px; font-style: italic; color: var(--matte-gold); margin-top: 7px; }
+    .result-number { font-family: 'Montserrat', sans-serif; font-size: 34px; font-weight: 800; color: #FFFFFF; }
+    .result-meta { text-align: center; font-size: 12.5px; font-style: italic; color: var(--gold-light); margin-top: 7px; }
 
     .profit-grid {
       display: grid;
@@ -635,18 +699,18 @@
       gap: 8px;
       margin-top: 12px;
       padding-top: 12px;
-      border-top: 1px solid var(--platinum-border);
+      border-top: 1px solid var(--border-subtle);
     }
 
     .profit-box {
-      background: var(--navy-inner);
-      border: 1px solid var(--platinum-border);
+      background: var(--bg-dark-inner);
+      border: 1px solid var(--border-subtle);
       border-radius: 9px;
       padding: 8px 10px;
       text-align: center;
     }
 
-    .profit-box-label { font-size: 10.5px; color: var(--platinum-muted); margin-bottom: 2px; }
+    .profit-box-label { font-size: 10.5px; color: var(--text-muted); margin-bottom: 2px; }
     .profit-box-val { font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 700; color: var(--platinum); }
     .profit-box-val.green { color: var(--green); }
 
@@ -670,7 +734,7 @@
 
     .undo-wrap { text-align: center; margin-top: 7px; display: none; }
     .undo-wrap.visible { display: block; }
-    .undo-btn { background: none; border: none; color: var(--platinum-muted); font-size: 11.5px; text-decoration: underline; cursor: pointer; }
+    .undo-btn { background: none; border: none; color: var(--text-muted); font-size: 11.5px; text-decoration: underline; cursor: pointer; }
 
     .tg-cta-link {
       display: inline-flex;
@@ -678,10 +742,10 @@
       justify-content: center;
       width: 100%;
       padding: 12px 16px;
-      background: var(--gold-subtle);
+      background: var(--gold-glow);
       border: 1px solid var(--gold-border);
       border-radius: 11px;
-      color: var(--matte-gold);
+      color: var(--gold-light);
       font-size: 13.5px;
       font-weight: 600;
       text-decoration: none;
@@ -695,11 +759,11 @@
     .mobile-spoiler-btn {
       display: none;
       width: 100%;
-      background: var(--navy-card);
+      background: var(--bg-card);
       border: 1px solid var(--gold-border);
       border-radius: 11px;
       padding: 12px 15px;
-      color: var(--matte-gold);
+      color: var(--gold-light);
       font-family: 'Montserrat', sans-serif;
       font-size: 12.5px;
       font-weight: 700;
@@ -710,20 +774,20 @@
 
     .spoiler-content { display: flex; flex-direction: column; gap: 16px; }
     .info-card { display: flex; flex-direction: column; gap: 18px; }
-    .info-item-title { font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 700; color: var(--matte-gold); margin-bottom: 7px; }
+    .info-item-title { font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 700; color: var(--gold); margin-bottom: 7px; }
     .info-item-text { font-size: 13.5px; line-height: 1.55; color: var(--platinum); }
 
     .rule-card {
-      background: var(--navy-card);
-      border: 1px solid var(--matte-gold);
+      background: linear-gradient(145deg, rgba(222, 173, 94, 0.06) 0%, var(--bg-card) 100%);
+      border: 1.5px solid var(--gold);
       border-radius: 15px;
       padding: 18px;
     }
 
-    .rule-heading { font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 700; color: var(--matte-gold); text-transform: uppercase; margin-bottom: 9px; }
+    .rule-heading { font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 700; color: var(--gold); text-transform: uppercase; margin-bottom: 9px; }
     .rule-content { font-size: 13.5px; line-height: 1.55; color: var(--platinum); }
-    .rule-content p + p { margin-top: 10px; font-weight: 600; color: var(--matte-gold); }
-    .footer-note { font-size: 12px; font-style: italic; color: var(--platinum-muted); line-height: 1.5; }
+    .rule-content p + p { margin-top: 10px; font-weight: 600; color: var(--gold-light); }
+    .footer-note { font-size: 12px; font-style: italic; color: var(--text-muted); line-height: 1.5; }
 
     /* =====================================================
        ЭКРАН 4: АДМИН-ПАНЕЛЬ + СТАТИСТИКА ГОСТЕЙ
@@ -737,18 +801,17 @@
       flex-wrap: wrap;
       gap: 10px;
       margin-bottom: 16px;
-      background: var(--navy-card);
+      background: var(--bg-card);
       border: 1px solid var(--gold-border);
       padding: 14px 16px;
       border-radius: 14px;
     }
 
-    .admin-top-title { font-family: 'Montserrat', sans-serif; font-size: 16px; font-weight: 800; color: var(--matte-gold); }
-    .admin-top-sub { font-size: 11.5px; color: var(--platinum-muted); margin-top: 2px; }
+    .admin-top-title { font-family: 'Montserrat', sans-serif; font-size: 16px; font-weight: 800; color: var(--gold-light); }
+    .admin-top-sub { font-size: 11.5px; color: var(--text-muted); margin-top: 2px; }
 
-    /* Блок статистики в Админке */
     .stats-panel {
-      background: var(--navy-card);
+      background: var(--bg-card);
       border: 1px solid var(--gold-border);
       border-radius: 14px;
       padding: 16px;
@@ -763,8 +826,8 @@
     }
 
     .stat-kpi {
-      background: var(--navy-inner);
-      border: 1px solid var(--platinum-border);
+      background: var(--bg-dark-inner);
+      border: 1px solid var(--border-subtle);
       border-radius: 10px;
       padding: 10px;
       text-align: center;
@@ -775,19 +838,16 @@
       font-family: 'Montserrat', sans-serif;
       font-size: 20px;
       font-weight: 800;
-      color: var(--matte-gold);
+      color: var(--gold);
     }
 
-    .stat-kpi span {
-      font-size: 11px;
-      color: var(--platinum-muted);
-    }
+    .stat-kpi span { font-size: 11px; color: var(--text-muted); }
 
     .visitors-table-wrap {
       max-height: 210px;
       overflow-y: auto;
-      background: var(--navy-inner);
-      border: 1px solid var(--platinum-border);
+      background: var(--bg-dark-inner);
+      border: 1px solid var(--border-subtle);
       border-radius: 10px;
       padding: 8px 10px;
       margin-top: 10px;
@@ -798,21 +858,21 @@
       justify-content: space-between;
       align-items: center;
       padding: 7px 4px;
-      border-bottom: 1px solid var(--platinum-border);
+      border-bottom: 1px solid var(--border-subtle);
       font-size: 12px;
       gap: 8px;
     }
 
     .visitor-row:last-child { border-bottom: none; }
     .visitor-name { font-weight: 600; color: var(--platinum); }
-    .visitor-link { color: var(--matte-gold); text-decoration: none; font-weight: 600; }
-    .visitor-meta { font-size: 11px; color: var(--platinum-muted); text-align: right; }
+    .visitor-link { color: var(--gold-light); text-decoration: none; font-weight: 600; }
+    .visitor-meta { font-size: 11px; color: var(--text-muted); text-align: right; }
 
     .admin-cards-list { display: flex; flex-direction: column; gap: 14px; margin-bottom: 16px; }
 
     .admin-item-card {
-      background: var(--navy-card);
-      border: 1px solid var(--platinum-border);
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
       border-radius: 14px;
       padding: 15px;
     }
@@ -823,17 +883,17 @@
       align-items: center;
       padding-bottom: 10px;
       margin-bottom: 12px;
-      border-bottom: 1px solid var(--platinum-border);
+      border-bottom: 1px solid var(--border-subtle);
       flex-wrap: wrap;
       gap: 8px;
     }
 
-    .admin-item-head strong { font-family: 'Montserrat', sans-serif; font-size: 14px; color: var(--matte-gold); }
+    .admin-item-head strong { font-family: 'Montserrat', sans-serif; font-size: 14px; color: var(--gold-light); }
     .admin-head-btns { display: flex; gap: 5px; flex-wrap: wrap; }
 
     .adm-mini-btn {
-      background: var(--navy-inner);
-      border: 1px solid var(--platinum-border);
+      background: var(--bg-dark-inner);
+      border: 1px solid var(--border-subtle);
       color: var(--platinum);
       border-radius: 6px;
       padding: 4px 9px;
@@ -843,16 +903,15 @@
 
     .adm-mini-btn.danger { color: var(--red); border-color: var(--red-border); }
 
-    /* Тумблеры Скрыть / Заблюрить */
     .adm-toggles-row {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 10px;
       margin-bottom: 12px;
-      background: var(--navy-inner);
+      background: var(--bg-dark-inner);
       padding: 10px 12px;
       border-radius: 10px;
-      border: 1px solid var(--platinum-border);
+      border: 1px solid var(--border-subtle);
     }
 
     .adm-check-label {
@@ -869,17 +928,17 @@
     .adm-check-label input {
       width: 16px;
       height: 16px;
-      accent-color: var(--matte-gold);
+      accent-color: var(--gold);
       cursor: pointer;
     }
 
     .adm-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px; }
     .adm-field { display: flex; flex-direction: column; gap: 4px; margin-bottom: 10px; }
-    .adm-field label { font-size: 11.5px; font-weight: 600; color: var(--platinum-muted); }
+    .adm-field label { font-size: 11.5px; font-weight: 600; color: var(--text-muted); }
 
     .adm-input, .adm-select, .adm-textarea {
       width: 100%;
-      background: var(--navy-inner);
+      background: var(--bg-dark-inner);
       border: 1px solid rgba(226, 232, 240, 0.16);
       border-radius: 8px;
       padding: 9px 11px;
@@ -896,9 +955,9 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      background: var(--gold-subtle);
-      border: 1px solid var(--matte-gold);
-      color: var(--matte-gold);
+      background: var(--gold-glow);
+      border: 1px solid var(--gold);
+      color: var(--gold-light);
       padding: 7px 12px;
       border-radius: 7px;
       font-size: 12px;
@@ -921,14 +980,14 @@
     }
 
     .adm-publish-box {
-      background: var(--navy-card);
-      border: 1px solid var(--matte-gold);
+      background: var(--bg-card);
+      border: 1.5px solid var(--gold);
       border-radius: 14px;
       padding: 16px;
     }
 
     .adm-publish-title { font-family: 'Montserrat', sans-serif; font-size: 15px; font-weight: 800; color: var(--platinum); margin-bottom: 6px; }
-    .adm-publish-desc { font-size: 12px; color: var(--platinum-muted); line-height: 1.45; margin-bottom: 14px; }
+    .adm-publish-desc { font-size: 12px; color: var(--text-muted); line-height: 1.45; margin-bottom: 14px; }
     .adm-export-btns { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 
     .adm-main-btn {
@@ -942,14 +1001,14 @@
       text-align: center;
     }
 
-    .adm-main-btn.gold { background: var(--platinum); border: 1px solid var(--matte-gold); color: var(--deep-navy); }
-    .adm-main-btn.secondary { background: var(--navy-inner); border: 1px solid var(--gold-border); color: var(--matte-gold); }
+    .adm-main-btn.gold { background: var(--cream); border: 1.5px solid var(--gold); color: var(--text-dark); }
+    .adm-main-btn.secondary { background: var(--bg-dark-inner); border: 1px solid var(--gold-border); color: var(--gold-light); }
 
     /* МОДАЛЬНЫЕ ОКНА */
     .modal-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(6, 10, 18, 0.84);
+      background: rgba(4, 8, 16, 0.84);
       backdrop-filter: blur(5px);
       display: none;
       align-items: center;
@@ -963,8 +1022,8 @@
     .modal-box {
       width: 100%;
       max-width: 370px;
-      background: var(--navy-card);
-      border: 1px solid var(--matte-gold);
+      background: var(--bg-card);
+      border: 1.5px solid var(--gold);
       border-radius: 16px;
       padding: 20px 18px;
       text-align: center;
@@ -975,8 +1034,8 @@
       font-family: 'Montserrat', sans-serif;
       font-size: 10px;
       font-weight: 700;
-      color: var(--matte-gold);
-      background: var(--gold-subtle);
+      color: var(--gold-light);
+      background: var(--gold-glow);
       border: 1px solid var(--gold-border);
       padding: 4px 10px;
       border-radius: 999px;
@@ -985,16 +1044,16 @@
     }
 
     .modal-title { font-family: 'Montserrat', sans-serif; font-size: 18px; font-weight: 800; color: var(--platinum); margin-bottom: 8px; }
-    .modal-text { font-size: 13px; line-height: 1.5; color: var(--platinum-muted); margin-bottom: 16px; }
+    .modal-text { font-size: 13px; line-height: 1.5; color: var(--text-secondary); margin-bottom: 16px; }
     .modal-actions { display: flex; flex-direction: column; gap: 8px; }
 
     .modal-tg-btn {
       width: 100%;
       padding: 11px 14px;
-      background: var(--platinum);
-      border: 1px solid var(--matte-gold);
+      background: var(--cream);
+      border: 1.5px solid var(--gold);
       border-radius: 9px;
-      color: var(--deep-navy);
+      color: var(--text-dark);
       font-family: 'Montserrat', sans-serif;
       font-size: 13px;
       font-weight: 700;
@@ -1006,9 +1065,9 @@
       width: 100%;
       padding: 9px 14px;
       background: transparent;
-      border: 1px solid var(--platinum-border);
+      border: 1px solid var(--border-subtle);
       border-radius: 9px;
-      color: var(--platinum-muted);
+      color: var(--text-muted);
       font-family: 'Montserrat', sans-serif;
       font-size: 12.5px;
       font-weight: 600;
@@ -1023,29 +1082,21 @@
       .spoiler-content.open { display: flex; margin-top: 4px; }
     }
   </style>
-<style> ::-webkit-scrollbar { 	border-radius: 5px !important; 	border: 3px solid transparent !important; 	background-color: rgba(255, 255, 255, 0.101961) !important; 	background-clip: content-box !important; 	width: 10px !important; } ::-webkit-scrollbar:hover { 	background-color: rgba(255, 255, 255, 0.172549) !important; } ::-webkit-scrollbar-thumb { 	border-radius: 5px !important; 	border: 3px solid transparent !important; 	background-color: rgba(255, 255, 255, 0.32549) !important; 	background-clip: content-box !important; } ::-webkit-scrollbar-thumb:hover { 	background-color: rgba(255, 255, 255, 0.478431) !important; } </style><style> ::-webkit-scrollbar { 	border-radius: 5px !important; 	border: 3px solid transparent !important; 	background-color: rgba(255, 255, 255, 0.101961) !important; 	background-clip: content-box !important; 	width: 10px !important; } ::-webkit-scrollbar:hover { 	background-color: rgba(255, 255, 255, 0.172549) !important; } ::-webkit-scrollbar-thumb { 	border-radius: 5px !important; 	border: 3px solid transparent !important; 	background-color: rgba(255, 255, 255, 0.32549) !important; 	background-clip: content-box !important; } ::-webkit-scrollbar-thumb:hover { 	background-color: rgba(255, 255, 255, 0.478431) !important; } </style></head>
+</head>
 <body>
 
-  <!-- ВЕРХНЯЯ ШАПКА С ОФИЦИАЛЬНЫМ WORDMARK (ЗОЛОТАЯ ТОЧКА НАД i) -->
+  <!-- ВЕРХНЯЯ ШАПКА С ИСПРАВЛЕННЫМ ЛОГОТИПОМ AiBet MONEY -->
   <header class="site-header">
     <div class="container">
       <div class="header-inner">
-        <a href="#" onclick="showScreen('hub', event)" class="brand-logo" aria-label="AiBet Money">
-          <svg class="wordmark-svg" viewBox="0 0 220 72" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <!-- Текст AiBet без точки над i (PLATINUM #E2E8F0) -->
-            <text x="110" y="42" text-anchor="middle" fill="#E2E8F0" font-family="Montserrat, sans-serif" font-weight="700" font-size="42" letter-spacing="0.5">AıBet</text>
-            <!-- Фирменная золотая точка над i (MUTED MATTE GOLD #C9A876) -->
-            <circle cx="80.5" cy="11.5" r="4.3" fill="#C9A876"></circle>
-            <!-- Линии и подпись MONEY (#C9A876) -->
-            <line x1="12" y1="61" x2="54" y2="61" stroke="#C9A876" stroke-width="1.6"></line>
-            <text x="113" y="65" text-anchor="middle" fill="#C9A876" font-family="Montserrat, sans-serif" font-weight="600" font-size="13" letter-spacing="6.5">MONEY</text>
-            <line x1="166" y1="61" x2="208" y2="61" stroke="#C9A876" stroke-width="1.6"></line>
-          </svg>
+        <a href="#" onclick="showScreen('hub', event)" class="brand-logo">
+          <div class="brand-logo-top">A<span class="i-wrap">i</span>Bet</div>
+          <div class="brand-logo-bottom"><span>MONEY</span></div>
         </a>
 
         <a href="https://t.me/aibetmoney" onclick="openTgLink(event, 'https://t.me/aibetmoney')" class="channel-pill">
           <svg viewBox="0 0 24 24">
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.02-1.96 1.25-5.54 3.69-.52.36-1 .53-1.42.52-.47-.01-1.37-.26-2.03-.48-.82-.27-1.47-.42-1.42-.88.03-.24.35-.49.96-.75 3.78-1.65 6.31-2.74 7.58-3.27 3.61-1.51 4.35-1.77 4.84-1.78.11 0 .35.03.5.16.13.1.17.24.18.34.01.07.02.21.01.3z"></path>
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.02-1.96 1.25-5.54 3.69-.52.36-1 .53-1.42.52-.47-.01-1.37-.26-2.03-.48-.82-.27-1.47-.42-1.42-.88.03-.24.35-.49.96-.75 3.78-1.65 6.31-2.74 7.58-3.27 3.61-1.51 4.35-1.77 4.84-1.78.11 0 .35.03.5.16.13.1.17.24.18.34.01.07.02.21.01.3z"/>
           </svg>
           Канал AiBet Money
         </a>
@@ -1064,13 +1115,13 @@
           <p class="hub-subtitle">Выбери нужный инструмент или раздел клуба</p>
         </div>
 
-        <div class="menu-grid" id="hubCardsGrid"><div class="menu-card available"><div class="card-inner-blur" style="display:flex;flex-direction:column;flex:1;"><div class="card-cover"><span class="status-pill active-pill">● Открыто</span><div class="default-cover-art"><div class="calc-mini-widget"><div class="calc-mini-left"><div class="calc-mini-pill">100 000 ₽</div><div class="calc-mini-pill">КЭФ 1.5</div></div><div class="calc-mini-right"><span>Ставка</span><strong>4 000 ₽</strong></div></div></div></div><div class="card-body"><div><div class="card-title">Калькулятор</div><div class="card-desc">Точный расчёт ставки от банка и учёт баланса</div></div><div class="card-action-btn">Открыть →</div></div></div></div><div class="menu-card soon blurred"><div class="blur-lock-overlay"><span class="blur-lock-badge">🔒 Скоро открытие</span><span class="blur-lock-title">VIP-клуб</span></div><div class="card-inner-blur" style="display:flex;flex-direction:column;flex:1;"><div class="card-cover"><span class="status-pill soon-pill">⏳ Скоро</span><div class="default-cover-art"><div class="cover-icon-circle">👑</div></div></div><div class="card-body"><div><div class="card-title">VIP-клуб</div><div class="card-desc">Закрытая линия прогнозов с главной аналитикой</div></div><div class="card-action-btn">Скоро</div></div></div></div><div class="menu-card soon blurred"><div class="blur-lock-overlay"><span class="blur-lock-badge">🔒 Скоро открытие</span><span class="blur-lock-title">Личное ведение</span></div><div class="card-inner-blur" style="display:flex;flex-direction:column;flex:1;"><div class="card-cover"><span class="status-pill soon-pill">⏳ Скоро</span><div class="default-cover-art"><div class="cover-icon-circle">🛡️</div></div></div><div class="card-body"><div><div class="card-title">Личное ведение</div><div class="card-desc">Индивидуальная работа 1-на-1 с твоим банком</div></div><div class="card-action-btn">Скоро</div></div></div></div><div class="menu-card soon blurred"><div class="blur-lock-overlay"><span class="blur-lock-badge">🔒 Скоро открытие</span><span class="blur-lock-title">Купить ставки</span></div><div class="card-inner-blur" style="display:flex;flex-direction:column;flex:1;"><div class="card-cover"><span class="status-pill soon-pill">⏳ Скоро</span><div class="default-cover-art"><div class="cover-icon-circle">⚡</div></div></div><div class="card-body"><div><div class="card-title">Купить ставки</div><div class="card-desc">Штучные уверенные разборы на матчи дня</div></div><div class="card-action-btn">Скоро</div></div></div></div></div>
+        <div class="menu-grid" id="hubCardsGrid"></div>
 
-        <!-- 01. PRIMARY SYMBOL (цвета строго #E2E8F0 и #C9A876) -->
+        <!-- Нижняя фирменная иконка "A" с точным золотым оттенком #E1A856 -->
         <div class="hub-footer-emblem">
           <svg class="hub-emblem-svg" id="secretAdminTrigger" viewBox="150 100 725 745" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <polygon points="512,121 174,824 565,594 401,594 512,365 645,648 805,727" fill="#E2E8F0"></polygon>
-            <polygon points="645,648 725,820 848,820 805,727" fill="#C9A876"></polygon>
+            <polygon points="512,121 174,824 565,594 401,594 512,365 645,648 805,727" fill="#EAEAEB" />
+            <polygon points="645,648 725,820 848,820 805,727" fill="#E1A856" />
           </svg>
           <button type="button" class="admin-open-pill" id="adminQuickBtn" onclick="showScreen('admin')">
             ⚙️ Открыть Админ-панель
@@ -1153,8 +1204,8 @@
               <div class="round-row">
                 <span class="round-label">Округление суммы:</span>
                 <div class="round-pills" id="roundGroup">
-                  <button type="button" class="round-pill" data-step="1">Точно</button>
-                  <button type="button" class="round-pill active" data-step="50">до 50 ₽</button>
+                  <button type="button" class="round-pill active" data-step="1">Точно</button>
+                  <button type="button" class="round-pill" data-step="50">до 50 ₽</button>
                   <button type="button" class="round-pill" data-step="100">до 100 ₽</button>
                 </div>
               </div>
@@ -1204,8 +1255,8 @@
 
           <div class="emblem-box">
             <svg class="emblem-svg" viewBox="150 100 725 745" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <polygon points="512,121 174,824 565,594 401,594 512,365 645,648 805,727" fill="#E2E8F0"></polygon>
-              <polygon points="645,648 725,820 848,820 805,727" fill="#C9A876"></polygon>
+              <polygon points="512,121 174,824 565,594 401,594 512,365 645,648 805,727" fill="#EAEAEB" />
+              <polygon points="645,648 725,820 848,820 805,727" fill="#E1A856" />
             </svg>
           </div>
         </div>
@@ -1270,7 +1321,6 @@
           </button>
         </div>
 
-        <!-- БЛОК СТАТИСТИКИ И СПИСКА ГОСТЕЙ -->
         <div class="stats-panel">
           <div class="admin-item-head" style="margin-bottom:8px;">
             <strong>📊 Статистика входов и кто заходил</strong>
@@ -1279,11 +1329,11 @@
 
           <div class="stats-grid">
             <div class="stat-kpi">
-              <strong id="statTotalVisits">1</strong>
+              <strong id="statTotalVisits">0</strong>
               <span>Всего визитов</span>
             </div>
             <div class="stat-kpi">
-              <strong id="statUniqueUsers">1</strong>
+              <strong id="statUniqueUsers">0</strong>
               <span>Уникальных людей</span>
             </div>
             <div class="stat-kpi">
@@ -1295,17 +1345,13 @@
           <div class="adm-field" style="margin-bottom:4px;">
             <label>Последние посетители (Имя, @username, Telegram ID и действие):</label>
           </div>
-          <div class="visitors-table-wrap" id="visitorsListBox"><div class="visitor-row"><div><span class="visitor-name">Алексей</span> <a class="visitor-link" href="https://t.me/Chibchib" target="_blank">@Chibchib</a> <span style="font-size:10.5px;color:var(--platinum-muted);">(ID: 435389790)</span></div><div class="visitor-meta"><div>Открыл главное меню</div><div>19.10, 01:07</div></div></div></div>
+          <div class="visitors-table-wrap" id="visitorsListBox"></div>
 
-          <!-- Настройка живого трекера через Telegram-бота -->
-          <details style="margin-top:12px; border-top:1px solid var(--platinum-border); padding-top:10px;" open="">
-            <summary style="cursor:pointer; font-size:12px; color:var(--matte-gold); font-weight:600;">
-              📲 Настроить уведомления в Telegram о каждом вошедшем человеке (со всех устройств)
+          <details style="margin-top:12px; border-top:1px solid var(--border-subtle); padding-top:10px;">
+            <summary style="cursor:pointer; font-size:12px; color:var(--gold-light); font-weight:600;">
+              📲 Настройки уведомлений о гостях в Telegram
             </summary>
             <div style="margin-top:10px;">
-              <p style="font-size:11.5px; color:var(--platinum-muted); line-height:1.45; margin-bottom:10px;">
-                Вставь токен своего бота из <code>@BotFather</code> и нажми «Определить мой ID». Когда любой человек откроет приложение с любого телефона, тебе в личку от бота придёт уведомление с его именем и <code>@username</code> (плюс не забудь после настройки скопировать и обновить код сайта внизу):
-              </p>
               <div class="adm-grid-2">
                 <div class="adm-field">
                   <label>Bot Token (из @BotFather)</label>
@@ -1314,7 +1360,7 @@
                 <div class="adm-field">
                   <label>Твой личный Telegram ID</label>
                   <div style="display:flex; gap:6px;">
-                    <input type="text" class="adm-input" id="trackerAdminId" placeholder="Например: 482910492" oninput="updateTrackerConfig()">
+                    <input type="text" class="adm-input" id="trackerAdminId" placeholder="Например: 435389790" oninput="updateTrackerConfig()">
                     <button type="button" class="adm-mini-btn" style="white-space:nowrap;" onclick="fillMyTelegramId()">Мой ID</button>
                   </div>
                 </div>
@@ -1323,7 +1369,6 @@
           </details>
         </div>
 
-        <!-- СПИСОК КАРТОЧЕК ДЛЯ РЕДАКТИРОВАНИЯ -->
         <div class="admin-cards-list" id="adminCardsContainer"></div>
 
         <button type="button" class="adm-add-block-btn" onclick="addNewBlock()">
@@ -1333,7 +1378,7 @@
         <div class="adm-publish-box">
           <div class="adm-publish-title">🚀 Опубликовать изменения для всех подписчиков</div>
           <div class="adm-publish-desc">
-            Когда ты скрываешь или блюришь карточки, загружаешь обложки (800×400 px) или настраиваешь трекер гостей — скопируй обновлённый код и замени им <code>index.html</code> на GitHub:
+            Когда ты скрываешь или блюришь карточки, загружаешь обложки (800×400 px) или меняешь описания — скопируй обновлённый код и замени им <code>index.html</code> на GitHub:
           </div>
 
           <div class="adm-export-btns">
@@ -1462,8 +1507,8 @@ window.INITIAL_BLOCKS = [
       if (tg) {
         tg.ready();
         tg.expand();
-        if (tg.setHeaderColor) tg.setHeaderColor('#0B1220');
-        if (tg.setBackgroundColor) tg.setBackgroundColor('#0B1220');
+        if (tg.setHeaderColor) tg.setHeaderColor('#050B16');
+        if (tg.setBackgroundColor) tg.setBackgroundColor('#050B16');
         if (tg.BackButton && tg.BackButton.onClick) {
           tg.BackButton.onClick(() => showScreen('hub'));
         }
@@ -1485,9 +1530,6 @@ window.INITIAL_BLOCKS = [
       } catch (e) {}
     }
 
-    // =========================================================
-    // СИСТЕМА УЧЁТА ПОСЕТИТЕЛЕЙ ("СКОЛЬКО ЛЮДЕЙ И КТО ЗАХОДИЛ")
-    // =========================================================
     let trackerCfg = window.TRACKER_CONFIG || { botToken: '', adminChatId: '' };
     try {
       const savedCfg = localStorage.getItem('aibet_tracker_cfg');
@@ -1531,7 +1573,6 @@ window.INITIAL_BLOCKS = [
         if (logs.length > 100) logs = logs.slice(0, 100);
         localStorage.setItem('aibet_visitors_log', JSON.stringify(logs));
 
-        // Если подключён Telegram Bot Tracker — шлём уведомление владельцу в Telegram
         if (trackerCfg.botToken && trackerCfg.adminChatId) {
           const userTag = user.username ? ' (@' + user.username + ')' : '';
           const msg = '👤 Вход в AiBet Mini App:\n' +
@@ -1548,7 +1589,6 @@ window.INITIAL_BLOCKS = [
       } catch (e) {}
     }
 
-    // Фиксируем вход при открытии приложения
     logVisitorEvent('Открыл главное меню');
 
     function renderStatsInAdmin() {
@@ -1566,7 +1606,7 @@ window.INITIAL_BLOCKS = [
 
       const box = document.getElementById('visitorsListBox');
       if (!logs.length) {
-        box.innerHTML = '<div style="font-size:12px; color:var(--platinum-muted); padding:8px;">Пока нет записей о визитах</div>';
+        box.innerHTML = '<div style="font-size:12px; color:var(--text-muted); padding:8px;">Пока нет записей о визитах</div>';
         return;
       }
 
@@ -1575,7 +1615,7 @@ window.INITIAL_BLOCKS = [
           ? ' <a class="visitor-link" href="https://t.me/' + escapeHtml(item.username) + '" target="_blank">@' + escapeHtml(item.username) + '</a>'
           : '';
         return '<div class="visitor-row">' +
-          '<div><span class="visitor-name">' + escapeHtml(item.name) + '</span>' + unameHtml + ' <span style="font-size:10.5px;color:var(--platinum-muted);">(ID: ' + escapeHtml(item.id) + ')</span></div>' +
+          '<div><span class="visitor-name">' + escapeHtml(item.name) + '</span>' + unameHtml + ' <span style="font-size:10.5px;color:var(--text-muted);">(ID: ' + escapeHtml(item.id) + ')</span></div>' +
           '<div class="visitor-meta"><div>' + escapeHtml(item.action) + '</div><div>' + escapeHtml(item.time) + '</div></div>' +
         '</div>';
       }).join('');
@@ -1588,7 +1628,7 @@ window.INITIAL_BLOCKS = [
         updateTrackerConfig();
         alert('Твой Telegram ID (' + u.id + ') успешно подставлен!');
       } else {
-        alert('Открой это окно внутри Telegram (через бота), чтобы ID определился автоматически, или впиши его вручную.');
+        alert('Открой это окно внутри Telegram, чтобы ID определился автоматически.');
       }
     }
 
@@ -1602,7 +1642,7 @@ window.INITIAL_BLOCKS = [
 
     async function refreshBotVisitors() {
       if (!trackerCfg.botToken) {
-        alert('Сначала укажи Bot Token в настройках уведомлений чуть ниже.');
+        alert('Сначала укажи Bot Token в настройках уведомлений.');
         return;
       }
       try {
@@ -1628,16 +1668,13 @@ window.INITIAL_BLOCKS = [
           triggerHaptic('medium');
         }
       } catch (e) {
-        alert('Не удалось получить список из бота. Проверь токен.');
+        alert('Не удалось получить список из бота.');
       }
     }
 
-    // =========================================================
-    // ЗАГРУЗКА И ОТРИСОВКА КАРТОЧЕК (С УЧЁТОМ СКРЫТИЯ И БЛЮРА)
-    // =========================================================
     let menuBlocks = [];
     try {
-      const saved = localStorage.getItem('aibet_menu_blocks_v4');
+      const saved = localStorage.getItem('aibet_menu_blocks_v5');
       const parsed = saved ? JSON.parse(saved) : null;
       if (Array.isArray(parsed) && parsed.length > 0) {
         menuBlocks = parsed;
@@ -1650,25 +1687,28 @@ window.INITIAL_BLOCKS = [
 
     function saveBlocksDraft() {
       try {
-        localStorage.setItem('aibet_menu_blocks_v4', JSON.stringify(menuBlocks));
+        localStorage.setItem('aibet_menu_blocks_v5', JSON.stringify(menuBlocks));
       } catch (e) {}
     }
 
     const hubCardsGrid = document.getElementById('hubCardsGrid');
+
+    function escapeHtml(str) {
+      return String(str || '').replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    }
 
     function renderHubCards() {
       if (!hubCardsGrid || !Array.isArray(menuBlocks)) return;
       hubCardsGrid.innerHTML = '';
 
       menuBlocks.forEach((block, index) => {
-        // Если карточка скрыта в админке — не показываем её в меню
         if (block.hidden) return;
 
         const isAvail = block.status === 'available' && !block.blurred;
         const isBlurred = Boolean(block.blurred);
         const card = document.createElement('div');
         card.className = 'menu-card ' + (isAvail ? 'available' : 'soon') + (isBlurred ? ' blurred' : '');
-        card.onclick = () => handleCardClick(index);
+        card.setAttribute('onclick', 'handleCardClick(' + index + ')');
 
         let coverInnerHtml = '';
         if (block.coverUrl && block.coverUrl.trim() !== '') {
@@ -1707,10 +1747,6 @@ window.INITIAL_BLOCKS = [
           '</div>';
         hubCardsGrid.appendChild(card);
       });
-    }
-
-    function escapeHtml(str) {
-      return String(str || '').replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
     }
 
     renderHubCards();
@@ -1792,7 +1828,6 @@ window.INITIAL_BLOCKS = [
       document.getElementById('soonModal').classList.remove('open');
     }
 
-    // Вход в Админ-панель по 5 нажатиям на нижнюю иконку "A"
     let tapCount = 0;
     let tapTimer = null;
     let isAdminUnlocked = false;
@@ -1832,7 +1867,6 @@ window.INITIAL_BLOCKS = [
       }
     }
 
-    // Рендер Админ-панели
     const adminCardsContainer = document.getElementById('adminCardsContainer');
 
     function renderAdminPanel() {
@@ -1848,8 +1882,8 @@ window.INITIAL_BLOCKS = [
         let extraHtml = '';
         if (!isCalc) {
           extraHtml =
-            '<details style="margin-top:8px; border-top:1px solid var(--platinum-border); padding-top:10px;">' +
-              '<summary style="cursor:pointer; font-size:12px; color:var(--matte-gold); font-weight:600;">📝 Настроить продающий текст и ссылку на ЛС</summary>' +
+            '<details style="margin-top:8px; border-top:1px solid var(--border-subtle); padding-top:10px;">' +
+              '<summary style="cursor:pointer; font-size:12px; color:var(--gold-light); font-weight:600;">📝 Настроить продающий текст и ссылку на ЛС</summary>' +
               '<div style="margin-top:10px;">' +
                 '<div class="adm-field"><label>Заголовок внутри страницы</label><input type="text" class="adm-input" value="' + escapeHtml(b.pageTitle || '') + '" oninput="updateBlockField(' + idx + ', \'pageTitle\', this.value)"></div>' +
                 '<div class="adm-field"><label>Продающий текст</label><textarea class="adm-textarea" oninput="updateBlockField(' + idx + ', \'pageText\', this.value)">' + escapeHtml(b.pageText || '') + '</textarea></div>' +
@@ -1871,7 +1905,6 @@ window.INITIAL_BLOCKS = [
             '</div>' +
           '</div>' +
 
-          /* Переключатели Скрыть и Заблюрить */
           '<div class="adm-toggles-row">' +
             '<label class="adm-check-label">' +
               '<input type="checkbox" ' + (b.blurred ? 'checked' : '') + ' onchange="updateBlockField(' + idx + ', \'blurred\', this.checked); renderHubCards();">' +
@@ -1984,6 +2017,8 @@ window.INITIAL_BLOCKS = [
     function generateFullSiteHtml() {
       renderHubCards();
       const clone = document.documentElement.cloneNode(true);
+      clone.removeAttribute('style');
+
       const dataScript = clone.querySelector('#app-data-script');
       if (dataScript) {
         dataScript.textContent =
@@ -1996,6 +2031,8 @@ window.INITIAL_BLOCKS = [
       clone.querySelectorAll('.modal-overlay').forEach(el => el.classList.remove('open'));
       const admList = clone.querySelector('#adminCardsContainer');
       if (admList) admList.innerHTML = '';
+      const vBox = clone.querySelector('#visitorsListBox');
+      if (vBox) vBox.innerHTML = '';
       const quickBtn = clone.querySelector('#adminQuickBtn');
       if (quickBtn) quickBtn.classList.remove('unlocked');
       return '<!DOCTYPE html>\n' + clone.outerHTML;
@@ -2223,6 +2260,5 @@ window.INITIAL_BLOCKS = [
 
     calculate(false);
   </script>
-
-
-</body></html>
+</body>
+</html>
