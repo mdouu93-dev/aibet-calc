@@ -68,7 +68,6 @@
       gap: 10px;
     }
 
-    /* ОРИГИНАЛЬНАЯ ПЛАШКА AiBet MONEY В ЧИСТОМ ВЕКТОРЕ */
     .brand-logo {
       display: inline-flex;
       align-items: center;
@@ -97,12 +96,60 @@
       border: 1px solid var(--gold-border);
       border-radius: 8px;
       cursor: pointer;
+      transition: all 0.2s ease;
     }
 
+    .channel-pill:active { transform: scale(0.96); }
     .channel-pill svg { width: 14px; height: 14px; fill: currentColor; flex-shrink: 0; }
 
     .view-screen { display: none; }
-    .view-screen.active { display: block; }
+    .view-screen.active { display: block; animation: screenFade 0.22s ease-out; }
+
+    @keyframes screenFade {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* =====================================================
+       ЭФФЕКТЫ: БЕГУЩИЙ БЛИК (SHIMMER) И ЖИВОЙ ПУЛЬС
+       ===================================================== */
+    .shimmer-effect {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .shimmer-effect::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -130%;
+      width: 65%;
+      height: 100%;
+      background: linear-gradient(
+        105deg,
+        transparent 20%,
+        rgba(255, 255, 255, 0.55) 50%,
+        transparent 80%
+      );
+      transform: skewX(-20deg);
+      animation: shimmerSweep 4.8s infinite;
+      pointer-events: none;
+    }
+
+    @keyframes shimmerSweep {
+      0%, 65% { left: -130%; }
+      100% { left: 160%; }
+    }
+
+    @keyframes livePulseGreen {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.7); }
+      50% { box-shadow: 0 0 0 5px rgba(52, 211, 153, 0); }
+    }
+
+    @keyframes livePulseGold {
+      0%, 100% { box-shadow: 0 0 4px var(--gold), 0 0 0 0 rgba(222, 173, 94, 0.65); }
+      50% { box-shadow: 0 0 9px var(--gold), 0 0 0 5px rgba(222, 173, 94, 0); }
+    }
 
     /* =====================================================
        ЭКРАН 1: КОМПАКТНОЕ МЕНЮ 2x2 НА ОДИН ЭКРАН
@@ -123,7 +170,15 @@
       margin-bottom: 2px;
     }
 
-    .hub-subtitle { font-size: 11px; color: var(--text-muted); }
+    .hub-subtitle {
+      font-size: 11.5px;
+      color: var(--text-muted);
+    }
+
+    .hub-subtitle strong {
+      color: var(--gold-light);
+      font-weight: 600;
+    }
 
     .menu-grid {
       display: grid;
@@ -139,18 +194,18 @@
       display: flex;
       flex-direction: column;
       cursor: pointer;
-      transition: transform 0.15s ease, border-color 0.15s ease;
+      transition: transform 0.16s ease, border-color 0.16s ease, box-shadow 0.2s ease;
       box-shadow: 0 8px 22px rgba(0, 0, 0, 0.45);
       position: relative;
       min-height: 174px;
     }
 
-    .menu-card:active { transform: scale(0.98); }
+    .menu-card:active { transform: scale(0.975); }
 
     .menu-card.available {
       border: 1.5px solid var(--gold);
       background: linear-gradient(165deg, #131E34 0%, var(--bg-card) 100%);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), 0 0 16px rgba(222, 173, 94, 0.1);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), 0 0 18px rgba(222, 173, 94, 0.12);
     }
 
     /* Обложка 2:1 (под 800x400 px) */
@@ -187,9 +242,20 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.4px;
-      padding: 2px 6px;
+      padding: 2.5px 6.5px;
       border-radius: 999px;
       z-index: 4;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .status-pill .live-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--green);
+      animation: livePulseGreen 2s infinite;
     }
 
     .status-pill.active-pill {
@@ -316,12 +382,12 @@
     }
 
     /* =====================================================
-       TELEGRAM SPOILER BLUR (КАК В ТЕЛЕГРАМЕ, БЕЗ СПОЙЛЕРА ТЕКСТА)
+       ИНТЕРАКТИВНЫЙ TELEGRAM CANVAS-СПОЙЛЕР НА КАРТОЧКАХ
        ===================================================== */
     .menu-card.blurred .card-inner-blur {
-      filter: blur(18px) saturate(1.15) brightness(0.6);
+      filter: blur(18px) saturate(1.15) brightness(0.55);
       transform: scale(1.12);
-      opacity: 0.35;
+      opacity: 0.32;
       pointer-events: none;
       user-select: none;
     }
@@ -333,59 +399,31 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: radial-gradient(circle at 50% 50%, rgba(18, 28, 48, 0.55) 0%, rgba(7, 12, 24, 0.78) 100%);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
+      background: radial-gradient(circle at 50% 50%, rgba(16, 25, 44, 0.52) 0%, rgba(6, 11, 22, 0.78) 100%);
+      backdrop-filter: blur(9px);
+      -webkit-backdrop-filter: blur(9px);
       overflow: hidden;
       padding: 12px;
     }
 
-    /* Мерцающие частицы спойлера как в Telegram */
-    .tg-spoiler-overlay::before,
-    .tg-spoiler-overlay::after {
-      content: "";
+    .spoiler-canvas {
       position: absolute;
-      inset: -40%;
-      background-image:
-        radial-gradient(circle, rgba(226, 232, 240, 0.65) 1px, transparent 1.6px),
-        radial-gradient(circle, rgba(222, 173, 94, 0.55) 1px, transparent 1.6px),
-        radial-gradient(circle, rgba(226, 232, 240, 0.45) 1.2px, transparent 2px),
-        radial-gradient(circle, rgba(255, 255, 255, 0.5) 0.8px, transparent 1.5px);
-      background-size: 26px 26px, 34px 34px, 42px 42px, 19px 19px;
-      background-position: 0 0, 11px 15px, 21px 7px, 6px 23px;
-      opacity: 0.55;
-      animation: tgSpoilerDrift 7s linear infinite;
+      inset: 0;
+      width: 100%;
+      height: 100%;
       pointer-events: none;
+      z-index: 1;
     }
 
-    .tg-spoiler-overlay::after {
-      background-size: 31px 31px, 23px 23px, 37px 37px, 29px 29px;
-      background-position: 14px 5px, 3px 18px, 25px 12px, 9px 27px;
-      opacity: 0.4;
-      animation: tgSpoilerTwinkle 3.2s ease-in-out infinite alternate;
-    }
-
-    @keyframes tgSpoilerDrift {
-      0% { transform: translate3d(0, 0, 0); }
-      50% { transform: translate3d(-12px, -8px, 0); }
-      100% { transform: translate3d(0, 0, 0); }
-    }
-
-    @keyframes tgSpoilerTwinkle {
-      0% { opacity: 0.22; transform: scale(0.98); }
-      100% { opacity: 0.62; transform: scale(1.03); }
-    }
-
-    /* Плашка поверх спойлера */
     .tg-spoiler-pill {
       position: relative;
       z-index: 2;
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      background: rgba(8, 14, 26, 0.76);
-      border: 1px solid rgba(226, 232, 240, 0.2);
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
+      background: rgba(8, 14, 26, 0.82);
+      border: 1px solid rgba(226, 232, 240, 0.22);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
       backdrop-filter: blur(6px);
       color: var(--platinum);
       font-family: 'Montserrat', sans-serif;
@@ -396,6 +434,7 @@
       letter-spacing: 0.3px;
       text-align: center;
       white-space: nowrap;
+      transition: border-color 0.2s, color 0.2s;
     }
 
     .tg-spoiler-pill span.dot {
@@ -403,23 +442,65 @@
       height: 6px;
       border-radius: 50%;
       background: var(--gold);
-      box-shadow: 0 0 8px var(--gold);
+      animation: livePulseGold 2.2s infinite;
     }
 
-    /* 01. PRIMARY SYMBOL ВНИЗУ МЕНЮ */
+    .tg-spoiler-pill.waitlisted {
+      border-color: rgba(52, 211, 153, 0.5);
+      color: var(--green);
+    }
+
+    .tg-spoiler-pill.waitlisted span.dot {
+      background: var(--green);
+      animation: livePulseGreen 2s infinite;
+    }
+
+    /* 01. PRIMARY SYMBOL И КНОПКИ ВНИЗУ МЕНЮ */
     .hub-footer-emblem {
       margin-top: 10px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 5px;
+      gap: 6px;
     }
 
     .hub-emblem-svg {
-      width: 46px;
+      width: 44px;
       height: auto;
       cursor: pointer;
       user-select: none;
+      transition: transform 0.15s ease;
+    }
+
+    .hub-emblem-svg:active { transform: scale(0.9); }
+
+    .hub-bottom-pills {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .home-screen-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: rgba(226, 232, 240, 0.04);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+      font-family: 'Inter', sans-serif;
+      font-size: 10.5px;
+      font-weight: 500;
+      padding: 4px 10px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .home-screen-pill:hover {
+      border-color: var(--gold-border);
+      color: var(--platinum);
     }
 
     .admin-open-pill {
@@ -616,6 +697,7 @@
       font-weight: 600;
       color: var(--text-secondary);
       cursor: pointer;
+      transition: all 0.15s ease;
     }
 
     .seg-btn.active {
@@ -683,9 +765,19 @@
       align-items: center;
       justify-content: center;
       cursor: pointer;
+      transition: transform 0.12s ease;
     }
 
-    .result-number { font-family: 'Montserrat', sans-serif; font-size: 34px; font-weight: 800; color: #FFFFFF; }
+    .result-display:active { transform: scale(0.985); }
+
+    .result-number {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 34px;
+      font-weight: 800;
+      color: #FFFFFF;
+      font-variant-numeric: tabular-nums;
+    }
+
     .result-meta { text-align: center; font-size: 12.5px; font-style: italic; color: var(--gold-light); margin-top: 7px; }
 
     .profit-grid {
@@ -706,7 +798,13 @@
     }
 
     .profit-box-label { font-size: 10.5px; color: var(--text-muted); margin-bottom: 2px; }
-    .profit-box-val { font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 700; color: var(--platinum); }
+    .profit-box-val {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--platinum);
+      font-variant-numeric: tabular-nums;
+    }
     .profit-box-val.green { color: var(--green); }
 
     .bank-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 9px; }
@@ -722,8 +820,10 @@
       align-items: center;
       justify-content: center;
       gap: 4px;
+      transition: transform 0.12s ease;
     }
 
+    .action-btn:active { transform: scale(0.96); }
     .btn-win { background: var(--green-bg); border: 1px solid var(--green-border); color: var(--green); }
     .btn-loss { background: var(--red-bg); border: 1px solid var(--red-border); color: var(--red); }
 
@@ -1012,7 +1112,7 @@
       z-index: 100;
     }
 
-    .modal-overlay.open { display: flex; }
+    .modal-overlay.open { display: flex; animation: screenFade 0.18s ease-out; }
 
     .modal-box {
       width: 100%;
@@ -1022,6 +1122,7 @@
       border-radius: 16px;
       padding: 20px 18px;
       text-align: center;
+      box-shadow: 0 18px 46px rgba(0, 0, 0, 0.65);
     }
 
     .modal-pill {
@@ -1042,15 +1143,35 @@
     .modal-text { font-size: 13px; line-height: 1.5; color: var(--text-secondary); margin-bottom: 16px; }
     .modal-actions { display: flex; flex-direction: column; gap: 8px; }
 
-    .modal-tg-btn {
+    .modal-waitlist-btn {
       width: 100%;
-      padding: 11px 14px;
+      padding: 12px 14px;
       background: var(--cream);
       border: 1.5px solid var(--gold);
-      border-radius: 9px;
+      border-radius: 10px;
       color: var(--text-dark);
       font-family: 'Montserrat', sans-serif;
       font-size: 13px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .modal-waitlist-btn.done {
+      background: var(--green-bg);
+      border-color: var(--green);
+      color: var(--green);
+    }
+
+    .modal-tg-btn {
+      width: 100%;
+      padding: 10px 14px;
+      background: var(--gold-glow);
+      border: 1px solid var(--gold-border);
+      border-radius: 9px;
+      color: var(--gold-light);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12.5px;
       font-weight: 700;
       text-decoration: none;
       cursor: pointer;
@@ -1086,13 +1207,9 @@
       <div class="header-inner">
         <a href="#" onclick="showScreen('hub', event)" class="brand-logo" aria-label="AiBet Money">
           <svg viewBox="48 24 308 132" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <!-- Буквы A, B, e, t в чистом векторе -->
             <path fill="#E2E8F0" fill-rule="evenodd" clip-rule="evenodd" d="M 270.5,50.2 L 260.5,55.2 L 255.5,60.5 L 253.0,64.5 L 251.0,69.5 L 249.8,75.8 L 250.0,85.2 L 251.2,90.0 L 253.0,94.0 L 256.5,99.0 L 259.8,102.2 L 265.8,106.0 L 275.8,108.5 L 286.0,108.2 L 292.5,106.5 L 298.2,103.2 L 303.5,97.8 L 303.0,96.5 L 296.5,91.5 L 294.8,91.2 L 291.2,94.5 L 286.2,97.0 L 282.0,97.8 L 275.5,97.2 L 268.0,93.5 L 264.8,89.8 L 262.8,84.5 L 263.8,83.2 L 305.8,83.2 L 306.5,76.8 L 304.5,66.5 L 299.2,58.0 L 296.5,55.2 L 291.2,52.0 L 280.8,49.2 Z M 262.8,72.8 L 263.5,70.5 L 265.5,66.8 L 268.8,63.5 L 271.5,61.8 L 275.8,60.5 L 280.0,60.2 L 285.2,61.5 L 288.2,63.2 L 291.5,66.5 L 293.2,70.5 L 294.0,73.2 L 293.5,74.0 L 263.8,74.2 Z M 322.0,36.0 L 321.5,36.5 L 321.5,49.2 L 320.5,50.2 L 313.5,50.2 L 312.8,50.8 L 312.5,60.5 L 313.0,61.0 L 320.8,61.2 L 321.5,62.2 L 321.5,94.2 L 322.5,98.8 L 324.2,102.0 L 327.5,105.5 L 332.0,107.5 L 335.8,108.2 L 341.8,108.2 L 348.0,106.8 L 349.0,105.5 L 348.2,96.5 L 339.5,97.0 L 337.2,96.0 L 334.8,93.0 L 334.2,90.2 L 334.2,62.2 L 335.2,61.0 L 348.2,61.0 L 348.8,60.2 L 348.8,51.2 L 347.2,50.2 L 335.0,50.2 L 334.2,49.2 L 334.2,36.5 L 333.8,36.0 Z M 176.8,29.2 L 176.5,107.0 L 218.8,107.2 L 226.2,105.5 L 232.2,102.2 L 236.8,97.2 L 239.8,88.2 L 239.2,81.0 L 237.2,75.5 L 233.8,71.2 L 226.2,67.2 L 233.5,60.8 L 236.2,54.5 L 236.5,45.8 L 233.0,37.8 L 227.2,32.8 L 218.2,29.5 Z M 190.0,74.2 L 191.5,73.5 L 213.2,73.5 L 217.2,74.0 L 222.2,76.5 L 224.2,78.8 L 225.8,82.2 L 225.8,87.0 L 224.2,90.5 L 222.0,92.8 L 219.2,94.2 L 215.0,95.2 L 190.8,95.2 L 189.8,94.2 Z M 190.0,42.2 L 191.0,41.5 L 214.2,41.8 L 219.2,43.8 L 222.0,47.0 L 222.8,49.5 L 222.8,53.8 L 220.2,58.8 L 217.2,61.0 L 213.0,62.2 L 191.0,62.2 L 190.0,61.5 Z M 101.5,29.5 L 86.5,29.5 L 54.2,105.5 L 54.5,107.5 L 68.2,107.2 L 75.5,91.0 L 112.2,91.0 L 113.2,91.8 L 119.5,107.2 L 134.0,107.0 Z M 94.0,46.2 L 107.8,78.5 L 106.2,79.2 L 80.8,79.0 L 80.2,78.2 Z" />
-            <!-- Ножка буквы i -->
             <rect x="144" y="51" width="14" height="56.2" rx="1" fill="#E2E8F0" />
-            <!-- Золотая точка над буквой i -->
             <circle cx="151" cy="35.5" r="8.2" fill="#DEAD5E" />
-            <!-- Боковые золотые линии и буквы M O N E Y -->
             <rect x="54" y="139.2" width="47" height="2.4" rx="1.2" fill="#DEAD5E" />
             <rect x="304" y="139.2" width="45" height="2.4" rx="1.2" fill="#DEAD5E" />
             <path fill="#DEAD5E" fill-rule="evenodd" clip-rule="evenodd" d="M 272.2,129.8 L 272.0,131.0 L 279.0,143.0 L 279.0,150.2 L 282.8,150.2 L 282.8,143.0 L 290.0,131.0 L 289.5,129.8 L 286.5,130.2 L 281.0,138.8 L 275.5,130.2 Z M 240.2,130.0 L 240.2,150.5 L 254.8,150.5 L 254.8,147.5 L 244.0,147.5 L 244.0,141.8 L 253.5,141.8 L 253.5,138.6 L 244.0,138.6 L 244.0,133.0 L 254.8,133.0 L 254.8,130.0 Z M 201.4,130.0 L 201.4,150.5 L 205.0,150.5 L 205.0,136.8 L 216.2,150.5 L 220.0,150.5 L 220.0,130.0 L 216.2,130.0 L 216.2,143.2 L 205.0,130.0 Z M 119.2,130.0 L 119.2,150.5 L 122.8,150.5 L 122.8,137.2 L 129.8,147.5 L 131.2,147.5 L 138.0,137.2 L 138.0,150.5 L 141.6,150.5 L 141.6,130.0 L 137.5,130.0 L 130.5,141.2 L 123.5,130.0 Z M 168.5,129.8 L 164.5,131.8 L 161.5,135.5 L 160.5,139.0 L 160.8,142.5 L 162.2,146.5 L 164.8,149.0 L 168.5,150.8 L 173.5,150.8 L 177.8,149.2 L 180.5,146.8 L 182.2,142.8 L 182.5,139.2 L 181.5,135.2 L 179.5,132.5 L 176.0,130.2 L 173.2,129.5 Z M 169.5,133.0 L 173.8,133.0 L 176.5,134.8 L 178.2,137.8 L 178.5,142.2 L 176.5,145.8 L 173.5,147.6 L 169.5,147.6 L 166.2,145.5 L 164.5,142.0 L 164.8,137.8 L 167.2,134.2 Z" />
@@ -1117,20 +1234,25 @@
       <div class="hub-wrap">
         <div class="hub-hero">
           <h1 class="hub-title">Платформа AiBet Money</h1>
-          <p class="hub-subtitle">Выбери нужный инструмент или раздел клуба</p>
+          <p class="hub-subtitle" id="hubGreetingSubtitle">Выбери нужный инструмент или раздел клуба</p>
         </div>
 
         <div class="menu-grid" id="hubCardsGrid"></div>
 
-        <!-- Нижняя фирменная иконка "A" -->
+        <!-- Нижняя фирменная иконка "A" и кнопка ярлыка на экран телефона -->
         <div class="hub-footer-emblem">
           <svg class="hub-emblem-svg" id="secretAdminTrigger" viewBox="150 100 725 745" fill="none" xmlns="http://www.w3.org/2000/svg">
             <polygon points="512,121 174,824 565,594 401,594 512,365 645,648 805,727" fill="#EAEAEB" />
             <polygon points="645,648 725,820 848,820 805,727" fill="#E1A856" />
           </svg>
-          <button type="button" class="admin-open-pill" id="adminQuickBtn" onclick="showScreen('admin')">
-            ⚙️ Открыть Админ-панель
-          </button>
+          <div class="hub-bottom-pills">
+            <button type="button" class="home-screen-pill" id="addHomeBtn" onclick="addAppToHomeScreen()">
+              📲 Добавить на экран телефона
+            </button>
+            <button type="button" class="admin-open-pill" id="adminQuickBtn" onclick="showScreen('admin')">
+              ⚙️ Открыть Админ-панель
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -1151,7 +1273,7 @@
           <div class="promo-body">
             <h2 class="promo-title" id="promoTitle">Заголовок</h2>
             <div class="promo-text" id="promoText">Описание</div>
-            <a href="https://t.me/aibetmoney" id="promoCtaBtn" class="promo-cta-btn">
+            <a href="https://t.me/aibetmoney" id="promoCtaBtn" class="promo-cta-btn shimmer-effect">
               Написать в личные сообщения →
             </a>
           </div>
@@ -1343,18 +1465,18 @@
             </div>
             <div class="stat-kpi">
               <strong id="statCalcClicks">0</strong>
-              <span>Переходов в разделы</span>
+              <span>Кликов и заявок</span>
             </div>
           </div>
 
           <div class="adm-field" style="margin-bottom:4px;">
-            <label>Последние посетители (Имя, @username, Telegram ID и действие):</label>
+            <label>Последние посетители и заявки в лист ожидания:</label>
           </div>
           <div class="visitors-table-wrap" id="visitorsListBox"></div>
 
           <details style="margin-top:12px; border-top:1px solid var(--border-subtle); padding-top:10px;">
             <summary style="cursor:pointer; font-size:12px; color:var(--gold-light); font-weight:600;">
-              📲 Настройки уведомлений о гостях в Telegram
+              📲 Настройки уведомлений о гостях и лидах в Telegram
             </summary>
             <div style="margin-top:10px;">
               <div class="adm-grid-2">
@@ -1399,13 +1521,16 @@
     </div>
   </section>
 
-  <!-- МОДАЛЬНОЕ ОКНО ДЛЯ РАЗДЕЛОВ "СКОРО" / "ЗАБЛЮРЕНО" -->
+  <!-- МОДАЛЬНОЕ ОКНО ДЛЯ ЗАКРЫТЫХ РАЗДЕЛОВ С ЛИСТОМ ОЖИДАНИЯ -->
   <div class="modal-overlay" id="soonModal" onclick="closeSoonModal()">
     <div class="modal-box" onclick="event.stopPropagation()">
       <div class="modal-pill">🔒 Закрытый раздел</div>
       <div class="modal-title" id="modalTitle">Скоро открытие</div>
       <div class="modal-text" id="modalText"></div>
       <div class="modal-actions">
+        <button type="button" class="modal-waitlist-btn shimmer-effect" id="waitlistBtn" onclick="joinWaitlist()">
+          🔔 Уведомить меня об открытии первым
+        </button>
         <a href="https://t.me/aibetmoney" id="modalTgLink" class="modal-tg-btn">
           Перейти в канал AiBet Money →
         </a>
@@ -1425,7 +1550,7 @@
         <input type="password" id="pinInput" class="adm-input" placeholder="Введите пароль администратора" style="text-align: center; font-size: 15px;" inputmode="numeric">
       </div>
       <div class="modal-actions">
-        <button type="button" class="modal-tg-btn" onclick="verifyPinCode()">Войти</button>
+        <button type="button" class="modal-waitlist-btn" onclick="verifyPinCode()">Войти</button>
         <button type="button" class="modal-close-btn" onclick="closePinModal()">Отмена</button>
       </div>
     </div>
@@ -1522,7 +1647,12 @@ window.INITIAL_BLOCKS = [
 
     function triggerHaptic(type = 'light') {
       try {
-        if (tg && tg.HapticFeedback) tg.HapticFeedback.impactOccurred(type);
+        if (!tg || !tg.HapticFeedback) return;
+        if (type === 'success' || type === 'warning' || type === 'error') {
+          tg.HapticFeedback.notificationOccurred(type);
+        } else {
+          tg.HapticFeedback.impactOccurred(type);
+        }
       } catch (e) {}
     }
 
@@ -1535,6 +1665,46 @@ window.INITIAL_BLOCKS = [
       } catch (e) {}
     }
 
+    function addAppToHomeScreen() {
+      triggerHaptic('medium');
+      try {
+        if (tg && typeof tg.addToHomeScreen === 'function') {
+          tg.addToHomeScreen();
+          return;
+        }
+      } catch (e) {}
+      alert('Чтобы добавить быстрый ярлык на телефон: нажми на три точки (⋮) в правом верхнем углу окна Telegram и выбери «Добавить на главный экран».');
+    }
+
+    // Определение пользователя и персональное приветствие
+    function getCurrentTgUser() {
+      try {
+        if (tg && tg.initDataUnsafe && tg.initDataUnsafe.user) {
+          const u = tg.initDataUnsafe.user;
+          return {
+            id: u.id,
+            firstName: (u.first_name || '').trim(),
+            name: ((u.first_name || '') + ' ' + (u.last_name || '')).trim() || 'Без имени',
+            username: u.username || ''
+          };
+        }
+      } catch (e) {}
+      return { id: 'local_guest', firstName: '', name: 'Гость (Браузер/ПК)', username: '' };
+    }
+
+    function escapeHtml(str) {
+      return String(str || '').replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    }
+
+    (function initPersonalGreeting() {
+      const u = getCurrentTgUser();
+      const subEl = document.getElementById('hubGreetingSubtitle');
+      if (u && u.firstName && subEl) {
+        subEl.innerHTML = '<strong>' + escapeHtml(u.firstName) + '</strong>, выбери нужный инструмент или раздел клуба';
+      }
+    })();
+
+    // Трекер визитов и заявок в лист ожидания
     let trackerCfg = window.TRACKER_CONFIG || { botToken: '', adminChatId: '' };
     try {
       const savedCfg = localStorage.getItem('aibet_tracker_cfg');
@@ -1545,21 +1715,7 @@ window.INITIAL_BLOCKS = [
       }
     } catch (e) {}
 
-    function getCurrentTgUser() {
-      try {
-        if (tg && tg.initDataUnsafe && tg.initDataUnsafe.user) {
-          const u = tg.initDataUnsafe.user;
-          return {
-            id: u.id,
-            name: ((u.first_name || '') + ' ' + (u.last_name || '')).trim() || 'Без имени',
-            username: u.username || ''
-          };
-        }
-      } catch (e) {}
-      return { id: 'local_guest', name: 'Гость (Браузер/ПК)', username: '' };
-    }
-
-    function logVisitorEvent(actionLabel) {
+    function logVisitorEvent(actionLabel, isPriorityLead = false) {
       try {
         const user = getCurrentTgUser();
         const nowStr = new Date().toLocaleString('ru-RU', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' });
@@ -1580,10 +1736,13 @@ window.INITIAL_BLOCKS = [
 
         if (trackerCfg.botToken && trackerCfg.adminChatId) {
           const userTag = user.username ? ' (@' + user.username + ')' : '';
-          const msg = '👤 Вход в AiBet Mini App:\n' +
+          const headerTitle = isPriorityLead
+            ? '🔥 НОВАЯ ЗАЯВКА В ЛИСТ ОЖИДАНИЯ!'
+            : '👤 Активность в AiBet Mini App:';
+          const msg = headerTitle + '\n' +
                       'Имя: ' + user.name + userTag + '\n' +
                       'ID: ' + user.id + '\n' +
-                      'Действие: ' + actionLabel + '\n' +
+                      'Событие: ' + actionLabel + '\n' +
                       'Время: ' + nowStr;
           fetch('https://api.telegram.org/bot' + trackerCfg.botToken + '/sendMessage', {
             method: 'POST',
@@ -1677,9 +1836,10 @@ window.INITIAL_BLOCKS = [
       }
     }
 
+    // Загрузка блоков меню
     let menuBlocks = [];
     try {
-      const saved = localStorage.getItem('aibet_menu_blocks_v6');
+      const saved = localStorage.getItem('aibet_menu_blocks_v7');
       const parsed = saved ? JSON.parse(saved) : null;
       if (Array.isArray(parsed) && parsed.length > 0) {
         menuBlocks = parsed;
@@ -1692,15 +1852,133 @@ window.INITIAL_BLOCKS = [
 
     function saveBlocksDraft() {
       try {
-        localStorage.setItem('aibet_menu_blocks_v6', JSON.stringify(menuBlocks));
+        localStorage.setItem('aibet_menu_blocks_v7', JSON.stringify(menuBlocks));
       } catch (e) {}
     }
 
-    const hubCardsGrid = document.getElementById('hubCardsGrid');
+    // Список ожидания (Waitlist)
+    let waitlistMap = {};
+    try {
+      waitlistMap = JSON.parse(localStorage.getItem('aibet_waitlist_v1') || '{}');
+    } catch (e) { waitlistMap = {}; }
 
-    function escapeHtml(str) {
-      return String(str || '').replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    let activeModalBlockIndex = null;
+
+    // =========================================================
+    // ЖИВАЯ ФИЗИКА ЧАСТИЦ TELEGRAM-СПОЙЛЕРА (HTML5 CANVAS)
+    // =========================================================
+    let spoilerAnimId = null;
+    let activeSpoilerSystems = [];
+
+    function initSpoilerCanvases() {
+      if (spoilerAnimId) {
+        cancelAnimationFrame(spoilerAnimId);
+        spoilerAnimId = null;
+      }
+      activeSpoilerSystems = [];
+
+      const canvases = document.querySelectorAll('.spoiler-canvas');
+      canvases.forEach(canvas => {
+        const parent = canvas.parentElement;
+        if (!parent) return;
+        const rect = parent.getBoundingClientRect();
+        const w = Math.max(150, rect.width || 180);
+        const h = Math.max(160, rect.height || 174);
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        canvas.width = w * dpr;
+        canvas.height = h * dpr;
+        const ctx = canvas.getContext('2d');
+        ctx.scale(dpr, dpr);
+
+        const count = 68;
+        const particles = [];
+        for (let i = 0; i < count; i++) {
+          const isGold = i % 4 === 0;
+          particles.push({
+            x: Math.random() * w,
+            y: Math.random() * h,
+            vx: (Math.random() - 0.5) * 0.35,
+            vy: (Math.random() - 0.5) * 0.35,
+            r: isGold ? (1.1 + Math.random() * 1.1) : (0.9 + Math.random() * 1.1),
+            alpha: 0.25 + Math.random() * 0.65,
+            dAlpha: (Math.random() * 0.015 + 0.005) * (Math.random() < 0.5 ? 1 : -1),
+            color: isGold ? '222, 173, 94' : '226, 232, 240'
+          });
+        }
+
+        const sys = { canvas, ctx, w, h, particles, pointer: null };
+
+        const repelAt = (clientX, clientY) => {
+          const r = parent.getBoundingClientRect();
+          sys.pointer = { x: clientX - r.left, y: clientY - r.top, time: Date.now() };
+        };
+
+        parent.addEventListener('pointerdown', (e) => {
+          repelAt(e.clientX, e.clientY);
+        }, { passive: true });
+
+        parent.addEventListener('pointermove', (e) => {
+          repelAt(e.clientX, e.clientY);
+        }, { passive: true });
+
+        activeSpoilerSystems.push(sys);
+      });
+
+      if (activeSpoilerSystems.length > 0) {
+        const animateSpoilers = () => {
+          const now = Date.now();
+          activeSpoilerSystems.forEach(sys => {
+            const { ctx, w, h, particles, pointer } = sys;
+            ctx.clearRect(0, 0, w, h);
+
+            const hasActivePointer = pointer && (now - pointer.time < 320);
+
+            for (let i = 0; i < particles.length; i++) {
+              const p = particles[i];
+
+              if (hasActivePointer) {
+                const dx = p.x - pointer.x;
+                const dy = p.y - pointer.y;
+                const distSq = dx * dx + dy * dy;
+                const maxDist = 58;
+                if (distSq < maxDist * maxDist && distSq > 1) {
+                  const dist = Math.sqrt(distSq);
+                  const force = (maxDist - dist) / maxDist;
+                  p.vx += (dx / dist) * force * 0.9;
+                  p.vy += (dy / dist) * force * 0.9;
+                }
+              }
+
+              p.vx *= 0.96;
+              p.vy *= 0.96;
+
+              if (Math.abs(p.vx) < 0.12) p.vx += (Math.random() - 0.5) * 0.06;
+              if (Math.abs(p.vy) < 0.12) p.vy += (Math.random() - 0.5) * 0.06;
+
+              p.x += p.vx;
+              p.y += p.vy;
+
+              if (p.x < 0) p.x = w;
+              if (p.x > w) p.x = 0;
+              if (p.y < 0) p.y = h;
+              if (p.y > h) p.y = 0;
+
+              p.alpha += p.dAlpha;
+              if (p.alpha > 0.9 || p.alpha < 0.2) p.dAlpha = -p.dAlpha;
+
+              ctx.beginPath();
+              ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+              ctx.fillStyle = 'rgba(' + p.color + ',' + p.alpha.toFixed(2) + ')';
+              ctx.fill();
+            }
+          });
+          spoilerAnimId = requestAnimationFrame(animateSpoilers);
+        };
+        spoilerAnimId = requestAnimationFrame(animateSpoilers);
+      }
     }
+
+    const hubCardsGrid = document.getElementById('hubCardsGrid');
 
     function renderHubCards() {
       if (!hubCardsGrid || !Array.isArray(menuBlocks)) return;
@@ -1711,6 +1989,8 @@ window.INITIAL_BLOCKS = [
 
         const isAvail = block.status === 'available' && !block.blurred;
         const isBlurred = Boolean(block.blurred);
+        const isWaitlisted = Boolean(waitlistMap[block.id]);
+
         const card = document.createElement('div');
         card.className = 'menu-card ' + (isAvail ? 'available' : 'soon') + (isBlurred ? ' blurred' : '');
         card.setAttribute('onclick', 'handleCardClick(' + index + ')');
@@ -1724,14 +2004,20 @@ window.INITIAL_BLOCKS = [
           coverInnerHtml = '<div class="default-cover-art"><div class="cover-icon-circle">' + (block.icon || '⭐') + '</div></div>';
         }
 
-        const pillText = isAvail ? '● Открыто' : '⏳ Скоро';
-        const pillClass = isAvail ? 'active-pill' : 'soon-pill';
-        const btnText = block.btnLabel || (isAvail ? 'Открыть →' : 'Скоро');
+        const pillHtml = isAvail
+          ? '<span class="status-pill active-pill"><span class="live-dot"></span>Открыто</span>'
+          : '<span class="status-pill soon-pill">⏳ Скоро</span>';
 
-        // Если карточка заблюрена — показываем ТОЛЬКО спойлер Telegram и капсулу "Скоро открытие" без палева названия и текста внутри
+        const btnText = block.btnLabel || (isAvail ? 'Открыть →' : 'Скоро');
+        const btnShimmerClass = isAvail ? ' shimmer-effect' : '';
+
+        const spoilerPillLabel = isWaitlisted ? 'В листе ожидания ✓' : 'Скоро открытие';
+        const spoilerPillClass = isWaitlisted ? 'tg-spoiler-pill waitlisted' : 'tg-spoiler-pill';
+
         const blurOverlayHtml = isBlurred
           ? '<div class="tg-spoiler-overlay">' +
-              '<div class="tg-spoiler-pill"><span class="dot"></span>Скоро открытие</div>' +
+              '<canvas class="spoiler-canvas"></canvas>' +
+              '<div class="' + spoilerPillClass + '"><span class="dot"></span>' + spoilerPillLabel + '</div>' +
             '</div>'
           : '';
 
@@ -1742,7 +2028,7 @@ window.INITIAL_BLOCKS = [
           blurOverlayHtml +
           '<div class="card-inner-blur" style="display:flex;flex-direction:column;flex:1;">' +
             '<div class="card-cover">' +
-              (!isBlurred ? '<span class="status-pill ' + pillClass + '">' + pillText + '</span>' : '') +
+              (!isBlurred ? pillHtml : '') +
               coverInnerHtml +
             '</div>' +
             '<div class="card-body">' +
@@ -1750,11 +2036,13 @@ window.INITIAL_BLOCKS = [
                 '<div class="card-title">' + escapeHtml(innerTitle) + '</div>' +
                 '<div class="card-desc">' + escapeHtml(innerDesc) + '</div>' +
               '</div>' +
-              '<div class="card-action-btn">' + escapeHtml(btnText) + '</div>' +
+              '<div class="card-action-btn' + btnShimmerClass + '">' + escapeHtml(btnText) + '</div>' +
             '</div>' +
           '</div>';
         hubCardsGrid.appendChild(card);
       });
+
+      requestAnimationFrame(() => initSpoilerCanvases());
     }
 
     renderHubCards();
@@ -1763,11 +2051,12 @@ window.INITIAL_BLOCKS = [
       const block = menuBlocks[index];
       if (!block) return;
       triggerHaptic('light');
-      logVisitorEvent('Нажал: ' + (block.blurred ? 'Скрытый раздел (#' + (index + 1) + ')' : block.title));
+      activeModalBlockIndex = index;
 
-      // Если карточка под блюром — не палим что внутри даже при клике
+      logVisitorEvent('Нажал: ' + (block.blurred ? 'Скрытый блок #' + (index + 1) + ' (' + block.title + ')' : block.title));
+
       if (block.blurred) {
-        openMysterySoonModal();
+        openMysterySoonModal(block);
         return;
       }
 
@@ -1783,14 +2072,66 @@ window.INITIAL_BLOCKS = [
       }
     }
 
-    function openMysterySoonModal() {
+    function syncWaitlistBtnState(block) {
+      const btn = document.getElementById('waitlistBtn');
+      if (!btn || !block) return;
+      if (waitlistMap[block.id]) {
+        btn.textContent = '✅ Ты в списке ожидания!';
+        btn.classList.add('done');
+        btn.classList.remove('shimmer-effect');
+      } else {
+        btn.textContent = '🔔 Уведомить меня об открытии первым';
+        btn.classList.remove('done');
+        btn.classList.add('shimmer-effect');
+      }
+    }
+
+    function openMysterySoonModal(block) {
       document.getElementById('modalTitle').textContent = 'Скоро открытие';
-      document.getElementById('modalText').textContent = 'Мы готовим новый закрытый раздел платформы AiBet Money. Следи за анонсами в официальном канале клуба!';
+      document.getElementById('modalText').textContent = 'Мы готовим к запуску закрытый раздел платформы AiBet Money. Оставь отметку ниже, чтобы получить персональное уведомление и доступ в числе первых:';
+      syncWaitlistBtnState(block);
+
       const link = document.getElementById('modalTgLink');
       const url = 'https://t.me/aibetmoney';
       link.href = url;
       link.onclick = (e) => openTgLink(e, url);
       document.getElementById('soonModal').classList.add('open');
+    }
+
+    function openSoonModal(block) {
+      document.getElementById('modalTitle').textContent = block.title;
+      document.getElementById('modalText').textContent = block.pageText || 'Этот раздел готовится к запуску. Нажми кнопку ниже, чтобы узнать об открытии первым:';
+      syncWaitlistBtnState(block);
+
+      const link = document.getElementById('modalTgLink');
+      const url = block.ctaUrl || 'https://t.me/aibetmoney';
+      link.href = url;
+      link.onclick = (e) => openTgLink(e, url);
+      document.getElementById('soonModal').classList.add('open');
+    }
+
+    function joinWaitlist() {
+      if (activeModalBlockIndex === null || !menuBlocks[activeModalBlockIndex]) return;
+      const block = menuBlocks[activeModalBlockIndex];
+
+      if (waitlistMap[block.id]) {
+        triggerHaptic('light');
+        return;
+      }
+
+      waitlistMap[block.id] = true;
+      try {
+        localStorage.setItem('aibet_waitlist_v1', JSON.stringify(waitlistMap));
+      } catch (e) {}
+
+      triggerHaptic('success');
+      syncWaitlistBtnState(block);
+      renderHubCards();
+      logVisitorEvent('🔥 Записался в лист ожидания: ' + block.title + ' (Блок #' + (activeModalBlockIndex + 1) + ')', true);
+    }
+
+    function closeSoonModal() {
+      document.getElementById('soonModal').classList.remove('open');
     }
 
     function openPromoPage(block) {
@@ -1838,20 +2179,7 @@ window.INITIAL_BLOCKS = [
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    function openSoonModal(block) {
-      document.getElementById('modalTitle').textContent = block.title;
-      document.getElementById('modalText').textContent = block.pageText || 'Этот раздел готовится к запуску. Все анонсы — в официальном канале клуба.';
-      const link = document.getElementById('modalTgLink');
-      const url = block.ctaUrl || 'https://t.me/aibetmoney';
-      link.href = url;
-      link.onclick = (e) => openTgLink(e, url);
-      document.getElementById('soonModal').classList.add('open');
-    }
-
-    function closeSoonModal() {
-      document.getElementById('soonModal').classList.remove('open');
-    }
-
+    // Вход в Админку
     let tapCount = 0;
     let tapTimer = null;
     let isAdminUnlocked = false;
@@ -2059,6 +2387,8 @@ window.INITIAL_BLOCKS = [
       if (vBox) vBox.innerHTML = '';
       const quickBtn = clone.querySelector('#adminQuickBtn');
       if (quickBtn) quickBtn.classList.remove('unlocked');
+      const subEl = clone.querySelector('#hubGreetingSubtitle');
+      if (subEl) subEl.textContent = 'Выбери нужный инструмент или раздел клуба';
       return '<!DOCTYPE html>\n' + clone.outerHTML;
     }
 
@@ -2081,7 +2411,9 @@ window.INITIAL_BLOCKS = [
       URL.revokeObjectURL(url);
     }
 
-    // Логика калькулятора
+    // =========================================================
+    // ЛОГИКА КАЛЬКУЛЯТОРА С ПЛАВНЫМ "БАРАБАНОМ ЦИФР"
+    // =========================================================
     const MAX_BANK_SHARE = 0.05;
     const bankInput = document.getElementById('bankInput');
     const oddsInput = document.getElementById('oddsInput');
@@ -2106,6 +2438,11 @@ window.INITIAL_BLOCKS = [
     let currentRoundStep = 1;
     let currentBetRaw = 4000;
     let currentProfitRaw = 2000;
+    let currentPayoutRaw = 6000;
+    let displayedBet = 4000;
+    let displayedProfit = 2000;
+    let displayedPayout = 6000;
+    let numberAnimFrame = null;
     let previousBankValue = null;
     let lastMetaText = '≈ 4.0% банка при кэфе 1.50';
     let saveTimer = null;
@@ -2127,6 +2464,45 @@ window.INITIAL_BLOCKS = [
       savedBadge.classList.add('show');
       clearTimeout(saveTimer);
       saveTimer = setTimeout(() => savedBadge.classList.remove('show'), 1500);
+    }
+
+    function animateNumbersTo(targetBet, targetProfit, targetPayout, instant = false) {
+      if (numberAnimFrame) cancelAnimationFrame(numberAnimFrame);
+
+      if (instant) {
+        displayedBet = targetBet;
+        displayedProfit = targetProfit;
+        displayedPayout = targetPayout;
+        resultValue.textContent = formatSpaces(targetBet) + ' ₽';
+        netProfitVal.textContent = (targetProfit > 0 ? '+' : '') + formatSpaces(targetProfit) + ' ₽';
+        totalPayoutVal.textContent = formatSpaces(targetPayout) + ' ₽';
+        return;
+      }
+
+      const startBet = displayedBet;
+      const startProfit = displayedProfit;
+      const startPayout = displayedPayout;
+      const startTime = performance.now();
+      const duration = 220;
+
+      const step = (now) => {
+        const progress = Math.min(1, (now - startTime) / duration);
+        const ease = 1 - Math.pow(1 - progress, 3); // cubic ease-out
+
+        displayedBet = Math.round(startBet + (targetBet - startBet) * ease);
+        displayedProfit = Math.round(startProfit + (targetProfit - startProfit) * ease);
+        displayedPayout = Math.round(startPayout + (targetPayout - startPayout) * ease);
+
+        resultValue.textContent = formatSpaces(displayedBet) + ' ₽';
+        netProfitVal.textContent = (displayedProfit > 0 ? '+' : '') + formatSpaces(displayedProfit) + ' ₽';
+        totalPayoutVal.textContent = formatSpaces(displayedPayout) + ' ₽';
+
+        if (progress < 1) {
+          numberAnimFrame = requestAnimationFrame(step);
+        }
+      };
+
+      numberAnimFrame = requestAnimationFrame(step);
     }
 
     try {
@@ -2154,7 +2530,7 @@ window.INITIAL_BLOCKS = [
       }
     } catch (e) {}
 
-    function calculate(savePrefs = false) {
+    function calculate(savePrefs = false, instant = false) {
       const bank = parseBank(bankInput.value);
       const odds = parseOdds(oddsInput.value);
 
@@ -2170,11 +2546,10 @@ window.INITIAL_BLOCKS = [
       if (bank <= 0 || odds <= 1) {
         currentBetRaw = 0;
         currentProfitRaw = 0;
-        resultValue.textContent = '0 ₽';
+        currentPayoutRaw = 0;
+        animateNumbersTo(0, 0, 0, true);
         lastMetaText = 'Введите банк и кэф больше 1.00';
         resultSub.textContent = lastMetaText;
-        netProfitVal.textContent = '0 ₽';
-        totalPayoutVal.textContent = '0 ₽';
         winBtnDelta.textContent = '';
         lossBtnDelta.textContent = '';
         return;
@@ -2195,15 +2570,15 @@ window.INITIAL_BLOCKS = [
 
       currentBetRaw = betAmount;
       currentProfitRaw = netProfit;
+      currentPayoutRaw = totalPayout;
 
-      resultValue.textContent = formatSpaces(betAmount) + ' ₽';
+      animateNumbersTo(betAmount, netProfit, totalPayout, instant);
+
       lastMetaText = isCapped
         ? '≈ ' + actualPercent.toFixed(1) + '% банка при кэфе ' + odds.toFixed(2) + ' (макс. лимит 5%)'
         : '≈ ' + actualPercent.toFixed(1) + '% банка при кэфе ' + odds.toFixed(2);
       resultSub.textContent = lastMetaText;
 
-      netProfitVal.textContent = '+' + formatSpaces(netProfit) + ' ₽';
-      totalPayoutVal.textContent = formatSpaces(totalPayout) + ' ₽';
       winBtnDelta.textContent = '(+' + formatSpaces(netProfit) + ' ₽)';
       lossBtnDelta.textContent = '(−' + formatSpaces(betAmount) + ' ₽)';
     }
@@ -2211,10 +2586,10 @@ window.INITIAL_BLOCKS = [
     bankInput.addEventListener('input', () => {
       const rawDigits = bankInput.value.replace(/\D/g, '');
       bankInput.value = rawDigits ? formatSpaces(parseInt(rawDigits, 10)) : '';
-      calculate(true);
+      calculate(true, false);
     });
 
-    oddsInput.addEventListener('input', () => calculate(false));
+    oddsInput.addEventListener('input', () => calculate(false, false));
     bankInput.addEventListener('focus', () => bankInput.select());
     oddsInput.addEventListener('focus', () => oddsInput.select());
 
@@ -2225,7 +2600,7 @@ window.INITIAL_BLOCKS = [
         btn.classList.add('active');
         currentRisk = parseFloat(btn.dataset.risk);
         riskHintText.textContent = btn.dataset.label;
-        calculate(true);
+        calculate(true, false);
       });
     });
 
@@ -2235,11 +2610,11 @@ window.INITIAL_BLOCKS = [
         document.querySelectorAll('#roundGroup .round-pill').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
         currentRoundStep = parseInt(btn.dataset.step, 10);
-        calculate(true);
+        calculate(true, false);
       });
     });
 
-    function updateBankBalance(delta, label) {
+    function updateBankBalance(delta, label, hapticType) {
       const currentBank = parseBank(bankInput.value);
       if (currentBank <= 0 || currentBetRaw <= 0) return;
 
@@ -2247,13 +2622,13 @@ window.INITIAL_BLOCKS = [
       const nextBank = Math.max(0, Math.round(currentBank + delta));
       bankInput.value = formatSpaces(nextBank);
       undoWrap.classList.add('visible');
-      triggerHaptic('medium');
-      calculate(true);
+      triggerHaptic(hapticType);
+      calculate(true, false);
       showSavedIndicator(label);
     }
 
-    btnWin.addEventListener('click', () => updateBankBalance(currentProfitRaw, 'Банк увеличен ✓'));
-    btnLoss.addEventListener('click', () => updateBankBalance(-currentBetRaw, 'Банк обновлён ✓'));
+    btnWin.addEventListener('click', () => updateBankBalance(currentProfitRaw, 'Банк увеличен ✓', 'success'));
+    btnLoss.addEventListener('click', () => updateBankBalance(-currentBetRaw, 'Банк обновлён ✓', 'warning'));
 
     undoBtn.addEventListener('click', () => {
       if (previousBankValue !== null) {
@@ -2261,14 +2636,14 @@ window.INITIAL_BLOCKS = [
         bankInput.value = formatSpaces(previousBankValue);
         previousBankValue = null;
         undoWrap.classList.remove('visible');
-        calculate(true);
+        calculate(true, false);
         showSavedIndicator('Возвращено ↺');
       }
     });
 
     resultBox.addEventListener('click', () => {
       if (currentBetRaw <= 0) return;
-      triggerHaptic('medium');
+      triggerHaptic('success');
       if (navigator.clipboard) {
         navigator.clipboard.writeText(String(currentBetRaw));
       }
@@ -2282,7 +2657,7 @@ window.INITIAL_BLOCKS = [
       spoilerArrow.textContent = isOpen ? '▲' : '▼';
     });
 
-    calculate(false);
+    calculate(false, true);
   </script>
 </body>
 </html>
