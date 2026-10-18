@@ -1,45 +1,41 @@
 <!DOCTYPE html>
-<html lang="ru" style="--tg-theme-accent-text-color: #6ab2f2; --tg-color-scheme: dark; --tg-theme-bg-color: #17212b; --tg-theme-bottom-bar-bg-color: #17212b; --tg-theme-button-color: #5288c1; --tg-theme-button-text-color: #ffffff; --tg-theme-destructive-text-color: #ec3942; --tg-theme-header-bg-color: #17212b; --tg-theme-hint-color: #708499; --tg-theme-link-color: #6ab3f3; --tg-theme-secondary-bg-color: #232e3c; --tg-theme-section-bg-color: #17212b; --tg-theme-section-header-text-color: #6ab3f3; --tg-theme-section-separator-color: #111921; --tg-theme-subtitle-text-color: #708499; --tg-theme-text-color: #f5f5f5; --tg-viewport-height: 568px; --tg-viewport-stable-height: 568px; --tg-safe-area-inset-top: 0px; --tg-safe-area-inset-bottom: 0px; --tg-safe-area-inset-left: 0px; --tg-safe-area-inset-right: 0px; --tg-content-safe-area-inset-top: 0px; --tg-content-safe-area-inset-bottom: 0px; --tg-content-safe-area-inset-left: 0px; --tg-content-safe-area-inset-right: 0px;"><head>
+<html lang="ru">
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>AiBet Money — Платформа</title>
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Montserrat:wght@500;600;700;800&amp;display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
   <style>
+    /* ОФИЦИАЛЬНАЯ ДИЗАЙН-СИСТЕМА AIBET MONEY */
     :root {
-      --bg-page: #070B12;
-      --bg-card: #0E1523;
-      --bg-dark-inner: #090E18;
-      --cream: #F5EFE4;
-      --cream-focus: #FFFFFF;
-      --gold: #CFA35E;
-      --gold-emblem: #E1A856;
-      --gold-light: #E2B976;
-      --gold-border: rgba(207, 163, 94, 0.45);
-      --gold-glow: rgba(207, 163, 94, 0.14);
+      --deep-navy: #0B1220;         /* 03. DEEP NAVY #0B1220 */
+      --navy-card: #10192B;         /* Карточки на 1 тон светлее фона */
+      --navy-inner: #080E1A;        /* Внутренние плашки */
+      --platinum: #E2E8F0;          /* 03. PLATINUM #E2E8F0 */
+      --platinum-muted: #94A3B8;    /* Вторичный платиновый текст */
+      --matte-gold: #C9A876;        /* 03. MUTED MATTE GOLD #C9A876 */
+      --gold-border: rgba(201, 168, 118, 0.38);
+      --gold-subtle: rgba(201, 168, 118, 0.10);
+      --platinum-border: rgba(226, 232, 240, 0.08);
       --green: #34D399;
       --green-bg: rgba(52, 211, 153, 0.12);
       --green-border: rgba(52, 211, 153, 0.35);
       --red: #F87171;
       --red-bg: rgba(248, 113, 113, 0.10);
       --red-border: rgba(248, 113, 113, 0.32);
-      --text-main: #F1F5F9;
-      --text-secondary: #CBD5E1;
-      --text-muted: #8E9BAE;
-      --text-dark: #0A101D;
-      --border-subtle: rgba(255, 255, 255, 0.08);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
 
     body {
-      background-color: var(--bg-page);
+      background-color: var(--deep-navy);
       background-image: 
-        radial-gradient(circle at 15% 15%, rgba(207, 163, 94, 0.05) 0%, transparent 45%),
-        radial-gradient(circle at 85% 80%, rgba(18, 27, 45, 0.8) 0%, transparent 50%);
-      color: var(--text-main);
+        radial-gradient(circle at 50% 0%, rgba(226, 232, 240, 0.03) 0%, transparent 55%),
+        radial-gradient(circle at 85% 90%, rgba(201, 168, 118, 0.03) 0%, transparent 45%);
+      color: var(--platinum);
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       min-height: 100vh;
       display: flex;
@@ -49,9 +45,9 @@
 
     /* ВЕРХНЯЯ ШАПКА */
     .site-header {
-      background: rgba(14, 21, 35, 0.92);
+      background: rgba(11, 18, 32, 0.92);
       backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(207, 163, 94, 0.25);
+      border-bottom: 1px solid var(--platinum-border);
       position: sticky;
       top: 0;
       z-index: 30;
@@ -63,70 +59,43 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 8px 0;
+      padding: 9px 0;
       gap: 10px;
     }
 
+    /* 02. WORDMARK: AiBet с золотой точкой над i */
     .brand-logo {
       display: inline-flex;
       flex-direction: column;
       align-items: center;
-      width: 104px;
+      width: 108px;
       text-decoration: none;
       cursor: pointer;
     }
 
-    .brand-logo-top {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 27px;
-      font-weight: 700;
-      color: #FFFFFF;
-      letter-spacing: 0.5px;
-      line-height: 1;
-    }
-
-    .brand-logo-bottom {
-      display: flex;
-      align-items: center;
+    .wordmark-svg {
       width: 100%;
-      margin-top: 3px;
-      gap: 5px;
-    }
-
-    .brand-logo-bottom::before,
-    .brand-logo-bottom::after {
-      content: "";
-      flex: 1;
-      height: 1px;
-      background: var(--gold);
-      opacity: 0.85;
-    }
-
-    .brand-logo-bottom span {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 8px;
-      font-weight: 600;
-      color: var(--gold);
-      letter-spacing: 2.8px;
-      padding-left: 2.8px;
+      height: auto;
+      display: block;
     }
 
     .channel-pill {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      color: var(--gold-light);
+      color: var(--platinum);
       font-size: 12px;
       font-weight: 600;
       text-decoration: none;
-      padding: 6px 11px;
-      background: var(--gold-glow);
+      padding: 6px 12px;
+      background: rgba(226, 232, 240, 0.04);
       border: 1px solid var(--gold-border);
       border-radius: 8px;
       cursor: pointer;
+      transition: border-color 0.2s;
     }
 
-    .channel-pill svg { width: 14px; height: 14px; fill: currentColor; flex-shrink: 0; }
+    .channel-pill svg { width: 14px; height: 14px; fill: var(--matte-gold); flex-shrink: 0; }
 
     .view-screen { display: none; }
     .view-screen.active { display: block; }
@@ -146,11 +115,11 @@
       font-family: 'Montserrat', sans-serif;
       font-size: 18px;
       font-weight: 800;
-      color: #FFFFFF;
+      color: var(--platinum);
       margin-bottom: 2px;
     }
 
-    .hub-subtitle { font-size: 11.5px; color: var(--text-muted); }
+    .hub-subtitle { font-size: 11.5px; color: var(--platinum-muted); }
 
     .menu-grid {
       display: grid;
@@ -159,42 +128,37 @@
     }
 
     .menu-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
+      background: var(--navy-card);
+      border: 1px solid var(--platinum-border);
       border-radius: 14px;
       overflow: hidden;
       display: flex;
       flex-direction: column;
       cursor: pointer;
       transition: transform 0.15s ease, border-color 0.15s ease;
-      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.35);
       position: relative;
     }
 
     .menu-card:active { transform: scale(0.98); }
 
+    /* Gold Usage Max 5%: тонкий деликатный золотой контур только у активного главного инструмента */
     .menu-card.available {
-      border: 1.5px solid var(--gold);
-      background: linear-gradient(165deg, #131E33 0%, #0E1523 100%);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), 0 0 18px rgba(207, 163, 94, 0.12);
+      border: 1px solid var(--matte-gold);
+      background: linear-gradient(165deg, #131F35 0%, var(--navy-card) 100%);
     }
 
-    /* Обложка 2:1 (под картинку 800x400 px) */
+    /* Обложка 2:1 (под 800x400 px) */
     .card-cover {
       width: 100%;
       height: 82px;
-      background: var(--bg-dark-inner);
-      border-bottom: 1px solid var(--border-subtle);
+      background: var(--navy-inner);
+      border-bottom: 1px solid var(--platinum-border);
       position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
       overflow: hidden;
-    }
-
-    .menu-card.available .card-cover {
-      background: radial-gradient(circle at 50% 45%, rgba(207, 163, 94, 0.24) 0%, #090E18 82%);
-      border-bottom: 1px solid rgba(207, 163, 94, 0.25);
     }
 
     .card-cover-img {
@@ -215,19 +179,19 @@
       letter-spacing: 0.4px;
       padding: 2px 6px;
       border-radius: 999px;
-      z-index: 2;
+      z-index: 4;
     }
 
     .status-pill.active-pill {
-      background: rgba(9, 14, 24, 0.9);
-      border: 1px solid rgba(52, 211, 153, 0.55);
+      background: rgba(8, 14, 26, 0.9);
+      border: 1px solid rgba(52, 211, 153, 0.5);
       color: var(--green);
     }
 
     .status-pill.soon-pill {
-      background: rgba(9, 14, 24, 0.9);
-      border: 1px solid rgba(207, 163, 94, 0.45);
-      color: var(--gold-light);
+      background: rgba(8, 14, 26, 0.9);
+      border: 1px solid var(--gold-border);
+      color: var(--matte-gold);
     }
 
     .default-cover-art {
@@ -236,15 +200,15 @@
       justify-content: center;
       width: 100%;
       height: 100%;
-      padding: 18px 8px 6px 8px; /* Отступ сверху, чтобы плашка статуса не перекрывала превью */
+      padding: 18px 8px 6px 8px;
     }
 
     .calc-mini-widget {
       display: flex;
       align-items: center;
       gap: 6px;
-      background: rgba(14, 21, 35, 0.94);
-      border: 1px solid var(--gold);
+      background: var(--navy-card);
+      border: 1px solid var(--gold-border);
       border-radius: 7px;
       padding: 4px 8px;
     }
@@ -252,8 +216,8 @@
     .calc-mini-left { display: flex; flex-direction: column; gap: 2px; }
 
     .calc-mini-pill {
-      background: var(--cream);
-      color: var(--text-dark);
+      background: var(--platinum);
+      color: var(--deep-navy);
       font-family: 'Montserrat', sans-serif;
       font-size: 7px;
       font-weight: 800;
@@ -264,14 +228,14 @@
 
     .calc-mini-right {
       padding-left: 6px;
-      border-left: 1px solid rgba(255, 255, 255, 0.14);
+      border-left: 1px solid var(--platinum-border);
       line-height: 1.1;
     }
 
     .calc-mini-right span {
       display: block;
       font-size: 6px;
-      color: var(--gold);
+      color: var(--matte-gold);
       text-transform: uppercase;
       font-weight: 700;
     }
@@ -280,15 +244,15 @@
       font-family: 'Montserrat', sans-serif;
       font-size: 11px;
       font-weight: 800;
-      color: #FFFFFF;
+      color: var(--platinum);
     }
 
     .cover-icon-circle {
       width: 38px;
       height: 38px;
       border-radius: 10px;
-      background: rgba(207, 163, 94, 0.1);
-      border: 1px solid rgba(207, 163, 94, 0.35);
+      background: rgba(201, 168, 118, 0.08);
+      border: 1px solid var(--gold-border);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -308,7 +272,7 @@
       font-family: 'Montserrat', sans-serif;
       font-size: 12.5px;
       font-weight: 700;
-      color: #FFFFFF;
+      color: var(--platinum);
       line-height: 1.2;
       margin-bottom: 3px;
     }
@@ -316,7 +280,7 @@
     .card-desc {
       font-size: 11px;
       line-height: 1.3;
-      color: var(--text-muted);
+      color: var(--platinum-muted);
     }
 
     .card-action-btn {
@@ -330,17 +294,61 @@
     }
 
     .menu-card.available .card-action-btn {
-      background: var(--cream);
-      border: 1px solid var(--gold);
-      color: var(--text-dark);
+      background: var(--platinum);
+      border: 1px solid var(--matte-gold);
+      color: var(--deep-navy);
     }
 
     .menu-card.soon .card-action-btn {
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      color: var(--text-muted);
+      background: rgba(226, 232, 240, 0.04);
+      border: 1px solid var(--platinum-border);
+      color: var(--platinum-muted);
     }
 
+    /* ЭФФЕКТ БЛЮРА (РАЗМЫТИЯ) КАРТОЧКИ */
+    .menu-card.blurred .card-inner-blur {
+      filter: blur(5px);
+      opacity: 0.45;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .blur-lock-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      z-index: 3;
+      background: rgba(11, 18, 32, 0.35);
+      backdrop-filter: blur(2px);
+      padding: 12px;
+      text-align: center;
+    }
+
+    .blur-lock-badge {
+      background: rgba(8, 14, 26, 0.92);
+      border: 1px solid var(--gold-border);
+      color: var(--matte-gold);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 5px 10px;
+      border-radius: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .blur-lock-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--platinum);
+    }
+
+    /* 01. PRIMARY SYMBOL ВНИЗУ МЕНЮ */
     .hub-footer-emblem {
       margin-top: 12px;
       display: flex;
@@ -350,7 +358,7 @@
     }
 
     .hub-emblem-svg {
-      width: 54px;
+      width: 52px;
       height: auto;
       cursor: pointer;
       user-select: none;
@@ -358,9 +366,9 @@
 
     .admin-open-pill {
       display: none;
-      background: rgba(207, 163, 94, 0.16);
-      border: 1px solid var(--gold);
-      color: var(--gold-light);
+      background: var(--gold-subtle);
+      border: 1px solid var(--matte-gold);
+      color: var(--matte-gold);
       font-family: 'Montserrat', sans-serif;
       font-size: 11px;
       font-weight: 700;
@@ -377,8 +385,8 @@
     .promo-wrap { max-width: 600px; margin: 0 auto; padding: 14px 0 36px 0; }
 
     .promo-card {
-      background: var(--bg-card);
-      border: 1.5px solid var(--gold-border);
+      background: var(--navy-card);
+      border: 1px solid var(--gold-border);
       border-radius: 16px;
       overflow: hidden;
       margin-top: 12px;
@@ -387,8 +395,8 @@
     .promo-cover {
       width: 100%;
       height: 170px;
-      background: radial-gradient(circle at 50% 30%, rgba(207, 163, 94, 0.22) 0%, #090E18 80%);
-      border-bottom: 1px solid var(--gold-border);
+      background: var(--navy-inner);
+      border-bottom: 1px solid var(--platinum-border);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -397,8 +405,8 @@
 
     .promo-cover img { width: 100%; height: 100%; object-fit: cover; }
     .promo-body { padding: 20px 18px; }
-    .promo-title { font-family: 'Montserrat', sans-serif; font-size: 20px; font-weight: 800; color: #FFFFFF; margin-bottom: 12px; }
-    .promo-text { font-size: 14px; line-height: 1.6; color: var(--text-secondary); white-space: pre-line; margin-bottom: 20px; }
+    .promo-title { font-family: 'Montserrat', sans-serif; font-size: 20px; font-weight: 800; color: var(--platinum); margin-bottom: 12px; }
+    .promo-text { font-size: 14px; line-height: 1.6; color: var(--platinum); opacity: 0.9; white-space: pre-line; margin-bottom: 20px; }
 
     .promo-cta-btn {
       display: flex;
@@ -406,10 +414,10 @@
       justify-content: center;
       width: 100%;
       padding: 14px 18px;
-      background: var(--cream);
-      border: 1.5px solid var(--gold);
+      background: var(--platinum);
+      border: 1px solid var(--matte-gold);
       border-radius: 11px;
-      color: var(--text-dark);
+      color: var(--deep-navy);
       font-family: 'Montserrat', sans-serif;
       font-size: 14px;
       font-weight: 800;
@@ -425,9 +433,9 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      background: var(--bg-card);
+      background: var(--navy-card);
       border: 1px solid var(--gold-border);
-      color: var(--gold-light);
+      color: var(--matte-gold);
       font-family: 'Montserrat', sans-serif;
       font-size: 12px;
       font-weight: 700;
@@ -445,18 +453,18 @@
     }
 
     .card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
+      background: var(--navy-card);
+      border: 1px solid var(--platinum-border);
       border-radius: 15px;
       padding: 18px;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
     }
 
     .block-label {
       font-family: 'Montserrat', sans-serif;
       font-size: 12.5px;
       font-weight: 700;
-      color: var(--gold);
+      color: var(--matte-gold);
       text-transform: uppercase;
       letter-spacing: 0.8px;
       margin-bottom: 12px;
@@ -466,13 +474,13 @@
     }
 
     .block-label-left { display: flex; align-items: center; gap: 7px; }
-    .block-label-left::before { content: ""; display: inline-block; width: 3px; height: 13px; background: var(--gold); border-radius: 2px; }
+    .block-label-left::before { content: ""; display: inline-block; width: 3px; height: 13px; background: var(--matte-gold); border-radius: 2px; }
 
     .saved-badge {
       font-family: 'Inter', sans-serif;
       font-size: 11px;
       font-weight: 500;
-      color: var(--gold-light);
+      color: var(--matte-gold);
       text-transform: none;
       opacity: 0;
       transition: opacity 0.25s ease;
@@ -488,37 +496,37 @@
       grid-template-columns: 1fr 150px;
       align-items: center;
       gap: 10px;
-      background: rgba(255, 255, 255, 0.02);
+      background: rgba(226, 232, 240, 0.02);
       padding: 5px 5px 5px 12px;
       border-radius: 11px;
-      border: 1px solid rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--platinum-border);
     }
 
     .field-block {
       display: flex;
       flex-direction: column;
       gap: 7px;
-      background: rgba(255, 255, 255, 0.02);
+      background: rgba(226, 232, 240, 0.02);
       padding: 9px 10px 10px 12px;
       border-radius: 11px;
-      border: 1px solid rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--platinum-border);
     }
 
     .field-title {
       font-size: 13.5px;
       font-weight: 500;
-      color: var(--text-secondary);
+      color: var(--platinum);
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
 
-    .field-title-hint { font-size: 11px; color: var(--text-muted); font-weight: 400; }
+    .field-title-hint { font-size: 11px; color: var(--platinum-muted); font-weight: 400; }
 
     .gold-input-box {
       height: 40px;
-      background: var(--cream);
-      border: 1.5px solid var(--gold);
+      background: var(--platinum);
+      border: 1.5px solid var(--matte-gold);
       border-radius: 8px;
       display: flex;
       align-items: center;
@@ -533,7 +541,7 @@
       font-family: 'Montserrat', sans-serif;
       font-size: 15px;
       font-weight: 700;
-      color: var(--text-dark);
+      color: var(--deep-navy);
       text-align: center;
       padding: 0 10px;
     }
@@ -541,21 +549,21 @@
     .segmented-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
 
     .seg-btn {
-      background: var(--bg-dark-inner);
-      border: 1px solid rgba(207, 163, 94, 0.3);
+      background: var(--navy-inner);
+      border: 1px solid var(--platinum-border);
       border-radius: 7px;
       padding: 8px 4px;
       font-family: 'Montserrat', sans-serif;
       font-size: 12px;
       font-weight: 600;
-      color: var(--text-secondary);
+      color: var(--platinum-muted);
       cursor: pointer;
     }
 
     .seg-btn.active {
-      background: var(--cream);
-      border: 1.5px solid var(--gold);
-      color: var(--text-dark);
+      background: var(--platinum);
+      border: 1.5px solid var(--matte-gold);
+      color: var(--deep-navy);
       font-weight: 700;
     }
 
@@ -567,28 +575,28 @@
       padding: 3px 2px 0 4px;
     }
 
-    .round-label { font-size: 12px; color: var(--text-muted); }
+    .round-label { font-size: 12px; color: var(--platinum-muted); }
     .round-pills { display: flex; gap: 4px; }
 
     .round-pill {
-      background: var(--bg-dark-inner);
-      border: 1px solid var(--border-subtle);
+      background: var(--navy-inner);
+      border: 1px solid var(--platinum-border);
       border-radius: 6px;
       padding: 4px 8px;
       font-size: 11px;
       font-weight: 600;
-      color: var(--text-muted);
+      color: var(--platinum-muted);
       cursor: pointer;
     }
 
     .round-pill.active {
-      background: var(--gold-glow);
-      border-color: var(--gold);
-      color: var(--gold-light);
+      background: var(--gold-subtle);
+      border-color: var(--matte-gold);
+      color: var(--matte-gold);
     }
 
     .result-card {
-      background: linear-gradient(180deg, #131D31 0%, #0E1523 100%);
+      background: var(--navy-card);
       border: 1px solid var(--gold-border);
       border-radius: 15px;
       padding: 16px 18px;
@@ -601,16 +609,16 @@
       font-family: 'Montserrat', sans-serif;
       font-size: 11px;
       font-weight: 700;
-      color: var(--text-muted);
+      color: var(--platinum-muted);
       text-transform: uppercase;
       margin-bottom: 7px;
     }
 
-    .copy-hint { font-family: 'Inter', sans-serif; font-size: 10.5px; font-weight: 400; text-transform: none; color: var(--gold); }
+    .copy-hint { font-family: 'Inter', sans-serif; font-size: 10.5px; font-weight: 400; text-transform: none; color: var(--matte-gold); }
 
     .result-display {
-      background: var(--bg-dark-inner);
-      border: 1.5px solid var(--gold);
+      background: var(--navy-inner);
+      border: 1px solid var(--matte-gold);
       border-radius: 11px;
       height: 76px;
       display: flex;
@@ -619,8 +627,8 @@
       cursor: pointer;
     }
 
-    .result-number { font-family: 'Montserrat', sans-serif; font-size: 34px; font-weight: 800; color: #FFFFFF; }
-    .result-meta { text-align: center; font-size: 12.5px; font-style: italic; color: var(--gold-light); margin-top: 7px; }
+    .result-number { font-family: 'Montserrat', sans-serif; font-size: 34px; font-weight: 800; color: var(--platinum); }
+    .result-meta { text-align: center; font-size: 12.5px; font-style: italic; color: var(--matte-gold); margin-top: 7px; }
 
     .profit-grid {
       display: grid;
@@ -628,19 +636,19 @@
       gap: 8px;
       margin-top: 12px;
       padding-top: 12px;
-      border-top: 1px solid var(--border-subtle);
+      border-top: 1px solid var(--platinum-border);
     }
 
     .profit-box {
-      background: rgba(9, 14, 24, 0.65);
-      border: 1px solid rgba(255, 255, 255, 0.05);
+      background: var(--navy-inner);
+      border: 1px solid var(--platinum-border);
       border-radius: 9px;
       padding: 8px 10px;
       text-align: center;
     }
 
-    .profit-box-label { font-size: 10.5px; color: var(--text-muted); margin-bottom: 2px; }
-    .profit-box-val { font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 700; color: var(--text-main); }
+    .profit-box-label { font-size: 10.5px; color: var(--platinum-muted); margin-bottom: 2px; }
+    .profit-box-val { font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 700; color: var(--platinum); }
     .profit-box-val.green { color: var(--green); }
 
     .bank-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 9px; }
@@ -663,7 +671,7 @@
 
     .undo-wrap { text-align: center; margin-top: 7px; display: none; }
     .undo-wrap.visible { display: block; }
-    .undo-btn { background: none; border: none; color: var(--text-muted); font-size: 11.5px; text-decoration: underline; cursor: pointer; }
+    .undo-btn { background: none; border: none; color: var(--platinum-muted); font-size: 11.5px; text-decoration: underline; cursor: pointer; }
 
     .tg-cta-link {
       display: inline-flex;
@@ -671,10 +679,10 @@
       justify-content: center;
       width: 100%;
       padding: 12px 16px;
-      background: rgba(207, 163, 94, 0.1);
+      background: var(--gold-subtle);
       border: 1px solid var(--gold-border);
       border-radius: 11px;
-      color: var(--gold-light);
+      color: var(--matte-gold);
       font-size: 13.5px;
       font-weight: 600;
       text-decoration: none;
@@ -688,11 +696,11 @@
     .mobile-spoiler-btn {
       display: none;
       width: 100%;
-      background: var(--bg-card);
+      background: var(--navy-card);
       border: 1px solid var(--gold-border);
       border-radius: 11px;
       padding: 12px 15px;
-      color: var(--gold-light);
+      color: var(--matte-gold);
       font-family: 'Montserrat', sans-serif;
       font-size: 12.5px;
       font-weight: 700;
@@ -703,25 +711,25 @@
 
     .spoiler-content { display: flex; flex-direction: column; gap: 16px; }
     .info-card { display: flex; flex-direction: column; gap: 18px; }
-    .info-item-title { font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 700; color: var(--gold); margin-bottom: 7px; }
-    .info-item-text { font-size: 13.5px; line-height: 1.55; color: var(--text-main); }
+    .info-item-title { font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 700; color: var(--matte-gold); margin-bottom: 7px; }
+    .info-item-text { font-size: 13.5px; line-height: 1.55; color: var(--platinum); }
 
     .rule-card {
-      background: linear-gradient(145deg, rgba(207, 163, 94, 0.07) 0%, rgba(14, 21, 35, 0.95) 100%);
-      border: 1.5px solid var(--gold);
+      background: var(--navy-card);
+      border: 1px solid var(--matte-gold);
       border-radius: 15px;
       padding: 18px;
     }
 
-    .rule-heading { font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 700; color: var(--gold); text-transform: uppercase; margin-bottom: 9px; }
-    .rule-content { font-size: 13.5px; line-height: 1.55; color: var(--text-main); }
-    .rule-content p + p { margin-top: 10px; font-weight: 600; color: var(--gold-light); }
-    .footer-note { font-size: 12px; font-style: italic; color: var(--text-muted); line-height: 1.5; }
+    .rule-heading { font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 700; color: var(--matte-gold); text-transform: uppercase; margin-bottom: 9px; }
+    .rule-content { font-size: 13.5px; line-height: 1.55; color: var(--platinum); }
+    .rule-content p + p { margin-top: 10px; font-weight: 600; color: var(--matte-gold); }
+    .footer-note { font-size: 12px; font-style: italic; color: var(--platinum-muted); line-height: 1.5; }
 
     /* =====================================================
-       ЭКРАН 4: АДМИН-ПАНЕЛЬ
+       ЭКРАН 4: АДМИН-ПАНЕЛЬ + СТАТИСТИКА ГОСТЕЙ
        ===================================================== */
-    .admin-wrap { max-width: 760px; margin: 0 auto; padding: 16px 0 50px 0; }
+    .admin-wrap { max-width: 780px; margin: 0 auto; padding: 16px 0 50px 0; }
 
     .admin-top-bar {
       display: flex;
@@ -730,19 +738,82 @@
       flex-wrap: wrap;
       gap: 10px;
       margin-bottom: 16px;
-      background: var(--bg-card);
+      background: var(--navy-card);
       border: 1px solid var(--gold-border);
       padding: 14px 16px;
       border-radius: 14px;
     }
 
-    .admin-top-title { font-family: 'Montserrat', sans-serif; font-size: 16px; font-weight: 800; color: var(--gold-light); }
-    .admin-top-sub { font-size: 11.5px; color: var(--text-muted); margin-top: 2px; }
+    .admin-top-title { font-family: 'Montserrat', sans-serif; font-size: 16px; font-weight: 800; color: var(--matte-gold); }
+    .admin-top-sub { font-size: 11.5px; color: var(--platinum-muted); margin-top: 2px; }
+
+    /* Блок статистики в Админке */
+    .stats-panel {
+      background: var(--navy-card);
+      border: 1px solid var(--gold-border);
+      border-radius: 14px;
+      padding: 16px;
+      margin-bottom: 18px;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin: 12px 0;
+    }
+
+    .stat-kpi {
+      background: var(--navy-inner);
+      border: 1px solid var(--platinum-border);
+      border-radius: 10px;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .stat-kpi strong {
+      display: block;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--matte-gold);
+    }
+
+    .stat-kpi span {
+      font-size: 11px;
+      color: var(--platinum-muted);
+    }
+
+    .visitors-table-wrap {
+      max-height: 210px;
+      overflow-y: auto;
+      background: var(--navy-inner);
+      border: 1px solid var(--platinum-border);
+      border-radius: 10px;
+      padding: 8px 10px;
+      margin-top: 10px;
+    }
+
+    .visitor-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 7px 4px;
+      border-bottom: 1px solid var(--platinum-border);
+      font-size: 12px;
+      gap: 8px;
+    }
+
+    .visitor-row:last-child { border-bottom: none; }
+    .visitor-name { font-weight: 600; color: var(--platinum); }
+    .visitor-link { color: var(--matte-gold); text-decoration: none; font-weight: 600; }
+    .visitor-meta { font-size: 11px; color: var(--platinum-muted); text-align: right; }
+
     .admin-cards-list { display: flex; flex-direction: column; gap: 14px; margin-bottom: 16px; }
 
     .admin-item-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
+      background: var(--navy-card);
+      border: 1px solid var(--platinum-border);
       border-radius: 14px;
       padding: 15px;
     }
@@ -753,16 +824,18 @@
       align-items: center;
       padding-bottom: 10px;
       margin-bottom: 12px;
-      border-bottom: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--platinum-border);
+      flex-wrap: wrap;
+      gap: 8px;
     }
 
-    .admin-item-head strong { font-family: 'Montserrat', sans-serif; font-size: 14px; color: var(--gold-light); }
-    .admin-head-btns { display: flex; gap: 5px; }
+    .admin-item-head strong { font-family: 'Montserrat', sans-serif; font-size: 14px; color: var(--matte-gold); }
+    .admin-head-btns { display: flex; gap: 5px; flex-wrap: wrap; }
 
     .adm-mini-btn {
-      background: var(--bg-dark-inner);
-      border: 1px solid var(--border-subtle);
-      color: var(--text-secondary);
+      background: var(--navy-inner);
+      border: 1px solid var(--platinum-border);
+      color: var(--platinum);
       border-radius: 6px;
       padding: 4px 9px;
       font-size: 11.5px;
@@ -770,17 +843,48 @@
     }
 
     .adm-mini-btn.danger { color: var(--red); border-color: var(--red-border); }
+
+    /* Тумблеры Скрыть / Заблюрить */
+    .adm-toggles-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 12px;
+      background: var(--navy-inner);
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1px solid var(--platinum-border);
+    }
+
+    .adm-check-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--platinum);
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .adm-check-label input {
+      width: 16px;
+      height: 16px;
+      accent-color: var(--matte-gold);
+      cursor: pointer;
+    }
+
     .adm-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px; }
     .adm-field { display: flex; flex-direction: column; gap: 4px; margin-bottom: 10px; }
-    .adm-field label { font-size: 11.5px; font-weight: 600; color: var(--text-muted); }
+    .adm-field label { font-size: 11.5px; font-weight: 600; color: var(--platinum-muted); }
 
     .adm-input, .adm-select, .adm-textarea {
       width: 100%;
-      background: var(--bg-dark-inner);
-      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: var(--navy-inner);
+      border: 1px solid rgba(226, 232, 240, 0.16);
       border-radius: 8px;
       padding: 9px 11px;
-      color: #FFFFFF;
+      color: var(--platinum);
       font-family: inherit;
       font-size: 13px;
       outline: none;
@@ -793,9 +897,9 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      background: var(--gold-glow);
-      border: 1px solid var(--gold);
-      color: var(--gold-light);
+      background: var(--gold-subtle);
+      border: 1px solid var(--matte-gold);
+      color: var(--matte-gold);
       padding: 7px 12px;
       border-radius: 7px;
       font-size: 12px;
@@ -818,14 +922,14 @@
     }
 
     .adm-publish-box {
-      background: linear-gradient(145deg, #131E33 0%, #0E1523 100%);
-      border: 1.5px solid var(--gold);
+      background: var(--navy-card);
+      border: 1px solid var(--matte-gold);
       border-radius: 14px;
       padding: 16px;
     }
 
-    .adm-publish-title { font-family: 'Montserrat', sans-serif; font-size: 15px; font-weight: 800; color: #FFFFFF; margin-bottom: 6px; }
-    .adm-publish-desc { font-size: 12px; color: var(--text-secondary); line-height: 1.45; margin-bottom: 14px; }
+    .adm-publish-title { font-family: 'Montserrat', sans-serif; font-size: 15px; font-weight: 800; color: var(--platinum); margin-bottom: 6px; }
+    .adm-publish-desc { font-size: 12px; color: var(--platinum-muted); line-height: 1.45; margin-bottom: 14px; }
     .adm-export-btns { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 
     .adm-main-btn {
@@ -839,14 +943,14 @@
       text-align: center;
     }
 
-    .adm-main-btn.gold { background: var(--cream); border: 1.5px solid var(--gold); color: var(--text-dark); }
-    .adm-main-btn.secondary { background: var(--bg-dark-inner); border: 1px solid var(--gold-border); color: var(--gold-light); }
+    .adm-main-btn.gold { background: var(--platinum); border: 1px solid var(--matte-gold); color: var(--deep-navy); }
+    .adm-main-btn.secondary { background: var(--navy-inner); border: 1px solid var(--gold-border); color: var(--matte-gold); }
 
     /* МОДАЛЬНЫЕ ОКНА */
     .modal-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(4, 7, 12, 0.82);
+      background: rgba(6, 10, 18, 0.84);
       backdrop-filter: blur(5px);
       display: none;
       align-items: center;
@@ -860,8 +964,8 @@
     .modal-box {
       width: 100%;
       max-width: 370px;
-      background: var(--bg-card);
-      border: 1.5px solid var(--gold);
+      background: var(--navy-card);
+      border: 1px solid var(--matte-gold);
       border-radius: 16px;
       padding: 20px 18px;
       text-align: center;
@@ -872,8 +976,8 @@
       font-family: 'Montserrat', sans-serif;
       font-size: 10px;
       font-weight: 700;
-      color: var(--gold-light);
-      background: var(--gold-glow);
+      color: var(--matte-gold);
+      background: var(--gold-subtle);
       border: 1px solid var(--gold-border);
       padding: 4px 10px;
       border-radius: 999px;
@@ -881,17 +985,17 @@
       text-transform: uppercase;
     }
 
-    .modal-title { font-family: 'Montserrat', sans-serif; font-size: 18px; font-weight: 800; color: #FFFFFF; margin-bottom: 8px; }
-    .modal-text { font-size: 13px; line-height: 1.5; color: var(--text-secondary); margin-bottom: 16px; }
+    .modal-title { font-family: 'Montserrat', sans-serif; font-size: 18px; font-weight: 800; color: var(--platinum); margin-bottom: 8px; }
+    .modal-text { font-size: 13px; line-height: 1.5; color: var(--platinum-muted); margin-bottom: 16px; }
     .modal-actions { display: flex; flex-direction: column; gap: 8px; }
 
     .modal-tg-btn {
       width: 100%;
       padding: 11px 14px;
-      background: var(--cream);
-      border: 1.5px solid var(--gold);
+      background: var(--platinum);
+      border: 1px solid var(--matte-gold);
       border-radius: 9px;
-      color: var(--text-dark);
+      color: var(--deep-navy);
       font-family: 'Montserrat', sans-serif;
       font-size: 13px;
       font-weight: 700;
@@ -903,9 +1007,9 @@
       width: 100%;
       padding: 9px 14px;
       background: transparent;
-      border: 1px solid var(--border-subtle);
+      border: 1px solid var(--platinum-border);
       border-radius: 9px;
-      color: var(--text-muted);
+      color: var(--platinum-muted);
       font-family: 'Montserrat', sans-serif;
       font-size: 12.5px;
       font-weight: 600;
@@ -914,27 +1018,35 @@
 
     @media (max-width: 820px) {
       .workspace { grid-template-columns: 1fr; gap: 14px; }
-      .adm-grid-2, .adm-export-btns { grid-template-columns: 1fr; }
+      .adm-grid-2, .adm-export-btns, .adm-toggles-row { grid-template-columns: 1fr; }
       .mobile-spoiler-btn { display: flex; }
       .spoiler-content { display: none; }
       .spoiler-content.open { display: flex; margin-top: 4px; }
     }
   </style>
-<style> ::-webkit-scrollbar { 	border-radius: 5px !important; 	border: 3px solid transparent !important; 	background-color: rgba(255, 255, 255, 0.101961) !important; 	background-clip: content-box !important; 	width: 10px !important; } ::-webkit-scrollbar:hover { 	background-color: rgba(255, 255, 255, 0.172549) !important; } ::-webkit-scrollbar-thumb { 	border-radius: 5px !important; 	border: 3px solid transparent !important; 	background-color: rgba(255, 255, 255, 0.32549) !important; 	background-clip: content-box !important; } ::-webkit-scrollbar-thumb:hover { 	background-color: rgba(255, 255, 255, 0.478431) !important; } </style><style> ::-webkit-scrollbar { 	border-radius: 5px !important; 	border: 3px solid transparent !important; 	background-color: rgba(255, 255, 255, 0.101961) !important; 	background-clip: content-box !important; 	width: 10px !important; } ::-webkit-scrollbar:hover { 	background-color: rgba(255, 255, 255, 0.172549) !important; } ::-webkit-scrollbar-thumb { 	border-radius: 5px !important; 	border: 3px solid transparent !important; 	background-color: rgba(255, 255, 255, 0.32549) !important; 	background-clip: content-box !important; } ::-webkit-scrollbar-thumb:hover { 	background-color: rgba(255, 255, 255, 0.478431) !important; } </style></head>
+</head>
 <body>
 
-  <!-- ВЕРХНЯЯ ШАПКА -->
+  <!-- ВЕРХНЯЯ ШАПКА С ОФИЦИАЛЬНЫМ WORDMARK (ЗОЛОТАЯ ТОЧКА НАД i) -->
   <header class="site-header">
     <div class="container">
       <div class="header-inner">
-        <a href="#" onclick="showScreen('hub', event)" class="brand-logo">
-          <div class="brand-logo-top">AiBet</div>
-          <div class="brand-logo-bottom"><span>MONEY</span></div>
+        <a href="#" onclick="showScreen('hub', event)" class="brand-logo" aria-label="AiBet Money">
+          <svg class="wordmark-svg" viewBox="0 0 220 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Текст AiBet без точки над i (PLATINUM #E2E8F0) -->
+            <text x="110" y="42" text-anchor="middle" fill="#E2E8F0" font-family="Montserrat, sans-serif" font-weight="700" font-size="42" letter-spacing="0.5">AıBet</text>
+            <!-- Фирменная золотая точка над i (MUTED MATTE GOLD #C9A876) -->
+            <circle cx="80.5" cy="11.5" r="4.3" fill="#C9A876" />
+            <!-- Линии и подпись MONEY (#C9A876) -->
+            <line x1="12" y1="61" x2="54" y2="61" stroke="#C9A876" stroke-width="1.6" />
+            <text x="113" y="65" text-anchor="middle" fill="#C9A876" font-family="Montserrat, sans-serif" font-weight="600" font-size="13" letter-spacing="6.5">MONEY</text>
+            <line x1="166" y1="61" x2="208" y2="61" stroke="#C9A876" stroke-width="1.6" />
+          </svg>
         </a>
 
         <a href="https://t.me/aibetmoney" onclick="openTgLink(event, 'https://t.me/aibetmoney')" class="channel-pill">
           <svg viewBox="0 0 24 24">
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.02-1.96 1.25-5.54 3.69-.52.36-1 .53-1.42.52-.47-.01-1.37-.26-2.03-.48-.82-.27-1.47-.42-1.42-.88.03-.24.35-.49.96-.75 3.78-1.65 6.31-2.74 7.58-3.27 3.61-1.51 4.35-1.77 4.84-1.78.11 0 .35.03.5.16.13.1.17.24.18.34.01.07.02.21.01.3z"></path>
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.02-1.96 1.25-5.54 3.69-.52.36-1 .53-1.42.52-.47-.01-1.37-.26-2.03-.48-.82-.27-1.47-.42-1.42-.88.03-.24.35-.49.96-.75 3.78-1.65 6.31-2.74 7.58-3.27 3.61-1.51 4.35-1.77 4.84-1.78.11 0 .35.03.5.16.13.1.17.24.18.34.01.07.02.21.01.3z"/>
           </svg>
           Канал AiBet Money
         </a>
@@ -953,13 +1065,39 @@
           <p class="hub-subtitle">Выбери нужный инструмент или раздел клуба</p>
         </div>
 
-        <div class="menu-grid" id="hubCardsGrid"><div class="menu-card available"><div class="card-cover"><span class="status-pill active-pill">● Открыто</span><div class="default-cover-art"><div class="calc-mini-widget"><div class="calc-mini-left"><div class="calc-mini-pill">100 000 ₽</div><div class="calc-mini-pill">КЭФ 1.5</div></div><div class="calc-mini-right"><span>Ставка</span><strong>4 000 ₽</strong></div></div></div></div><div class="card-body"><div><div class="card-title">Калькулятор</div><div class="card-desc">Точный расчёт ставки от банка и учёт баланса</div></div><div class="card-action-btn">Открыть →</div></div></div><div class="menu-card soon"><div class="card-cover"><span class="status-pill soon-pill">⏳ Скоро</span><div class="default-cover-art"><div class="cover-icon-circle">👑</div></div></div><div class="card-body"><div><div class="card-title">ВИПка</div><div class="card-desc">Закрытая линия прогнозов с главной аналитикой</div></div><div class="card-action-btn">Скоро</div></div></div><div class="menu-card soon"><div class="card-cover"><span class="status-pill soon-pill">⏳ Скоро</span><div class="default-cover-art"><div class="cover-icon-circle">🛡️</div></div></div><div class="card-body"><div><div class="card-title">Личное ведение</div><div class="card-desc">Индивидуальная работа 1-на-1 с твоим банком</div></div><div class="card-action-btn">Скоро</div></div></div><div class="menu-card soon"><div class="card-cover"><span class="status-pill soon-pill">⏳ Скоро</span><div class="default-cover-art"><div class="cover-icon-circle">⚡</div></div></div><div class="card-body"><div><div class="card-title">Купить ставки</div><div class="card-desc">Штучные уверенные разборы на матчи дня</div></div><div class="card-action-btn">Скоро</div></div></div></div>
+        <div class="menu-grid" id="hubCardsGrid">
+          <!-- Статичный резерв на случай мгновенного старта -->
+          <div class="menu-card available" onclick="handleCardClick(0)">
+            <div class="card-cover">
+              <span class="status-pill active-pill">● Открыто</span>
+              <div class="default-cover-art">
+                <div class="calc-mini-widget">
+                  <div class="calc-mini-left">
+                    <div class="calc-mini-pill">100 000 ₽</div>
+                    <div class="calc-mini-pill">КЭФ 1.5</div>
+                  </div>
+                  <div class="calc-mini-right">
+                    <span>Ставка</span>
+                    <strong>4 000 ₽</strong>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <div>
+                <div class="card-title">Калькулятор</div>
+                <div class="card-desc">Точный расчёт ставки от банка и учёт баланса</div>
+              </div>
+              <div class="card-action-btn">Открыть →</div>
+            </div>
+          </div>
+        </div>
 
-        <!-- Нижняя иконка "A" -->
+        <!-- 01. PRIMARY SYMBOL (цвета строго #E2E8F0 и #C9A876) -->
         <div class="hub-footer-emblem">
           <svg class="hub-emblem-svg" id="secretAdminTrigger" viewBox="150 100 725 745" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <polygon points="512,121 174,824 565,594 401,594 512,365 645,648 805,727" fill="#EAEAEB"></polygon>
-            <polygon points="645,648 725,820 848,820 805,727" fill="#E1A856"></polygon>
+            <polygon points="512,121 174,824 565,594 401,594 512,365 645,648 805,727" fill="#E2E8F0" />
+            <polygon points="645,648 725,820 848,820 805,727" fill="#C9A876" />
           </svg>
           <button type="button" class="admin-open-pill" id="adminQuickBtn" onclick="showScreen('admin')">
             ⚙️ Открыть Админ-панель
@@ -1042,8 +1180,8 @@
               <div class="round-row">
                 <span class="round-label">Округление суммы:</span>
                 <div class="round-pills" id="roundGroup">
-                  <button type="button" class="round-pill" data-step="1">Точно</button>
-                  <button type="button" class="round-pill active" data-step="50">до 50 ₽</button>
+                  <button type="button" class="round-pill active" data-step="1">Точно</button>
+                  <button type="button" class="round-pill" data-step="50">до 50 ₽</button>
                   <button type="button" class="round-pill" data-step="100">до 100 ₽</button>
                 </div>
               </div>
@@ -1093,8 +1231,8 @@
 
           <div class="emblem-box">
             <svg class="emblem-svg" viewBox="150 100 725 745" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <polygon points="512,121 174,824 565,594 401,594 512,365 645,648 805,727" fill="#EAEAEB"></polygon>
-              <polygon points="645,648 725,820 848,820 805,727" fill="#E1A856"></polygon>
+              <polygon points="512,121 174,824 565,594 401,594 512,365 645,648 805,727" fill="#E2E8F0" />
+              <polygon points="645,648 725,820 848,820 805,727" fill="#C9A876" />
             </svg>
           </div>
         </div>
@@ -1144,7 +1282,7 @@
   </section>
 
   <!-- =========================================================
-       ЭКРАН 4: АДМИН-ПАНЕЛЬ
+       ЭКРАН 4: АДМИН-ПАНЕЛЬ + СТАТИСТИКА ГОСТЕЙ
        ========================================================= -->
   <section class="view-screen" id="screenAdmin">
     <div class="container">
@@ -1152,13 +1290,67 @@
         <div class="admin-top-bar">
           <div>
             <div class="admin-top-title">⚙️ Админ-панель платформы</div>
-            <div class="admin-top-sub">Размер обложек: 800×400 px (2:1) или 800×450 px (16:9)</div>
+            <div class="admin-top-sub">Управление карточками, блюром, скрытием и статистикой гостей</div>
           </div>
           <button type="button" class="back-to-menu-btn" onclick="showScreen('hub')">
             ✓ Готово (В меню)
           </button>
         </div>
 
+        <!-- БЛОК СТАТИСТИКИ И СПИСКА ГОСТЕЙ -->
+        <div class="stats-panel">
+          <div class="admin-item-head" style="margin-bottom:8px;">
+            <strong>📊 Статистика входов и кто заходил</strong>
+            <button type="button" class="adm-mini-btn" onclick="refreshBotVisitors()">🔄 Загрузить новых из бота</button>
+          </div>
+
+          <div class="stats-grid">
+            <div class="stat-kpi">
+              <strong id="statTotalVisits">0</strong>
+              <span>Всего визитов</span>
+            </div>
+            <div class="stat-kpi">
+              <strong id="statUniqueUsers">0</strong>
+              <span>Уникальных людей</span>
+            </div>
+            <div class="stat-kpi">
+              <strong id="statCalcClicks">0</strong>
+              <span>Переходов в разделы</span>
+            </div>
+          </div>
+
+          <div class="adm-field" style="margin-bottom:4px;">
+            <label>Последние посетители (Имя, @username, Telegram ID и действие):</label>
+          </div>
+          <div class="visitors-table-wrap" id="visitorsListBox"></div>
+
+          <!-- Настройка живого трекера через Telegram-бота -->
+          <details style="margin-top:12px; border-top:1px solid var(--platinum-border); padding-top:10px;">
+            <summary style="cursor:pointer; font-size:12px; color:var(--matte-gold); font-weight:600;">
+              📲 Настроить уведомления в Telegram о каждом вошедшем человеке (со всех устройств)
+            </summary>
+            <div style="margin-top:10px;">
+              <p style="font-size:11.5px; color:var(--platinum-muted); line-height:1.45; margin-bottom:10px;">
+                Вставь токен своего бота из <code>@BotFather</code> и нажми «Определить мой ID». Когда любой человек откроет приложение с любого телефона, тебе в личку от бота придёт уведомление с его именем и <code>@username</code> (плюс не забудь после настройки скопировать и обновить код сайта внизу):
+              </p>
+              <div class="adm-grid-2">
+                <div class="adm-field">
+                  <label>Bot Token (из @BotFather)</label>
+                  <input type="password" class="adm-input" id="trackerBotToken" placeholder="123456789:AAH..." oninput="updateTrackerConfig()">
+                </div>
+                <div class="adm-field">
+                  <label>Твой личный Telegram ID</label>
+                  <div style="display:flex; gap:6px;">
+                    <input type="text" class="adm-input" id="trackerAdminId" placeholder="Например: 482910492" oninput="updateTrackerConfig()">
+                    <button type="button" class="adm-mini-btn" style="white-space:nowrap;" onclick="fillMyTelegramId()">Мой ID</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </details>
+        </div>
+
+        <!-- СПИСОК КАРТОЧЕК ДЛЯ РЕДАКТИРОВАНИЯ -->
         <div class="admin-cards-list" id="adminCardsContainer"></div>
 
         <button type="button" class="adm-add-block-btn" onclick="addNewBlock()">
@@ -1168,7 +1360,7 @@
         <div class="adm-publish-box">
           <div class="adm-publish-title">🚀 Опубликовать изменения для всех подписчиков</div>
           <div class="adm-publish-desc">
-            Когда ты меняешь карточки, загружаешь обложки или пишешь тексты, скопируй готовый код кнопкой ниже и замени им содержимое своего <code>index.html</code> на GitHub:
+            Когда ты скрываешь или блюришь карточки, загружаешь обложки (800×400 px) или настраиваешь трекер гостей — скопируй обновлённый код и замени им <code>index.html</code> на GitHub:
           </div>
 
           <div class="adm-export-btns">
@@ -1184,18 +1376,12 @@
     </div>
   </section>
 
-  <!-- МОДАЛЬНОЕ ОКНО ДЛЯ РАЗДЕЛОВ "СКОРО" -->
+  <!-- МОДАЛЬНОЕ ОКНО ДЛЯ РАЗДЕЛОВ "СКОРО" / "ЗАБЛЮРЕНО" -->
   <div class="modal-overlay" id="soonModal" onclick="closeSoonModal()">
     <div class="modal-box" onclick="event.stopPropagation()">
-      <div class="modal-pill">⏳ Скоро запуск</div>
-      <div class="modal-title" id="modalTitle">VIP-клуб</div>
-      <div class="modal-text" id="modalText">Полный доступ к закрытой аналитической линии клуба.
-
-— Ежедневные отборные матчи по главной модели
-— Чёткие рекомендации по проценту от банка
-— Прямая связь и ответы на вопросы
-
-Нажми на кнопку ниже, чтобы написать в личные сообщения и забрать доступ.</div>
+      <div class="modal-pill">🔒 Закрытый раздел</div>
+      <div class="modal-title" id="modalTitle">Раздел в разработке</div>
+      <div class="modal-text" id="modalText"></div>
       <div class="modal-actions">
         <a href="https://t.me/aibetmoney" id="modalTgLink" class="modal-tg-btn">
           Перейти в канал AiBet Money →
@@ -1207,7 +1393,7 @@
     </div>
   </div>
 
-  <!-- МОДАЛЬНОЕ ОКНО ПИН-КОДА АДМИНКИ (БЕЗ ПОДСКАЗКИ) -->
+  <!-- МОДАЛЬНОЕ ОКНО ПИН-КОДА АДМИНКИ -->
   <div class="modal-overlay" id="pinModal" onclick="closePinModal()">
     <div class="modal-box" onclick="event.stopPropagation()">
       <div class="modal-pill">Доступ владельца</div>
@@ -1223,12 +1409,18 @@
   </div>
 
   <script id="app-data-script">
+window.TRACKER_CONFIG = {
+  "botToken": "",
+  "adminChatId": ""
+};
 window.INITIAL_BLOCKS = [
   {
     "id": "calc",
     "title": "Калькулятор",
     "desc": "Точный расчёт ставки от банка и учёт баланса",
     "status": "available",
+    "hidden": false,
+    "blurred": false,
     "actionType": "calc",
     "btnLabel": "Открыть →",
     "icon": "calc",
@@ -1240,9 +1432,11 @@ window.INITIAL_BLOCKS = [
   },
   {
     "id": "vip",
-    "title": "ВИПка",
+    "title": "VIP-клуб",
     "desc": "Закрытая линия прогнозов с главной аналитикой",
     "status": "soon",
+    "hidden": false,
+    "blurred": false,
     "actionType": "page",
     "btnLabel": "Скоро",
     "icon": "👑",
@@ -1257,6 +1451,8 @@ window.INITIAL_BLOCKS = [
     "title": "Личное ведение",
     "desc": "Индивидуальная работа 1-на-1 с твоим банком",
     "status": "soon",
+    "hidden": false,
+    "blurred": false,
     "actionType": "page",
     "btnLabel": "Скоро",
     "icon": "🛡️",
@@ -1271,6 +1467,8 @@ window.INITIAL_BLOCKS = [
     "title": "Купить ставки",
     "desc": "Штучные уверенные разборы на матчи дня",
     "status": "soon",
+    "hidden": false,
+    "blurred": false,
     "actionType": "page",
     "btnLabel": "Скоро",
     "icon": "⚡",
@@ -1291,8 +1489,8 @@ window.INITIAL_BLOCKS = [
       if (tg) {
         tg.ready();
         tg.expand();
-        if (tg.setHeaderColor) tg.setHeaderColor('#070B12');
-        if (tg.setBackgroundColor) tg.setBackgroundColor('#070B12');
+        if (tg.setHeaderColor) tg.setHeaderColor('#0B1220');
+        if (tg.setBackgroundColor) tg.setBackgroundColor('#0B1220');
         if (tg.BackButton && tg.BackButton.onClick) {
           tg.BackButton.onClick(() => showScreen('hub'));
         }
@@ -1314,9 +1512,159 @@ window.INITIAL_BLOCKS = [
       } catch (e) {}
     }
 
+    // =========================================================
+    // СИСТЕМА УЧЁТА ПОСЕТИТЕЛЕЙ ("СКОЛЬКО ЛЮДЕЙ И КТО ЗАХОДИЛ")
+    // =========================================================
+    let trackerCfg = window.TRACKER_CONFIG || { botToken: '', adminChatId: '' };
+    try {
+      const savedCfg = localStorage.getItem('aibet_tracker_cfg');
+      if (savedCfg) {
+        const parsedCfg = JSON.parse(savedCfg);
+        if (parsedCfg.botToken) trackerCfg.botToken = parsedCfg.botToken;
+        if (parsedCfg.adminChatId) trackerCfg.adminChatId = parsedCfg.adminChatId;
+      }
+    } catch (e) {}
+
+    function getCurrentTgUser() {
+      try {
+        if (tg && tg.initDataUnsafe && tg.initDataUnsafe.user) {
+          const u = tg.initDataUnsafe.user;
+          return {
+            id: u.id,
+            name: ((u.first_name || '') + ' ' + (u.last_name || '')).trim() || 'Без имени',
+            username: u.username || ''
+          };
+        }
+      } catch (e) {}
+      return { id: 'local_guest', name: 'Гость (Браузер/ПК)', username: '' };
+    }
+
+    function logVisitorEvent(actionLabel) {
+      try {
+        const user = getCurrentTgUser();
+        const nowStr = new Date().toLocaleString('ru-RU', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' });
+        let logs = [];
+        try {
+          logs = JSON.parse(localStorage.getItem('aibet_visitors_log') || '[]');
+        } catch (e) { logs = []; }
+
+        logs.unshift({
+          id: user.id,
+          name: user.name,
+          username: user.username,
+          action: actionLabel,
+          time: nowStr
+        });
+        if (logs.length > 100) logs = logs.slice(0, 100);
+        localStorage.setItem('aibet_visitors_log', JSON.stringify(logs));
+
+        // Если подключён Telegram Bot Tracker — шлём уведомление владельцу в Telegram
+        if (trackerCfg.botToken && trackerCfg.adminChatId) {
+          const userTag = user.username ? ' (@' + user.username + ')' : '';
+          const msg = '👤 Вход в AiBet Mini App:\n' +
+                      'Имя: ' + user.name + userTag + '\n' +
+                      'ID: ' + user.id + '\n' +
+                      'Действие: ' + actionLabel + '\n' +
+                      'Время: ' + nowStr;
+          fetch('https://api.telegram.org/bot' + trackerCfg.botToken + '/sendMessage', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ chat_id: trackerCfg.adminChatId, text: msg })
+          }).catch(() => {});
+        }
+      } catch (e) {}
+    }
+
+    // Фиксируем вход при открытии приложения
+    logVisitorEvent('Открыл главное меню');
+
+    function renderStatsInAdmin() {
+      let logs = [];
+      try {
+        logs = JSON.parse(localStorage.getItem('aibet_visitors_log') || '[]');
+      } catch (e) { logs = []; }
+
+      const uniqueIds = new Set(logs.map(l => String(l.id)));
+      const sectionClicks = logs.filter(l => l.action !== 'Открыл главное меню').length;
+
+      document.getElementById('statTotalVisits').textContent = logs.length;
+      document.getElementById('statUniqueUsers').textContent = uniqueIds.size;
+      document.getElementById('statCalcClicks').textContent = sectionClicks;
+
+      const box = document.getElementById('visitorsListBox');
+      if (!logs.length) {
+        box.innerHTML = '<div style="font-size:12px; color:var(--platinum-muted); padding:8px;">Пока нет записей о визитах</div>';
+        return;
+      }
+
+      box.innerHTML = logs.slice(0, 40).map(item => {
+        const unameHtml = item.username
+          ? ' <a class="visitor-link" href="https://t.me/' + escapeHtml(item.username) + '" target="_blank">@' + escapeHtml(item.username) + '</a>'
+          : '';
+        return '<div class="visitor-row">' +
+          '<div><span class="visitor-name">' + escapeHtml(item.name) + '</span>' + unameHtml + ' <span style="font-size:10.5px;color:var(--platinum-muted);">(ID: ' + escapeHtml(item.id) + ')</span></div>' +
+          '<div class="visitor-meta"><div>' + escapeHtml(item.action) + '</div><div>' + escapeHtml(item.time) + '</div></div>' +
+        '</div>';
+      }).join('');
+    }
+
+    function fillMyTelegramId() {
+      const u = getCurrentTgUser();
+      if (u && u.id && u.id !== 'local_guest') {
+        document.getElementById('trackerAdminId').value = String(u.id);
+        updateTrackerConfig();
+        alert('Твой Telegram ID (' + u.id + ') успешно подставлен!');
+      } else {
+        alert('Открой это окно внутри Telegram (через бота), чтобы ID определился автоматически, или впиши его вручную.');
+      }
+    }
+
+    function updateTrackerConfig() {
+      trackerCfg.botToken = document.getElementById('trackerBotToken').value.trim();
+      trackerCfg.adminChatId = document.getElementById('trackerAdminId').value.trim();
+      try {
+        localStorage.setItem('aibet_tracker_cfg', JSON.stringify(trackerCfg));
+      } catch (e) {}
+    }
+
+    async function refreshBotVisitors() {
+      if (!trackerCfg.botToken) {
+        alert('Сначала укажи Bot Token в настройках уведомлений чуть ниже.');
+        return;
+      }
+      try {
+        const res = await fetch('https://api.telegram.org/bot' + trackerCfg.botToken + '/getUpdates?limit=50');
+        const data = await res.json();
+        if (data && Array.isArray(data.result)) {
+          let logs = [];
+          try { logs = JSON.parse(localStorage.getItem('aibet_visitors_log') || '[]'); } catch (e) {}
+          data.result.forEach(upd => {
+            const from = (upd.message && upd.message.from) || (upd.callback_query && upd.callback_query.from);
+            if (from && !logs.some(l => String(l.id) === String(from.id))) {
+              logs.unshift({
+                id: from.id,
+                name: ((from.first_name || '') + ' ' + (from.last_name || '')).trim(),
+                username: from.username || '',
+                action: 'Запускал бота',
+                time: 'Из истории бота'
+              });
+            }
+          });
+          localStorage.setItem('aibet_visitors_log', JSON.stringify(logs));
+          renderStatsInAdmin();
+          triggerHaptic('medium');
+        }
+      } catch (e) {
+        alert('Не удалось получить список из бота. Проверь токен.');
+      }
+    }
+
+    // =========================================================
+    // ЗАГРУЗКА И ОТРИСОВКА КАРТОЧЕК (С УЧЁТОМ СКРЫТИЯ И БЛЮРА)
+    // =========================================================
     let menuBlocks = [];
     try {
-      const saved = localStorage.getItem('aibet_menu_blocks_v3');
+      const saved = localStorage.getItem('aibet_menu_blocks_v4');
       const parsed = saved ? JSON.parse(saved) : null;
       if (Array.isArray(parsed) && parsed.length > 0) {
         menuBlocks = parsed;
@@ -1329,19 +1677,24 @@ window.INITIAL_BLOCKS = [
 
     function saveBlocksDraft() {
       try {
-        localStorage.setItem('aibet_menu_blocks_v3', JSON.stringify(menuBlocks));
+        localStorage.setItem('aibet_menu_blocks_v4', JSON.stringify(menuBlocks));
       } catch (e) {}
     }
 
     const hubCardsGrid = document.getElementById('hubCardsGrid');
 
     function renderHubCards() {
-      if (!hubCardsGrid || !Array.isArray(menuBlocks) || menuBlocks.length === 0) return;
+      if (!hubCardsGrid || !Array.isArray(menuBlocks)) return;
       hubCardsGrid.innerHTML = '';
+
       menuBlocks.forEach((block, index) => {
-        const isAvail = block.status === 'available';
+        // Если карточка скрыта в админке — не показываем её в меню
+        if (block.hidden) return;
+
+        const isAvail = block.status === 'available' && !block.blurred;
+        const isBlurred = Boolean(block.blurred);
         const card = document.createElement('div');
-        card.className = 'menu-card ' + (isAvail ? 'available' : 'soon');
+        card.className = 'menu-card ' + (isAvail ? 'available' : 'soon') + (isBlurred ? ' blurred' : '');
         card.onclick = () => handleCardClick(index);
 
         let coverInnerHtml = '';
@@ -1357,20 +1710,34 @@ window.INITIAL_BLOCKS = [
         const pillClass = isAvail ? 'active-pill' : 'soon-pill';
         const btnText = block.btnLabel || (isAvail ? 'Открыть →' : 'Скоро');
 
+        const blurOverlayHtml = isBlurred
+          ? '<div class="blur-lock-overlay">' +
+              '<span class="blur-lock-badge">🔒 Скоро открытие</span>' +
+              '<span class="blur-lock-title">' + escapeHtml(block.title) + '</span>' +
+            '</div>'
+          : '';
+
         card.innerHTML =
-          '<div class="card-cover">' +
-            '<span class="status-pill ' + pillClass + '">' + pillText + '</span>' +
-            coverInnerHtml +
-          '</div>' +
-          '<div class="card-body">' +
-            '<div>' +
-              '<div class="card-title">' + block.title + '</div>' +
-              '<div class="card-desc">' + block.desc + '</div>' +
+          blurOverlayHtml +
+          '<div class="card-inner-blur" style="display:flex;flex-direction:column;flex:1;">' +
+            '<div class="card-cover">' +
+              '<span class="status-pill ' + pillClass + '">' + pillText + '</span>' +
+              coverInnerHtml +
             '</div>' +
-            '<div class="card-action-btn">' + btnText + '</div>' +
+            '<div class="card-body">' +
+              '<div>' +
+                '<div class="card-title">' + escapeHtml(block.title) + '</div>' +
+                '<div class="card-desc">' + escapeHtml(block.desc) + '</div>' +
+              '</div>' +
+              '<div class="card-action-btn">' + escapeHtml(btnText) + '</div>' +
+            '</div>' +
           '</div>';
         hubCardsGrid.appendChild(card);
       });
+    }
+
+    function escapeHtml(str) {
+      return String(str || '').replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
     }
 
     renderHubCards();
@@ -1379,8 +1746,9 @@ window.INITIAL_BLOCKS = [
       const block = menuBlocks[index];
       if (!block) return;
       triggerHaptic('light');
+      logVisitorEvent('Нажал: ' + block.title);
 
-      if (block.status === 'soon') {
+      if (block.status === 'soon' || block.blurred) {
         openSoonModal(block);
         return;
       }
@@ -1425,6 +1793,7 @@ window.INITIAL_BLOCKS = [
           if (tg && tg.BackButton) tg.BackButton.show();
         } else if (name === 'admin') {
           renderAdminPanel();
+          renderStatsInAdmin();
           document.getElementById('screenAdmin').classList.add('active');
           if (tg && tg.BackButton) tg.BackButton.show();
         } else {
@@ -1490,13 +1859,13 @@ window.INITIAL_BLOCKS = [
       }
     }
 
+    // Рендер Админ-панели
     const adminCardsContainer = document.getElementById('adminCardsContainer');
 
-    function escapeHtml(str) {
-      return String(str || '').replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-    }
-
     function renderAdminPanel() {
+      document.getElementById('trackerBotToken').value = trackerCfg.botToken || '';
+      document.getElementById('trackerAdminId').value = trackerCfg.adminChatId || '';
+
       adminCardsContainer.innerHTML = '';
       menuBlocks.forEach((b, idx) => {
         const item = document.createElement('div');
@@ -1506,8 +1875,8 @@ window.INITIAL_BLOCKS = [
         let extraHtml = '';
         if (!isCalc) {
           extraHtml =
-            '<details style="margin-top:8px; border-top:1px solid var(--border-subtle); padding-top:10px;">' +
-              '<summary style="cursor:pointer; font-size:12px; color:var(--gold-light); font-weight:600;">📝 Настроить продающий текст и ссылку на ЛС</summary>' +
+            '<details style="margin-top:8px; border-top:1px solid var(--platinum-border); padding-top:10px;">' +
+              '<summary style="cursor:pointer; font-size:12px; color:var(--matte-gold); font-weight:600;">📝 Настроить продающий текст и ссылку на ЛС</summary>' +
               '<div style="margin-top:10px;">' +
                 '<div class="adm-field"><label>Заголовок внутри страницы</label><input type="text" class="adm-input" value="' + escapeHtml(b.pageTitle || '') + '" oninput="updateBlockField(' + idx + ', \'pageTitle\', this.value)"></div>' +
                 '<div class="adm-field"><label>Продающий текст</label><textarea class="adm-textarea" oninput="updateBlockField(' + idx + ', \'pageText\', this.value)">' + escapeHtml(b.pageText || '') + '</textarea></div>' +
@@ -1528,6 +1897,19 @@ window.INITIAL_BLOCKS = [
               (!isCalc ? '<button type="button" class="adm-mini-btn danger" onclick="deleteBlock(' + idx + ')">Удалить</button>' : '') +
             '</div>' +
           '</div>' +
+
+          /* Переключатели Скрыть и Заблюрить */
+          '<div class="adm-toggles-row">' +
+            '<label class="adm-check-label">' +
+              '<input type="checkbox" ' + (b.blurred ? 'checked' : '') + ' onchange="updateBlockField(' + idx + ', \'blurred\', this.checked); renderHubCards();">' +
+              '<span>🌫️ Заблюрить карточку (Размытие)</span>' +
+            '</label>' +
+            '<label class="adm-check-label">' +
+              '<input type="checkbox" ' + (b.hidden ? 'checked' : '') + ' onchange="updateBlockField(' + idx + ', \'hidden\', this.checked); renderHubCards();">' +
+              '<span>👁️ Скрыть из меню совсем</span>' +
+            '</label>' +
+          '</div>' +
+
           '<div class="adm-grid-2">' +
             '<div class="adm-field"><label>Название карточки</label><input type="text" class="adm-input" value="' + escapeHtml(b.title) + '" oninput="updateBlockField(' + idx + ', \'title\', this.value)"></div>' +
             '<div class="adm-field"><label>Статус раздела</label>' +
@@ -1583,6 +1965,8 @@ window.INITIAL_BLOCKS = [
         title: 'Новый раздел',
         desc: 'Короткое описание нового продукта',
         status: 'soon',
+        hidden: false,
+        blurred: false,
         actionType: 'page',
         btnLabel: 'Скоро',
         icon: '🔥',
@@ -1629,7 +2013,9 @@ window.INITIAL_BLOCKS = [
       const clone = document.documentElement.cloneNode(true);
       const dataScript = clone.querySelector('#app-data-script');
       if (dataScript) {
-        dataScript.textContent = '\nwindow.INITIAL_BLOCKS = ' + JSON.stringify(menuBlocks, null, 2) + ';\n  ';
+        dataScript.textContent =
+          '\nwindow.TRACKER_CONFIG = ' + JSON.stringify(trackerCfg, null, 2) + ';\n' +
+          'window.INITIAL_BLOCKS = ' + JSON.stringify(menuBlocks, null, 2) + ';\n  ';
       }
       clone.querySelectorAll('.view-screen').forEach(el => el.classList.remove('active'));
       const hub = clone.querySelector('#screenHub');
@@ -1864,6 +2250,5 @@ window.INITIAL_BLOCKS = [
 
     calculate(false);
   </script>
-
-
-</body></html>
+</body>
+</html>
