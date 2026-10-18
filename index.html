@@ -48,6 +48,33 @@
       -webkit-font-smoothing: antialiased;
     }
 
+    /* ВСПЛЫВАЮЩИЙ ТОСТ (УВЕДОМЛЕНИЕ СВЕРХУ ЭКРАНА) */
+    .toast-pill {
+      position: fixed;
+      top: 14px;
+      left: 50%;
+      transform: translate(-50%, -80px);
+      background: rgba(8, 14, 26, 0.96);
+      border: 1.5px solid var(--gold);
+      color: var(--cream);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12.5px;
+      font-weight: 700;
+      padding: 9px 18px;
+      border-radius: 999px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.65), 0 0 20px rgba(222, 173, 94, 0.25);
+      z-index: 200;
+      pointer-events: none;
+      opacity: 0;
+      transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.25s ease;
+      white-space: nowrap;
+    }
+
+    .toast-pill.show {
+      transform: translate(-50%, 0);
+      opacity: 1;
+    }
+
     /* ВЕРХНЯЯ ШАПКА */
     .site-header {
       background: rgba(5, 11, 22, 0.95);
@@ -103,16 +130,14 @@
     .channel-pill svg { width: 14px; height: 14px; fill: currentColor; flex-shrink: 0; }
 
     .view-screen { display: none; }
-    .view-screen.active { display: block; animation: screenFade 0.22s ease-out; }
+    .view-screen.active { display: block; animation: screenFade 0.24s cubic-bezier(0.22, 1, 0.36, 1); }
 
     @keyframes screenFade {
-      from { opacity: 0; transform: translateY(4px); }
+      from { opacity: 0; transform: translateY(5px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* =====================================================
-       ЭФФЕКТЫ: БЕГУЩИЙ БЛИК (SHIMMER) И ЖИВОЙ ПУЛЬС
-       ===================================================== */
+    /* ЭФФЕКТЫ: БЕГУЩИЙ БЛИК (SHIMMER) И ЖИВОЙ ПУЛЬС */
     .shimmer-effect {
       position: relative;
       overflow: hidden;
@@ -189,6 +214,7 @@
     .menu-card {
       background: var(--bg-card);
       border: 1px solid var(--border-subtle);
+      border-top: 1px solid rgba(226, 232, 240, 0.15); /* Верхний объёмный блик грани */
       border-radius: 14px;
       overflow: hidden;
       display: flex;
@@ -208,7 +234,6 @@
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), 0 0 18px rgba(222, 173, 94, 0.12);
     }
 
-    /* Обложка 2:1 (под 800x400 px) */
     .card-cover {
       width: 100%;
       height: 74px;
@@ -381,9 +406,7 @@
       color: var(--text-muted);
     }
 
-    /* =====================================================
-       ИНТЕРАКТИВНЫЙ TELEGRAM CANVAS-СПОЙЛЕР НА КАРТОЧКАХ
-       ===================================================== */
+    /* ИНТЕРАКТИВНЫЙ TELEGRAM CANVAS-СПОЙЛЕР НА КАРТОЧКАХ */
     .menu-card.blurred .card-inner-blur {
       filter: blur(18px) saturate(1.15) brightness(0.55);
       transform: scale(1.12);
@@ -421,7 +444,7 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      background: rgba(8, 14, 26, 0.82);
+      background: rgba(8, 14, 26, 0.84);
       border: 1px solid rgba(226, 232, 240, 0.22);
       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
       backdrop-filter: blur(6px);
@@ -434,7 +457,7 @@
       letter-spacing: 0.3px;
       text-align: center;
       white-space: nowrap;
-      transition: border-color 0.2s, color 0.2s;
+      transition: all 0.25s ease;
     }
 
     .tg-spoiler-pill span.dot {
@@ -446,7 +469,8 @@
     }
 
     .tg-spoiler-pill.waitlisted {
-      border-color: rgba(52, 211, 153, 0.5);
+      border-color: rgba(52, 211, 153, 0.55);
+      background: rgba(8, 22, 20, 0.88);
       color: var(--green);
     }
 
@@ -564,7 +588,7 @@
     }
 
     /* =====================================================
-       ЭКРАН 3: КАЛЬКУЛЯТОР СТАВОК
+       ЭКРАН 3: КАЛЬКУЛЯТОР СТАВОК (С ПЛАВАЮЩИМ ПОЛЗУНКОМ И БЫСТРЫМИ КЭФАМИ)
        ===================================================== */
     .back-bar { padding-top: 12px; }
 
@@ -594,6 +618,7 @@
     .card {
       background: var(--bg-card);
       border: 1px solid var(--border-subtle);
+      border-top: 1px solid rgba(226, 232, 240, 0.15);
       border-radius: 15px;
       padding: 18px;
       box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
@@ -669,6 +694,12 @@
       border-radius: 8px;
       display: flex;
       align-items: center;
+      transition: box-shadow 0.2s ease, background-color 0.2s ease;
+    }
+
+    .gold-input-box:focus-within {
+      background: var(--cream-focus);
+      box-shadow: 0 0 0 3px rgba(222, 173, 94, 0.25);
     }
 
     .gold-input-box input {
@@ -685,38 +716,112 @@
       padding: 0 10px;
     }
 
-    .segmented-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+    /* Быстрые чипы популярных кэфов */
+    .quick-odds-row {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 5px;
+      margin-top: -3px;
+      padding-right: 2px;
+    }
 
-    .seg-btn {
+    .quick-odds-label {
+      font-size: 10.5px;
+      color: var(--text-muted);
+      margin-right: auto;
+      padding-left: 6px;
+    }
+
+    .quick-odd-chip {
       background: var(--bg-dark-inner);
-      border: 1px solid rgba(222, 173, 94, 0.3);
-      border-radius: 7px;
-      padding: 8px 4px;
+      border: 1px solid var(--border-subtle);
+      border-radius: 6px;
+      padding: 3px 8px;
       font-family: 'Montserrat', sans-serif;
-      font-size: 12px;
+      font-size: 10.5px;
       font-weight: 600;
       color: var(--text-secondary);
       cursor: pointer;
       transition: all 0.15s ease;
     }
 
-    .seg-btn.active {
+    .quick-odd-chip:hover,
+    .quick-odd-chip.active {
+      background: var(--gold-glow);
+      border-color: var(--gold);
+      color: var(--gold-light);
+    }
+
+    /* ПЛАВАЮЩИЙ ПОЛЗУНОК ПРОФИЛЯ РИСКА (iOS GLIDING PILL) */
+    .segmented-grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      background: var(--bg-dark-inner);
+      border: 1px solid rgba(222, 173, 94, 0.28);
+      border-radius: 9px;
+      padding: 3px;
+      overflow: hidden;
+    }
+
+    .seg-glider {
+      position: absolute;
+      top: 3px;
+      bottom: 3px;
+      left: 3px;
+      width: calc((100% - 6px) / 3);
       background: var(--cream);
       border: 1.5px solid var(--gold);
+      border-radius: 6px;
+      box-shadow: 0 2px 10px rgba(222, 173, 94, 0.22);
+      transform: translateX(200%); /* По умолчанию Смело (индекс 2) */
+      transition: transform 0.26s cubic-bezier(0.22, 1, 0.36, 1);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .seg-btn {
+      position: relative;
+      z-index: 2;
+      background: transparent;
+      border: none;
+      border-radius: 6px;
+      padding: 8px 4px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: color 0.2s ease, font-weight 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .seg-btn.active {
       color: var(--text-dark);
       font-weight: 700;
     }
 
+    /* СТРОКА ОКРУГЛЕНИЯ (БЕЗ ПЕРЕНОСА НА ВТОРУЮ СТРОЧКУ) */
     .round-row {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 8px;
+      gap: 6px;
       padding: 3px 2px 0 4px;
     }
 
-    .round-label { font-size: 12px; color: var(--text-muted); }
-    .round-pills { display: flex; gap: 4px; }
+    .round-label {
+      font-size: 11.5px;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    .round-pills {
+      display: flex;
+      gap: 4px;
+      flex-shrink: 0;
+    }
 
     .round-pill {
       background: var(--bg-dark-inner);
@@ -727,6 +832,8 @@
       font-weight: 600;
       color: var(--text-muted);
       cursor: pointer;
+      white-space: nowrap; /* Защита от переноса знака ₽ */
+      transition: all 0.15s ease;
     }
 
     .round-pill.active {
@@ -738,6 +845,7 @@
     .result-card {
       background: linear-gradient(180deg, #131E34 0%, var(--bg-card) 100%);
       border: 1px solid var(--gold-border);
+      border-top: 1px solid rgba(222, 173, 94, 0.55);
       border-radius: 15px;
       padding: 16px 18px;
     }
@@ -765,10 +873,15 @@
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      transition: transform 0.12s ease;
+      transition: transform 0.12s ease, box-shadow 0.25s ease, border-color 0.25s ease;
     }
 
     .result-display:active { transform: scale(0.985); }
+
+    .result-display.copied-flash {
+      border-color: var(--green);
+      box-shadow: 0 0 22px rgba(52, 211, 153, 0.3);
+    }
 
     .result-number {
       font-family: 'Montserrat', sans-serif;
@@ -821,11 +934,44 @@
       justify-content: center;
       gap: 4px;
       transition: transform 0.12s ease;
+      white-space: nowrap;
     }
 
     .action-btn:active { transform: scale(0.96); }
     .btn-win { background: var(--green-bg); border: 1px solid var(--green-border); color: var(--green); }
     .btn-loss { background: var(--red-bg); border: 1px solid var(--red-border); color: var(--red); }
+
+    /* Лента последних исходов сессии */
+    .session-history-bar {
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+      margin-top: 9px;
+      padding-top: 8px;
+      border-top: 1px dashed var(--border-subtle);
+      font-size: 11px;
+    }
+
+    .session-history-bar.visible { display: flex; }
+
+    .history-pills {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      flex-wrap: wrap;
+    }
+
+    .hist-tag {
+      padding: 2px 6px;
+      border-radius: 5px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+    }
+
+    .hist-tag.win { background: var(--green-bg); color: var(--green); border: 1px solid var(--green-border); }
+    .hist-tag.loss { background: var(--red-bg); color: var(--red); border: 1px solid var(--red-border); }
 
     .undo-wrap { text-align: center; margin-top: 7px; display: none; }
     .undo-wrap.visible { display: block; }
@@ -1201,7 +1347,10 @@
 </head>
 <body>
 
-  <!-- ВЕРХНЯЯ ШАПКА С ОЦИФРОВАННОЙ В ВЕКТОР ОРИГИНАЛЬНОЙ ПЛАШКОЙ AiBet MONEY -->
+  <!-- ВСПЛЫВАЮЩИЙ ТОСТ ДЛЯ КОПИРОВАНИЯ И УВЕДОМЛЕНИЙ -->
+  <div class="toast-pill" id="toastPill">✓ Скопировано</div>
+
+  <!-- ВЕРХНЯЯ ШАПКА С ВЕКТОРНОЙ ПЛАШКОЙ AiBet MONEY -->
   <header class="site-header">
     <div class="container">
       <div class="header-inner">
@@ -1239,7 +1388,7 @@
 
         <div class="menu-grid" id="hubCardsGrid"></div>
 
-        <!-- Нижняя фирменная иконка "A" и кнопка ярлыка на экран телефона -->
+        <!-- Нижняя фирменная иконка "A" и кнопка ярлыка -->
         <div class="hub-footer-emblem">
           <svg class="hub-emblem-svg" id="secretAdminTrigger" viewBox="150 100 725 745" fill="none" xmlns="http://www.w3.org/2000/svg">
             <polygon points="512,121 174,824 565,594 401,594 512,365 645,648 805,727" fill="#EAEAEB" />
@@ -1316,18 +1465,30 @@
                 </div>
               </div>
 
+              <!-- Быстрые кнопки ходовых коэффициентов -->
+              <div class="quick-odds-row" id="quickOddsGroup">
+                <span class="quick-odds-label">Быстрый выбор:</span>
+                <button type="button" class="quick-odd-chip active" data-odd="1.5">1.50</button>
+                <button type="button" class="quick-odd-chip" data-odd="1.7">1.70</button>
+                <button type="button" class="quick-odd-chip" data-odd="1.85">1.85</button>
+                <button type="button" class="quick-odd-chip" data-odd="2.1">2.10</button>
+              </div>
+
+              <!-- Профиль риска с плавающим ползунком iOS -->
               <div class="field-block">
                 <div class="field-title">
                   <span>Профиль риска</span>
                   <span class="field-title-hint" id="riskHintText">База 3%</span>
                 </div>
                 <div class="segmented-grid" id="riskGroup">
-                  <button type="button" class="seg-btn" data-risk="0.01" data-label="База 1%">Осторожно</button>
-                  <button type="button" class="seg-btn" data-risk="0.02" data-label="База 2%">Стандарт</button>
-                  <button type="button" class="seg-btn active" data-risk="0.03" data-label="База 3%">Смело</button>
+                  <div class="seg-glider" id="riskGlider"></div>
+                  <button type="button" class="seg-btn" data-index="0" data-risk="0.01" data-label="База 1%">Осторожно</button>
+                  <button type="button" class="seg-btn" data-index="1" data-risk="0.02" data-label="База 2%">Стандарт</button>
+                  <button type="button" class="seg-btn active" data-index="2" data-risk="0.03" data-label="База 3%">Смело</button>
                 </div>
               </div>
 
+              <!-- Округление строго в одну строку -->
               <div class="round-row">
                 <span class="round-label">Округление суммы:</span>
                 <div class="round-pills" id="roundGroup">
@@ -1371,6 +1532,13 @@
                 ❌ Минус <span id="lossBtnDelta">(−4 000 ₽)</span>
               </button>
             </div>
+
+            <!-- Живая мини-история последних ставок -->
+            <div class="session-history-bar" id="sessionHistoryBar">
+              <div class="history-pills" id="historyPillsBox"></div>
+              <button type="button" class="undo-btn" onclick="clearSessionHistory()">очистить</button>
+            </div>
+
             <div class="undo-wrap" id="undoWrap">
               <button type="button" class="undo-btn" id="undoBtn">↺ Отменить последнее изменение банка</button>
             </div>
@@ -1457,7 +1625,7 @@
           <div class="stats-grid">
             <div class="stat-kpi">
               <strong id="statTotalVisits">0</strong>
-              <span>Всего визитов</span>
+              <span>Всего действий</span>
             </div>
             <div class="stat-kpi">
               <strong id="statUniqueUsers">0</strong>
@@ -1656,6 +1824,16 @@ window.INITIAL_BLOCKS = [
       } catch (e) {}
     }
 
+    let toastTimer = null;
+    function showToast(message) {
+      const el = document.getElementById('toastPill');
+      if (!el) return;
+      el.textContent = message;
+      el.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => el.classList.remove('show'), 2100);
+    }
+
     function openTgLink(event, url) {
       try {
         if (tg && tg.initDataUnsafe && Object.keys(tg.initDataUnsafe).length > 0 && url.indexOf('https://t.me/') === 0) {
@@ -1673,10 +1851,9 @@ window.INITIAL_BLOCKS = [
           return;
         }
       } catch (e) {}
-      alert('Чтобы добавить быстрый ярлык на телефон: нажми на три точки (⋮) в правом верхнем углу окна Telegram и выбери «Добавить на главный экран».');
+      showToast('Нажми ⋮ вверху окна → Добавить на экран');
     }
 
-    // Определение пользователя и персональное приветствие
     function getCurrentTgUser() {
       try {
         if (tg && tg.initDataUnsafe && tg.initDataUnsafe.user) {
@@ -1704,7 +1881,9 @@ window.INITIAL_BLOCKS = [
       }
     })();
 
-    // Трекер визитов и заявок в лист ожидания
+    // =========================================================
+    // УМНЫЙ ТРЕКЕР С ЗАЩИТОЙ ОТ СПАМА УВЕДОМЛЕНИЯМИ
+    // =========================================================
     let trackerCfg = window.TRACKER_CONFIG || { botToken: '', adminChatId: '' };
     try {
       const savedCfg = localStorage.getItem('aibet_tracker_cfg');
@@ -1715,7 +1894,7 @@ window.INITIAL_BLOCKS = [
       }
     } catch (e) {}
 
-    function logVisitorEvent(actionLabel, isPriorityLead = false) {
+    function logVisitorEvent(actionLabel, isPriorityLead = false, isFirstSessionVisit = false) {
       try {
         const user = getCurrentTgUser();
         const nowStr = new Date().toLocaleString('ru-RU', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' });
@@ -1734,11 +1913,22 @@ window.INITIAL_BLOCKS = [
         if (logs.length > 100) logs = logs.slice(0, 100);
         localStorage.setItem('aibet_visitors_log', JSON.stringify(logs));
 
-        if (trackerCfg.botToken && trackerCfg.adminChatId) {
+        // В Telegram шлём ТОЛЬКО приоритетные заявки ИЛИ первый визит раз в 12 часов (без спама на каждый клик!)
+        let shouldSendTelegramPush = isPriorityLead;
+        if (isFirstSessionVisit && !isPriorityLead) {
+          const lastPushTs = parseInt(localStorage.getItem('aibet_last_visit_push_ts') || '0', 10);
+          const twelveHoursMs = 12 * 60 * 60 * 1000;
+          if (Date.now() - lastPushTs > twelveHoursMs) {
+            shouldSendTelegramPush = true;
+            localStorage.setItem('aibet_last_visit_push_ts', String(Date.now()));
+          }
+        }
+
+        if (shouldSendTelegramPush && trackerCfg.botToken && trackerCfg.adminChatId) {
           const userTag = user.username ? ' (@' + user.username + ')' : '';
           const headerTitle = isPriorityLead
             ? '🔥 НОВАЯ ЗАЯВКА В ЛИСТ ОЖИДАНИЯ!'
-            : '👤 Активность в AiBet Mini App:';
+            : '👤 Вход в AiBet Mini App:';
           const msg = headerTitle + '\n' +
                       'Имя: ' + user.name + userTag + '\n' +
                       'ID: ' + user.id + '\n' +
@@ -1753,7 +1943,7 @@ window.INITIAL_BLOCKS = [
       } catch (e) {}
     }
 
-    logVisitorEvent('Открыл главное меню');
+    logVisitorEvent('Открыл главное меню', false, true);
 
     function renderStatsInAdmin() {
       let logs = [];
@@ -1790,7 +1980,7 @@ window.INITIAL_BLOCKS = [
       if (u && u.id && u.id !== 'local_guest') {
         document.getElementById('trackerAdminId').value = String(u.id);
         updateTrackerConfig();
-        alert('Твой Telegram ID (' + u.id + ') успешно подставлен!');
+        showToast('✓ Твой ID (' + u.id + ') подставлен');
       } else {
         alert('Открой это окно внутри Telegram, чтобы ID определился автоматически.');
       }
@@ -1830,6 +2020,7 @@ window.INITIAL_BLOCKS = [
           localStorage.setItem('aibet_visitors_log', JSON.stringify(logs));
           renderStatsInAdmin();
           triggerHaptic('medium');
+          showToast('✓ Список гостей обновлён');
         }
       } catch (e) {
         alert('Не удалось получить список из бота.');
@@ -1839,7 +2030,7 @@ window.INITIAL_BLOCKS = [
     // Загрузка блоков меню
     let menuBlocks = [];
     try {
-      const saved = localStorage.getItem('aibet_menu_blocks_v7');
+      const saved = localStorage.getItem('aibet_menu_blocks_v8');
       const parsed = saved ? JSON.parse(saved) : null;
       if (Array.isArray(parsed) && parsed.length > 0) {
         menuBlocks = parsed;
@@ -1852,11 +2043,11 @@ window.INITIAL_BLOCKS = [
 
     function saveBlocksDraft() {
       try {
-        localStorage.setItem('aibet_menu_blocks_v7', JSON.stringify(menuBlocks));
+        localStorage.setItem('aibet_menu_blocks_v8', JSON.stringify(menuBlocks));
       } catch (e) {}
     }
 
-    // Список ожидания (Waitlist)
+    // Список ожидания
     let waitlistMap = {};
     try {
       waitlistMap = JSON.parse(localStorage.getItem('aibet_waitlist_v1') || '{}');
@@ -1913,13 +2104,8 @@ window.INITIAL_BLOCKS = [
           sys.pointer = { x: clientX - r.left, y: clientY - r.top, time: Date.now() };
         };
 
-        parent.addEventListener('pointerdown', (e) => {
-          repelAt(e.clientX, e.clientY);
-        }, { passive: true });
-
-        parent.addEventListener('pointermove', (e) => {
-          repelAt(e.clientX, e.clientY);
-        }, { passive: true });
+        parent.addEventListener('pointerdown', (e) => repelAt(e.clientX, e.clientY), { passive: true });
+        parent.addEventListener('pointermove', (e) => repelAt(e.clientX, e.clientY), { passive: true });
 
         activeSpoilerSystems.push(sys);
       });
@@ -2011,7 +2197,7 @@ window.INITIAL_BLOCKS = [
         const btnText = block.btnLabel || (isAvail ? 'Открыть →' : 'Скоро');
         const btnShimmerClass = isAvail ? ' shimmer-effect' : '';
 
-        const spoilerPillLabel = isWaitlisted ? 'В листе ожидания ✓' : 'Скоро открытие';
+        const spoilerPillLabel = isWaitlisted ? '✓ В листе ожидания' : 'Скоро открытие';
         const spoilerPillClass = isWaitlisted ? 'tg-spoiler-pill waitlisted' : 'tg-spoiler-pill';
 
         const blurOverlayHtml = isBlurred
@@ -2053,7 +2239,8 @@ window.INITIAL_BLOCKS = [
       triggerHaptic('light');
       activeModalBlockIndex = index;
 
-      logVisitorEvent('Нажал: ' + (block.blurred ? 'Скрытый блок #' + (index + 1) + ' (' + block.title + ')' : block.title));
+      // Записываем в локальный лог без звукового спама в Telegram
+      logVisitorEvent('Нажал: ' + (block.blurred ? 'Скрытый блок #' + (index + 1) + ' (' + block.title + ')' : block.title), false, false);
 
       if (block.blurred) {
         openMysterySoonModal(block);
@@ -2115,7 +2302,7 @@ window.INITIAL_BLOCKS = [
       const block = menuBlocks[activeModalBlockIndex];
 
       if (waitlistMap[block.id]) {
-        triggerHaptic('light');
+        showToast('✓ Ты уже в списке ожидания');
         return;
       }
 
@@ -2127,7 +2314,14 @@ window.INITIAL_BLOCKS = [
       triggerHaptic('success');
       syncWaitlistBtnState(block);
       renderHubCards();
-      logVisitorEvent('🔥 Записался в лист ожидания: ' + block.title + ' (Блок #' + (activeModalBlockIndex + 1) + ')', true);
+      showToast('🔔 Отлично! Сообщим об открытии');
+
+      // Приоритетный лид — отправляем в Telegram владельцу мгновенно!
+      logVisitorEvent('🔥 Записался в лист ожидания: ' + block.title + ' (Блок #' + (activeModalBlockIndex + 1) + ')', true, false);
+
+      setTimeout(() => {
+        closeSoonModal();
+      }, 850);
     }
 
     function closeSoonModal() {
@@ -2148,7 +2342,10 @@ window.INITIAL_BLOCKS = [
       const targetUrl = block.ctaUrl || 'https://t.me/aibetmoney';
       ctaBtn.textContent = block.ctaText || 'Написать в личные сообщения →';
       ctaBtn.href = targetUrl;
-      ctaBtn.onclick = (e) => openTgLink(e, targetUrl);
+      ctaBtn.onclick = (e) => {
+        logVisitorEvent('🔥 Перешёл в ЛС из раздела: ' + block.title, true, false);
+        openTgLink(e, targetUrl);
+      };
 
       showScreen('promo');
     }
@@ -2360,6 +2557,7 @@ window.INITIAL_BLOCKS = [
           menuBlocks[idx].coverUrl = canvas.toDataURL('image/jpeg', 0.84);
           saveBlocksDraft();
           renderAdminPanel();
+          showToast('✓ Обложка загружена');
         };
         img.src = e.target.result;
       };
@@ -2395,8 +2593,8 @@ window.INITIAL_BLOCKS = [
     function copyUpdatedSiteCode() {
       const fullHtml = generateFullSiteHtml();
       navigator.clipboard.writeText(fullHtml).then(() => {
-        triggerHaptic('medium');
-        alert('Готово! Обновлённый код скопирован в буфер обмена. Вставь его в index.html на GitHub.');
+        triggerHaptic('success');
+        showToast('✓ Код скопирован в буфер обмена');
       });
     }
 
@@ -2412,12 +2610,13 @@ window.INITIAL_BLOCKS = [
     }
 
     // =========================================================
-    // ЛОГИКА КАЛЬКУЛЯТОРА С ПЛАВНЫМ "БАРАБАНОМ ЦИФР"
+    // ЛОГИКА КАЛЬКУЛЯТОРА С ПЛАВАЮЩИМ ПОЛЗУНКОМ И ИСТОРИЕЙ СЕССИИ
     // =========================================================
     const MAX_BANK_SHARE = 0.05;
     const bankInput = document.getElementById('bankInput');
     const oddsInput = document.getElementById('oddsInput');
     const riskHintText = document.getElementById('riskHintText');
+    const riskGlider = document.getElementById('riskGlider');
     const resultValue = document.getElementById('resultValue');
     const resultSub = document.getElementById('resultSub');
     const resultBox = document.getElementById('resultBox');
@@ -2433,6 +2632,8 @@ window.INITIAL_BLOCKS = [
     const spoilerBtn = document.getElementById('spoilerBtn');
     const spoilerContent = document.getElementById('spoilerContent');
     const spoilerArrow = document.getElementById('spoilerArrow');
+    const sessionHistoryBar = document.getElementById('sessionHistoryBar');
+    const historyPillsBox = document.getElementById('historyPillsBox');
 
     let currentRisk = 0.03;
     let currentRoundStep = 1;
@@ -2446,6 +2647,7 @@ window.INITIAL_BLOCKS = [
     let previousBankValue = null;
     let lastMetaText = '≈ 4.0% банка при кэфе 1.50';
     let saveTimer = null;
+    let sessionHistory = [];
 
     function formatSpaces(num) {
       return Math.round(num).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
@@ -2464,6 +2666,20 @@ window.INITIAL_BLOCKS = [
       savedBadge.classList.add('show');
       clearTimeout(saveTimer);
       saveTimer = setTimeout(() => savedBadge.classList.remove('show'), 1500);
+    }
+
+    function moveRiskGlider(index) {
+      if (riskGlider) {
+        riskGlider.style.transform = 'translateX(' + (index * 100) + '%)';
+      }
+    }
+
+    function syncQuickOddsHighlight() {
+      const currentOdd = parseOdds(oddsInput.value);
+      document.querySelectorAll('#quickOddsGroup .quick-odd-chip').forEach(chip => {
+        const chipOdd = parseFloat(chip.dataset.odd);
+        chip.classList.toggle('active', Math.abs(currentOdd - chipOdd) < 0.005);
+      });
     }
 
     function animateNumbersTo(targetBet, targetProfit, targetPayout, instant = false) {
@@ -2487,7 +2703,7 @@ window.INITIAL_BLOCKS = [
 
       const step = (now) => {
         const progress = Math.min(1, (now - startTime) / duration);
-        const ease = 1 - Math.pow(1 - progress, 3); // cubic ease-out
+        const ease = 1 - Math.pow(1 - progress, 3);
 
         displayedBet = Math.round(startBet + (targetBet - startBet) * ease);
         displayedProfit = Math.round(startProfit + (targetProfit - startProfit) * ease);
@@ -2509,6 +2725,7 @@ window.INITIAL_BLOCKS = [
       const savedBank = localStorage.getItem('aibet_bank');
       const savedRisk = localStorage.getItem('aibet_risk');
       const savedRound = localStorage.getItem('aibet_round');
+      const savedHist = localStorage.getItem('aibet_session_hist');
 
       if (savedBank) {
         const num = parseBank(savedBank);
@@ -2519,7 +2736,10 @@ window.INITIAL_BLOCKS = [
         document.querySelectorAll('#riskGroup .seg-btn').forEach(btn => {
           const isMatch = parseFloat(btn.dataset.risk) === currentRisk;
           btn.classList.toggle('active', isMatch);
-          if (isMatch) riskHintText.textContent = btn.dataset.label;
+          if (isMatch) {
+            riskHintText.textContent = btn.dataset.label;
+            moveRiskGlider(parseInt(btn.dataset.index || '2', 10));
+          }
         });
       }
       if (savedRound) {
@@ -2528,11 +2748,37 @@ window.INITIAL_BLOCKS = [
           btn.classList.toggle('active', parseInt(btn.dataset.step, 10) === currentRoundStep);
         });
       }
+      if (savedHist) {
+        sessionHistory = JSON.parse(savedHist) || [];
+      }
     } catch (e) {}
+
+    function renderSessionHistory() {
+      if (!sessionHistory.length) {
+        sessionHistoryBar.classList.remove('visible');
+        return;
+      }
+      sessionHistoryBar.classList.add('visible');
+      historyPillsBox.innerHTML = sessionHistory.slice(0, 4).map(item => {
+        const cls = item.win ? 'win' : 'loss';
+        const sign = item.win ? '+' : '−';
+        return '<span class="hist-tag ' + cls + '">' + sign + formatSpaces(item.amount) + ' ₽</span>';
+      }).join('');
+    }
+
+    function clearSessionHistory() {
+      triggerHaptic('light');
+      sessionHistory = [];
+      try { localStorage.removeItem('aibet_session_hist'); } catch (e) {}
+      renderSessionHistory();
+    }
+
+    renderSessionHistory();
 
     function calculate(savePrefs = false, instant = false) {
       const bank = parseBank(bankInput.value);
       const odds = parseOdds(oddsInput.value);
+      syncQuickOddsHighlight();
 
       if (savePrefs) {
         try {
@@ -2593,6 +2839,16 @@ window.INITIAL_BLOCKS = [
     bankInput.addEventListener('focus', () => bankInput.select());
     oddsInput.addEventListener('focus', () => oddsInput.select());
 
+    // Быстрые чипы кэфов
+    document.querySelectorAll('#quickOddsGroup .quick-odd-chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        triggerHaptic('light');
+        oddsInput.value = chip.dataset.odd;
+        calculate(false, false);
+      });
+    });
+
+    // Переключатель риска с плавающим ползунком
     document.querySelectorAll('#riskGroup .seg-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         triggerHaptic('light');
@@ -2600,10 +2856,12 @@ window.INITIAL_BLOCKS = [
         btn.classList.add('active');
         currentRisk = parseFloat(btn.dataset.risk);
         riskHintText.textContent = btn.dataset.label;
+        moveRiskGlider(parseInt(btn.dataset.index || '0', 10));
         calculate(true, false);
       });
     });
 
+    // Округление
     document.querySelectorAll('#roundGroup .round-pill').forEach(btn => {
       btn.addEventListener('click', () => {
         triggerHaptic('light');
@@ -2614,30 +2872,41 @@ window.INITIAL_BLOCKS = [
       });
     });
 
-    function updateBankBalance(delta, label, hapticType) {
+    function updateBankBalance(delta, isWin, label, hapticType) {
       const currentBank = parseBank(bankInput.value);
       if (currentBank <= 0 || currentBetRaw <= 0) return;
 
       previousBankValue = currentBank;
+      const recordedAmount = Math.abs(delta);
+      sessionHistory.unshift({ win: isWin, amount: recordedAmount });
+      if (sessionHistory.length > 6) sessionHistory = sessionHistory.slice(0, 6);
+      try { localStorage.setItem('aibet_session_hist', JSON.stringify(sessionHistory)); } catch (e) {}
+      renderSessionHistory();
+
       const nextBank = Math.max(0, Math.round(currentBank + delta));
       bankInput.value = formatSpaces(nextBank);
       undoWrap.classList.add('visible');
       triggerHaptic(hapticType);
       calculate(true, false);
-      showSavedIndicator(label);
+      showToast(label);
     }
 
-    btnWin.addEventListener('click', () => updateBankBalance(currentProfitRaw, 'Банк увеличен ✓', 'success'));
-    btnLoss.addEventListener('click', () => updateBankBalance(-currentBetRaw, 'Банк обновлён ✓', 'warning'));
+    btnWin.addEventListener('click', () => updateBankBalance(currentProfitRaw, true, '✅ Заход! Банк увеличен', 'success'));
+    btnLoss.addEventListener('click', () => updateBankBalance(-currentBetRaw, false, 'Банк пересчитан', 'warning'));
 
     undoBtn.addEventListener('click', () => {
       if (previousBankValue !== null) {
         triggerHaptic('light');
         bankInput.value = formatSpaces(previousBankValue);
         previousBankValue = null;
+        if (sessionHistory.length > 0) {
+          sessionHistory.shift();
+          try { localStorage.setItem('aibet_session_hist', JSON.stringify(sessionHistory)); } catch (e) {}
+          renderSessionHistory();
+        }
         undoWrap.classList.remove('visible');
         calculate(true, false);
-        showSavedIndicator('Возвращено ↺');
+        showToast('↺ Изменение банка отменено');
       }
     });
 
@@ -2647,8 +2916,9 @@ window.INITIAL_BLOCKS = [
       if (navigator.clipboard) {
         navigator.clipboard.writeText(String(currentBetRaw));
       }
-      resultSub.textContent = 'Сумма ' + formatSpaces(currentBetRaw) + ' ₽ скопирована в буфер ✓';
-      setTimeout(() => { resultSub.textContent = lastMetaText; }, 1700);
+      resultBox.classList.add('copied-flash');
+      setTimeout(() => resultBox.classList.remove('copied-flash'), 450);
+      showToast('✓ Сумма ' + formatSpaces(currentBetRaw) + ' ₽ скопирована');
     });
 
     spoilerBtn.addEventListener('click', () => {
