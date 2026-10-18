@@ -10,27 +10,28 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-page: #0B1220;
-      --bg-card: rgba(16, 27, 48, 0.68);
-      --bg-dark-inner: rgba(8, 14, 26, 0.78);
+      /* ГЛУБОКИЙ ОБСИДИАНОВЫЙ ФОН + КАРТОЧКИ DEEP NAVY #0B1220 ДЛЯ МАКСИМАЛЬНОГО КОНТРАСТА С ЗОЛОТОМ */
+      --bg-page: #04070E;
+      --bg-card: rgba(11, 18, 32, 0.88);
+      --bg-dark-inner: #060A13;
       --platinum: #E2E8F0;
       --text-secondary: #CBD5E1;
-      --text-muted: #94A3B8;
+      --text-muted: #8E9BAE;
       --cream: #F5EFE4;
       --cream-focus: #FFFFFF;
       --gold: #C9A876;
       --gold-emblem: #E1A856;
-      --gold-light: #DFBC86;
-      --gold-border: rgba(201, 168, 118, 0.48);
-      --gold-glow: rgba(201, 168, 118, 0.16);
+      --gold-light: #E2B976;
+      --gold-border: rgba(201, 168, 118, 0.45);
+      --gold-glow: rgba(201, 168, 118, 0.14);
       --green: #34D399;
       --green-bg: rgba(52, 211, 153, 0.14);
       --green-border: rgba(52, 211, 153, 0.4);
       --red: #F87171;
       --red-bg: rgba(248, 113, 113, 0.12);
       --red-border: rgba(248, 113, 113, 0.35);
-      --text-dark: #0B1220;
-      --border-subtle: rgba(226, 232, 240, 0.14);
+      --text-dark: #070B12;
+      --border-subtle: rgba(226, 232, 240, 0.09);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
@@ -48,7 +49,7 @@
     }
 
     /* =====================================================
-       ПОЛНОЭКРАННЫЙ ЖИВОЙ CANVAS-ФОН AIBET MONEY
+       ПРЕМИАЛЬНЫЙ ФОН: OBSIDIAN SILK & GOLDEN SPOTLIGHT GRID
        ===================================================== */
     #bgCanvas {
       position: fixed;
@@ -71,7 +72,7 @@
       top: 14px;
       left: 50%;
       transform: translate(-50%, -80px);
-      background: rgba(11, 18, 32, 0.96);
+      background: rgba(6, 10, 19, 0.96);
       border: 1.5px solid var(--gold);
       color: var(--cream);
       font-family: 'Montserrat', sans-serif;
@@ -79,7 +80,7 @@
       font-weight: 700;
       padding: 9px 18px;
       border-radius: 999px;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.65), 0 0 20px rgba(201, 168, 118, 0.25);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.75), 0 0 20px rgba(201, 168, 118, 0.25);
       z-index: 200;
       pointer-events: none;
       opacity: 0;
@@ -94,10 +95,10 @@
 
     /* ВЕРХНЯЯ ШАПКА */
     .site-header {
-      background: rgba(11, 18, 32, 0.72);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border-bottom: 1px solid rgba(201, 168, 118, 0.28);
+      background: rgba(5, 8, 16, 0.86);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(201, 168, 118, 0.22);
       position: sticky;
       top: 0;
       z-index: 30;
@@ -230,34 +231,41 @@
     }
 
     .menu-card {
-      background: linear-gradient(165deg, rgba(23, 39, 70, 0.66) 0%, rgba(13, 22, 40, 0.74) 100%);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
+      background: linear-gradient(165deg, rgba(16, 25, 44, 0.88) 0%, rgba(9, 15, 27, 0.94) 100%);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       border: 1px solid var(--border-subtle);
-      border-top: 1px solid rgba(226, 232, 240, 0.25);
+      border-top: 1px solid rgba(226, 232, 240, 0.16);
       border-radius: 14px;
       overflow: hidden;
       display: flex;
       flex-direction: column;
       cursor: pointer;
       transition: transform 0.16s ease, border-color 0.16s ease, box-shadow 0.2s ease;
-      box-shadow: 0 10px 26px rgba(4, 8, 16, 0.45);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.65);
       position: relative;
       min-height: 174px;
     }
 
     .menu-card:active { transform: scale(0.975); }
 
+    /* ЖИВОЙ ЗОЛОТОЙ ПЕРЕЛИВ РАМКИ АКТИВНОЙ КАРТОЧКИ */
     .menu-card.available {
       border: 1.5px solid var(--gold);
-      background: linear-gradient(165deg, rgba(28, 48, 86, 0.72) 0%, rgba(14, 24, 44, 0.78) 100%);
-      box-shadow: 0 10px 26px rgba(4, 8, 16, 0.55), 0 0 22px rgba(201, 168, 118, 0.18);
+      background: linear-gradient(165deg, rgba(20, 32, 56, 0.92) 0%, rgba(11, 18, 32, 0.96) 100%);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7), 0 0 24px rgba(201, 168, 118, 0.15);
+      animation: goldBorderBreathe 4s ease-in-out infinite alternate;
+    }
+
+    @keyframes goldBorderBreathe {
+      0% { border-color: rgba(201, 168, 118, 0.55); box-shadow: 0 12px 28px rgba(0, 0, 0, 0.7), 0 0 14px rgba(201, 168, 118, 0.10); }
+      100% { border-color: rgba(226, 185, 118, 0.95); box-shadow: 0 12px 32px rgba(0, 0, 0, 0.75), 0 0 26px rgba(201, 168, 118, 0.24); }
     }
 
     .card-cover {
       width: 100%;
       height: 74px;
-      background: rgba(8, 14, 26, 0.55);
+      background: rgba(6, 10, 19, 0.8);
       border-bottom: 1px solid var(--border-subtle);
       position: relative;
       display: flex;
@@ -267,8 +275,8 @@
     }
 
     .menu-card.available .card-cover {
-      background: radial-gradient(circle at 50% 45%, rgba(201, 168, 118, 0.26) 0%, rgba(9, 16, 30, 0.7) 82%);
-      border-bottom: 1px solid rgba(201, 168, 118, 0.28);
+      background: radial-gradient(circle at 50% 45%, rgba(201, 168, 118, 0.22) 0%, rgba(6, 10, 19, 0.92) 82%);
+      border-bottom: 1px solid rgba(201, 168, 118, 0.25);
     }
 
     .card-cover-img {
@@ -304,13 +312,13 @@
     }
 
     .status-pill.active-pill {
-      background: rgba(9, 16, 29, 0.9);
+      background: rgba(6, 10, 19, 0.92);
       border: 1px solid rgba(52, 211, 153, 0.55);
       color: var(--green);
     }
 
     .status-pill.soon-pill {
-      background: rgba(9, 16, 29, 0.9);
+      background: rgba(6, 10, 19, 0.92);
       border: 1px solid var(--gold-border);
       color: var(--gold-light);
     }
@@ -328,7 +336,7 @@
       display: flex;
       align-items: center;
       gap: 6px;
-      background: rgba(19, 31, 54, 0.92);
+      background: rgba(11, 18, 32, 0.95);
       border: 1px solid var(--gold);
       border-radius: 7px;
       padding: 4px 8px;
@@ -421,16 +429,16 @@
     }
 
     .menu-card.soon .card-action-btn {
-      background: rgba(226, 232, 240, 0.05);
+      background: rgba(226, 232, 240, 0.04);
       border: 1px solid var(--border-subtle);
       color: var(--text-muted);
     }
 
     /* ИНТЕРАКТИВНЫЙ TELEGRAM CANVAS-СПОЙЛЕР НА КАРТОЧКАХ */
     .menu-card.blurred .card-inner-blur {
-      filter: blur(18px) saturate(1.2) brightness(0.65);
+      filter: blur(18px) saturate(1.15) brightness(0.55);
       transform: scale(1.12);
-      opacity: 0.32;
+      opacity: 0.3;
       pointer-events: none;
       user-select: none;
     }
@@ -442,9 +450,9 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: radial-gradient(circle at 50% 45%, rgba(24, 42, 78, 0.55) 0%, rgba(11, 18, 32, 0.72) 100%);
-      backdrop-filter: blur(7px);
-      -webkit-backdrop-filter: blur(7px);
+      background: radial-gradient(circle at 50% 45%, rgba(16, 26, 48, 0.65) 0%, rgba(6, 10, 19, 0.88) 100%);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
       overflow: hidden;
       padding: 12px;
     }
@@ -464,9 +472,9 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      background: rgba(11, 18, 32, 0.88);
-      border: 1px solid rgba(226, 232, 240, 0.25);
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+      background: rgba(6, 10, 19, 0.9);
+      border: 1px solid rgba(226, 232, 240, 0.22);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
       backdrop-filter: blur(6px);
       color: var(--platinum);
       font-family: 'Montserrat', sans-serif;
@@ -489,8 +497,8 @@
     }
 
     .tg-spoiler-pill.waitlisted {
-      border-color: rgba(52, 211, 153, 0.6);
-      background: rgba(11, 26, 28, 0.9);
+      border-color: rgba(52, 211, 153, 0.55);
+      background: rgba(8, 22, 22, 0.92);
       color: var(--green);
     }
 
@@ -514,7 +522,7 @@
       cursor: pointer;
       user-select: none;
       transition: transform 0.15s ease;
-      filter: drop-shadow(0 0 14px rgba(201, 168, 118, 0.22));
+      filter: drop-shadow(0 0 14px rgba(201, 168, 118, 0.2));
     }
 
     .hub-emblem-svg:active { transform: scale(0.9); }
@@ -531,7 +539,7 @@
       display: inline-flex;
       align-items: center;
       gap: 5px;
-      background: rgba(25, 43, 77, 0.65);
+      background: rgba(16, 26, 46, 0.75);
       border: 1px solid var(--border-subtle);
       color: var(--text-secondary);
       font-family: 'Inter', sans-serif;
@@ -640,14 +648,14 @@
     }
 
     .card {
-      background: linear-gradient(165deg, rgba(24, 40, 72, 0.72) 0%, rgba(14, 24, 44, 0.78) 100%);
+      background: linear-gradient(165deg, rgba(16, 26, 46, 0.88) 0%, rgba(10, 16, 29, 0.94) 100%);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
       border: 1px solid var(--border-subtle);
-      border-top: 1px solid rgba(226, 232, 240, 0.24);
+      border-top: 1px solid rgba(226, 232, 240, 0.18);
       border-radius: 15px;
       padding: 18px;
-      box-shadow: 0 12px 30px rgba(4, 8, 16, 0.45);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
     }
 
     .block-label {
@@ -686,20 +694,20 @@
       grid-template-columns: 1fr 150px;
       align-items: center;
       gap: 10px;
-      background: rgba(255, 255, 255, 0.03);
+      background: rgba(255, 255, 255, 0.02);
       padding: 5px 5px 5px 12px;
       border-radius: 11px;
-      border: 1px solid rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.05);
     }
 
     .field-block {
       display: flex;
       flex-direction: column;
       gap: 7px;
-      background: rgba(255, 255, 255, 0.03);
+      background: rgba(255, 255, 255, 0.02);
       padding: 9px 10px 10px 12px;
       border-radius: 11px;
-      border: 1px solid rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.05);
     }
 
     .field-title {
@@ -865,14 +873,14 @@
     }
 
     .result-card {
-      background: linear-gradient(180deg, rgba(28, 46, 82, 0.76) 0%, rgba(15, 26, 48, 0.82) 100%);
+      background: linear-gradient(180deg, rgba(20, 32, 58, 0.92) 0%, rgba(11, 18, 32, 0.96) 100%);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
       border: 1px solid var(--gold-border);
       border-top: 1px solid rgba(201, 168, 118, 0.65);
       border-radius: 15px;
       padding: 16px 18px;
-      box-shadow: 0 12px 30px rgba(4, 8, 16, 0.5);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.65);
     }
 
     .result-sublabel {
@@ -899,13 +907,14 @@
       justify-content: center;
       cursor: pointer;
       transition: transform 0.12s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+      animation: goldBorderBreathe 4s ease-in-out infinite alternate;
     }
 
     .result-display:active { transform: scale(0.985); }
 
     .result-display.copied-flash {
-      border-color: var(--green);
-      box-shadow: 0 0 22px rgba(52, 211, 153, 0.35);
+      border-color: var(--green) !important;
+      box-shadow: 0 0 22px rgba(52, 211, 153, 0.35) !important;
     }
 
     .result-number {
@@ -1018,7 +1027,7 @@
     }
 
     .emblem-box { display: flex; justify-content: center; padding: 4px 0; }
-    .emblem-svg { width: 110px; height: auto; filter: drop-shadow(0 0 16px rgba(201, 168, 118, 0.22)); }
+    .emblem-svg { width: 110px; height: auto; filter: drop-shadow(0 0 16px rgba(201, 168, 118, 0.2)); }
 
     .right-column { display: flex; flex-direction: column; gap: 16px; }
 
@@ -1045,7 +1054,7 @@
     .info-item-text { font-size: 13.5px; line-height: 1.55; color: var(--platinum); }
 
     .rule-card {
-      background: linear-gradient(145deg, rgba(201, 168, 118, 0.12) 0%, var(--bg-card) 100%);
+      background: linear-gradient(145deg, rgba(201, 168, 118, 0.1) 0%, var(--bg-card) 100%);
       backdrop-filter: blur(10px);
       border: 1.5px solid var(--gold);
       border-radius: 15px;
@@ -1276,7 +1285,7 @@
     .modal-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(6, 11, 22, 0.84);
+      background: rgba(4, 7, 14, 0.86);
       backdrop-filter: blur(6px);
       display: none;
       align-items: center;
@@ -1290,12 +1299,12 @@
     .modal-box {
       width: 100%;
       max-width: 375px;
-      background: linear-gradient(165deg, #172642 0%, #111C31 100%);
+      background: linear-gradient(165deg, #131F36 0%, #0B1220 100%);
       border: 1.5px solid var(--gold);
       border-radius: 16px;
       padding: 20px 18px;
       text-align: center;
-      box-shadow: 0 18px 46px rgba(0, 0, 0, 0.7);
+      box-shadow: 0 18px 46px rgba(0, 0, 0, 0.75);
     }
 
     .modal-pill {
@@ -1395,7 +1404,7 @@
 </head>
 <body>
 
-  <!-- ЖИВОЙ ИНТЕРАКТИВНЫЙ СОЗВЕЗДИЕ-ФОН AIBET MONEY (HTML5 CANVAS) -->
+  <!-- ПРЕМИАЛЬНЫЙ ОБСИДИАНОВЫЙ ФОН С ПОДСВЕЧИВАЕМОЙ СЕТКОЙ ТЕРМИНАЛА И МЯГКИМИ ЛУЧАМИ -->
   <canvas id="bgCanvas" aria-hidden="true"></canvas>
 
   <div class="toast-pill" id="toastPill">✓ Скопировано</div>
@@ -1870,9 +1879,9 @@ window.INITIAL_BLOCKS = [
 
   <script>
     // =========================================================
-    // ДВИЖОК ПОЛНОЭКРАННОГО ЖИВОГО ФОНА (AI-СОЗВЕЗДИЕ + ШЁЛКОВЫЕ ВОЛНЫ)
+    // ПРЕМИАЛЬНЫЙ ФОН "OBSIDIAN SILK & SPOTLIGHT GRID" (БЕЗ ЛЕТАЮЩИХ ПАЛОЧЕК И МУСОРА)
     // =========================================================
-    (function initFullScreenBgCanvas() {
+    (function initLuxurySpotlightBg() {
       const canvas = document.getElementById('bgCanvas');
       if (!canvas) return;
       const ctx = canvas.getContext('2d');
@@ -1891,141 +1900,86 @@ window.INITIAL_BLOCKS = [
       resizeBg();
       window.addEventListener('resize', resizeBg);
 
-      // Создаём узлы плавающего AI-созвездия и золотые искры в цветах брендбука (#C9A876 и #E2E8F0)
-      const nodes = [];
-      const nodeCount = 34;
-      for (let i = 0; i < nodeCount; i++) {
-        const isGold = i % 2 === 0;
-        nodes.push({
-          x: Math.random() * w,
-          y: Math.random() * h,
-          vx: (Math.random() - 0.5) * 0.45,
-          vy: -0.18 - Math.random() * 0.38, // плавное всплытие вверх
-          r: isGold ? (1.4 + Math.random() * 1.5) : (1.1 + Math.random() * 1.2),
-          isGold: isGold,
-          phase: Math.random() * Math.PI * 2
-        });
-      }
-
-      let touchPoint = null;
+      let fingerPos = { x: w * 0.5, y: h * 0.3, active: false, ts: 0 };
       window.addEventListener('pointermove', (e) => {
-        touchPoint = { x: e.clientX, y: e.clientY, ts: Date.now() };
+        fingerPos = { x: e.clientX, y: e.clientY, active: true, ts: Date.now() };
       }, { passive: true });
       window.addEventListener('pointerdown', (e) => {
-        touchPoint = { x: e.clientX, y: e.clientY, ts: Date.now() };
+        fingerPos = { x: e.clientX, y: e.clientY, active: true, ts: Date.now() };
       }, { passive: true });
 
       let t = 0;
-      function drawBg() {
-        t += 0.018;
+      function renderLuxuryBg() {
+        t += 0.014;
 
-        // 1. Базовый глубокий цвет DEEP NAVY (#0B1220)
-        const baseGrad = ctx.createLinearGradient(0, 0, 0, h);
-        baseGrad.addColorStop(0, '#0E192E');
-        baseGrad.addColorStop(0.5, '#0B1220');
-        baseGrad.addColorStop(1, '#080E1A');
-        ctx.fillStyle = baseGrad;
+        // 1. Глубокая угольно-обсидиановая база (#04070E -> #070C18)
+        ctx.fillStyle = '#04070E';
         ctx.fillRect(0, 0, w, h);
 
-        // 2. Две плавно дышащие световые сферы (Сапфир + Матовое золото)
-        const orb1X = w * (0.25 + 0.35 * Math.sin(t * 0.7));
-        const orb1Y = h * (0.22 + 0.18 * Math.cos(t * 0.5));
-        const g1 = ctx.createRadialGradient(orb1X, orb1Y, 10, orb1X, orb1Y, Math.max(w, h) * 0.62);
-        g1.addColorStop(0, 'rgba(38, 72, 138, 0.42)');
-        g1.addColorStop(0.55, 'rgba(24, 45, 88, 0.16)');
-        g1.addColorStop(1, 'rgba(11, 18, 32, 0)');
-        ctx.fillStyle = g1;
+        // 2. Координаты двух плавно скользящих прожекторов (Золотой и Сапфировый)
+        const goldX = (fingerPos.active && Date.now() - fingerPos.ts < 1800)
+          ? fingerPos.x
+          : w * (0.5 + 0.36 * Math.sin(t * 0.8));
+        const goldY = (fingerPos.active && Date.now() - fingerPos.ts < 1800)
+          ? fingerPos.y
+          : h * (0.32 + 0.26 * Math.cos(t * 0.6));
+
+        const navyX = w * (0.5 - 0.35 * Math.cos(t * 0.65));
+        const navyY = h * (0.72 + 0.2 * Math.sin(t * 0.55));
+
+        // Сапфировое глубокое свечение снизу
+        const gNavy = ctx.createRadialGradient(navyX, navyY, 10, navyX, navyY, Math.max(w, h) * 0.55);
+        gNavy.addColorStop(0, 'rgba(20, 38, 76, 0.38)');
+        gNavy.addColorStop(0.6, 'rgba(11, 18, 32, 0.14)');
+        gNavy.addColorStop(1, 'rgba(4, 7, 14, 0)');
+        ctx.fillStyle = gNavy;
         ctx.fillRect(0, 0, w, h);
 
-        const orb2X = w * (0.75 + 0.3 * Math.cos(t * 0.6));
-        const orb2Y = h * (0.68 + 0.2 * Math.sin(t * 0.8));
-        const g2 = ctx.createRadialGradient(orb2X, orb2Y, 10, orb2X, orb2Y, Math.max(w, h) * 0.55);
-        g2.addColorStop(0, 'rgba(201, 168, 118, 0.22)');
-        g2.addColorStop(0.5, 'rgba(201, 168, 118, 0.07)');
-        g2.addColorStop(1, 'rgba(11, 18, 32, 0)');
-        ctx.fillStyle = g2;
-        ctx.fillRect(0, 0, w, h);
+        // 3. Тончайшая архитектурная микро-сетка терминала, которая проявляется ТОЛЬКО в луче золотого света
+        const gridSize = 28;
+        const spotRadius = 210;
 
-        // 3. Две изгибающиеся шёлковые световые волны с видимым гребнем
-        for (let waveIdx = 0; waveIdx < 2; waveIdx++) {
-          ctx.beginPath();
-          const baseY = waveIdx === 0 ? h * 0.32 : h * 0.74;
-          const amp = waveIdx === 0 ? 34 : 28;
-          const speed = waveIdx === 0 ? t * 1.1 : -t * 0.9;
+        ctx.save();
+        ctx.beginPath();
+        ctx.arc(goldX, goldY, spotRadius, 0, Math.PI * 2);
+        ctx.clip();
 
-          for (let x = 0; x <= w + 20; x += 20) {
-            const y = baseY + Math.sin(x * 0.009 + speed) * amp + Math.cos(x * 0.005 - speed * 0.7) * (amp * 0.5);
-            if (x === 0) ctx.moveTo(x, y);
-            else ctx.lineTo(x, y);
-          }
+        const gridGrad = ctx.createRadialGradient(goldX, goldY, 5, goldX, goldY, spotRadius);
+        gridGrad.addColorStop(0, 'rgba(201, 168, 118, 0.20)');
+        gridGrad.addColorStop(0.5, 'rgba(201, 168, 118, 0.08)');
+        gridGrad.addColorStop(1, 'rgba(201, 168, 118, 0)');
+        ctx.strokeStyle = gridGrad;
+        ctx.lineWidth = 0.8;
 
-          ctx.strokeStyle = waveIdx === 0
-            ? 'rgba(201, 168, 118, 0.22)'
-            : 'rgba(226, 232, 240, 0.14)';
-          ctx.lineWidth = 1.6;
-          ctx.stroke();
+        const startX = Math.floor((goldX - spotRadius) / gridSize) * gridSize;
+        const endX = goldX + spotRadius;
+        const startY = Math.floor((goldY - spotRadius) / gridSize) * gridSize;
+        const endY = goldY + spotRadius;
+
+        ctx.beginPath();
+        for (let x = startX; x <= endX; x += gridSize) {
+          ctx.moveTo(x, startY);
+          ctx.lineTo(x, endY);
         }
-
-        // 4. Созвездие AI-узлов и соединительных линий
-        const hasTouch = touchPoint && (Date.now() - touchPoint.ts < 600);
-
-        for (let i = 0; i < nodes.length; i++) {
-          const n = nodes[i];
-          n.x += n.vx + Math.sin(t + n.phase) * 0.15;
-          n.y += n.vy;
-
-          if (hasTouch) {
-            const dx = n.x - touchPoint.x;
-            const dy = n.y - touchPoint.y;
-            const d2 = dx * dx + dy * dy;
-            if (d2 < 9000 && d2 > 4) {
-              const d = Math.sqrt(d2);
-              n.x += (dx / d) * 1.2;
-              n.y += (dy / d) * 1.2;
-            }
-          }
-
-          if (n.y < -15) {
-            n.y = h + 15;
-            n.x = Math.random() * w;
-          }
-          if (n.x < -15) n.x = w + 15;
-          if (n.x > w + 15) n.x = -15;
-
-          // Тонкие линии между близкими точками
-          for (let j = i + 1; j < nodes.length; j++) {
-            const m = nodes[j];
-            const dx = n.x - m.x;
-            const dy = n.y - m.y;
-            const distSq = dx * dx + dy * dy;
-            const maxConnect = 105;
-            if (distSq < maxConnect * maxConnect) {
-              const alpha = (1 - Math.sqrt(distSq) / maxConnect) * 0.22;
-              ctx.beginPath();
-              ctx.moveTo(n.x, n.y);
-              ctx.lineTo(m.x, m.y);
-              ctx.strokeStyle = (n.isGold || m.isGold)
-                ? 'rgba(201, 168, 118, ' + alpha.toFixed(3) + ')'
-                : 'rgba(226, 232, 240, ' + alpha.toFixed(3) + ')';
-              ctx.lineWidth = 0.85;
-              ctx.stroke();
-            }
-          }
-
-          // Сама светящаяся точка
-          const pulse = 0.55 + 0.45 * Math.sin(t * 2.2 + n.phase);
-          ctx.beginPath();
-          ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
-          ctx.fillStyle = n.isGold
-            ? 'rgba(223, 188, 134, ' + (0.45 + pulse * 0.45).toFixed(2) + ')'
-            : 'rgba(226, 232, 240, ' + (0.35 + pulse * 0.4).toFixed(2) + ')';
-          ctx.fill();
+        for (let y = startY; y <= endY; y += gridSize) {
+          ctx.moveTo(startX, y);
+          ctx.lineTo(endX, y);
         }
+        ctx.stroke();
+        ctx.restore();
 
-        requestAnimationFrame(drawBg);
+        // 4. Мягкий золотой ореол поверх сетки (Max 5% Gold Rule)
+        const gGold = ctx.createRadialGradient(goldX, goldY, 5, goldX, goldY, spotRadius * 1.15);
+        gGold.addColorStop(0, 'rgba(201, 168, 118, 0.13)');
+        gGold.addColorStop(0.5, 'rgba(201, 168, 118, 0.04)');
+        gGold.addColorStop(1, 'rgba(4, 7, 14, 0)');
+        ctx.fillStyle = gGold;
+        ctx.fillRect(0, 0, w, h);
+
+        requestAnimationFrame(renderLuxuryBg);
       }
 
-      requestAnimationFrame(drawBg);
+      requestAnimationFrame(renderLuxuryBg);
     })();
 
     const ADMIN_PIN = '7777';
@@ -2035,8 +1989,8 @@ window.INITIAL_BLOCKS = [
       if (tg) {
         tg.ready();
         tg.expand();
-        if (tg.setHeaderColor) tg.setHeaderColor('#0B1220');
-        if (tg.setBackgroundColor) tg.setBackgroundColor('#0B1220');
+        if (tg.setHeaderColor) tg.setHeaderColor('#04070E');
+        if (tg.setBackgroundColor) tg.setBackgroundColor('#04070E');
         if (tg.BackButton && tg.BackButton.onClick) {
           tg.BackButton.onClick(() => showScreen('hub'));
         }
