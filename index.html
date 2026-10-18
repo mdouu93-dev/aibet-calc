@@ -10,10 +10,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      /* ГЛУБОКИЙ ОБСИДИАНОВЫЙ ФОН + КАРТОЧКИ DEEP NAVY #0B1220 ДЛЯ МАКСИМАЛЬНОГО КОНТРАСТА С ЗОЛОТОМ */
-      --bg-page: #04070E;
-      --bg-card: rgba(11, 18, 32, 0.88);
-      --bg-dark-inner: #060A13;
+      /* ГЛУБОКИЙ ЧЁРНЫЙ ФОН + ПОЛУПРОЗРАЧНЫЕ СТЕКЛЯННЫЕ КАРТОЧКИ DEEP NAVY */
+      --bg-page: #03060C;
+      --bg-card: rgba(12, 20, 36, 0.72);
+      --bg-dark-inner: rgba(6, 10, 19, 0.82);
       --platinum: #E2E8F0;
       --text-secondary: #CBD5E1;
       --text-muted: #8E9BAE;
@@ -21,9 +21,9 @@
       --cream-focus: #FFFFFF;
       --gold: #C9A876;
       --gold-emblem: #E1A856;
-      --gold-light: #E2B976;
-      --gold-border: rgba(201, 168, 118, 0.45);
-      --gold-glow: rgba(201, 168, 118, 0.14);
+      --gold-light: #E5B96F;
+      --gold-border: rgba(201, 168, 118, 0.48);
+      --gold-glow: rgba(201, 168, 118, 0.16);
       --green: #34D399;
       --green-bg: rgba(52, 211, 153, 0.14);
       --green-border: rgba(52, 211, 153, 0.4);
@@ -31,7 +31,7 @@
       --red-bg: rgba(248, 113, 113, 0.12);
       --red-border: rgba(248, 113, 113, 0.35);
       --text-dark: #070B12;
-      --border-subtle: rgba(226, 232, 240, 0.09);
+      --border-subtle: rgba(226, 232, 240, 0.11);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
@@ -49,7 +49,7 @@
     }
 
     /* =====================================================
-       ПРЕМИАЛЬНЫЙ ФОН: OBSIDIAN SILK & GOLDEN SPOTLIGHT GRID
+       ПОЛНОЭКРАННЫЙ ЧЁРНЫЙ КОСМОС: КОМЕТЫ + AI-СОЗВЕЗДИЕ + ШЛЕЙФ ПАЛЬЦА
        ===================================================== */
     #bgCanvas {
       position: fixed;
@@ -95,10 +95,10 @@
 
     /* ВЕРХНЯЯ ШАПКА */
     .site-header {
-      background: rgba(5, 8, 16, 0.86);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(201, 168, 118, 0.22);
+      background: rgba(4, 7, 14, 0.78);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(201, 168, 118, 0.24);
       position: sticky;
       top: 0;
       z-index: 30;
@@ -231,41 +231,40 @@
     }
 
     .menu-card {
-      background: linear-gradient(165deg, rgba(16, 25, 44, 0.88) 0%, rgba(9, 15, 27, 0.94) 100%);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
+      background: linear-gradient(165deg, rgba(16, 26, 46, 0.70) 0%, rgba(8, 14, 26, 0.78) 100%);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
       border: 1px solid var(--border-subtle);
-      border-top: 1px solid rgba(226, 232, 240, 0.16);
+      border-top: 1px solid rgba(226, 232, 240, 0.2);
       border-radius: 14px;
       overflow: hidden;
       display: flex;
       flex-direction: column;
       cursor: pointer;
       transition: transform 0.16s ease, border-color 0.16s ease, box-shadow 0.2s ease;
-      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.65);
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.6);
       position: relative;
       min-height: 174px;
     }
 
     .menu-card:active { transform: scale(0.975); }
 
-    /* ЖИВОЙ ЗОЛОТОЙ ПЕРЕЛИВ РАМКИ АКТИВНОЙ КАРТОЧКИ */
     .menu-card.available {
       border: 1.5px solid var(--gold);
-      background: linear-gradient(165deg, rgba(20, 32, 56, 0.92) 0%, rgba(11, 18, 32, 0.96) 100%);
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7), 0 0 24px rgba(201, 168, 118, 0.15);
-      animation: goldBorderBreathe 4s ease-in-out infinite alternate;
+      background: linear-gradient(165deg, rgba(22, 36, 64, 0.76) 0%, rgba(10, 17, 32, 0.84) 100%);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.65), 0 0 24px rgba(201, 168, 118, 0.16);
+      animation: goldBorderBreathe 3.8s ease-in-out infinite alternate;
     }
 
     @keyframes goldBorderBreathe {
-      0% { border-color: rgba(201, 168, 118, 0.55); box-shadow: 0 12px 28px rgba(0, 0, 0, 0.7), 0 0 14px rgba(201, 168, 118, 0.10); }
-      100% { border-color: rgba(226, 185, 118, 0.95); box-shadow: 0 12px 32px rgba(0, 0, 0, 0.75), 0 0 26px rgba(201, 168, 118, 0.24); }
+      0% { border-color: rgba(201, 168, 118, 0.55); box-shadow: 0 12px 28px rgba(0, 0, 0, 0.65), 0 0 14px rgba(201, 168, 118, 0.10); }
+      100% { border-color: rgba(229, 185, 111, 0.98); box-shadow: 0 12px 32px rgba(0, 0, 0, 0.75), 0 0 26px rgba(229, 185, 111, 0.26); }
     }
 
     .card-cover {
       width: 100%;
       height: 74px;
-      background: rgba(6, 10, 19, 0.8);
+      background: rgba(5, 9, 18, 0.65);
       border-bottom: 1px solid var(--border-subtle);
       position: relative;
       display: flex;
@@ -275,8 +274,8 @@
     }
 
     .menu-card.available .card-cover {
-      background: radial-gradient(circle at 50% 45%, rgba(201, 168, 118, 0.22) 0%, rgba(6, 10, 19, 0.92) 82%);
-      border-bottom: 1px solid rgba(201, 168, 118, 0.25);
+      background: radial-gradient(circle at 50% 45%, rgba(201, 168, 118, 0.24) 0%, rgba(6, 10, 20, 0.8) 82%);
+      border-bottom: 1px solid rgba(201, 168, 118, 0.26);
     }
 
     .card-cover-img {
@@ -336,7 +335,7 @@
       display: flex;
       align-items: center;
       gap: 6px;
-      background: rgba(11, 18, 32, 0.95);
+      background: rgba(11, 18, 32, 0.94);
       border: 1px solid var(--gold);
       border-radius: 7px;
       padding: 4px 8px;
@@ -438,7 +437,7 @@
     .menu-card.blurred .card-inner-blur {
       filter: blur(18px) saturate(1.15) brightness(0.55);
       transform: scale(1.12);
-      opacity: 0.3;
+      opacity: 0.28;
       pointer-events: none;
       user-select: none;
     }
@@ -450,9 +449,9 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: radial-gradient(circle at 50% 45%, rgba(16, 26, 48, 0.65) 0%, rgba(6, 10, 19, 0.88) 100%);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
+      background: radial-gradient(circle at 50% 45%, rgba(16, 26, 48, 0.5) 0%, rgba(5, 9, 18, 0.72) 100%);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
       overflow: hidden;
       padding: 12px;
     }
@@ -522,7 +521,7 @@
       cursor: pointer;
       user-select: none;
       transition: transform 0.15s ease;
-      filter: drop-shadow(0 0 14px rgba(201, 168, 118, 0.2));
+      filter: drop-shadow(0 0 14px rgba(201, 168, 118, 0.25));
     }
 
     .hub-emblem-svg:active { transform: scale(0.9); }
@@ -539,7 +538,7 @@
       display: inline-flex;
       align-items: center;
       gap: 5px;
-      background: rgba(16, 26, 46, 0.75);
+      background: rgba(16, 26, 46, 0.72);
       border: 1px solid var(--border-subtle);
       color: var(--text-secondary);
       font-family: 'Inter', sans-serif;
@@ -648,11 +647,11 @@
     }
 
     .card {
-      background: linear-gradient(165deg, rgba(16, 26, 46, 0.88) 0%, rgba(10, 16, 29, 0.94) 100%);
+      background: linear-gradient(165deg, rgba(16, 26, 46, 0.76) 0%, rgba(9, 15, 28, 0.84) 100%);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
       border: 1px solid var(--border-subtle);
-      border-top: 1px solid rgba(226, 232, 240, 0.18);
+      border-top: 1px solid rgba(226, 232, 240, 0.2);
       border-radius: 15px;
       padding: 18px;
       box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
@@ -694,20 +693,20 @@
       grid-template-columns: 1fr 150px;
       align-items: center;
       gap: 10px;
-      background: rgba(255, 255, 255, 0.02);
+      background: rgba(255, 255, 255, 0.03);
       padding: 5px 5px 5px 12px;
       border-radius: 11px;
-      border: 1px solid rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.06);
     }
 
     .field-block {
       display: flex;
       flex-direction: column;
       gap: 7px;
-      background: rgba(255, 255, 255, 0.02);
+      background: rgba(255, 255, 255, 0.03);
       padding: 9px 10px 10px 12px;
       border-radius: 11px;
-      border: 1px solid rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.06);
     }
 
     .field-title {
@@ -873,7 +872,7 @@
     }
 
     .result-card {
-      background: linear-gradient(180deg, rgba(20, 32, 58, 0.92) 0%, rgba(11, 18, 32, 0.96) 100%);
+      background: linear-gradient(180deg, rgba(22, 36, 64, 0.78) 0%, rgba(10, 17, 32, 0.86) 100%);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
       border: 1px solid var(--gold-border);
@@ -907,7 +906,6 @@
       justify-content: center;
       cursor: pointer;
       transition: transform 0.12s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-      animation: goldBorderBreathe 4s ease-in-out infinite alternate;
     }
 
     .result-display:active { transform: scale(0.985); }
@@ -1027,7 +1025,7 @@
     }
 
     .emblem-box { display: flex; justify-content: center; padding: 4px 0; }
-    .emblem-svg { width: 110px; height: auto; filter: drop-shadow(0 0 16px rgba(201, 168, 118, 0.2)); }
+    .emblem-svg { width: 110px; height: auto; filter: drop-shadow(0 0 16px rgba(201, 168, 118, 0.25)); }
 
     .right-column { display: flex; flex-direction: column; gap: 16px; }
 
@@ -1404,7 +1402,7 @@
 </head>
 <body>
 
-  <!-- ПРЕМИАЛЬНЫЙ ОБСИДИАНОВЫЙ ФОН С ПОДСВЕЧИВАЕМОЙ СЕТКОЙ ТЕРМИНАЛА И МЯГКИМИ ЛУЧАМИ -->
+  <!-- ЧЁРНЫЙ ФОН С ЗОЛОТЫМИ КОМЕТАМИ, AI-СОЗВЕЗДИЕМ И ШЛЕЙФОМ ПАЛЬЦА -->
   <canvas id="bgCanvas" aria-hidden="true"></canvas>
 
   <div class="toast-pill" id="toastPill">✓ Скопировано</div>
@@ -1450,7 +1448,7 @@
         <div class="hub-footer-emblem">
           <svg class="hub-emblem-svg" id="secretAdminTrigger" viewBox="150 100 725 745" fill="none" xmlns="http://www.w3.org/2000/svg">
             <polygon points="512,121 174,824 565,594 401,594 512,365 645,648 805,727" fill="#E2E8F0" />
-            <polygon points="645,648 725,820 848,820 805,727" fill="#C9A876" />
+            <polygon points="645,648 725,820 848,820 805,727" fill="#E1A856" />
           </svg>
           <div class="hub-bottom-pills">
             <button type="button" class="home-screen-pill" id="addHomeBtn" onclick="addAppToHomeScreen()">
@@ -1605,7 +1603,7 @@
           <div class="emblem-box">
             <svg class="emblem-svg" viewBox="150 100 725 745" fill="none" xmlns="http://www.w3.org/2000/svg">
               <polygon points="512,121 174,824 565,594 401,594 512,365 645,648 805,727" fill="#E2E8F0" />
-              <polygon points="645,648 725,820 848,820 805,727" fill="#C9A876" />
+              <polygon points="645,648 725,820 848,820 805,727" fill="#E1A856" />
             </svg>
           </div>
         </div>
@@ -1879,9 +1877,9 @@ window.INITIAL_BLOCKS = [
 
   <script>
     // =========================================================
-    // ПРЕМИАЛЬНЫЙ ФОН "OBSIDIAN SILK & SPOTLIGHT GRID" (БЕЗ ЛЕТАЮЩИХ ПАЛОЧЕК И МУСОРА)
+    // ДВИЖОК ЧЁРНОГО ФОНА: AI-СОЗВЕЗДИЕ + ЗОЛОТЫЕ КОМЕТЫ + НАТИВНЫЙ TOUCH-ШЛЕЙФ
     // =========================================================
-    (function initLuxurySpotlightBg() {
+    (function initCyberConstellationBg() {
       const canvas = document.getElementById('bgCanvas');
       if (!canvas) return;
       const ctx = canvas.getContext('2d');
@@ -1900,86 +1898,239 @@ window.INITIAL_BLOCKS = [
       resizeBg();
       window.addEventListener('resize', resizeBg);
 
-      let fingerPos = { x: w * 0.5, y: h * 0.3, active: false, ts: 0 };
-      window.addEventListener('pointermove', (e) => {
-        fingerPos = { x: e.clientX, y: e.clientY, active: true, ts: Date.now() };
+      // 1. Узлы AI-созвездия на глубоком чёрном фоне
+      const nodes = [];
+      const nodeCount = 38;
+      for (let i = 0; i < nodeCount; i++) {
+        const isGold = i % 2 === 0;
+        nodes.push({
+          x: Math.random() * w,
+          y: Math.random() * h,
+          vx: (Math.random() - 0.5) * 0.55,
+          vy: -0.22 - Math.random() * 0.45,
+          r: isGold ? (1.5 + Math.random() * 1.6) : (1.2 + Math.random() * 1.2),
+          isGold: isGold,
+          phase: Math.random() * Math.PI * 2
+        });
+      }
+
+      // 2. Диагональные световые кометы (угол наклона параллелен фирменному знаку "A")
+      conststreaks = [];
+      const streakCount = 7;
+      function createStreak(randomY = false) {
+        const isGold = Math.random() < 0.65;
+        return {
+          x: Math.random() * (w + 120) - 60,
+          y: randomY ? (Math.random() * h) : (h + 40 + Math.random() * 160),
+          len: 55 + Math.random() * 65,
+          speed: 1.8 + Math.random() * 2.4,
+          angle: -Math.PI * 0.36, // острый диагональный вектор вверх-вправо
+          isGold: isGold,
+          alpha: 0.25 + Math.random() * 0.4
+        };
+      }
+      for (let i = 0; i < streakCount; i++) {
+        conststreaks.push(createStreak(true));
+      }
+
+      // 3. Живые искры и шлейф от ведения пальцем (touchmove + mousemove)
+      const touchSparks = [];
+      let pointer = { x: -999, y: -999, active: false, ts: 0 };
+
+      function spawnSparks(x, y, count = 3) {
+        pointer.x = x;
+        pointer.y = y;
+        pointer.active = true;
+        pointer.ts = Date.now();
+
+        for (let i = 0; i < count; i++) {
+          const angle = Math.random() * Math.PI * 2;
+          const spd = 0.6 + Math.random() * 2.4;
+          touchSparks.push({
+            x: x + (Math.random() - 0.5) * 8,
+            y: y + (Math.random() - 0.5) * 8,
+            vx: Math.cos(angle) * spd,
+            vy: Math.sin(angle) * spd - 0.3,
+            r: 1.5 + Math.random() * 1.8,
+            life: 1.0,
+            decay: 0.024 + Math.random() * 0.02,
+            isGold: Math.random() < 0.78
+          });
+        }
+        if (touchSparks.length > 75) {
+          touchSparks.splice(0, touchSparks.length - 75);
+        }
+      }
+
+      // Слушаем и touchmove (для телефона в ТГ), и pointermove (для мышки на ПК)
+      window.addEventListener('touchstart', (e) => {
+        if (e.touches && e.touches[0]) {
+          spawnSparks(e.touches[0].clientX, e.touches[0].clientY, 10);
+        }
       }, { passive: true });
+
+      window.addEventListener('touchmove', (e) => {
+        if (e.touches && e.touches[0]) {
+          spawnSparks(e.touches[0].clientX, e.touches[0].clientY, 4);
+        }
+      }, { passive: true });
+
       window.addEventListener('pointerdown', (e) => {
-        fingerPos = { x: e.clientX, y: e.clientY, active: true, ts: Date.now() };
+        if (e.pointerType !== 'touch') spawnSparks(e.clientX, e.clientY, 10);
+      }, { passive: true });
+
+      window.addEventListener('pointermove', (e) => {
+        if (e.pointerType !== 'touch') spawnSparks(e.clientX, e.clientY, 2);
       }, { passive: true });
 
       let t = 0;
-      function renderLuxuryBg() {
-        t += 0.014;
+      function animateBg() {
+        t += 0.02;
 
-        // 1. Глубокая угольно-обсидиановая база (#04070E -> #070C18)
-        ctx.fillStyle = '#04070E';
+        // Глубокий угольно-чёрный фон (#03060C) с деликатным ночным отливом
+        const bgGrad = ctx.createLinearGradient(0, 0, 0, h);
+        bgGrad.addColorStop(0, '#040812');
+        bgGrad.addColorStop(0.5, '#03060C');
+        bgGrad.addColorStop(1, '#020408');
+        ctx.fillStyle = bgGrad;
         ctx.fillRect(0, 0, w, h);
 
-        // 2. Координаты двух плавно скользящих прожекторов (Золотой и Сапфировый)
-        const goldX = (fingerPos.active && Date.now() - fingerPos.ts < 1800)
-          ? fingerPos.x
-          : w * (0.5 + 0.36 * Math.sin(t * 0.8));
-        const goldY = (fingerPos.active && Date.now() - fingerPos.ts < 1800)
-          ? fingerPos.y
-          : h * (0.32 + 0.26 * Math.cos(t * 0.6));
-
-        const navyX = w * (0.5 - 0.35 * Math.cos(t * 0.65));
-        const navyY = h * (0.72 + 0.2 * Math.sin(t * 0.55));
-
-        // Сапфировое глубокое свечение снизу
-        const gNavy = ctx.createRadialGradient(navyX, navyY, 10, navyX, navyY, Math.max(w, h) * 0.55);
-        gNavy.addColorStop(0, 'rgba(20, 38, 76, 0.38)');
-        gNavy.addColorStop(0.6, 'rgba(11, 18, 32, 0.14)');
-        gNavy.addColorStop(1, 'rgba(4, 7, 14, 0)');
-        ctx.fillStyle = gNavy;
+        // Тонкий золотисто-сапфировый дышащий ореол в глубине
+        const pulseX = w * (0.5 + 0.25 * Math.sin(t * 0.5));
+        const pulseY = h * (0.45 + 0.2 * Math.cos(t * 0.4));
+        const radial = ctx.createRadialGradient(pulseX, pulseY, 10, pulseX, pulseY, Math.max(w, h) * 0.55);
+        radial.addColorStop(0, 'rgba(201, 168, 118, 0.09)');
+        radial.addColorStop(0.45, 'rgba(18, 34, 68, 0.12)');
+        radial.addColorStop(1, 'rgba(3, 6, 12, 0)');
+        ctx.fillStyle = radial;
         ctx.fillRect(0, 0, w, h);
 
-        // 3. Тончайшая архитектурная микро-сетка терминала, которая проявляется ТОЛЬКО в луче золотого света
-        const gridSize = 28;
-        const spotRadius = 210;
+        // Отрисовка летящих световых комет (Light Streaks)
+        for (let i = 0; i < conststreaks.length; i++) {
+          const s = conststreaks[i];
+          const dx = Math.cos(s.angle);
+          const dy = Math.sin(s.angle);
 
-        ctx.save();
-        ctx.beginPath();
-        ctx.arc(goldX, goldY, spotRadius, 0, Math.PI * 2);
-        ctx.clip();
+          s.x += dx * s.speed;
+          s.y += dy * s.speed;
 
-        const gridGrad = ctx.createRadialGradient(goldX, goldY, 5, goldX, goldY, spotRadius);
-        gridGrad.addColorStop(0, 'rgba(201, 168, 118, 0.20)');
-        gridGrad.addColorStop(0.5, 'rgba(201, 168, 118, 0.08)');
-        gridGrad.addColorStop(1, 'rgba(201, 168, 118, 0)');
-        ctx.strokeStyle = gridGrad;
-        ctx.lineWidth = 0.8;
+          const tailX = s.x - dx * s.len;
+          const tailY = s.y - dy * s.len;
 
-        const startX = Math.floor((goldX - spotRadius) / gridSize) * gridSize;
-        const endX = goldX + spotRadius;
-        const startY = Math.floor((goldY - spotRadius) / gridSize) * gridSize;
-        const endY = goldY + spotRadius;
+          const grad = ctx.createLinearGradient(s.x, s.y, tailX, tailY);
+          if (s.isGold) {
+            grad.addColorStop(0, 'rgba(229, 185, 111, ' + s.alpha.toFixed(2) + ')');
+            grad.addColorStop(0.3, 'rgba(201, 168, 118, ' + (s.alpha * 0.45).toFixed(2) + ')');
+            grad.addColorStop(1, 'rgba(201, 168, 118, 0)');
+          } else {
+            grad.addColorStop(0, 'rgba(226, 232, 240, ' + s.alpha.toFixed(2) + ')');
+            grad.addColorStop(0.3, 'rgba(226, 232, 240, ' + (s.alpha * 0.4).toFixed(2) + ')');
+            grad.addColorStop(1, 'rgba(226, 232, 240, 0)');
+          }
 
-        ctx.beginPath();
-        for (let x = startX; x <= endX; x += gridSize) {
-          ctx.moveTo(x, startY);
-          ctx.lineTo(x, endY);
+          ctx.beginPath();
+          ctx.moveTo(s.x, s.y);
+          ctx.lineTo(tailX, tailY);
+          ctx.strokeStyle = grad;
+          ctx.lineWidth = 1.6;
+          ctx.stroke();
+
+          // Головка кометы
+          ctx.beginPath();
+          ctx.arc(s.x, s.y, 1.4, 0, Math.PI * 2);
+          ctx.fillStyle = s.isGold ? '#E5B96F' : '#E2E8F0';
+          ctx.fill();
+
+          if (s.y < -80 || s.x > w + 100) {
+            conststreaks[i] = createStreak(false);
+          }
         }
-        for (let y = startY; y <= endY; y += gridSize) {
-          ctx.moveTo(startX, y);
-          ctx.lineTo(endX, y);
+
+        const isPointerFresh = pointer.active && (Date.now() - pointer.ts < 800);
+
+        // Отрисовка парящего AI-созвездия (точки + соединительные линии)
+        for (let i = 0; i < nodes.length; i++) {
+          const n = nodes[i];
+          n.x += n.vx + Math.sin(t + n.phase) * 0.15;
+          n.y += n.vy;
+
+          if (n.y < -15) { n.y = h + 15; n.x = Math.random() * w; }
+          if (n.x < -15) n.x = w + 15;
+          if (n.x > w + 15) n.x = -15;
+
+          // Линии между соседними узлами
+          for (let j = i + 1; j < nodes.length; j++) {
+            const m = nodes[j];
+            const dx = n.x - m.x;
+            const dy = n.y - m.y;
+            const d2 = dx * dx + dy * dy;
+            const maxD = 115;
+            if (d2 < maxD * maxD) {
+              const alpha = (1 - Math.sqrt(d2) / maxD) * 0.28;
+              ctx.beginPath();
+              ctx.moveTo(n.x, n.y);
+              ctx.lineTo(m.x, m.y);
+              ctx.strokeStyle = (n.isGold || m.isGold)
+                ? 'rgba(201, 168, 118, ' + alpha.toFixed(3) + ')'
+                : 'rgba(226, 232, 240, ' + alpha.toFixed(3) + ')';
+              ctx.lineWidth = 0.9;
+              ctx.stroke();
+            }
+          }
+
+          // Интерактивные золотые молнии от пальца к ближайшим узлам
+          if (isPointerFresh) {
+            const pdx = n.x - pointer.x;
+            const pdy = n.y - pointer.y;
+            const pd2 = pdx * pdx + pdy * pdy;
+            const pMax = 140;
+            if (pd2 < pMax * pMax) {
+              const pAlpha = (1 - Math.sqrt(pd2) / pMax) * 0.55;
+              ctx.beginPath();
+              ctx.moveTo(pointer.x, pointer.y);
+              ctx.lineTo(n.x, n.y);
+              ctx.strokeStyle = 'rgba(229, 185, 111, ' + pAlpha.toFixed(2) + ')';
+              ctx.lineWidth = 1.1;
+              ctx.stroke();
+            }
+          }
+
+          // Свечение самого узла
+          const pulse = 0.5 + 0.5 * Math.sin(t * 2.4 + n.phase);
+          ctx.beginPath();
+          ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+          ctx.fillStyle = n.isGold
+            ? 'rgba(229, 185, 111, ' + (0.5 + pulse * 0.45).toFixed(2) + ')'
+            : 'rgba(226, 232, 240, ' + (0.4 + pulse * 0.4).toFixed(2) + ')';
+          ctx.fill();
         }
-        ctx.stroke();
-        ctx.restore();
 
-        // 4. Мягкий золотой ореол поверх сетки (Max 5% Gold Rule)
-        const gGold = ctx.createRadialGradient(goldX, goldY, 5, goldX, goldY, spotRadius * 1.15);
-        gGold.addColorStop(0, 'rgba(201, 168, 118, 0.13)');
-        gGold.addColorStop(0.5, 'rgba(201, 168, 118, 0.04)');
-        gGold.addColorStop(1, 'rgba(4, 7, 14, 0)');
-        ctx.fillStyle = gGold;
-        ctx.fillRect(0, 0, w, h);
+        // Отрисовка шлейфа золотых искр за пальцем
+        for (let i = touchSparks.length - 1; i >= 0; i--) {
+          const sp = touchSparks[i];
+          sp.x += sp.vx;
+          sp.y += sp.vy;
+          sp.vx *= 0.95;
+          sp.vy *= 0.95;
+          sp.life -= sp.decay;
 
-        requestAnimationFrame(renderLuxuryBg);
+          if (sp.life <= 0) {
+            touchSparks.splice(i, 1);
+            continue;
+          }
+
+          ctx.beginPath();
+          ctx.arc(sp.x, sp.y, sp.r * sp.life, 0, Math.PI * 2);
+          ctx.fillStyle = sp.isGold
+            ? 'rgba(229, 185, 111, ' + (sp.life * 0.9).toFixed(2) + ')'
+            : 'rgba(226, 232, 240, ' + (sp.life * 0.85).toFixed(2) + ')';
+          ctx.fill();
+        }
+
+        requestAnimationFrame(animateBg);
       }
 
-      requestAnimationFrame(renderLuxuryBg);
+      requestAnimationFrame(animateBg);
     })();
 
     const ADMIN_PIN = '7777';
@@ -1989,8 +2140,8 @@ window.INITIAL_BLOCKS = [
       if (tg) {
         tg.ready();
         tg.expand();
-        if (tg.setHeaderColor) tg.setHeaderColor('#04070E');
-        if (tg.setBackgroundColor) tg.setBackgroundColor('#04070E');
+        if (tg.setHeaderColor) tg.setHeaderColor('#03060C');
+        if (tg.setBackgroundColor) tg.setBackgroundColor('#03060C');
         if (tg.BackButton && tg.BackButton.onClick) {
           tg.BackButton.onClick(() => showScreen('hub'));
         }
@@ -2337,6 +2488,9 @@ window.INITIAL_BLOCKS = [
 
         parent.addEventListener('pointerdown', (e) => repelAt(e.clientX, e.clientY), { passive: true });
         parent.addEventListener('pointermove', (e) => repelAt(e.clientX, e.clientY), { passive: true });
+        parent.addEventListener('touchmove', (e) => {
+          if (e.touches && e.touches[0]) repelAt(e.touches[0].clientX, e.touches[0].clientY);
+        }, { passive: true });
 
         activeSpoilerSystems.push(sys);
       });
