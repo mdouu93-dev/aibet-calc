@@ -11,8 +11,8 @@
   <style>
     :root {
       --bg-page: #0B1220;
-      --bg-card: rgba(19, 31, 54, 0.86);
-      --bg-dark-inner: #080F1C;
+      --bg-card: rgba(16, 27, 48, 0.68);
+      --bg-dark-inner: rgba(8, 14, 26, 0.78);
       --platinum: #E2E8F0;
       --text-secondary: #CBD5E1;
       --text-muted: #94A3B8;
@@ -30,7 +30,7 @@
       --red-bg: rgba(248, 113, 113, 0.12);
       --red-border: rgba(248, 113, 113, 0.35);
       --text-dark: #0B1220;
-      --border-subtle: rgba(226, 232, 240, 0.13);
+      --border-subtle: rgba(226, 232, 240, 0.14);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
@@ -48,73 +48,18 @@
     }
 
     /* =====================================================
-       ЖИВОЙ ПЕРЕЛИВАЮЩИЙСЯ ФОН (AMBIENT SILK AURORA В ПАЛИТРЕ БРЕНДБУКА)
+       ПОЛНОЭКРАННЫЙ ЖИВОЙ CANVAS-ФОН AIBET MONEY
        ===================================================== */
-    .ambient-bg {
+    #bgCanvas {
       position: fixed;
       inset: 0;
+      width: 100vw;
+      height: 100vh;
       z-index: 0;
-      overflow: hidden;
       pointer-events: none;
-      background: linear-gradient(180deg, #0D1628 0%, #0B1220 55%, #080E1A 100%);
+      display: block;
     }
 
-    .aurora-orb {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(55px);
-      will-change: transform, opacity;
-    }
-
-    /* 1. Глубокая сапфирово-синяя волна сверху */
-    .aurora-orb.navy-wave {
-      width: 380px;
-      height: 380px;
-      top: -110px;
-      left: -60px;
-      background: radial-gradient(circle, rgba(34, 62, 118, 0.78) 0%, rgba(19, 35, 68, 0) 72%);
-      animation: floatOrb1 11s ease-in-out infinite alternate;
-    }
-
-    /* 2. Фирменное матовое золото (#C9A876) — мягкий перелив по диагонали */
-    .aurora-orb.gold-wave {
-      width: 320px;
-      height: 320px;
-      top: 22%;
-      right: -95px;
-      background: radial-gradient(circle, rgba(201, 168, 118, 0.24) 0%, rgba(201, 168, 118, 0) 70%);
-      animation: floatOrb2 14s ease-in-out infinite alternate;
-    }
-
-    /* 3. Платиновый холодный отсвет снизу (#E2E8F0) */
-    .aurora-orb.platinum-wave {
-      width: 340px;
-      height: 340px;
-      bottom: -110px;
-      left: 15%;
-      background: radial-gradient(circle, rgba(42, 72, 130, 0.6) 0%, rgba(226, 232, 240, 0.08) 45%, transparent 72%);
-      animation: floatOrb3 13s ease-in-out infinite alternate;
-    }
-
-    @keyframes floatOrb1 {
-      0% { transform: translate3d(0, 0, 0) scale(1); }
-      50% { transform: translate3d(85px, 45px, 0) scale(1.18); }
-      100% { transform: translate3d(35px, 95px, 0) scale(0.95); }
-    }
-
-    @keyframes floatOrb2 {
-      0% { transform: translate3d(0, 0, 0) scale(1); opacity: 0.75; }
-      50% { transform: translate3d(-90px, 70px, 0) scale(1.22); opacity: 1; }
-      100% { transform: translate3d(-45px, -50px, 0) scale(0.92); opacity: 0.8; }
-    }
-
-    @keyframes floatOrb3 {
-      0% { transform: translate3d(0, 0, 0) scale(1); }
-      50% { transform: translate3d(60px, -65px, 0) scale(1.15); }
-      100% { transform: translate3d(-55px, -25px, 0) scale(1.05); }
-    }
-
-    /* Все секции поверх живого фона */
     header, section {
       position: relative;
       z-index: 2;
@@ -149,9 +94,9 @@
 
     /* ВЕРХНЯЯ ШАПКА */
     .site-header {
-      background: rgba(11, 18, 32, 0.82);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
+      background: rgba(11, 18, 32, 0.72);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
       border-bottom: 1px solid rgba(201, 168, 118, 0.28);
       position: sticky;
       top: 0;
@@ -285,18 +230,18 @@
     }
 
     .menu-card {
-      background: linear-gradient(165deg, rgba(25, 42, 74, 0.85) 0%, rgba(16, 27, 49, 0.9) 100%);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+      background: linear-gradient(165deg, rgba(23, 39, 70, 0.66) 0%, rgba(13, 22, 40, 0.74) 100%);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
       border: 1px solid var(--border-subtle);
-      border-top: 1px solid rgba(226, 232, 240, 0.24);
+      border-top: 1px solid rgba(226, 232, 240, 0.25);
       border-radius: 14px;
       overflow: hidden;
       display: flex;
       flex-direction: column;
       cursor: pointer;
       transition: transform 0.16s ease, border-color 0.16s ease, box-shadow 0.2s ease;
-      box-shadow: 0 10px 26px rgba(4, 8, 16, 0.5);
+      box-shadow: 0 10px 26px rgba(4, 8, 16, 0.45);
       position: relative;
       min-height: 174px;
     }
@@ -305,14 +250,14 @@
 
     .menu-card.available {
       border: 1.5px solid var(--gold);
-      background: linear-gradient(165deg, rgba(30, 50, 88, 0.92) 0%, rgba(18, 30, 54, 0.95) 100%);
-      box-shadow: 0 10px 26px rgba(4, 8, 16, 0.6), 0 0 22px rgba(201, 168, 118, 0.18);
+      background: linear-gradient(165deg, rgba(28, 48, 86, 0.72) 0%, rgba(14, 24, 44, 0.78) 100%);
+      box-shadow: 0 10px 26px rgba(4, 8, 16, 0.55), 0 0 22px rgba(201, 168, 118, 0.18);
     }
 
     .card-cover {
       width: 100%;
       height: 74px;
-      background: rgba(8, 15, 28, 0.75);
+      background: rgba(8, 14, 26, 0.55);
       border-bottom: 1px solid var(--border-subtle);
       position: relative;
       display: flex;
@@ -322,7 +267,7 @@
     }
 
     .menu-card.available .card-cover {
-      background: radial-gradient(circle at 50% 45%, rgba(201, 168, 118, 0.26) 0%, rgba(10, 18, 34, 0.9) 82%);
+      background: radial-gradient(circle at 50% 45%, rgba(201, 168, 118, 0.26) 0%, rgba(9, 16, 30, 0.7) 82%);
       border-bottom: 1px solid rgba(201, 168, 118, 0.28);
     }
 
@@ -383,7 +328,7 @@
       display: flex;
       align-items: center;
       gap: 6px;
-      background: rgba(19, 31, 54, 0.95);
+      background: rgba(19, 31, 54, 0.92);
       border: 1px solid var(--gold);
       border-radius: 7px;
       padding: 4px 8px;
@@ -485,7 +430,7 @@
     .menu-card.blurred .card-inner-blur {
       filter: blur(18px) saturate(1.2) brightness(0.65);
       transform: scale(1.12);
-      opacity: 0.35;
+      opacity: 0.32;
       pointer-events: none;
       user-select: none;
     }
@@ -497,9 +442,9 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: radial-gradient(circle at 50% 45%, rgba(26, 45, 82, 0.6) 0%, rgba(11, 18, 32, 0.82) 100%);
-      backdrop-filter: blur(9px);
-      -webkit-backdrop-filter: blur(9px);
+      background: radial-gradient(circle at 50% 45%, rgba(24, 42, 78, 0.55) 0%, rgba(11, 18, 32, 0.72) 100%);
+      backdrop-filter: blur(7px);
+      -webkit-backdrop-filter: blur(7px);
       overflow: hidden;
       padding: 12px;
     }
@@ -569,6 +514,7 @@
       cursor: pointer;
       user-select: none;
       transition: transform 0.15s ease;
+      filter: drop-shadow(0 0 14px rgba(201, 168, 118, 0.22));
     }
 
     .hub-emblem-svg:active { transform: scale(0.9); }
@@ -585,7 +531,7 @@
       display: inline-flex;
       align-items: center;
       gap: 5px;
-      background: rgba(25, 43, 77, 0.55);
+      background: rgba(25, 43, 77, 0.65);
       border: 1px solid var(--border-subtle);
       color: var(--text-secondary);
       font-family: 'Inter', sans-serif;
@@ -624,7 +570,7 @@
 
     .promo-card {
       background: var(--bg-card);
-      backdrop-filter: blur(12px);
+      backdrop-filter: blur(10px);
       border: 1.5px solid var(--gold-border);
       border-radius: 16px;
       overflow: hidden;
@@ -674,6 +620,7 @@
       align-items: center;
       gap: 6px;
       background: var(--bg-card);
+      backdrop-filter: blur(8px);
       border: 1px solid var(--gold-border);
       color: var(--gold-light);
       font-family: 'Montserrat', sans-serif;
@@ -693,14 +640,14 @@
     }
 
     .card {
-      background: linear-gradient(165deg, rgba(24, 40, 70, 0.88) 0%, rgba(16, 27, 49, 0.92) 100%);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+      background: linear-gradient(165deg, rgba(24, 40, 72, 0.72) 0%, rgba(14, 24, 44, 0.78) 100%);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       border: 1px solid var(--border-subtle);
-      border-top: 1px solid rgba(226, 232, 240, 0.22);
+      border-top: 1px solid rgba(226, 232, 240, 0.24);
       border-radius: 15px;
       padding: 18px;
-      box-shadow: 0 12px 30px rgba(4, 8, 16, 0.5);
+      box-shadow: 0 12px 30px rgba(4, 8, 16, 0.45);
     }
 
     .block-label {
@@ -918,13 +865,14 @@
     }
 
     .result-card {
-      background: linear-gradient(180deg, rgba(28, 46, 80, 0.9) 0%, rgba(18, 30, 54, 0.94) 100%);
-      backdrop-filter: blur(12px);
+      background: linear-gradient(180deg, rgba(28, 46, 82, 0.76) 0%, rgba(15, 26, 48, 0.82) 100%);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       border: 1px solid var(--gold-border);
       border-top: 1px solid rgba(201, 168, 118, 0.65);
       border-radius: 15px;
       padding: 16px 18px;
-      box-shadow: 0 12px 30px rgba(4, 8, 16, 0.55);
+      box-shadow: 0 12px 30px rgba(4, 8, 16, 0.5);
     }
 
     .result-sublabel {
@@ -1070,7 +1018,7 @@
     }
 
     .emblem-box { display: flex; justify-content: center; padding: 4px 0; }
-    .emblem-svg { width: 110px; height: auto; }
+    .emblem-svg { width: 110px; height: auto; filter: drop-shadow(0 0 16px rgba(201, 168, 118, 0.22)); }
 
     .right-column { display: flex; flex-direction: column; gap: 16px; }
 
@@ -1078,6 +1026,7 @@
       display: none;
       width: 100%;
       background: var(--bg-card);
+      backdrop-filter: blur(8px);
       border: 1px solid var(--gold-border);
       border-radius: 11px;
       padding: 12px 15px;
@@ -1096,7 +1045,8 @@
     .info-item-text { font-size: 13.5px; line-height: 1.55; color: var(--platinum); }
 
     .rule-card {
-      background: linear-gradient(145deg, rgba(201, 168, 118, 0.1) 0%, var(--bg-card) 100%);
+      background: linear-gradient(145deg, rgba(201, 168, 118, 0.12) 0%, var(--bg-card) 100%);
+      backdrop-filter: blur(10px);
       border: 1.5px solid var(--gold);
       border-radius: 15px;
       padding: 18px;
@@ -1445,12 +1395,8 @@
 </head>
 <body>
 
-  <!-- ЖИВОЙ ПЕРЕЛИВАЮЩИЙСЯ ФОН В ПАЛИТРЕ AIBET MONEY -->
-  <div class="ambient-bg" aria-hidden="true">
-    <div class="aurora-orb navy-wave"></div>
-    <div class="aurora-orb gold-wave"></div>
-    <div class="aurora-orb platinum-wave"></div>
-  </div>
+  <!-- ЖИВОЙ ИНТЕРАКТИВНЫЙ СОЗВЕЗДИЕ-ФОН AIBET MONEY (HTML5 CANVAS) -->
+  <canvas id="bgCanvas" aria-hidden="true"></canvas>
 
   <div class="toast-pill" id="toastPill">✓ Скопировано</div>
 
@@ -1923,6 +1869,165 @@ window.INITIAL_BLOCKS = [
   </script>
 
   <script>
+    // =========================================================
+    // ДВИЖОК ПОЛНОЭКРАННОГО ЖИВОГО ФОНА (AI-СОЗВЕЗДИЕ + ШЁЛКОВЫЕ ВОЛНЫ)
+    // =========================================================
+    (function initFullScreenBgCanvas() {
+      const canvas = document.getElementById('bgCanvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let w = window.innerWidth || 390;
+      let h = window.innerHeight || 740;
+      let dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+      function resizeBg() {
+        w = window.innerWidth || 390;
+        h = window.innerHeight || 740;
+        dpr = Math.min(window.devicePixelRatio || 1, 2);
+        canvas.width = w * dpr;
+        canvas.height = h * dpr;
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      }
+      resizeBg();
+      window.addEventListener('resize', resizeBg);
+
+      // Создаём узлы плавающего AI-созвездия и золотые искры в цветах брендбука (#C9A876 и #E2E8F0)
+      const nodes = [];
+      const nodeCount = 34;
+      for (let i = 0; i < nodeCount; i++) {
+        const isGold = i % 2 === 0;
+        nodes.push({
+          x: Math.random() * w,
+          y: Math.random() * h,
+          vx: (Math.random() - 0.5) * 0.45,
+          vy: -0.18 - Math.random() * 0.38, // плавное всплытие вверх
+          r: isGold ? (1.4 + Math.random() * 1.5) : (1.1 + Math.random() * 1.2),
+          isGold: isGold,
+          phase: Math.random() * Math.PI * 2
+        });
+      }
+
+      let touchPoint = null;
+      window.addEventListener('pointermove', (e) => {
+        touchPoint = { x: e.clientX, y: e.clientY, ts: Date.now() };
+      }, { passive: true });
+      window.addEventListener('pointerdown', (e) => {
+        touchPoint = { x: e.clientX, y: e.clientY, ts: Date.now() };
+      }, { passive: true });
+
+      let t = 0;
+      function drawBg() {
+        t += 0.018;
+
+        // 1. Базовый глубокий цвет DEEP NAVY (#0B1220)
+        const baseGrad = ctx.createLinearGradient(0, 0, 0, h);
+        baseGrad.addColorStop(0, '#0E192E');
+        baseGrad.addColorStop(0.5, '#0B1220');
+        baseGrad.addColorStop(1, '#080E1A');
+        ctx.fillStyle = baseGrad;
+        ctx.fillRect(0, 0, w, h);
+
+        // 2. Две плавно дышащие световые сферы (Сапфир + Матовое золото)
+        const orb1X = w * (0.25 + 0.35 * Math.sin(t * 0.7));
+        const orb1Y = h * (0.22 + 0.18 * Math.cos(t * 0.5));
+        const g1 = ctx.createRadialGradient(orb1X, orb1Y, 10, orb1X, orb1Y, Math.max(w, h) * 0.62);
+        g1.addColorStop(0, 'rgba(38, 72, 138, 0.42)');
+        g1.addColorStop(0.55, 'rgba(24, 45, 88, 0.16)');
+        g1.addColorStop(1, 'rgba(11, 18, 32, 0)');
+        ctx.fillStyle = g1;
+        ctx.fillRect(0, 0, w, h);
+
+        const orb2X = w * (0.75 + 0.3 * Math.cos(t * 0.6));
+        const orb2Y = h * (0.68 + 0.2 * Math.sin(t * 0.8));
+        const g2 = ctx.createRadialGradient(orb2X, orb2Y, 10, orb2X, orb2Y, Math.max(w, h) * 0.55);
+        g2.addColorStop(0, 'rgba(201, 168, 118, 0.22)');
+        g2.addColorStop(0.5, 'rgba(201, 168, 118, 0.07)');
+        g2.addColorStop(1, 'rgba(11, 18, 32, 0)');
+        ctx.fillStyle = g2;
+        ctx.fillRect(0, 0, w, h);
+
+        // 3. Две изгибающиеся шёлковые световые волны с видимым гребнем
+        for (let waveIdx = 0; waveIdx < 2; waveIdx++) {
+          ctx.beginPath();
+          const baseY = waveIdx === 0 ? h * 0.32 : h * 0.74;
+          const amp = waveIdx === 0 ? 34 : 28;
+          const speed = waveIdx === 0 ? t * 1.1 : -t * 0.9;
+
+          for (let x = 0; x <= w + 20; x += 20) {
+            const y = baseY + Math.sin(x * 0.009 + speed) * amp + Math.cos(x * 0.005 - speed * 0.7) * (amp * 0.5);
+            if (x === 0) ctx.moveTo(x, y);
+            else ctx.lineTo(x, y);
+          }
+
+          ctx.strokeStyle = waveIdx === 0
+            ? 'rgba(201, 168, 118, 0.22)'
+            : 'rgba(226, 232, 240, 0.14)';
+          ctx.lineWidth = 1.6;
+          ctx.stroke();
+        }
+
+        // 4. Созвездие AI-узлов и соединительных линий
+        const hasTouch = touchPoint && (Date.now() - touchPoint.ts < 600);
+
+        for (let i = 0; i < nodes.length; i++) {
+          const n = nodes[i];
+          n.x += n.vx + Math.sin(t + n.phase) * 0.15;
+          n.y += n.vy;
+
+          if (hasTouch) {
+            const dx = n.x - touchPoint.x;
+            const dy = n.y - touchPoint.y;
+            const d2 = dx * dx + dy * dy;
+            if (d2 < 9000 && d2 > 4) {
+              const d = Math.sqrt(d2);
+              n.x += (dx / d) * 1.2;
+              n.y += (dy / d) * 1.2;
+            }
+          }
+
+          if (n.y < -15) {
+            n.y = h + 15;
+            n.x = Math.random() * w;
+          }
+          if (n.x < -15) n.x = w + 15;
+          if (n.x > w + 15) n.x = -15;
+
+          // Тонкие линии между близкими точками
+          for (let j = i + 1; j < nodes.length; j++) {
+            const m = nodes[j];
+            const dx = n.x - m.x;
+            const dy = n.y - m.y;
+            const distSq = dx * dx + dy * dy;
+            const maxConnect = 105;
+            if (distSq < maxConnect * maxConnect) {
+              const alpha = (1 - Math.sqrt(distSq) / maxConnect) * 0.22;
+              ctx.beginPath();
+              ctx.moveTo(n.x, n.y);
+              ctx.lineTo(m.x, m.y);
+              ctx.strokeStyle = (n.isGold || m.isGold)
+                ? 'rgba(201, 168, 118, ' + alpha.toFixed(3) + ')'
+                : 'rgba(226, 232, 240, ' + alpha.toFixed(3) + ')';
+              ctx.lineWidth = 0.85;
+              ctx.stroke();
+            }
+          }
+
+          // Сама светящаяся точка
+          const pulse = 0.55 + 0.45 * Math.sin(t * 2.2 + n.phase);
+          ctx.beginPath();
+          ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+          ctx.fillStyle = n.isGold
+            ? 'rgba(223, 188, 134, ' + (0.45 + pulse * 0.45).toFixed(2) + ')'
+            : 'rgba(226, 232, 240, ' + (0.35 + pulse * 0.4).toFixed(2) + ')';
+          ctx.fill();
+        }
+
+        requestAnimationFrame(drawBg);
+      }
+
+      requestAnimationFrame(drawBg);
+    })();
+
     const ADMIN_PIN = '7777';
     let tg = null;
     try {
@@ -1970,9 +2075,6 @@ window.INITIAL_BLOCKS = [
       }
     } catch (e) {}
 
-    // ИСПРАВЛЕННЫЙ ПЕРЕХОД В КАНАЛ С ТЕЛЕФОНА:
-    // Если приложение открыто поверх самого канала в Telegram, оно открывает ссылку и сворачивает шторку Mini App (tg.close()),
-    // чтобы человек сразу оказался в ленте канала!
     function openTgLink(event, rawUrl) {
       if (event) event.preventDefault();
       triggerHaptic('medium');
@@ -1990,7 +2092,6 @@ window.INITIAL_BLOCKS = [
         try {
           tg.openTelegramLink(url);
         } catch (e) {}
-        // Сворачиваем шторку Mini App через 120 мс, чтобы показать открытый позади неё канал!
         setTimeout(() => {
           try {
             if (tg && typeof tg.close === 'function') tg.close();
@@ -2233,7 +2334,7 @@ window.INITIAL_BLOCKS = [
 
     let activeModalBlockIndex = null;
 
-    // ЖИВАЯ ФИЗИКА ЧАСТИЦ TELEGRAM-СПОЙЛЕРА (HTML5 CANVAS)
+    // ЖИВАЯ ФИЗИКА ЧАСТИЦ TELEGRAM-СПОЙЛЕРА НА ЗАКРЫТЫХ КАРТОЧКАХ
     let spoilerAnimId = null;
     let activeSpoilerSystems = [];
 
