@@ -13,6 +13,7 @@
     :root {
       --bg-page: #070B12;
       --bg-card: #0E1523;
+      --bg-dark-inner: #090E18;
       --cream: #F5EFE4;
       --cream-focus: #FFFFFF;
       --gold: #CFA35E;
@@ -20,6 +21,12 @@
       --gold-light: #E2B976;
       --gold-border: rgba(207, 163, 94, 0.45);
       --gold-glow: rgba(207, 163, 94, 0.14);
+      --green: #34D399;
+      --green-bg: rgba(52, 211, 153, 0.12);
+      --green-border: rgba(52, 211, 153, 0.35);
+      --red: #F87171;
+      --red-bg: rgba(248, 113, 113, 0.10);
+      --red-border: rgba(248, 113, 113, 0.32);
       --text-main: #F1F5F9;
       --text-secondary: #CBD5E1;
       --text-muted: #8E9BAE;
@@ -49,7 +56,7 @@
 
     /* ВЕРХНЯЯ ШАПКА */
     .site-header {
-      background: rgba(14, 21, 35, 0.82);
+      background: rgba(14, 21, 35, 0.85);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid rgba(207, 163, 94, 0.25);
       position: sticky;
@@ -59,17 +66,17 @@
 
     .container {
       width: 100%;
-      max-width: 1100px;
+      max-width: 1120px;
       margin: 0 auto;
       padding: 0 28px;
     }
 
     .header-inner {
       display: grid;
-      grid-template-columns: 400px 1fr;
+      grid-template-columns: 420px 1fr;
       gap: 36px;
       align-items: center;
-      padding: 16px 0;
+      padding: 15px 0;
     }
 
     /* Верхний логотип AiBet MONEY */
@@ -144,7 +151,7 @@
       align-items: center;
       gap: 8px;
       color: var(--gold-light);
-      font-size: 15.5px;
+      font-size: 15px;
       font-weight: 600;
       text-decoration: none;
       padding: 8px 16px;
@@ -170,9 +177,9 @@
     /* ОСНОВНАЯ ДВУХКОЛОНОЧНАЯ СЕТКА */
     .workspace {
       display: grid;
-      grid-template-columns: 400px 1fr;
+      grid-template-columns: 420px 1fr;
       gap: 36px;
-      padding: 28px 0 44px 0;
+      padding: 26px 0 44px 0;
       align-items: start;
     }
 
@@ -180,7 +187,7 @@
       background: var(--bg-card);
       border: 1px solid var(--border-subtle);
       border-radius: 16px;
-      padding: 22px;
+      padding: 20px 22px;
       box-shadow: 0 14px 34px rgba(0, 0, 0, 0.4);
     }
 
@@ -191,7 +198,7 @@
       color: var(--gold);
       text-transform: uppercase;
       letter-spacing: 0.9px;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -216,7 +223,7 @@
       font-family: 'Inter', sans-serif;
       font-size: 11px;
       font-weight: 500;
-      color: var(--text-muted);
+      color: var(--gold-light);
       text-transform: none;
       letter-spacing: 0;
       opacity: 0;
@@ -231,18 +238,18 @@
     .left-column {
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      gap: 18px;
     }
 
     .input-list {
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 10px;
     }
 
     .field-row {
       display: grid;
-      grid-template-columns: 1fr 165px;
+      grid-template-columns: 1fr 170px;
       align-items: center;
       gap: 12px;
       background: rgba(255, 255, 255, 0.02);
@@ -251,15 +258,34 @@
       border: 1px solid rgba(255, 255, 255, 0.04);
     }
 
+    .field-block {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.02);
+      padding: 10px 12px 12px 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
     .field-title {
-      font-size: 14.5px;
+      font-size: 14px;
       font-weight: 500;
       color: var(--text-secondary);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .field-title-hint {
+      font-size: 11.5px;
+      color: var(--text-muted);
+      font-weight: 400;
     }
 
     .gold-input-box {
       position: relative;
-      height: 44px;
+      height: 42px;
       background: var(--cream);
       border: 1.5px solid var(--gold);
       border-radius: 9px;
@@ -279,8 +305,7 @@
       box-shadow: 0 0 0 3px rgba(207, 163, 94, 0.28);
     }
 
-    .gold-input-box input,
-    .gold-input-box select {
+    .gold-input-box input {
       width: 100%;
       height: 100%;
       background: transparent;
@@ -294,23 +319,76 @@
       padding: 0 12px;
     }
 
-    .gold-input-box select {
-      cursor: pointer;
-      appearance: none;
-      -webkit-appearance: none;
-      padding-right: 28px;
-      text-align-last: center;
+    /* Кнопки выбора профиля риска в 1 клик */
+    .segmented-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 7px;
     }
 
-    .select-chevron {
-      position: absolute;
-      right: 11px;
-      pointer-events: none;
-      width: 0;
-      height: 0;
-      border-left: 5px solid transparent;
-      border-right: 5px solid transparent;
-      border-top: 6px solid #7C5821;
+    .seg-btn {
+      background: var(--bg-dark-inner);
+      border: 1px solid rgba(207, 163, 94, 0.3);
+      border-radius: 8px;
+      padding: 9px 4px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all 0.15s ease;
+      text-align: center;
+      user-select: none;
+    }
+
+    .seg-btn:hover {
+      border-color: var(--gold);
+      color: #FFFFFF;
+    }
+
+    .seg-btn.active {
+      background: var(--cream);
+      border: 1.5px solid var(--gold);
+      color: var(--text-dark);
+      font-weight: 700;
+      box-shadow: 0 2px 10px rgba(207, 163, 94, 0.2);
+    }
+
+    /* Мини-переключатель округления */
+    .round-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 4px 4px 0 6px;
+    }
+
+    .round-label {
+      font-size: 12.5px;
+      color: var(--text-muted);
+    }
+
+    .round-pills {
+      display: flex;
+      gap: 5px;
+    }
+
+    .round-pill {
+      background: var(--bg-dark-inner);
+      border: 1px solid var(--border-subtle);
+      border-radius: 6px;
+      padding: 4px 9px;
+      font-size: 11.5px;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .round-pill.active {
+      background: var(--gold-glow);
+      border-color: var(--gold);
+      color: var(--gold-light);
     }
 
     /* БЛОК РЕЗУЛЬТАТА */
@@ -318,26 +396,38 @@
       background: linear-gradient(180deg, #131D31 0%, #0E1523 100%);
       border: 1px solid var(--gold-border);
       border-radius: 16px;
-      padding: 20px 22px;
+      padding: 18px 20px;
       box-shadow: 0 14px 34px rgba(0, 0, 0, 0.45);
     }
 
     .result-sublabel {
-      text-align: center;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       font-family: 'Montserrat', sans-serif;
-      font-size: 12px;
+      font-size: 11.5px;
       font-weight: 700;
       color: var(--text-muted);
       text-transform: uppercase;
-      letter-spacing: 1.2px;
-      margin-bottom: 10px;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+
+    .copy-hint {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 400;
+      text-transform: none;
+      letter-spacing: 0;
+      color: var(--gold);
+      opacity: 0.85;
     }
 
     .result-display {
-      background: #090E18;
+      background: var(--bg-dark-inner);
       border: 1.5px solid var(--gold);
       border-radius: 12px;
-      height: 88px;
+      height: 82px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -353,7 +443,7 @@
 
     .result-number {
       font-family: 'Montserrat', sans-serif;
-      font-size: 40px;
+      font-size: 38px;
       font-weight: 800;
       color: #FFFFFF;
       letter-spacing: 0.5px;
@@ -362,22 +452,119 @@
 
     .result-meta {
       text-align: center;
-      font-size: 13.5px;
+      font-size: 13px;
       font-style: italic;
       color: var(--gold-light);
-      margin-top: 10px;
-      min-height: 20px;
+      margin-top: 8px;
+      min-height: 19px;
     }
 
-    /* Подсказки и кнопка Telegram */
-    .tips-block {
-      font-size: 12.5px;
-      font-style: italic;
+    /* Плашки Чистая прибыль и Выплата */
+    .profit-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .profit-box {
+      background: rgba(9, 14, 24, 0.65);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      padding: 9px 12px;
+      text-align: center;
+    }
+
+    .profit-box-label {
+      font-size: 11px;
       color: var(--text-muted);
-      line-height: 1.65;
-      padding: 0 4px;
+      margin-bottom: 3px;
     }
 
+    .profit-box-val {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .profit-box-val.green {
+      color: var(--green);
+    }
+
+    /* Кнопки учёта банка: Заход / Минус */
+    .bank-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .action-btn {
+      border-radius: 10px;
+      padding: 10px 8px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12.5px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      user-select: none;
+    }
+
+    .action-btn:active {
+      transform: scale(0.97);
+    }
+
+    .btn-win {
+      background: var(--green-bg);
+      border: 1px solid var(--green-border);
+      color: var(--green);
+    }
+
+    .btn-win:hover {
+      background: rgba(52, 211, 153, 0.2);
+    }
+
+    .btn-loss {
+      background: var(--red-bg);
+      border: 1px solid var(--red-border);
+      color: var(--red);
+    }
+
+    .btn-loss:hover {
+      background: rgba(248, 113, 113, 0.18);
+    }
+
+    .undo-wrap {
+      text-align: center;
+      margin-top: 8px;
+      display: none;
+    }
+
+    .undo-wrap.visible {
+      display: block;
+    }
+
+    .undo-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 12px;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    .undo-btn:hover {
+      color: var(--gold-light);
+    }
+
+    /* Кнопка Telegram */
     .tg-cta-link {
       display: inline-flex;
       align-items: center;
@@ -402,22 +589,44 @@
       transform: translateY(-1px);
     }
 
-    /* Нижний фирменный знак "A" (100% по точкам оригинала) */
+    /* Оригинальная нижняя иконка "A" */
     .emblem-box {
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 10px 0 4px 0;
+      padding: 6px 0 4px 0;
     }
 
     .emblem-svg {
-      width: 145px;
+      width: 138px;
       height: auto;
       display: block;
     }
 
-    /* ПРАВАЯ КОЛОНКА */
+    /* ПРАВАЯ КОЛОНКА И МОБИЛЬНЫЙ СПОЙЛЕР */
     .right-column {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .mobile-spoiler-btn {
+      display: none;
+      width: 100%;
+      background: var(--bg-card);
+      border: 1px solid var(--gold-border);
+      border-radius: 12px;
+      padding: 13px 16px;
+      color: var(--gold-light);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .spoiler-content {
       display: flex;
       flex-direction: column;
       gap: 20px;
@@ -489,16 +698,14 @@
       }
 
       .header-inner {
-        grid-template-columns: 1fr;
-        gap: 10px;
-        padding: 12px 0;
         display: flex;
         justify-content: space-between;
         align-items: center;
+        padding: 12px 0;
       }
 
       .brand-logo {
-        width: 112px;
+        width: 110px;
       }
 
       .brand-logo-top {
@@ -516,29 +723,42 @@
       }
 
       .channel-pill {
-        font-size: 13px;
+        font-size: 12.5px;
         padding: 7px 12px;
       }
 
       .workspace {
         grid-template-columns: 1fr;
-        gap: 18px;
+        gap: 16px;
         padding: 16px 0 32px 0;
       }
 
-      .left-column,
-      .right-column {
-        gap: 16px;
+      .left-column {
+        gap: 14px;
       }
 
       .card,
       .result-card,
       .rule-card {
-        padding: 18px;
+        padding: 16px;
       }
 
       .field-row {
-        grid-template-columns: 1fr 148px;
+        grid-template-columns: 1fr 150px;
+      }
+
+      /* На телефонах прячем длинную теорию под удобную кнопку-спойлер */
+      .mobile-spoiler-btn {
+        display: flex;
+      }
+
+      .spoiler-content {
+        display: none;
+      }
+
+      .spoiler-content.open {
+        display: flex;
+        margin-top: 4px;
       }
     }
   </style>
@@ -581,6 +801,7 @@
           </div>
 
           <div class="input-list">
+            <!-- Банк -->
             <div class="field-row">
               <div class="field-title">Банк, ₽</div>
               <div class="gold-input-box">
@@ -588,6 +809,7 @@
               </div>
             </div>
 
+            <!-- Коэффициент -->
             <div class="field-row">
               <div class="field-title">Коэффициент (кэф)</div>
               <div class="gold-input-box">
@@ -595,15 +817,26 @@
               </div>
             </div>
 
-            <div class="field-row">
-              <div class="field-title">Профиль риска</div>
-              <div class="gold-input-box">
-                <select id="riskSelect">
-                  <option value="0.01">Осторожно</option>
-                  <option value="0.02">Стандарт</option>
-                  <option value="0.03" selected>Смело</option>
-                </select>
-                <span class="select-chevron"></span>
+            <!-- Профиль риска (кнопки в 1 клик) -->
+            <div class="field-block">
+              <div class="field-title">
+                <span>Профиль риска</span>
+                <span class="field-title-hint" id="riskHintText">База 3%</span>
+              </div>
+              <div class="segmented-grid" id="riskGroup">
+                <button type="button" class="seg-btn" data-risk="0.01" data-label="База 1%">Осторожно</button>
+                <button type="button" class="seg-btn" data-risk="0.02" data-label="База 2%">Стандарт</button>
+                <button type="button" class="seg-btn active" data-risk="0.03" data-label="База 3%">Смело</button>
+              </div>
+            </div>
+
+            <!-- Округление для БК -->
+            <div class="round-row">
+              <span class="round-label">Округление суммы:</span>
+              <div class="round-pills" id="roundGroup">
+                <button type="button" class="round-pill active" data-step="1">Точно</button>
+                <button type="button" class="round-pill" data-step="50">до 50 ₽</button>
+                <button type="button" class="round-pill" data-step="100">до 100 ₽</button>
               </div>
             </div>
           </div>
@@ -614,17 +847,39 @@
           <div class="block-label">
             <span class="block-label-left">РЕЗУЛЬТАТ</span>
           </div>
-          <div class="result-sublabel">СКОЛЬКО СТАВИТЬ</div>
-          <div class="result-display" id="resultBox" title="Нажми, чтобы скопировать сумму">
-            <div class="result-number" id="resultValue">4,000 ₽</div>
+          <div class="result-sublabel">
+            <span>СКОЛЬКО СТАВИТЬ</span>
+            <span class="copy-hint">нажми, чтобы скопировать</span>
+          </div>
+          <div class="result-display" id="resultBox">
+            <div class="result-number" id="resultValue">4 000 ₽</div>
           </div>
           <div class="result-meta" id="resultSub">≈ 4.0% банка при кэфе 1.50</div>
-        </div>
 
-        <!-- Подсказки -->
-        <div class="tips-block">
-          <div>Золотая рамка = поле для ввода. Остальное — не трогать.</div>
-          <div>Банк можно ввести как угодно: 500000, 500 000 или 500,000.</div>
+          <!-- Чистая прибыль и Общая выплата -->
+          <div class="profit-grid">
+            <div class="profit-box">
+              <div class="profit-box-label">Чистая прибыль</div>
+              <div class="profit-box-val green" id="netProfitVal">+2 000 ₽</div>
+            </div>
+            <div class="profit-box">
+              <div class="profit-box-label">Общая выплата</div>
+              <div class="profit-box-val" id="totalPayoutVal">6 000 ₽</div>
+            </div>
+          </div>
+
+          <!-- Кнопки автообновления банка -->
+          <div class="bank-actions">
+            <button type="button" class="action-btn btn-win" id="btnWin">
+              ✅ Заход <span id="winBtnDelta">(+2 000 ₽)</span>
+            </button>
+            <button type="button" class="action-btn btn-loss" id="btnLoss">
+              ❌ Минус <span id="lossBtnDelta">(−4 000 ₽)</span>
+            </button>
+          </div>
+          <div class="undo-wrap" id="undoWrap">
+            <button type="button" class="undo-btn" id="undoBtn">↺ Отменить последнее изменение банка</button>
+          </div>
         </div>
 
         <!-- Кнопка Telegram -->
@@ -632,7 +887,7 @@
           Забрать готовые разборы в Telegram →
         </a>
 
-        <!-- Оригинальная нижняя иконка "A" (точные координаты из твоего файла) -->
+        <!-- Оригинальная нижняя иконка "A" -->
         <div class="emblem-box">
           <svg class="emblem-svg" viewBox="150 100 725 745" fill="none" xmlns="http://www.w3.org/2000/svg">
             <polygon points="512,121 174,824 565,594 401,594 512,365 645,648 805,727" fill="#EAEAEB" />
@@ -641,39 +896,46 @@
         </div>
       </div>
 
-      <!-- ПРАВАЯ КОЛОНКА -->
+      <!-- ПРАВАЯ КОЛОНКА (на телефоне сворачивается в кнопку) -->
       <div class="right-column">
-        <div class="card info-card">
-          <div>
-            <div class="info-item-title">Профиль риска - это "какой % банка тратим на ставку"</div>
-            <div class="info-item-text">
-              Осторожно - банк расходуется медленно. Стандарт - средний темп. Смело - заметно больше на ставку, если ты уверен в прогнозе. Дальше калькулятор сам чуть увеличивает или уменьшает сумму в зависимости от коэффициента.
+        <button type="button" class="mobile-spoiler-btn" id="spoilerBtn">
+          <span>📘 Памятка и Главное правило</span>
+          <span id="spoilerArrow">▼</span>
+        </button>
+
+        <div class="spoiler-content" id="spoilerContent">
+          <div class="card info-card">
+            <div>
+              <div class="info-item-title">Профиль риска - это "какой % банка тратим на ставку"</div>
+              <div class="info-item-text">
+                Осторожно - банк расходуется медленно. Стандарт - средний темп. Смело - заметно больше на ставку, если ты уверен в прогнозе. Дальше калькулятор сам чуть увеличивает или уменьшает сумму в зависимости от коэффициента.
+              </div>
+            </div>
+
+            <div>
+              <div class="info-item-title">Почему при высоком кэфе ставка меньше</div>
+              <div class="info-item-text">
+                Высокий кэф - это более рискованный исход. Калькулятор автоматически снижает сумму ставки, чтобы одна неудача не съедала банк. Низкий кэф - исход более вероятный, поэтому доля банка на ставку немного выше.
+              </div>
             </div>
           </div>
 
-          <div>
-            <div class="info-item-title">Почему при высоком кэфе ставка меньше</div>
-            <div class="info-item-text">
-              Высокий кэф - это более рискованный исход. Калькулятор автоматически снижает сумму ставки, чтобы одна неудача не съедала банк. Низкий кэф - исход более вероятный, поэтому доля банка на ставку немного выше.
+          <!-- Главное правило -->
+          <div class="rule-card">
+            <div class="rule-heading">ГЛАВНОЕ ПРАВИЛО</div>
+            <div class="rule-content">
+              <p>
+                Не удваивай ставку после проигрыша, чтобы отыграться. Пример: банк 10 000 ₽, 7 минусов подряд: 100+200+400+800+1600+3200+6400 = 12 700 ₽ проиграно. Банк сгорел в минус: −2 700 ₽. Но если ставить флэтом (5% от остатка общего баланса) при тех же 7 минусах на балансе останется 6 983 ₽. Сохранено 70% банка.
+              </p>
+              <p>
+                Фиксированный процент - единственный безопасный путь на дистанции.
+              </p>
             </div>
           </div>
-        </div>
 
-        <!-- Главное правило -->
-        <div class="rule-card">
-          <div class="rule-heading">ГЛАВНОЕ ПРАВИЛО</div>
-          <div class="rule-content">
-            <p>
-              Не удваивай ставку после проигрыша, чтобы отыграться. Пример: банк 10 000 ₽, 7 минусов подряд: 100+200+400+800+1600+3200+6400 = 12 700 ₽ проиграно. Банк сгорел в минус: −2 700 ₽. Но если ставить флэтом (5% от остатка общего баланса) при тех же 7 минусах на балансе останется 6 983 ₽. Сохранено 70% банка.
-            </p>
-            <p>
-              Фиксированный процент - единственный безопасный путь на дистанции.
-            </p>
+          <div class="footer-note">
+            Если сомневаешься — выбирай "Осторожно". Меньше сумма на одну ставку - дольше банк держится в игре.
           </div>
-        </div>
-
-        <div class="footer-note">
-          Если сомневаешься — выбирай "Осторожно". Меньше сумма на одну ставку - дольше банк держится в игре.
         </div>
       </div>
 
@@ -705,34 +967,41 @@
       }
     }
 
+    const MAX_BANK_SHARE = 0.05; // Защитный потолок 5% от банка на мелких кэфах
+
     const bankInput = document.getElementById('bankInput');
     const oddsInput = document.getElementById('oddsInput');
-    const riskSelect = document.getElementById('riskSelect');
+    const riskHintText = document.getElementById('riskHintText');
     const resultValue = document.getElementById('resultValue');
     const resultSub = document.getElementById('resultSub');
     const resultBox = document.getElementById('resultBox');
+    const netProfitVal = document.getElementById('netProfitVal');
+    const totalPayoutVal = document.getElementById('totalPayoutVal');
+    const winBtnDelta = document.getElementById('winBtnDelta');
+    const lossBtnDelta = document.getElementById('lossBtnDelta');
+    const btnWin = document.getElementById('btnWin');
+    const btnLoss = document.getElementById('btnLoss');
+    const undoWrap = document.getElementById('undoWrap');
+    const undoBtn = document.getElementById('undoBtn');
     const savedBadge = document.getElementById('savedBadge');
+    const spoilerBtn = document.getElementById('spoilerBtn');
+    const spoilerContent = document.getElementById('spoilerContent');
+    const spoilerArrow = document.getElementById('spoilerArrow');
 
+    let currentRisk = 0.03;
+    let currentRoundStep = 1;
     let currentBetRaw = 4000;
+    let currentProfitRaw = 2000;
+    let previousBankValue = null;
     let lastMetaText = '≈ 4.0% банка при кэфе 1.50';
     let saveTimer = null;
 
-    // Восстановление сохранённых данных пользователя
-    try {
-      const savedBank = localStorage.getItem('aibet_bank');
-      const savedRisk = localStorage.getItem('aibet_risk');
-      if (savedBank) bankInput.value = savedBank;
-      if (savedRisk) riskSelect.value = savedRisk;
-    } catch (e) {}
-
-    function showSavedIndicator() {
-      savedBadge.classList.add('show');
-      clearTimeout(saveTimer);
-      saveTimer = setTimeout(() => savedBadge.classList.remove('show'), 1400);
+    function formatSpaces(num) {
+      return Math.round(num).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
     }
 
     function parseBank(val) {
-      const cleaned = String(val).replace(/[\s,]/g, '');
+      const cleaned = String(val).replace(/[^\d.]/g, '');
       return parseFloat(cleaned) || 0;
     }
 
@@ -741,58 +1010,184 @@
       return parseFloat(cleaned) || 0;
     }
 
+    function showSavedIndicator(customText = 'Сохранено ✓') {
+      savedBadge.textContent = customText;
+      savedBadge.classList.add('show');
+      clearTimeout(saveTimer);
+      saveTimer = setTimeout(() => savedBadge.classList.remove('show'), 1500);
+    }
+
+    // Загрузка сохранённых настроек
+    try {
+      const savedBank = localStorage.getItem('aibet_bank');
+      const savedRisk = localStorage.getItem('aibet_risk');
+      const savedRound = localStorage.getItem('aibet_round');
+
+      if (savedBank) {
+        const num = parseBank(savedBank);
+        if (num > 0) bankInput.value = formatSpaces(num);
+      }
+      if (savedRisk) {
+        currentRisk = parseFloat(savedRisk) || 0.03;
+        document.querySelectorAll('#riskGroup .seg-btn').forEach(btn => {
+          const isMatch = parseFloat(btn.dataset.risk) === currentRisk;
+          btn.classList.toggle('active', isMatch);
+          if (isMatch) riskHintText.textContent = btn.dataset.label;
+        });
+      }
+      if (savedRound) {
+        currentRoundStep = parseInt(savedRound, 10) || 1;
+        document.querySelectorAll('#roundGroup .round-pill').forEach(btn => {
+          btn.classList.toggle('active', parseInt(btn.dataset.step, 10) === currentRoundStep);
+        });
+      }
+    } catch (e) {}
+
     function calculate(savePrefs = false) {
       const bank = parseBank(bankInput.value);
       const odds = parseOdds(oddsInput.value);
-      const baseRisk = parseFloat(riskSelect.value) || 0.03;
 
       if (savePrefs) {
         try {
-          localStorage.setItem('aibet_bank', bankInput.value);
-          localStorage.setItem('aibet_risk', riskSelect.value);
+          localStorage.setItem('aibet_bank', String(bank));
+          localStorage.setItem('aibet_risk', String(currentRisk));
+          localStorage.setItem('aibet_round', String(currentRoundStep));
           showSavedIndicator();
         } catch (e) {}
       }
 
       if (bank <= 0 || odds <= 1) {
         currentBetRaw = 0;
+        currentProfitRaw = 0;
         resultValue.textContent = '0 ₽';
         lastMetaText = 'Введите банк и кэф больше 1.00';
         resultSub.textContent = lastMetaText;
+        netProfitVal.textContent = '0 ₽';
+        totalPayoutVal.textContent = '0 ₽';
+        winBtnDelta.textContent = '';
+        lossBtnDelta.textContent = '';
         return;
       }
 
-      const finalShare = baseRisk * (2 / odds);
-      const betAmount = Math.round(bank * finalShare);
-      currentBetRaw = betAmount;
+      // Расчёт доли с учётом защитного потолка 5%
+      const rawShare = currentRisk * (2 / odds);
+      const isCapped = rawShare > MAX_BANK_SHARE;
+      const finalShare = isCapped ? MAX_BANK_SHARE : rawShare;
 
-      resultValue.textContent = betAmount.toLocaleString('en-US') + ' ₽';
-      lastMetaText = `≈ ${(finalShare * 100).toFixed(1)}% банка при кэфе ${odds.toFixed(2)}`;
+      let betAmount = Math.round(bank * finalShare);
+
+      // Умное округление до 50 / 100 ₽ (если ставка больше шага округления)
+      if (currentRoundStep > 1 && betAmount >= currentRoundStep) {
+        betAmount = Math.round(betAmount / currentRoundStep) * currentRoundStep;
+      }
+
+      const netProfit = Math.round(betAmount * (odds - 1));
+      const totalPayout = betAmount + netProfit;
+      const actualPercent = (betAmount / bank) * 100;
+
+      currentBetRaw = betAmount;
+      currentProfitRaw = netProfit;
+
+      resultValue.textContent = formatSpaces(betAmount) + ' ₽';
+      lastMetaText = isCapped
+        ? `≈ ${actualPercent.toFixed(1)}% банка при кэфе ${odds.toFixed(2)} (макс. лимит 5%)`
+        : `≈ ${actualPercent.toFixed(1)}% банка при кэфе ${odds.toFixed(2)}`;
       resultSub.textContent = lastMetaText;
+
+      netProfitVal.textContent = '+' + formatSpaces(netProfit) + ' ₽';
+      totalPayoutVal.textContent = formatSpaces(totalPayout) + ' ₽';
+
+      winBtnDelta.textContent = `(+${formatSpaces(netProfit)} ₽)`;
+      lossBtnDelta.textContent = `(−${formatSpaces(betAmount)} ₽)`;
     }
 
-    // Выделение текста целиком при тапе для быстрого ввода с телефона
-    bankInput.addEventListener('focus', () => bankInput.select());
-    oddsInput.addEventListener('focus', () => oddsInput.select());
-
-    bankInput.addEventListener('input', () => calculate(true));
-    oddsInput.addEventListener('input', () => calculate(false));
-    riskSelect.addEventListener('change', () => {
-      triggerHaptic('light');
+    // Автоформатирование банка пробелами при вводе
+    bankInput.addEventListener('input', () => {
+      const rawDigits = bankInput.value.replace(/\D/g, '');
+      bankInput.value = rawDigits ? formatSpaces(parseInt(rawDigits, 10)) : '';
       calculate(true);
     });
 
-    // Копирование суммы ставки при нажатии на блок результата
+    oddsInput.addEventListener('input', () => calculate(false));
+
+    // Выделение значения при клике
+    bankInput.addEventListener('focus', () => bankInput.select());
+    oddsInput.addEventListener('focus', () => oddsInput.select());
+
+    // Переключение профиля риска
+    document.querySelectorAll('#riskGroup .seg-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        triggerHaptic('light');
+        document.querySelectorAll('#riskGroup .seg-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentRisk = parseFloat(btn.dataset.risk);
+        riskHintText.textContent = btn.dataset.label;
+        calculate(true);
+      });
+    });
+
+    // Переключение шага округления
+    document.querySelectorAll('#roundGroup .round-pill').forEach(btn => {
+      btn.addEventListener('click', () => {
+        triggerHaptic('light');
+        document.querySelectorAll('#roundGroup .round-pill').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentRoundStep = parseInt(btn.dataset.step, 10);
+        calculate(true);
+      });
+    });
+
+    // Кнопки Заход / Минус для автообновления банка
+    function updateBankBalance(delta, label) {
+      const currentBank = parseBank(bankInput.value);
+      if (currentBank <= 0 || currentBetRaw <= 0) return;
+
+      previousBankValue = currentBank;
+      const nextBank = Math.max(0, Math.round(currentBank + delta));
+      bankInput.value = formatSpaces(nextBank);
+      undoWrap.classList.add('visible');
+      triggerHaptic('medium');
+      calculate(true);
+      showSavedIndicator(label);
+    }
+
+    btnWin.addEventListener('click', () => {
+      updateBankBalance(currentProfitRaw, 'Банк увеличен ✓');
+    });
+
+    btnLoss.addEventListener('click', () => {
+      updateBankBalance(-currentBetRaw, 'Банк обновлён ✓');
+    });
+
+    undoBtn.addEventListener('click', () => {
+      if (previousBankValue !== null) {
+        triggerHaptic('light');
+        bankInput.value = formatSpaces(previousBankValue);
+        previousBankValue = null;
+        undoWrap.classList.remove('visible');
+        calculate(true);
+        showSavedIndicator('Возвращено ↺');
+      }
+    });
+
+    // Копирование суммы ставки при нажатии на табло
     resultBox.addEventListener('click', () => {
       if (currentBetRaw <= 0) return;
       triggerHaptic('medium');
       if (navigator.clipboard) {
         navigator.clipboard.writeText(String(currentBetRaw));
       }
-      resultSub.textContent = `Сумма ${currentBetRaw.toLocaleString('ru-RU')} ₽ скопирована в буфер ✓`;
+      resultSub.textContent = `Сумма ${formatSpaces(currentBetRaw)} ₽ скопирована в буфер ✓`;
       setTimeout(() => {
         resultSub.textContent = lastMetaText;
-      }, 1800);
+      }, 1700);
+    });
+
+    // Мобильный спойлер для правой колонки
+    spoilerBtn.addEventListener('click', () => {
+      triggerHaptic('light');
+      const isOpen = spoilerContent.classList.toggle('open');
+      spoilerArrow.textContent = isOpen ? '▲' : '▼';
     });
 
     calculate(false);
