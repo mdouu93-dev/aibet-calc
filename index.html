@@ -10,10 +10,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      /* НАСТОЯЩИЙ DEEP NAVY #0B1220 С ВЫРАЖЕННЫМ СИНИМ ОТТЕНКОМ НА OLED-ЭКРАНАХ */
       --bg-page: #0B1220;
-      --bg-card: #131F36;
-      --bg-dark-inner: #09101D;
+      --bg-card: rgba(19, 31, 54, 0.86);
+      --bg-dark-inner: #080F1C;
       --platinum: #E2E8F0;
       --text-secondary: #CBD5E1;
       --text-muted: #94A3B8;
@@ -23,7 +22,7 @@
       --gold-emblem: #E1A856;
       --gold-light: #DFBC86;
       --gold-border: rgba(201, 168, 118, 0.48);
-      --gold-glow: rgba(201, 168, 118, 0.15);
+      --gold-glow: rgba(201, 168, 118, 0.16);
       --green: #34D399;
       --green-bg: rgba(52, 211, 153, 0.14);
       --green-border: rgba(52, 211, 153, 0.4);
@@ -31,25 +30,94 @@
       --red-bg: rgba(248, 113, 113, 0.12);
       --red-border: rgba(248, 113, 113, 0.35);
       --text-dark: #0B1220;
-      --border-subtle: rgba(226, 232, 240, 0.12);
+      --border-subtle: rgba(226, 232, 240, 0.13);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
 
     body {
       background-color: var(--bg-page);
-      /* Глубокий синий атмосферный свет сверху и снизу, чтобы фон НЕ выглядел чёрным на телефоне */
-      background-image: 
-        radial-gradient(ellipse 110% 55% at 50% 0%, #192B4D 0%, rgba(19, 31, 54, 0.5) 48%, transparent 80%),
-        radial-gradient(circle at 85% 90%, rgba(201, 168, 118, 0.08) 0%, transparent 45%),
-        linear-gradient(180deg, #0E182B 0%, #0B1220 55%, #09101D 100%);
-      background-attachment: fixed;
       color: var(--platinum);
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      position: relative;
+      overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
+    }
+
+    /* =====================================================
+       ЖИВОЙ ПЕРЕЛИВАЮЩИЙСЯ ФОН (AMBIENT SILK AURORA В ПАЛИТРЕ БРЕНДБУКА)
+       ===================================================== */
+    .ambient-bg {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+      pointer-events: none;
+      background: linear-gradient(180deg, #0D1628 0%, #0B1220 55%, #080E1A 100%);
+    }
+
+    .aurora-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(55px);
+      will-change: transform, opacity;
+    }
+
+    /* 1. Глубокая сапфирово-синяя волна сверху */
+    .aurora-orb.navy-wave {
+      width: 380px;
+      height: 380px;
+      top: -110px;
+      left: -60px;
+      background: radial-gradient(circle, rgba(34, 62, 118, 0.78) 0%, rgba(19, 35, 68, 0) 72%);
+      animation: floatOrb1 11s ease-in-out infinite alternate;
+    }
+
+    /* 2. Фирменное матовое золото (#C9A876) — мягкий перелив по диагонали */
+    .aurora-orb.gold-wave {
+      width: 320px;
+      height: 320px;
+      top: 22%;
+      right: -95px;
+      background: radial-gradient(circle, rgba(201, 168, 118, 0.24) 0%, rgba(201, 168, 118, 0) 70%);
+      animation: floatOrb2 14s ease-in-out infinite alternate;
+    }
+
+    /* 3. Платиновый холодный отсвет снизу (#E2E8F0) */
+    .aurora-orb.platinum-wave {
+      width: 340px;
+      height: 340px;
+      bottom: -110px;
+      left: 15%;
+      background: radial-gradient(circle, rgba(42, 72, 130, 0.6) 0%, rgba(226, 232, 240, 0.08) 45%, transparent 72%);
+      animation: floatOrb3 13s ease-in-out infinite alternate;
+    }
+
+    @keyframes floatOrb1 {
+      0% { transform: translate3d(0, 0, 0) scale(1); }
+      50% { transform: translate3d(85px, 45px, 0) scale(1.18); }
+      100% { transform: translate3d(35px, 95px, 0) scale(0.95); }
+    }
+
+    @keyframes floatOrb2 {
+      0% { transform: translate3d(0, 0, 0) scale(1); opacity: 0.75; }
+      50% { transform: translate3d(-90px, 70px, 0) scale(1.22); opacity: 1; }
+      100% { transform: translate3d(-45px, -50px, 0) scale(0.92); opacity: 0.8; }
+    }
+
+    @keyframes floatOrb3 {
+      0% { transform: translate3d(0, 0, 0) scale(1); }
+      50% { transform: translate3d(60px, -65px, 0) scale(1.15); }
+      100% { transform: translate3d(-55px, -25px, 0) scale(1.05); }
+    }
+
+    /* Все секции поверх живого фона */
+    header, section {
+      position: relative;
+      z-index: 2;
     }
 
     /* ВСПЛЫВАЮЩИЙ ТОСТ СВЕРХУ */
@@ -81,9 +149,9 @@
 
     /* ВЕРХНЯЯ ШАПКА */
     .site-header {
-      background: rgba(14, 24, 43, 0.88);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
+      background: rgba(11, 18, 32, 0.82);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
       border-bottom: 1px solid rgba(201, 168, 118, 0.28);
       position: sticky;
       top: 0;
@@ -217,16 +285,18 @@
     }
 
     .menu-card {
-      background: linear-gradient(165deg, #172642 0%, #111C31 100%);
+      background: linear-gradient(165deg, rgba(25, 42, 74, 0.85) 0%, rgba(16, 27, 49, 0.9) 100%);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       border: 1px solid var(--border-subtle);
-      border-top: 1px solid rgba(226, 232, 240, 0.22);
+      border-top: 1px solid rgba(226, 232, 240, 0.24);
       border-radius: 14px;
       overflow: hidden;
       display: flex;
       flex-direction: column;
       cursor: pointer;
       transition: transform 0.16s ease, border-color 0.16s ease, box-shadow 0.2s ease;
-      box-shadow: 0 10px 26px rgba(4, 8, 16, 0.55);
+      box-shadow: 0 10px 26px rgba(4, 8, 16, 0.5);
       position: relative;
       min-height: 174px;
     }
@@ -235,14 +305,14 @@
 
     .menu-card.available {
       border: 1.5px solid var(--gold);
-      background: linear-gradient(165deg, #1B2D4E 0%, #121E36 100%);
-      box-shadow: 0 10px 26px rgba(4, 8, 16, 0.6), 0 0 20px rgba(201, 168, 118, 0.15);
+      background: linear-gradient(165deg, rgba(30, 50, 88, 0.92) 0%, rgba(18, 30, 54, 0.95) 100%);
+      box-shadow: 0 10px 26px rgba(4, 8, 16, 0.6), 0 0 22px rgba(201, 168, 118, 0.18);
     }
 
     .card-cover {
       width: 100%;
       height: 74px;
-      background: var(--bg-dark-inner);
+      background: rgba(8, 15, 28, 0.75);
       border-bottom: 1px solid var(--border-subtle);
       position: relative;
       display: flex;
@@ -252,7 +322,7 @@
     }
 
     .menu-card.available .card-cover {
-      background: radial-gradient(circle at 50% 45%, rgba(201, 168, 118, 0.24) 0%, #0B1324 82%);
+      background: radial-gradient(circle at 50% 45%, rgba(201, 168, 118, 0.26) 0%, rgba(10, 18, 34, 0.9) 82%);
       border-bottom: 1px solid rgba(201, 168, 118, 0.28);
     }
 
@@ -427,7 +497,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: radial-gradient(circle at 50% 45%, rgba(25, 43, 77, 0.65) 0%, rgba(11, 18, 32, 0.85) 100%);
+      background: radial-gradient(circle at 50% 45%, rgba(26, 45, 82, 0.6) 0%, rgba(11, 18, 32, 0.82) 100%);
       backdrop-filter: blur(9px);
       -webkit-backdrop-filter: blur(9px);
       overflow: hidden;
@@ -554,6 +624,7 @@
 
     .promo-card {
       background: var(--bg-card);
+      backdrop-filter: blur(12px);
       border: 1.5px solid var(--gold-border);
       border-radius: 16px;
       overflow: hidden;
@@ -622,9 +693,11 @@
     }
 
     .card {
-      background: linear-gradient(165deg, #16243E 0%, #111C31 100%);
+      background: linear-gradient(165deg, rgba(24, 40, 70, 0.88) 0%, rgba(16, 27, 49, 0.92) 100%);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       border: 1px solid var(--border-subtle);
-      border-top: 1px solid rgba(226, 232, 240, 0.2);
+      border-top: 1px solid rgba(226, 232, 240, 0.22);
       border-radius: 15px;
       padding: 18px;
       box-shadow: 0 12px 30px rgba(4, 8, 16, 0.5);
@@ -845,7 +918,8 @@
     }
 
     .result-card {
-      background: linear-gradient(180deg, #1B2C4D 0%, #121E36 100%);
+      background: linear-gradient(180deg, rgba(28, 46, 80, 0.9) 0%, rgba(18, 30, 54, 0.94) 100%);
+      backdrop-filter: blur(12px);
       border: 1px solid var(--gold-border);
       border-top: 1px solid rgba(201, 168, 118, 0.65);
       border-radius: 15px;
@@ -1022,7 +1096,7 @@
     .info-item-text { font-size: 13.5px; line-height: 1.55; color: var(--platinum); }
 
     .rule-card {
-      background: linear-gradient(145deg, rgba(201, 168, 118, 0.08) 0%, var(--bg-card) 100%);
+      background: linear-gradient(145deg, rgba(201, 168, 118, 0.1) 0%, var(--bg-card) 100%);
       border: 1.5px solid var(--gold);
       border-radius: 15px;
       padding: 18px;
@@ -1371,6 +1445,13 @@
 </head>
 <body>
 
+  <!-- ЖИВОЙ ПЕРЕЛИВАЮЩИЙСЯ ФОН В ПАЛИТРЕ AIBET MONEY -->
+  <div class="ambient-bg" aria-hidden="true">
+    <div class="aurora-orb navy-wave"></div>
+    <div class="aurora-orb gold-wave"></div>
+    <div class="aurora-orb platinum-wave"></div>
+  </div>
+
   <div class="toast-pill" id="toastPill">✓ Скопировано</div>
 
   <!-- ВЕРХНЯЯ ШАПКА -->
@@ -1411,7 +1492,6 @@
 
         <div class="menu-grid" id="hubCardsGrid"></div>
 
-        <!-- Нижняя фирменная иконка "A" и кнопка ярлыка -->
         <div class="hub-footer-emblem">
           <svg class="hub-emblem-svg" id="secretAdminTrigger" viewBox="150 100 725 745" fill="none" xmlns="http://www.w3.org/2000/svg">
             <polygon points="512,121 174,824 565,594 401,594 512,365 645,648 805,727" fill="#E2E8F0" />
@@ -1620,7 +1700,7 @@
   </section>
 
   <!-- =========================================================
-       ЭКРАН 4: АДМИН-ПАНЕЛЬ + НАСТРОЙКА ССЫЛКИ НА КАНАЛ
+       ЭКРАН 4: АДМИН-ПАНЕЛЬ
        ========================================================= -->
   <section class="view-screen" id="screenAdmin">
     <div class="container">
@@ -1635,14 +1715,13 @@
           </button>
         </div>
 
-        <!-- ГЛАВНАЯ ССЫЛКА НА ТВОЙ КАНАЛ -->
         <div class="stats-panel" style="border-color: var(--gold);">
           <div class="admin-item-head" style="margin-bottom:8px;">
             <strong>🔗 Главная ссылка на твой Telegram-канал</strong>
           </div>
           <div class="adm-field" style="margin-bottom:4px;">
-            <label>Укажи точную ссылку на свой канал (публичную https://t.me/... или закрытую пригласительную https://t.me/+...):</label>
-            <input type="text" class="adm-input" id="mainChannelUrlInput" placeholder="https://t.me/..." oninput="updateMainChannelUrl(this.value)">
+            <label>Укажи точную ссылку на свой канал (например https://t.me/aibetmoney):</label>
+            <input type="text" class="adm-input" id="mainChannelUrlInput" placeholder="https://t.me/aibetmoney" oninput="updateMainChannelUrl(this.value)">
           </div>
         </div>
 
@@ -1746,7 +1825,7 @@
       <div class="modal-title">Как закрепить приложение</div>
       <div class="steps-list">
         <div><strong>Способ 1 (На рабочий стол Android/iOS):</strong> Открой настройки телефона → <em>Приложения</em> → <em>Telegram</em> → <em>Разрешения</em> и включи галочку <strong>«Ярлыки рабочего стола»</strong>, затем нажми эту кнопку снова.</div>
-        <div><strong>Способ 2 (Внутри Telegram за 2 секунды):</strong> Зажми пальцем чат бота <strong>AiBet Money</strong> в списке диалогов и нажми <strong>«Закрепить»</strong> — калькулятор всегда будет первым наверху!</div>
+        <div><strong>Способ 2 (Внутри Telegram за 2 секунды):</strong> В канале <strong>AiBet money</strong> калькулятор всегда закреплён в верхнем сообщении — достаточно нажать на плашку закрепа вверху канала!</div>
       </div>
       <div class="modal-actions">
         <button type="button" class="modal-waitlist-btn" onclick="closeHomeHelpModal()">Понятно, спасибо!</button>
@@ -1891,10 +1970,12 @@ window.INITIAL_BLOCKS = [
       }
     } catch (e) {}
 
-    // НАДЁЖНЫЙ ПЕРЕХОД ПО TELEGRAM-ССЫЛКАМ НА СМАРТФОНАХ (Android/iOS) И ПК
+    // ИСПРАВЛЕННЫЙ ПЕРЕХОД В КАНАЛ С ТЕЛЕФОНА:
+    // Если приложение открыто поверх самого канала в Telegram, оно открывает ссылку и сворачивает шторку Mini App (tg.close()),
+    // чтобы человек сразу оказался в ленте канала!
     function openTgLink(event, rawUrl) {
       if (event) event.preventDefault();
-      triggerHaptic('light');
+      triggerHaptic('medium');
 
       let url = (rawUrl || trackerCfg.channelUrl || 'https://t.me/aibetmoney').trim();
       if (url.indexOf('@') === 0) {
@@ -1903,19 +1984,20 @@ window.INITIAL_BLOCKS = [
         url = 'https://' + url;
       }
 
-      try {
-        if (tg && typeof tg.openTelegramLink === 'function' && url.indexOf('https://t.me/') === 0) {
-          tg.openTelegramLink(url);
-          return;
-        }
-      } catch (e) {}
+      const isInsideTelegramApp = Boolean(tg && tg.initDataUnsafe && Object.keys(tg.initDataUnsafe).length > 0);
 
-      try {
-        if (tg && typeof tg.openLink === 'function') {
-          tg.openLink(url);
-          return;
-        }
-      } catch (e) {}
+      if (isInsideTelegramApp && url.indexOf('https://t.me/') === 0) {
+        try {
+          tg.openTelegramLink(url);
+        } catch (e) {}
+        // Сворачиваем шторку Mini App через 120 мс, чтобы показать открытый позади неё канал!
+        setTimeout(() => {
+          try {
+            if (tg && typeof tg.close === 'function') tg.close();
+          } catch (e) {}
+        }, 120);
+        return;
+      }
 
       window.open(url, '_blank');
     }
@@ -1924,7 +2006,6 @@ window.INITIAL_BLOCKS = [
       openTgLink(event, trackerCfg.channelUrl || 'https://t.me/aibetmoney');
     }
 
-    // ДОБАВЛЕНИЕ НА ЭКРАН ТЕЛЕФОНА С ПРОВЕРКОЙ И ПОНЯТНОЙ ИНСТРУКЦИЕЙ
     function addAppToHomeScreen() {
       triggerHaptic('medium');
       try {
@@ -2126,7 +2207,6 @@ window.INITIAL_BLOCKS = [
       }
     }
 
-    // Загрузка блоков меню
     let menuBlocks = [];
     try {
       const saved = localStorage.getItem('aibet_menu_blocks_v9');
@@ -2153,9 +2233,7 @@ window.INITIAL_BLOCKS = [
 
     let activeModalBlockIndex = null;
 
-    // =========================================================
     // ЖИВАЯ ФИЗИКА ЧАСТИЦ TELEGRAM-СПОЙЛЕРА (HTML5 CANVAS)
-    // =========================================================
     let spoilerAnimId = null;
     let activeSpoilerSystems = [];
 
