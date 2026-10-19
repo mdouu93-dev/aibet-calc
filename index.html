@@ -9,9 +9,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
 <style id="app-main-style">
-:root{--bg-page:#03060C;--bg-card:rgba(12,20,36,0.72);--bg-dark-inner:rgba(6,10,19,0.82);--platinum:#E2E8F0;--text-secondary:#CBD5E1;--text-muted:#8E9BAE;--cream:#F5EFE4;--cream-focus:#FFFFFF;--gold:#C9A876;--gold-emblem:#E1A856;--gold-light:#E5B96F;--gold-border:rgba(201,168,118,0.48);--gold-glow:rgba(201,168,118,0.16);--green:#34D399;--green-bg:rgba(52,211,153,0.14);--green-border:rgba(52,211,153,0.4);--red:#F87171;--red-bg:rgba(248,113,113,0.12);--red-border:rgba(248,113,113,0.35);--text-dark:#070B12;--border-subtle:rgba(226,232,240,0.11)}
+:root{--bg-page:#03060C;--bg-card:rgba(12,20,36,0.72);--bg-dark-inner:rgba(6,10,19,0.82);--platinum:#E2E8F0;--text-secondary:#CBD5E1;--text-muted:#8E9BAE;--cream:#F5EFE4;--cream-focus:#FFF;--gold:#C9A876;--gold-emblem:#E1A856;--gold-light:#E5B96F;--gold-border:rgba(201,168,118,0.48);--gold-glow:rgba(201,168,118,0.16);--green:#34D399;--green-bg:rgba(52,211,153,0.14);--green-border:rgba(52,211,153,0.4);--red:#F87171;--red-bg:rgba(248,113,113,0.12);--red-border:rgba(248,113,113,0.35);--text-dark:#070B12;--border-subtle:rgba(226,232,240,0.11)}
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
-body{background-color:var(--bg-page);color:var(--platinum);font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;min-height:100vh;display:flex;flex-direction:column;position:relative;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body{background:var(--bg-page);color:var(--platinum);font-family:'Inter',-apple-system,sans-serif;min-height:100vh;display:flex;flex-direction:column;position:relative;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 ::-webkit-scrollbar{width:8px;height:8px}::-webkit-scrollbar-track{background:rgba(255,255,255,0.04)}::-webkit-scrollbar-thumb{background:rgba(201,168,118,0.35);border-radius:4px}
 #bgCanvas{position:fixed;inset:0;width:100vw;height:100vh;z-index:0;pointer-events:none;display:block}
 header,section{position:relative;z-index:2}
@@ -23,8 +23,7 @@ header,section{position:relative;z-index:2}
 .brand-logo{display:inline-flex;align-items:center;width:108px;text-decoration:none;cursor:pointer;user-select:none}
 .brand-logo svg{width:100%;height:auto;display:block}
 .channel-pill{display:inline-flex;align-items:center;gap:6px;color:var(--gold-light);font-size:12px;font-weight:600;text-decoration:none;padding:7px 12px;background:var(--gold-glow);border:1px solid var(--gold-border);border-radius:8px;cursor:pointer;transition:all .2s ease}
-.channel-pill:active{transform:scale(.95)}
-.channel-pill svg{width:14px;height:14px;fill:currentColor;flex-shrink:0}
+.channel-pill:active{transform:scale(.95)}.channel-pill svg{width:14px;height:14px;fill:currentColor;flex-shrink:0}
 .view-screen{display:none}.view-screen.active{display:block;animation:screenFade .24s cubic-bezier(.22,1,.36,1)}
 @keyframes screenFade{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
 .shimmer-effect{position:relative;overflow:hidden}
@@ -39,28 +38,27 @@ header,section{position:relative;z-index:2}
 .hub-bank-pill{display:inline-flex;align-items:center;gap:6px;margin-top:6px;padding:4px 12px;border-radius:999px;background:rgba(12,20,36,0.85);border:1px solid var(--gold-border);font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;color:var(--platinum);cursor:pointer;transition:transform .15s ease;box-shadow:0 4px 14px rgba(0,0,0,0.4)}
 .hub-bank-pill:active{transform:scale(.96)}.hub-bank-pill .delta-pos{color:var(--green)}.hub-bank-pill .delta-neg{color:var(--red)}
 .menu-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
-.menu-card{background:linear-gradient(165deg,rgba(16,26,46,0.70) 0%,rgba(8,14,26,0.78) 100%);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid var(--border-subtle);border-top:1px solid rgba(226,232,240,0.2);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;cursor:pointer;transition:transform .16s ease,border-color .16s ease,box-shadow .2s ease;box-shadow:0 10px 26px rgba(0,0,0,0.6);position:relative;min-height:182px}
+.menu-card{background:linear-gradient(165deg,rgba(16,26,46,0.70) 0%,rgba(8,14,26,0.78) 100%);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid var(--border-subtle);border-top:1px solid rgba(226,232,240,0.2);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;cursor:pointer;transition:transform .16s ease,border-color .16s ease,box-shadow .2s ease;box-shadow:0 10px 26px rgba(0,0,0,0.6);position:relative;min-height:176px}
 .menu-card:active{transform:scale(.975)}
 .menu-card.available{border:1.5px solid var(--gold);background:linear-gradient(165deg,rgba(22,36,64,0.76) 0%,rgba(10,17,32,0.84) 100%);box-shadow:0 12px 30px rgba(0,0,0,0.65),0 0 24px rgba(201,168,118,0.16);animation:goldBorderBreathe 3.8s ease-in-out infinite alternate}
 @keyframes goldBorderBreathe{0%{border-color:rgba(201,168,118,0.55);box-shadow:0 12px 28px rgba(0,0,0,0.65),0 0 14px rgba(201,168,118,0.10)}100%{border-color:rgba(229,185,111,0.98);box-shadow:0 12px 32px rgba(0,0,0,0.75),0 0 26px rgba(229,185,111,0.26)}}
-.card-cover{width:100%;height:84px;background:rgba(5,9,18,0.65);border-bottom:1px solid var(--border-subtle);position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.card-cover{width:100%;height:78px;background:rgba(5,9,18,0.65);border-bottom:1px solid var(--border-subtle);position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
 .menu-card.available .card-cover{background:radial-gradient(circle at 50% 45%,rgba(201,168,118,0.24) 0%,rgba(6,10,20,0.8) 82%);border-bottom:1px solid rgba(201,168,118,0.26)}
 .card-cover-img{width:100%;height:100%;object-fit:cover;display:block}
-.card-title-row{display:flex;align-items:center;justify-content:space-between;gap:4px;margin-bottom:3px}
-.status-pill{font-family:'Montserrat',sans-serif;font-size:7px;font-weight:700;text-transform:uppercase;letter-spacing:.3px;padding:2px 5.5px;border-radius:999px;display:inline-flex;align-items:center;gap:3.5px;flex-shrink:0}
-.status-pill .live-dot{width:4.5px;height:4.5px;border-radius:50%;background:var(--green);animation:livePulseGreen 2s infinite}
+.status-pill{position:absolute;top:5px;right:5px;font-family:'Montserrat',sans-serif;font-size:7.5px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;padding:2.5px 6.5px;border-radius:999px;z-index:4;display:inline-flex;align-items:center;gap:4px}
+.status-pill .live-dot{width:5px;height:5px;border-radius:50%;background:var(--green);animation:livePulseGreen 2s infinite}
 .status-pill.active-pill{background:rgba(6,10,19,0.92);border:1px solid rgba(52,211,153,0.55);color:var(--green)}
 .status-pill.soon-pill{background:rgba(6,10,19,0.92);border:1px solid var(--gold-border);color:var(--gold-light)}
-.default-cover-art{display:flex;align-items:center;justify-content:center;width:100%;height:100%;padding:6px 8px}
-.calc-mini-widget{display:flex;align-items:center;gap:6px;background:rgba(11,18,32,0.94);border:1px solid var(--gold);border-radius:7px;padding:5px 9px}
+.default-cover-art{display:flex;align-items:center;justify-content:center;width:100%;height:100%;padding:16px 8px 4px 8px}
+.calc-mini-widget{display:flex;align-items:center;gap:6px;background:rgba(11,18,32,0.94);border:1px solid var(--gold);border-radius:7px;padding:4px 8px;box-shadow:0 4px 12px rgba(0,0,0,0.45)}
 .calc-mini-left{display:flex;flex-direction:column;gap:2px}
-.calc-mini-pill{background:var(--cream);color:var(--text-dark);font-family:'Montserrat',sans-serif;font-size:7px;font-weight:800;padding:1.5px 5px;border-radius:3px;text-align:center}
+.calc-mini-pill{background:var(--cream);color:var(--text-dark);font-family:'Montserrat',sans-serif;font-size:7px;font-weight:800;padding:1.5px 5px;border-radius:3px;text-align:center;white-space:nowrap}
 .calc-mini-right{padding-left:6px;border-left:1px solid rgba(255,255,255,0.14);line-height:1.1}
-.calc-mini-right span{display:block;font-size:6px;color:var(--gold);text-transform:uppercase;font-weight:700}
-.calc-mini-right strong{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:800;color:#FFF}
+.calc-mini-right span{display:block;font-size:6px;color:var(--gold);text-transform:uppercase;font-weight:700;white-space:nowrap}
+.calc-mini-right strong{font-family:'Montserrat',sans-serif;font-size:10.5px;font-weight:800;color:#FFF;white-space:nowrap}
 .cover-icon-circle{width:36px;height:36px;border-radius:10px;background:rgba(201,168,118,0.12);border:1px solid var(--gold-border);display:flex;align-items:center;justify-content:center;font-size:16px}
 .card-body{padding:8px 10px 9px 10px;display:flex;flex-direction:column;flex:1;justify-content:space-between;gap:6px}
-.card-title{font-family:'Montserrat',sans-serif;font-size:12.5px;font-weight:700;color:var(--platinum);line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.card-title{font-family:'Montserrat',sans-serif;font-size:12.5px;font-weight:700;color:var(--platinum);line-height:1.2;margin-bottom:2px}
 .card-desc{font-size:10.5px;line-height:1.28;color:var(--text-muted)}
 .card-action-btn{width:100%;padding:6px 8px;border-radius:7px;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;text-align:center}
 .menu-card.available .card-action-btn{background:var(--cream);border:1px solid var(--gold);color:var(--text-dark)}
@@ -82,10 +80,9 @@ header,section{position:relative;z-index:2}
 .admin-open-pill.unlocked{display:inline-flex;align-items:center;gap:5px}
 .promo-wrap{max-width:600px;margin:0 auto;padding:14px 0 36px 0}
 .promo-card{background:var(--bg-card);backdrop-filter:blur(10px);border:1.5px solid var(--gold-border);border-radius:16px;overflow:hidden;margin-top:12px}
-.promo-cover{width:100%;height:185px;background:var(--bg-dark-inner);border-bottom:1px solid var(--border-subtle);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.promo-cover{width:100%;height:175px;background:var(--bg-dark-inner);border-bottom:1px solid var(--border-subtle);display:flex;align-items:center;justify-content:center;overflow:hidden}
 .promo-cover img{width:100%;height:100%;object-fit:cover}
-.promo-body{padding:20px 18px}
-.promo-title{font-family:'Montserrat',sans-serif;font-size:20px;font-weight:800;color:var(--platinum);margin-bottom:12px}
+.promo-body{padding:20px 18px}.promo-title{font-family:'Montserrat',sans-serif;font-size:20px;font-weight:800;color:var(--platinum);margin-bottom:12px}
 .promo-text{font-size:14px;line-height:1.6;color:var(--text-secondary);white-space:pre-line;margin-bottom:20px}
 .promo-cta-btn{display:flex;align-items:center;justify-content:center;width:100%;padding:14px 18px;background:var(--cream);border:1.5px solid var(--gold);border-radius:11px;color:var(--text-dark);font-family:'Montserrat',sans-serif;font-size:14px;font-weight:800;text-decoration:none;cursor:pointer}
 .back-bar{padding-top:12px}
@@ -112,16 +109,14 @@ header,section{position:relative;z-index:2}
 .seg-btn{position:relative;z-index:2;background:transparent;border:none;border-radius:6px;padding:8px 4px;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:600;color:var(--text-secondary);cursor:pointer;transition:color .2s ease;white-space:nowrap}
 .seg-btn.active{color:var(--text-dark);font-weight:700}
 .round-row{display:flex;align-items:center;justify-content:space-between;gap:6px;padding:3px 2px 0 4px}
-.round-label{font-size:11.5px;color:var(--text-muted);white-space:nowrap}
-.round-pills{display:flex;gap:4px;flex-shrink:0}
+.round-label{font-size:11.5px;color:var(--text-muted);white-space:nowrap}.round-pills{display:flex;gap:4px;flex-shrink:0}
 .round-pill{background:var(--bg-dark-inner);border:1px solid var(--border-subtle);border-radius:6px;padding:4px 8px;font-size:11px;font-weight:600;color:var(--text-muted);cursor:pointer;white-space:nowrap;transition:all .15s ease}
 .round-pill.active{background:var(--gold-glow);border-color:var(--gold);color:var(--gold-light)}
 .result-card{background:linear-gradient(180deg,rgba(22,36,64,0.78) 0%,rgba(10,17,32,0.86) 100%);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid var(--gold-border);border-top:1px solid rgba(201,168,118,0.65);border-radius:15px;padding:16px 18px;box-shadow:0 12px 30px rgba(0,0,0,0.65)}
 .result-sublabel{display:flex;justify-content:space-between;align-items:center;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;margin-bottom:7px}
 .copy-hint{font-family:'Inter',sans-serif;font-size:10.5px;font-weight:400;text-transform:none;color:var(--gold-light)}
 .result-display{background:var(--bg-dark-inner);border:1.5px solid var(--gold);border-radius:11px;height:76px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:transform .12s ease,box-shadow .25s ease,border-color .25s ease}
-.result-display:active{transform:scale(.985)}
-.result-display.copied-flash{border-color:var(--green)!important;box-shadow:0 0 22px rgba(52,211,153,0.35)!important}
+.result-display:active{transform:scale(.985)}.result-display.copied-flash{border-color:var(--green)!important;box-shadow:0 0 22px rgba(52,211,153,0.35)!important}
 .result-number{font-family:'Montserrat',sans-serif;font-size:34px;font-weight:800;color:#FFF;font-variant-numeric:tabular-nums}
 .result-meta{text-align:center;font-size:12.5px;font-style:italic;color:var(--gold-light);margin-top:7px}
 .profit-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px;padding-top:12px;border-top:1px solid var(--border-subtle)}
@@ -162,9 +157,7 @@ header,section{position:relative;z-index:2}
 .admin-item-head{display:flex;justify-content:space-between;align-items:center;padding-bottom:10px;margin-bottom:12px;border-bottom:1px solid var(--border-subtle);flex-wrap:wrap;gap:8px}
 .admin-item-head strong{font-family:'Montserrat',sans-serif;font-size:14px;color:var(--gold-light)}.admin-head-btns{display:flex;gap:5px;flex-wrap:wrap}
 .adm-mini-btn{background:var(--bg-dark-inner);border:1px solid var(--border-subtle);color:var(--platinum);border-radius:6px;padding:5px 10px;font-size:11.5px;cursor:pointer;transition:transform .12s ease}
-.adm-mini-btn:active{transform:scale(.95)}
-.adm-mini-btn.gold-outline{border-color:var(--gold);color:var(--gold-light);background:var(--gold-glow);font-weight:600}
-.adm-mini-btn.danger{color:var(--red);border-color:var(--red-border)}
+.adm-mini-btn:active{transform:scale(.95)}.adm-mini-btn.gold-outline{border-color:var(--gold);color:var(--gold-light);background:var(--gold-glow);font-weight:600}.adm-mini-btn.danger{color:var(--red);border-color:var(--red-border)}
 .adm-toggles-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px;background:var(--bg-dark-inner);padding:10px 12px;border-radius:10px;border:1px solid var(--border-subtle)}
 .adm-check-label{display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600;color:var(--platinum);cursor:pointer;user-select:none}
 .adm-check-label input{width:16px;height:16px;accent-color:var(--gold);cursor:pointer}
@@ -180,7 +173,7 @@ header,section{position:relative;z-index:2}
 .adm-main-btn{padding:11px 14px;border-radius:9px;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;cursor:pointer;border:none;text-align:center}
 .adm-main-btn.gold{background:var(--cream);border:1.5px solid var(--gold);color:var(--text-dark)}.adm-main-btn.secondary{background:var(--bg-dark-inner);border:1px solid var(--gold-border);color:var(--gold-light)}
 .cover-gen-preview-wrap{width:100%;background:#04070E;border:1.5px solid var(--gold-border);border-radius:12px;overflow:hidden;margin:10px 0 12px 0;display:flex;align-items:center;justify-content:center;box-shadow:0 12px 32px rgba(0,0,0,0.8)}
-#coverGenCanvas{width:100%;max-height:340px;object-fit:contain;display:block}
+#coverGenCanvas{width:100%;max-height:320px;object-fit:contain;display:block}
 .gen-preset-chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
 .modal-overlay{position:fixed;inset:0;background:rgba(4,7,14,0.86);backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center;padding:16px;z-index:100}.modal-overlay.open{display:flex;animation:screenFade .18s ease-out}
 .modal-box{width:100%;max-width:375px;background:linear-gradient(165deg,#131F36 0%,#0B1220 100%);border:1.5px solid var(--gold);border-radius:16px;padding:20px 18px;text-align:center;box-shadow:0 18px 46px rgba(0,0,0,0.75)}
@@ -344,54 +337,45 @@ header,section{position:relative;z-index:2}
   <div class="container">
     <div class="admin-wrap">
       <div class="admin-top-bar">
-        <div><div class="admin-top-title">⚙️ Админ-панель платформы</div><div class="admin-top-sub">Управление ссылками, 3D-генератором обложек, карточками и статистикой</div></div>
+        <div><div class="admin-top-title">⚙️ Админ-панель платформы</div><div class="admin-top-sub">Управление ссылками, обложками, карточками и статистикой</div></div>
         <button type="button" class="back-to-menu-btn" onclick="showScreen('hub')">✓ Готово (В меню)</button>
       </div>
 
       <div class="stats-panel" style="border:1.5px solid var(--gold)">
         <div class="admin-item-head" style="margin-bottom:10px">
-          <strong>🎨 3D-генератор фирменных обложек AiBet</strong>
-          <button type="button" class="adm-mini-btn gold-outline" onclick="generateCoversForAllBlocks()">⚡ Сгенерировать сразу на ВСЕ карточки</button>
+          <strong>🎨 Генератор строгих баннеров AiBet</strong>
+          <div class="admin-head-btns">
+            <label class="adm-mini-btn gold-outline" style="cursor:pointer">🖼️ Свой фон-шаблон<input type="file" accept="image/*" style="display:none" onchange="loadCustomBgTemplate(this)"></label>
+            <button type="button" class="adm-mini-btn danger" onclick="resetAllCoversToWidgets()">↺ Вернуть фирменные виджеты</button>
+          </div>
         </div>
         <div class="gen-preset-chips">
-          <span style="font-size:11px;color:var(--text-muted);align-self:center;margin-right:4px">Шаблоны:</span>
-          <button type="button" class="adm-mini-btn" onclick="applyGenPreset(0,'КАЛЬКУЛЯТОР','СТАВОК','original')">Калькулятор</button>
-          <button type="button" class="adm-mini-btn" onclick="applyGenPreset(1,'ЗАКРЫТЫЙ','VIP-КЛУБ','silk_double')">VIP-клуб</button>
-          <button type="button" class="adm-mini-btn" onclick="applyGenPreset(2,'ЛИЧНОЕ','ВЕДЕНИЕ','crystal')">Личное ведение</button>
-          <button type="button" class="adm-mini-btn" onclick="applyGenPreset(3,'КУПИТЬ','СТАВКИ','eclipse')">Купить ставки</button>
+          <span style="font-size:11px;color:var(--text-muted);align-self:center;margin-right:4px">Раздел:</span>
+          <button type="button" class="adm-mini-btn" onclick="applyGenPreset(0,'КАЛЬКУЛЯТОР','СТАВОК')">1. Калькулятор</button>
+          <button type="button" class="adm-mini-btn" onclick="applyGenPreset(1,'ЗАКРЫТЫЙ','VIP-КЛУБ')">2. VIP-клуб</button>
+          <button type="button" class="adm-mini-btn" onclick="applyGenPreset(2,'ЛИЧНОЕ','ВЕДЕНИЕ')">3. Личное ведение</button>
+          <button type="button" class="adm-mini-btn" onclick="applyGenPreset(3,'КУПИТЬ','СТАВКИ')">4. Купить ставки</button>
         </div>
         <div class="adm-grid-2">
-          <div class="adm-field"><label>1-я строка (Белый крупный текст)</label><input type="text" class="adm-input" id="genLine1" value="ЗАКРЫТЫЙ" oninput="renderBrandCoverPreview()"></div>
-          <div class="adm-field"><label>2-я строка (Золотой акцентный текст)</label><input type="text" class="adm-input" id="genLine2" value="VIP-КЛУБ" oninput="renderBrandCoverPreview()"></div>
+          <div class="adm-field"><label>1-я строка (Белый текст)</label><input type="text" class="adm-input" id="genLine1" value="ЗАКРЫТЫЙ" oninput="renderBrandCoverPreview()"></div>
+          <div class="adm-field"><label>2-я строка (Золотой текст)</label><input type="text" class="adm-input" id="genLine2" value="VIP-КЛУБ" oninput="renderBrandCoverPreview()"></div>
         </div>
         <div class="adm-grid-2">
           <div class="adm-field">
-            <label>3D-композиция тёмного шёлка и граней</label>
-            <div style="display:flex;gap:6px">
-              <select class="adm-select" id="genStyleSelect" onchange="renderBrandCoverPreview()">
-                <option value="original">1. Оригинал AiBet (3D Шёлк + Золотые грани)</option>
-                <option value="silk_double">2. Королевский шёлк (Двойной 3D-каскад)</option>
-                <option value="crystal">3. Чёрный Оникс (Многослойные 3D-грани)</option>
-                <option value="eclipse">4. Золотое Затмение (3D-сфера + Кольцо пыли)</option>
-                <option value="imperial">5. Имперский Бархат (Глубокие 3D-волны)</option>
-              </select>
-              <button type="button" class="adm-mini-btn gold-outline" id="seedBtnLabel" style="white-space:nowrap" onclick="randomizeCoverSeed()">🎲 Ракурс #1</button>
-            </div>
+            <label>Куда применить при установке</label>
+            <select class="adm-select" id="genTargetCardSelect" onchange="syncPresetFromDropdown(this.value)"></select>
           </div>
           <div class="adm-field">
-            <label>Формат и размер</label>
+            <label>Пропорции для скачивания</label>
             <select class="adm-select" id="genAspectSelect" onchange="renderBrandCoverPreview()">
-              <option value="card">800×400 px (На карточку Mini App)</option>
+              <option value="card">800×400 px (Баннер карточки)</option>
               <option value="square">1080×1080 px (Квадрат для поста в ТГ)</option>
             </select>
           </div>
         </div>
         <div class="cover-gen-preview-wrap"><canvas id="coverGenCanvas" width="800" height="400"></canvas></div>
         <div class="adm-grid-2" style="margin-bottom:0">
-          <div style="display:flex;gap:6px;align-items:center">
-            <select class="adm-select" id="genTargetCardSelect"></select>
-            <button type="button" class="adm-main-btn gold" style="white-space:nowrap;padding:9px 14px" onclick="applyGeneratedCoverToCard()">✨ Поставить на карточку</button>
-          </div>
+          <button type="button" class="adm-main-btn gold" onclick="applyGeneratedCoverToCard()">✨ Поставить на выбранную карточку</button>
           <button type="button" class="adm-main-btn secondary" onclick="downloadGeneratedCoverPng()">💾 Скачать картинку (PNG)</button>
         </div>
       </div>
@@ -441,7 +425,7 @@ header,section{position:relative;z-index:2}
       <button type="button" class="adm-add-block-btn" onclick="addNewBlock()">+ Добавить новый блок в меню</button>
       <div class="adm-publish-box">
         <div class="adm-publish-title">🚀 Опубликовать изменения для всех подписчиков</div>
-        <div class="adm-publish-desc">Когда ты сгенерировал обложки, поменял ссылки или открыл разделы — скопируй обновлённый код и замени им <code>index.html</code> на GitHub:</div>
+        <div class="adm-publish-desc">Когда ты настроил разделы и ссылки — скопируй обновлённый код и замени им <code>index.html</code> на GitHub:</div>
         <div class="adm-export-btns">
           <button type="button" class="adm-main-btn gold" onclick="copyUpdatedSiteCode()">📋 Скопировать обновлённый код</button>
           <button type="button" class="adm-main-btn secondary" onclick="downloadUpdatedSiteFile()">💾 Скачать index.html</button>
@@ -657,225 +641,116 @@ async function refreshBotVisitors(){
 }
 
 let menuBlocks=[];
-try{const sv=localStorage.getItem('aibet_menu_blocks_v9'),pr=sv?JSON.parse(sv):null;menuBlocks=(Array.isArray(pr)&&pr.length>0)?pr:JSON.parse(JSON.stringify(window.INITIAL_BLOCKS));}catch(e){menuBlocks=JSON.parse(JSON.stringify(window.INITIAL_BLOCKS));}
-function saveBlocksDraft(){try{localStorage.setItem('aibet_menu_blocks_v9',JSON.stringify(menuBlocks));}catch(e){}}
+try{const sv=localStorage.getItem('aibet_menu_blocks_v10'),pr=sv?JSON.parse(sv):null;menuBlocks=(Array.isArray(pr)&&pr.length>0)?pr:JSON.parse(JSON.stringify(window.INITIAL_BLOCKS));}catch(e){menuBlocks=JSON.parse(JSON.stringify(window.INITIAL_BLOCKS));}
+function saveBlocksDraft(){try{localStorage.setItem('aibet_menu_blocks_v10',JSON.stringify(menuBlocks));}catch(e){}}
 let waitlistMap={};try{waitlistMap=JSON.parse(localStorage.getItem('aibet_waitlist_v1')||'{}');}catch(e){waitlistMap={};}
 let activeModalBlockIndex=null;
 
 // =========================================================
-// НОВЫЙ 3D-ГЕНЕРАТОР ОБЛОЖЕК AIBET (ОБЪЁМНЫЙ ШЁЛК, ГРАНИ И МИКРО-ПЫЛЬ ПО КОНТУРУ)
+// ЧИСТЫЙ ГЕНЕРАТОР БАННЕРОВ AIBET (БЕЗ ТОЧЕК И СТРАННЫХ УЗОРОВ + ПОДДЕРЖКА СВОЕГО ФОНА)
 // =========================================================
-let coverVariantIdx=0;
-const VARIANT_PRESETS=[
-  {flipX:false,shiftY:0,curveLift:0,hotspot:0.42,angleMod:0},
-  {flipX:true,shiftY:0.06,curveLift:-0.08,hotspot:0.58,angleMod:0.07},
-  {flipX:false,shiftY:-0.07,curveLift:0.10,hotspot:0.32,angleMod:-0.06},
-  {flipX:true,shiftY:-0.05,curveLift:0.07,hotspot:0.66,angleMod:-0.05},
-  {flipX:false,shiftY:0.08,curveLift:-0.09,hotspot:0.50,angleMod:0.08}
+let customBgImg=null;
+const CARD_PRESETS=[
+  {l1:'КАЛЬКУЛЯТОР',l2:'СТАВОК'},
+  {l1:'ЗАКРЫТЫЙ',l2:'VIP-КЛУБ'},
+  {l1:'ЛИЧНОЕ',l2:'ВЕДЕНИЕ'},
+  {l1:'КУПИТЬ',l2:'СТАВКИ'}
 ];
 
-function randomizeCoverSeed(){
-  coverVariantIdx=(coverVariantIdx+1)%VARIANT_PRESETS.length;
-  const btn=document.getElementById('seedBtnLabel');
-  if(btn)btn.textContent='🎲 Ракурс #'+(coverVariantIdx+1);
-  triggerHaptic('light');
+function loadCustomBgTemplate(inp){
+  const f=inp.files&&inp.files[0];if(!f)return;
+  const r=new FileReader();
+  r.onload=e=>{
+    const img=new Image();
+    img.onload=()=>{customBgImg=img;renderBrandCoverPreview();triggerHaptic('success');showToast('✓ Свой фон-шаблон загружен');};
+    img.src=e.target.result;
+  };
+  r.readAsDataURL(f);
+}
+
+function resetAllCoversToWidgets(){
+  menuBlocks.forEach(b=>{b.coverUrl='';});
+  saveBlocksDraft();renderAdminPanel();renderHubCards();
+  triggerHaptic('success');showToast('↺ Включены фирменные виджеты на всех карточках');
+}
+
+function syncPresetFromDropdown(val){
+  const idx=parseInt(val,10)||0;
+  const p=CARD_PRESETS[idx]||{l1:(menuBlocks[idx]?menuBlocks[idx].title.toUpperCase():'AIBET'),l2:'MONEY'};
+  document.getElementById('genLine1').value=p.l1;
+  document.getElementById('genLine2').value=p.l2;
   renderBrandCoverPreview();
 }
 
-function pseudoRand(n){const x=Math.sin(n*12.9898+78.233)*43758.5453;return x-Math.floor(x);}
+function applyGenPreset(idx,l1,l2){
+  triggerHaptic('light');
+  document.getElementById('genLine1').value=l1;
+  document.getElementById('genLine2').value=l2;
+  const sel=document.getElementById('genTargetCardSelect');
+  if(sel&&sel.options[idx])sel.value=String(idx);
+  renderBrandCoverPreview();
+}
 
-// Рисует 3D-складку тёмного шёлка с глубокой тенью, сужающимся золотым бликом и микро-пылью вдоль кривой Безье
-function draw3DSilkWave(ctx,W,H,p0,p1,p2,p3,fillBottom,hotT=0.45,seedBase=1,tint='#162440'){
-  const bez=(t)=>{const u=1-t;return{x:u*u*u*p0.x+3*u*u*t*p1.x+3*u*t*t*p2.x+t*t*t*p3.x,y:u*u*u*p0.y+3*u*u*t*p1.y+3*u*t*t*p2.y+t*t*t*p3.y};};
-  const hp=bez(hotT);
+function drawSharpGoldRim(ctx,x1,y1,x2,y2,hot=0.5,w=1.5){
   ctx.save();
-  // 1. Глубокое контровое свечение позади 3D-складки
-  const amb=ctx.createRadialGradient(hp.x,hp.y,4,hp.x,hp.y,W*0.42);
-  amb.addColorStop(0,'rgba(218,175,105,0.22)');amb.addColorStop(0.35,'rgba(24,40,74,0.28)');amb.addColorStop(1,'rgba(3,5,10,0)');
-  ctx.fillStyle=amb;ctx.fillRect(0,0,W,H);
-
-  // 2. Объёмное тело 3D-шёлковой волны с градиентом глубины
-  ctx.beginPath();ctx.moveTo(p0.x,p0.y);ctx.bezierCurveTo(p1.x,p1.y,p2.x,p2.y,p3.x,p3.y);
-  if(fillBottom){ctx.lineTo(W,H);ctx.lineTo(0,H);}else{ctx.lineTo(W,0);ctx.lineTo(0,0);}
-  ctx.closePath();
-  const bodyGrad=ctx.createLinearGradient(hp.x,hp.y,hp.x+(fillBottom?-W*0.15:W*0.15),fillBottom?H:0);
-  bodyGrad.addColorStop(0,tint);bodyGrad.addColorStop(0.38,'#090F1C');bodyGrad.addColorStop(1,'#03050A');
-  ctx.fillStyle=bodyGrad;ctx.fill();
-
-  // Внутренняя 3D-полутень складки (эффект атласного перелива как в Cinema4D)
-  ctx.beginPath();ctx.moveTo(p0.x,p0.y+(fillBottom?18:-18));
-  ctx.bezierCurveTo(p1.x,p1.y+(fillBottom?34:-34),p2.x,p2.y+(fillBottom?14:-14),p3.x,p3.y+(fillBottom?22:-22));
-  ctx.strokeStyle='rgba(140,175,235,0.06)';ctx.lineWidth=26;ctx.stroke();
-
-  // 3. Сужающийся к краям золотой 3D-блик по кромке волны
-  const steps=48;
-  for(let i=0;i<steps;i++){
-    const t1=i/steps,t2=(i+1)/steps,tm=(t1+t2)*0.5;
-    const pt1=bez(t1),pt2=bez(t2);
-    const distHot=Math.abs(tm-hotT);
-    const intensity=Math.max(0,Math.sin(tm*Math.PI))*Math.exp(-distHot*distHot*7.5);
-    if(intensity<0.02)continue;
-    ctx.beginPath();ctx.moveTo(pt1.x,pt1.y);ctx.lineTo(pt2.x,pt2.y);
-    ctx.strokeStyle=intensity>0.72?'#FFF5D6':(intensity>0.38?'#E5B96F':'rgba(201,168,118,'+(intensity*1.2).toFixed(2)+')');
-    ctx.lineWidth=0.6+intensity*2.6;
-    ctx.shadowColor='#E5B96F';ctx.shadowBlur=intensity*18;
-    ctx.stroke();
-  }
-  ctx.shadowBlur=0;
-
-  // 4. Мелкая золотая пыль, стелющаяся ровно вдоль изгиба складки
-  for(let i=0;i<240;i++){
-    const r1=pseudoRand(seedBase+i*1.7),r2=pseudoRand(seedBase+i*3.9),r3=pseudoRand(seedBase+i*7.1);
-    const t=0.05+r1*0.90,bp=bez(t);
-    const spread=(Math.pow(r2,1.6))*54*(fillBottom?1:-1)+(r3-0.5)*14;
-    const px=bp.x+(r3-0.5)*24,py=bp.y+spread;
-    const fade=Math.max(0,1-Math.abs(t-hotT)*1.6)*(1-r2*0.75);
-    if(fade<=0.05)continue;
-    ctx.fillStyle=r3>0.75?'rgba(255,248,220,'+(fade*0.85).toFixed(2)+')':'rgba(215,175,110,'+(fade*0.65).toFixed(2)+')';
-    ctx.beginPath();ctx.arc(px,py,0.4+r3*1.05,0,Math.PI*2);ctx.fill();
-  }
+  const g=ctx.createLinearGradient(x1,y1,x2,y2);
+  g.addColorStop(0,'rgba(201,168,118,0)');
+  g.addColorStop(Math.max(0.05,hot-0.32),'rgba(201,168,118,0.45)');
+  g.addColorStop(hot,'#FFF3D1');
+  g.addColorStop(Math.min(0.95,hot+0.32),'rgba(229,185,111,0.45)');
+  g.addColorStop(1,'rgba(201,168,118,0)');
+  ctx.shadowColor='rgba(229,185,111,0.75)';ctx.shadowBlur=14;
+  ctx.strokeStyle=g;ctx.lineWidth=w;
+  ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);ctx.stroke();
   ctx.restore();
 }
 
-// Рисует 3D-грань тёмного оникса/стекла с объёмной фаской и лазерным золотым ребром
-function draw3DObsidianFacet(ctx,W,H,x1,y1,x2,y2,cx,cy,hotRatio=0.5,seedBase=100,opacity=0.78){
-  ctx.save();
-  const hx=x1+(x2-x1)*hotRatio,hy=y1+(y2-y1)*hotRatio;
-  // Свечение под гранью
-  const glow=ctx.createRadialGradient(hx,hy,2,hx,hy,W*0.28);
-  glow.addColorStop(0,'rgba(229,185,111,0.20)');glow.addColorStop(1,'rgba(3,5,10,0)');
-  ctx.fillStyle=glow;ctx.fillRect(0,0,W,H);
-
-  // Тело 3D-грани
-  ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);ctx.lineTo(cx,cy);ctx.closePath();
-  const fg=ctx.createLinearGradient(hx,hy,cx,cy);
-  fg.addColorStop(0,'rgba(24,36,60,'+opacity+')');fg.addColorStop(0.45,'rgba(10,15,26,'+opacity+')');fg.addColorStop(1,'rgba(3,5,10,'+(opacity*0.95)+')');
-  ctx.fillStyle=fg;ctx.fill();
-
-  // Золотое ребро с плавным затуханием к краям
-  const segs=36;
-  for(let i=0;i<segs;i++){
-    const t1=i/segs,t2=(i+1)/segs,tm=(t1+t2)*0.5;
-    const px1=x1+(x2-x1)*t1,py1=y1+(y2-y1)*t1,px2=x1+(x2-x1)*t2,py2=y1+(y2-y1)*t2;
-    const d=Math.abs(tm-hotRatio),inten=Math.sin(tm*Math.PI)*Math.exp(-d*d*9);
-    if(inten<0.02)continue;
-    ctx.beginPath();ctx.moveTo(px1,py1);ctx.lineTo(px2,py2);
-    ctx.strokeStyle=inten>0.75?'#FFF8E1':(inten>0.4?'#E5B96F':'rgba(201,168,118,'+(inten*1.1).toFixed(2)+')');
-    ctx.lineWidth=0.5+inten*2.4;
-    ctx.shadowColor='#E5B96F';ctx.shadowBlur=inten*16;
-    ctx.stroke();
-  }
-  ctx.shadowBlur=0;
-
-  // Микро-пыль вдоль золотого ребра
-  const dx=x2-x1,dy=y2-y1,len=Math.hypot(dx,dy)||1,nx=-dy/len,ny=dx/len;
-  const sign=( (cx-hx)*nx+(cy-hy)*ny )>=0?1:-1;
-  for(let i=0;i<180;i++){
-    const r1=pseudoRand(seedBase+i*2.3),r2=pseudoRand(seedBase+i*5.1),r3=pseudoRand(seedBase+i*8.7);
-    const t=0.06+r1*0.88,dist=Math.pow(r2,1.7)*44*sign+(r3-0.5)*8;
-    const px=x1+dx*t+nx*dist,py=y1+dy*t+ny*dist;
-    const fade=Math.max(0,1-Math.abs(t-hotRatio)*1.7)*(1-r2*0.7);
-    if(fade<=0.05)continue;
-    ctx.fillStyle=r3>0.7?'rgba(255,244,212,'+(fade*0.85).toFixed(2)+')':'rgba(205,165,105,'+(fade*0.6).toFixed(2)+')';
-    ctx.beginPath();ctx.arc(px,py,0.4+r3*0.95,0,Math.PI*2);ctx.fill();
-  }
-  ctx.restore();
-}
-
-function drawCoverOnCanvas(canvas,line1,line2,styleName,isSquare){
+function drawCoverOnCanvas(canvas,line1,line2,isSquare){
   const W=isSquare?1000:800,H=isSquare?1000:400;
   canvas.width=W;canvas.height=H;
   const ctx=canvas.getContext('2d');
-  const vp=VARIANT_PRESETS[coverVariantIdx%VARIANT_PRESETS.length];
 
-  // 1. Глубокий матовый обсидиановый фон с мягким центральным свечением
-  const bg=ctx.createRadialGradient(W*0.5,H*0.44,W*0.04,W*0.5,H*0.5,W*0.82);
-  bg.addColorStop(0,'#111B30');bg.addColorStop(0.52,'#080D18');bg.addColorStop(1,'#04060B');
-  ctx.fillStyle=bg;ctx.fillRect(0,0,W,H);
+  if(customBgImg){
+    const sc=Math.max(W/customBgImg.width,H/customBgImg.height),sw=W/sc,sh=H/sc;
+    ctx.drawImage(customBgImg,(customBgImg.width-sw)/2,(customBgImg.height-sh)/2,sw,sh,0,0,W,H);
+  }else{
+    // Чистый матовый графитово-сапфировый фон со строгими тонкими гранями по углам
+    const bg=ctx.createRadialGradient(W*0.5,H*0.42,W*0.05,W*0.5,H*0.5,W*0.85);
+    bg.addColorStop(0,'#10192D');bg.addColorStop(0.55,'#080D18');bg.addColorStop(1,'#04060B');
+    ctx.fillStyle=bg;ctx.fillRect(0,0,W,H);
 
-  ctx.save();
-  if(vp.flipX){ctx.translate(W,0);ctx.scale(-1,1);}
+    // Верхняя левая матовая плоскость + тонкая золотая грань
+    ctx.beginPath();ctx.moveTo(0,0);ctx.lineTo(W*0.18,0);ctx.lineTo(0,H*0.28);ctx.closePath();
+    ctx.fillStyle='rgba(20,30,50,0.45)';ctx.fill();
+    drawSharpGoldRim(ctx,0,H*0.28,W*0.18,0,0.4,isSquare?2.0:1.5);
 
-  const sy=vp.shiftY,cl=vp.curveLift,am=vp.angleMod,ht=vp.hotspot;
+    // Нижняя левая плавная грань
+    ctx.beginPath();ctx.moveTo(0,H*0.58);ctx.quadraticCurveTo(W*0.22,H*0.72,W*0.52,H);ctx.lineTo(0,H);ctx.closePath();
+    const lg=ctx.createLinearGradient(0,H*0.58,W*0.4,H);
+    lg.addColorStop(0,'rgba(18,28,48,0.55)');lg.addColorStop(1,'rgba(5,8,15,0.9)');
+    ctx.fillStyle=lg;ctx.fill();
+    ctx.save();
+    const cg=ctx.createLinearGradient(0,H*0.58,W*0.52,H);
+    cg.addColorStop(0,'rgba(201,168,118,0.05)');cg.addColorStop(0.45,'#FFEAB5');cg.addColorStop(0.8,'rgba(201,168,118,0.4)');cg.addColorStop(1,'rgba(201,168,118,0)');
+    ctx.strokeStyle=cg;ctx.lineWidth=isSquare?2.0:1.5;ctx.shadowColor='#E5B96F';ctx.shadowBlur=12;
+    ctx.beginPath();ctx.moveTo(0,H*0.58);ctx.quadraticCurveTo(W*0.22,H*0.72,W*0.52,H);ctx.stroke();
+    ctx.restore();
 
-  if(styleName==='original'){
-    // Оригинальная 3D-композиция AiBet (как на референсе)
-    draw3DSilkWave(ctx,W,H,
-      {x:0,y:H*(0.46+sy)},{x:W*0.18,y:H*(0.52+cl)},{x:W*0.24,y:H*(0.88-cl)},{x:W*(0.58+am),y:H},
-      true,ht,10+coverVariantIdx*100,'#162238'
-    );
-    // Внутренняя мягкая складка слева
-    draw3DSilkWave(ctx,W,H,
-      {x:0,y:H*(0.62+sy)},{x:W*0.14,y:H*(0.72-cl)},{x:W*0.22,y:H*0.94},{x:W*0.42,y:H},
-      true,0.35,40+coverVariantIdx*100,'#0D1524'
-    );
-    // Верхняя левая 3D-грань
-    draw3DObsidianFacet(ctx,W,H,0,H*(0.28+sy),W*(0.19+am),0,0,0,0.42,110+coverVariantIdx*50,0.82);
-    // Задняя правая грань
-    draw3DObsidianFacet(ctx,W,H,W*(0.60-am),H,W,H*(0.20+sy),W,H,0.52,210+coverVariantIdx*50,0.65);
-    // Передняя яркая правая 3D-грань с золотым бликом
-    draw3DObsidianFacet(ctx,W,H,W*(0.51+am),H,W,H*(0.56-sy),W,H,ht,310+coverVariantIdx*50,0.88);
-
-  }else if(styleName==='silk_double'){
-    // Двойной королевский 3D-шёлк (сверху и снизу)
-    draw3DSilkWave(ctx,W,H,
-      {x:W*(0.38+am),y:0},{x:W*0.64,y:H*(0.08+cl)},{x:W*0.80,y:H*(0.36-cl)},{x:W,y:H*(0.48+sy)},
-      false,ht,500+coverVariantIdx*70,'#18253E'
-    );
-    draw3DSilkWave(ctx,W,H,
-      {x:0,y:H*(0.50-sy)},{x:W*0.22,y:H*(0.62+cl)},{x:W*0.36,y:H*(0.92-cl)},{x:W*(0.66-am),y:H},
-      true,1-ht,600+coverVariantIdx*70,'#152036'
-    );
-    draw3DObsidianFacet(ctx,W,H,0,H*(0.24+sy),W*0.16,0,0,0,0.45,700,0.75);
-    draw3DObsidianFacet(ctx,W,H,W*0.64,H,W,H*(0.68-sy),W,H,0.5,750,0.85);
-
-  }else if(styleName==='crystal'){
-    // Чёрный Оникс — симметрия 3D-граней по углам
-    draw3DObsidianFacet(ctx,W,H,0,H*(0.36+sy),W*(0.26+am),0,0,0,ht,810+coverVariantIdx*40,0.85);
-    draw3DObsidianFacet(ctx,W,H,W*(0.72-am),0,W,H*(0.38-sy),W,0,1-ht,850+coverVariantIdx*40,0.75);
-    draw3DObsidianFacet(ctx,W,H,0,H*(0.58-sy),W*(0.44+am),H,0,H,0.48,890+coverVariantIdx*40,0.82);
-    draw3DObsidianFacet(ctx,W,H,W*(0.48-am),H,W,H*(0.52+sy),W,H,ht,930+coverVariantIdx*40,0.90);
-
-  }else if(styleName==='eclipse'){
-    // Золотое 3D-затмение + боковые грани
-    const cx=W*0.5,cy=H*(isSquare?1.18:1.52)+H*sy*0.5,rad=W*(isSquare?0.52:0.56);
-    const halo=ctx.createRadialGradient(cx,cy,rad*0.88,cx,cy,rad*1.18);
-    halo.addColorStop(0,'rgba(3,5,10,1)');halo.addColorStop(0.48,'rgba(229,185,111,0.32)');halo.addColorStop(0.65,'rgba(24,40,74,0.18)');halo.addColorStop(1,'rgba(3,5,10,0)');
-    ctx.fillStyle=halo;ctx.fillRect(0,0,W,H);
-    ctx.beginPath();ctx.arc(cx,cy,rad,0,Math.PI*2);ctx.fillStyle='#050811';ctx.fill();
-    draw3DSilkWave(ctx,W,H,
-      {x:0,y:H*(0.82+sy)},{x:W*0.30,y:H*(0.64+cl)},{x:W*0.70,y:H*(0.64-cl)},{x:W,y:H*(0.82-sy)},
-      true,ht,1010+coverVariantIdx*60,'#0E172A'
-    );
-    draw3DObsidianFacet(ctx,W,H,0,H*0.25,W*0.18,0,0,0,0.45,1050,0.8);
-    draw3DObsidianFacet(ctx,W,H,W*0.82,0,W,H*0.25,W,0,0.55,1080,0.8);
-
-  }else if(styleName==='imperial'){
-    // Имперский Бархат — глубокие S-образные каскады
-    draw3DSilkWave(ctx,W,H,
-      {x:0,y:H*(0.32+sy)},{x:W*0.28,y:H*(0.18+cl)},{x:W*0.12,y:H*0.72},{x:W*(0.46+am),y:H},
-      true,ht,1200+coverVariantIdx*80,'#17233B'
-    );
-    draw3DSilkWave(ctx,W,H,
-      {x:W*(0.52-am),y:H},{x:W*0.86,y:H*0.74},{x:W*0.72,y:H*(0.24-cl)},{x:W,y:H*(0.36-sy)},
-      true,1-ht,1300+coverVariantIdx*80,'#121C30'
-    );
+    // Правая нижняя строгая геометрия (две пересекающиеся грани как в оригинале)
+    ctx.beginPath();ctx.moveTo(W*0.60,H);ctx.lineTo(W,H*0.22);ctx.lineTo(W,H);ctx.closePath();
+    ctx.fillStyle='rgba(16,24,42,0.42)';ctx.fill();
+    drawSharpGoldRim(ctx,W*0.60,H,W,H*0.22,0.5,1.0);
+    drawSharpGoldRim(ctx,W*0.52,H,W,H*0.56,0.48,isSquare?2.2:1.6);
   }
-  ctx.restore();
 
-  // Мягкая виньетка по краям для глубины
-  const vig=ctx.createRadialGradient(W*0.5,H*0.5,W*0.25,W*0.5,H*0.5,W*0.75);
-  vig.addColorStop(0,'rgba(0,0,0,0)');vig.addColorStop(1,'rgba(2,4,8,0.42)');
-  ctx.fillStyle=vig;ctx.fillRect(0,0,W,H);
-
-  // 2. Отрисовка оригинального векторного логотипа AiBet — MONEY —
+  // Оригинальный векторный логотип AiBet — MONEY —
   const svgEl=document.getElementById('brandLogoSvg');
   if(svgEl&&typeof Path2D!=='undefined'){
     const paths=svgEl.querySelectorAll('path');
     if(paths.length>=2){
       ctx.save();
-      const logoScale=isSquare?0.90:0.50;
-      const logoW=308*logoScale,logoX=(W-logoW)/2-48*logoScale,logoY=(isSquare?H*0.32:H*0.13)-24*logoScale;
+      const logoScale=isSquare?0.90:0.48;
+      const logoW=308*logoScale,logoX=(W-logoW)/2-48*logoScale,logoY=(isSquare?H*0.32:H*0.14)-24*logoScale;
       ctx.translate(logoX,logoY);ctx.scale(logoScale,logoScale);
       ctx.shadowColor='rgba(0,0,0,0.7)';ctx.shadowBlur=10;
       ctx.fillStyle='#F8FAFC';ctx.fill(new Path2D(paths[0].getAttribute('d')),'evenodd');
@@ -887,62 +762,41 @@ function drawCoverOnCanvas(canvas,line1,line2,styleName,isSquare){
     }
   }
 
-  // 3. Крупная выразительная типографика (Строка 1 — Белая, Строка 2 — Металлическое золото)
+  // Крупная чистая типографика
   ctx.save();
   ctx.textAlign='center';ctx.textBaseline='middle';
-  const f1=isSquare?64:44,f2=isSquare?62:42;
+  const f1=isSquare?64:42,f2=isSquare?62:40;
   const y1=isSquare?H*0.545:H*0.57,y2=isSquare?H*0.635:H*0.735,yBar=isSquare?H*0.715:H*0.87;
 
   ctx.font='800 '+f1+'px Montserrat, sans-serif';
-  ctx.fillStyle='#FFFFFF';
-  ctx.shadowColor='rgba(0,0,0,0.8)';ctx.shadowBlur=14;
+  ctx.fillStyle='#FFFFFF';ctx.shadowColor='rgba(0,0,0,0.8)';ctx.shadowBlur=12;
   ctx.fillText(String(line1||'').toUpperCase(),W/2,y1);
 
-  const gGrad=ctx.createLinearGradient(W*0.3,y2-24,W*0.7,y2+24);
+  const gGrad=ctx.createLinearGradient(W*0.3,y2-20,W*0.7,y2+20);
   gGrad.addColorStop(0,'#F0CA86');gGrad.addColorStop(0.5,'#C9A876');gGrad.addColorStop(1,'#9E7B47');
   ctx.font='800 '+f2+'px Montserrat, sans-serif';
   ctx.fillStyle=gGrad;
   ctx.fillText(String(line2||'').toUpperCase(),W/2,y2);
 
-  const barW=isSquare?114:76;
-  ctx.fillStyle='#C9A876';ctx.shadowBlur=6;ctx.shadowColor='rgba(201,168,118,0.5)';
+  const barW=isSquare?114:72;
+  ctx.fillStyle='#C9A876';
   ctx.fillRect((W-barW)/2,yBar,barW,2);
   ctx.restore();
 }
 
 function renderBrandCoverPreview(){
   const c=document.getElementById('coverGenCanvas');if(!c)return;
-  drawCoverOnCanvas(c,document.getElementById('genLine1').value||'AIBET',document.getElementById('genLine2').value||'MONEY',document.getElementById('genStyleSelect').value||'original',document.getElementById('genAspectSelect').value==='square');
-}
-
-function applyGenPreset(idx,l1,l2,st){
-  triggerHaptic('light');
-  document.getElementById('genLine1').value=l1;document.getElementById('genLine2').value=l2;document.getElementById('genStyleSelect').value=st;
-  const sel=document.getElementById('genTargetCardSelect');if(sel&&sel.options[idx])sel.selectedIndex=idx;
-  renderBrandCoverPreview();
+  drawCoverOnCanvas(c,document.getElementById('genLine1').value||'AIBET',document.getElementById('genLine2').value||'MONEY',document.getElementById('genAspectSelect').value==='square');
 }
 
 function applyGeneratedCoverToCard(){
-  const sel=document.getElementById('genTargetCardSelect'),idx=sel?parseInt(sel.value,10):0;
+  const sel=document.getElementById('genTargetCardSelect'),idx=sel?parseInt(sel.value,10):1;
   if(!menuBlocks[idx])return;
   const tc=document.createElement('canvas');
-  drawCoverOnCanvas(tc,document.getElementById('genLine1').value||'AIBET',document.getElementById('genLine2').value||'MONEY',document.getElementById('genStyleSelect').value||'original',false);
+  drawCoverOnCanvas(tc,document.getElementById('genLine1').value||'AIBET',document.getElementById('genLine2').value||'MONEY',false);
   let url=tc.toDataURL('image/webp',0.86);if(url.indexOf('data:image/webp')!==0)url=tc.toDataURL('image/jpeg',0.88);
   menuBlocks[idx].coverUrl=url;saveBlocksDraft();renderAdminPanel();renderHubCards();
-  triggerHaptic('success');showToast('✓ 3D-обложка установлена на «'+menuBlocks[idx].title+'»');
-}
-
-function generateCoversForAllBlocks(){
-  const pr=[{l1:'КАЛЬКУЛЯТОР',l2:'СТАВОК',st:'original',v:0},{l1:'ЗАКРЫТЫЙ',l2:'VIP-КЛУБ',st:'silk_double',v:1},{l1:'ЛИЧНОЕ',l2:'ВЕДЕНИЕ',st:'crystal',v:2},{l1:'КУПИТЬ',l2:'СТАВКИ',st:'eclipse',v:3}];
-  const tc=document.createElement('canvas'),prevV=coverVariantIdx;
-  menuBlocks.forEach((b,i)=>{
-    const p=pr[i]||{l1:b.title.toUpperCase(),l2:'AIBET CLUB',st:'original',v:i%5};
-    coverVariantIdx=p.v;drawCoverOnCanvas(tc,p.l1,p.l2,p.st,false);
-    let url=tc.toDataURL('image/webp',0.86);if(url.indexOf('data:image/webp')!==0)url=tc.toDataURL('image/jpeg',0.88);
-    b.coverUrl=url;
-  });
-  coverVariantIdx=prevV;saveBlocksDraft();renderAdminPanel();renderHubCards();
-  triggerHaptic('success');showToast('⚡ 3D-обложки созданы для всех карточек!');
+  triggerHaptic('success');showToast('✓ Баннер установлен на «'+menuBlocks[idx].title+'»');
 }
 
 function downloadGeneratedCoverPng(){
@@ -959,7 +813,7 @@ function initSpoilerCanvases(){
   const hub=document.getElementById('screenHub');if(!hub||!hub.classList.contains('active'))return;
   document.querySelectorAll('.spoiler-canvas').forEach(canvas=>{
     const parent=canvas.parentElement;if(!parent)return;
-    const rect=parent.getBoundingClientRect(),w=Math.max(150,rect.width||180),h=Math.max(160,rect.height||182),dpr=Math.min(window.devicePixelRatio||1,2);
+    const rect=parent.getBoundingClientRect(),w=Math.max(150,rect.width||180),h=Math.max(160,rect.height||176),dpr=Math.min(window.devicePixelRatio||1,2);
     canvas.width=w*dpr;canvas.height=h*dpr;const ctx=canvas.getContext('2d');ctx.scale(dpr,dpr);
     const particles=[];
     for(let i=0;i<68;i++){const ig=i%4===0;particles.push({x:Math.random()*w,y:Math.random()*h,vx:(Math.random()-0.5)*0.35,vy:(Math.random()-0.5)*0.35,r:ig?(1.1+Math.random()*1.1):(0.9+Math.random()*1.1),alpha:0.25+Math.random()*0.65,dAlpha:(Math.random()*0.015+0.005)*(Math.random()<0.5?1:-1),color:ig?'201,168,118':'226,232,240'});}
@@ -993,7 +847,23 @@ function initSpoilerCanvases(){
 
 const hubCardsGrid=document.getElementById('hubCardsGrid');
 
-// Рендер карточек: плашка "Открыто / Скоро" теперь в строке заголовка и НЕ перекрывает картинку обложки!
+// Единые фирменные золотые мини-виджеты для всех 4 карточек (в стиле виджета Калькулятора)
+function getSignatureWidgetHtml(b,idx,pBank,pBet){
+  if(b.icon==='calc'||b.actionType==='calc'){
+    return '<div class="default-cover-art"><div class="calc-mini-widget"><div class="calc-mini-left"><div class="calc-mini-pill">'+formatSpaces(pBank)+' ₽</div><div class="calc-mini-pill">КЭФ 1.5</div></div><div class="calc-mini-right"><span>Ставка</span><strong>'+formatSpaces(pBet)+' ₽</strong></div></div></div>';
+  }
+  if(b.id==='vip'||idx===1){
+    return '<div class="default-cover-art"><div class="calc-mini-widget"><div class="calc-mini-left"><div class="calc-mini-pill">👑 VIP LINE</div><div class="calc-mini-pill">PRO МОДЕЛЬ</div></div><div class="calc-mini-right"><span>Доступ</span><strong>ЗАКРЫТЫЙ</strong></div></div></div>';
+  }
+  if(b.id==='personal'||idx===2){
+    return '<div class="default-cover-art"><div class="calc-mini-widget"><div class="calc-mini-left"><div class="calc-mini-pill">🛡️ 1-НА-1</div><div class="calc-mini-pill">КОНТРОЛЬ</div></div><div class="calc-mini-right"><span>Формат</span><strong>ВЕДЕНИЕ</strong></div></div></div>';
+  }
+  if(b.id==='buy'||idx===3){
+    return '<div class="default-cover-art"><div class="calc-mini-widget"><div class="calc-mini-left"><div class="calc-mini-pill">⚡ МАТЧ ДНЯ</div><div class="calc-mini-pill">ТОП ИСХОД</div></div><div class="calc-mini-right"><span>Купон</span><strong>ОРДИНАР</strong></div></div></div>';
+  }
+  return '<div class="default-cover-art"><div class="cover-icon-circle">'+escapeHtml(b.icon||'⭐')+'</div></div>';
+}
+
 function renderHubCards(){
   renderHubBankPill();
   if(!hubCardsGrid||!Array.isArray(menuBlocks))return;
@@ -1005,22 +875,26 @@ function renderHubCards(){
   menuBlocks.forEach((b,idx)=>{
     if(b.hidden)return;
     const isAvail=b.status==='available'&&!b.blurred,isBlur=Boolean(b.blurred),isWait=Boolean(waitlistMap[b.id]);
+    const hasCustomCover=Boolean(b.coverUrl&&b.coverUrl.trim()!=='');
     const card=document.createElement('div');
     card.className='menu-card '+(isAvail?'available':'soon')+(isBlur?' blurred':'');
     card.setAttribute('onclick','handleCardClick('+idx+')');
 
-    let cov='';
-    if(b.coverUrl&&b.coverUrl.trim()!=='')cov='<img src="'+escapeHtml(b.coverUrl)+'" class="card-cover-img" alt="">';
-    else if(b.icon==='calc'||b.actionType==='calc')cov='<div class="default-cover-art"><div class="calc-mini-widget"><div class="calc-mini-left"><div class="calc-mini-pill">'+formatSpaces(pBank)+' ₽</div><div class="calc-mini-pill">КЭФ 1.5</div></div><div class="calc-mini-right"><span>Ставка</span><strong>'+formatSpaces(pBet)+' ₽</strong></div></div></div>';
-    else cov='<div class="default-cover-art"><div class="cover-icon-circle">'+escapeHtml(b.icon||'⭐')+'</div></div>';
+    const cov=hasCustomCover
+      ?'<img src="'+escapeHtml(b.coverUrl)+'" class="card-cover-img" alt="">'
+      :getSignatureWidgetHtml(b,idx,pBank,pBet);
 
-    const pill=isAvail?'<span class="status-pill active-pill"><span class="live-dot"></span>Открыто</span>':'<span class="status-pill soon-pill">⏳ Скоро</span>';
+    // Если стоит картинка-баннер, зелёную плашку скрываем, чтобы она не перекрывала логотип AiBet
+    const pill=(!isBlur&&!hasCustomCover)
+      ?(isAvail?'<span class="status-pill active-pill"><span class="live-dot"></span>Открыто</span>':'<span class="status-pill soon-pill">⏳ Скоро</span>')
+      :'';
+
     const btnTxt=b.btnLabel||(isAvail?'Открыть →':'Скоро');
     const spLbl=isWait?'✓ В листе ожидания':'Скоро открытие',spCls=isWait?'tg-spoiler-pill waitlisted':'tg-spoiler-pill';
     const blurOv=isBlur?'<div class="tg-spoiler-overlay"><canvas class="spoiler-canvas"></canvas><div class="'+spCls+'"><span class="dot"></span>'+spLbl+'</div></div>':'';
     const ttl=isBlur?'Секретный раздел':b.title,dsc=isBlur?'Новый закрытый инструмент платформы клуба':b.desc;
 
-    card.innerHTML=blurOv+'<div class="card-inner-blur" style="display:flex;flex-direction:column;flex:1"><div class="card-cover">'+cov+'</div><div class="card-body"><div><div class="card-title-row"><div class="card-title">'+escapeHtml(ttl)+'</div>'+(!isBlur?pill:'')+'</div><div class="card-desc">'+escapeHtml(dsc)+'</div></div><div class="card-action-btn'+(isAvail?' shimmer-effect':'')+'">'+escapeHtml(btnTxt)+'</div></div></div>';
+    card.innerHTML=blurOv+'<div class="card-inner-blur" style="display:flex;flex-direction:column;flex:1"><div class="card-cover">'+pill+cov+'</div><div class="card-body"><div><div class="card-title">'+escapeHtml(ttl)+'</div><div class="card-desc">'+escapeHtml(dsc)+'</div></div><div class="card-action-btn'+(isAvail?' shimmer-effect':'')+'">'+escapeHtml(btnTxt)+'</div></div></div>';
     hubCardsGrid.appendChild(card);
   });
   requestAnimationFrame(()=>initSpoilerCanvases());
@@ -1057,7 +931,7 @@ function closeSoonModal(){document.getElementById('soonModal').classList.remove(
 function openPromoPage(b){
   const cb=document.getElementById('promoCoverBox');
   if(b.coverUrl&&b.coverUrl.trim()!=='')cb.innerHTML='<img src="'+escapeHtml(b.coverUrl)+'" alt="">';
-  else cb.innerHTML='<div class="cover-icon-circle" style="width:60px;height:60px;font-size:28px">'+escapeHtml(b.icon||'👑')+'</div>';
+  else cb.innerHTML=getSignatureWidgetHtml(b,menuBlocks.indexOf(b),100000,2650);
   document.getElementById('promoTitle').textContent=b.pageTitle||b.title;
   document.getElementById('promoText').textContent=b.pageText||b.desc;
   const cta=document.getElementById('promoCtaBtn'),url=b.ctaUrl||trackerCfg.channelUrl||'https://t.me/aibetmoney';
@@ -1101,13 +975,17 @@ function renderAdminPanel(){
   document.getElementById('trackerAdminId').value=trackerCfg.adminChatId||'';
   document.getElementById('mainChannelUrlInput').value=trackerCfg.channelUrl||'https://t.me/aibetmoney';
   const ts=document.getElementById('genTargetCardSelect');
-  if(ts){const pv=ts.value;ts.innerHTML=menuBlocks.map((b,i)=>'<option value="'+i+'">Карточка #'+(i+1)+': '+escapeHtml(b.title)+'</option>').join('');if(pv&&ts.options[pv])ts.value=pv;}
+  if(ts){
+    const pv=ts.value!==''?ts.value:'1';
+    ts.innerHTML=menuBlocks.map((b,i)=>'<option value="'+i+'">Карточка #'+(i+1)+': '+escapeHtml(b.title)+'</option>').join('');
+    if(ts.options[pv])ts.value=pv;
+  }
   adminCardsContainer.innerHTML='';
   menuBlocks.forEach((b,idx)=>{
     const item=document.createElement('div');item.className='admin-item-card';
     const isCalc=b.actionType==='calc';
     const ex=!isCalc?'<details style="margin-top:8px;border-top:1px solid var(--border-subtle);padding-top:10px"><summary style="cursor:pointer;font-size:12px;color:var(--gold-light);font-weight:600">📝 Настроить продающий текст и ссылку на ЛС</summary><div style="margin-top:10px"><div class="adm-field"><label>Заголовок внутри страницы</label><input type="text" class="adm-input" value="'+escapeHtml(b.pageTitle||'')+'" oninput="updateBlockField('+idx+',\'pageTitle\',this.value)"></div><div class="adm-field"><label>Продающий текст</label><textarea class="adm-textarea" oninput="updateBlockField('+idx+',\'pageText\',this.value)">'+escapeHtml(b.pageText||'')+'</textarea></div><div class="adm-grid-2"><div class="adm-field"><label>Текст кнопки</label><input type="text" class="adm-input" value="'+escapeHtml(b.ctaText||'')+'" oninput="updateBlockField('+idx+',\'ctaText\',this.value)"></div><div class="adm-field"><label>Ссылка на твой ЛС (https://t.me/...)</label><input type="text" class="adm-input" value="'+escapeHtml(b.ctaUrl||'')+'" oninput="updateBlockField('+idx+',\'ctaUrl\',this.value)"></div></div></div></details>':'';
-    item.innerHTML='<div class="admin-item-head"><strong>Блок #'+(idx+1)+': '+escapeHtml(b.title)+'</strong><div class="admin-head-btns"><button type="button" class="adm-mini-btn" onclick="moveBlock('+idx+',-1)">↑</button><button type="button" class="adm-mini-btn" onclick="moveBlock('+idx+',1)">↓</button>'+(!isCalc?'<button type="button" class="adm-mini-btn danger" onclick="deleteBlock('+idx+')">Удалить</button>':'')+'</div></div><div class="adm-toggles-row"><label class="adm-check-label"><input type="checkbox" '+(b.blurred?'checked':'')+' onchange="updateBlockField('+idx+',\'blurred\',this.checked)"><span>🌫️ Заблюрить как в ТГ (Скрыть что внутри)</span></label><label class="adm-check-label"><input type="checkbox" '+(b.hidden?'checked':'')+' onchange="updateBlockField('+idx+',\'hidden\',this.checked)"><span>👁️ Скрыть из меню совсем</span></label></div><div class="adm-grid-2"><div class="adm-field"><label>Название карточки</label><input type="text" class="adm-input" value="'+escapeHtml(b.title)+'" oninput="updateBlockField('+idx+',\'title\',this.value)"></div><div class="adm-field"><label>Статус раздела</label><select class="adm-select" onchange="updateBlockField('+idx+',\'status\',this.value);renderAdminPanel()"><option value="available" '+(b.status==='available'?'selected':'')+'>● Открыто (Доступно)</option><option value="soon" '+(b.status==='soon'?'selected':'')+'>⏳ Скоро (В разработке)</option></select></div></div><div class="adm-grid-2"><div class="adm-field"><label>Короткое описание</label><input type="text" class="adm-input" value="'+escapeHtml(b.desc)+'" oninput="updateBlockField('+idx+',\'desc\',this.value)"></div><div class="adm-field"><label>Текст на кнопке</label><input type="text" class="adm-input" value="'+escapeHtml(b.btnLabel||'')+'" oninput="updateBlockField('+idx+',\'btnLabel\',this.value)"></div></div><div class="adm-field"><label>Обложка (800×400 px)</label><div class="adm-cover-row"><label class="adm-upload-label">📁 Загрузить свой файл<input type="file" accept="image/*" style="display:none" onchange="handleCoverUpload('+idx+',this)"></label>'+(b.coverUrl?'<button type="button" class="adm-mini-btn danger" onclick="updateBlockField('+idx+',\'coverUrl\',\'\');renderAdminPanel();renderHubCards()">Сбросить обложку</button>':'')+'</div></div>'+ex;
+    item.innerHTML='<div class="admin-item-head"><strong>Блок #'+(idx+1)+': '+escapeHtml(b.title)+'</strong><div class="admin-head-btns"><button type="button" class="adm-mini-btn" onclick="moveBlock('+idx+',-1)">↑</button><button type="button" class="adm-mini-btn" onclick="moveBlock('+idx+',1)">↓</button>'+(!isCalc?'<button type="button" class="adm-mini-btn danger" onclick="deleteBlock('+idx+')">Удалить</button>':'')+'</div></div><div class="adm-toggles-row"><label class="adm-check-label"><input type="checkbox" '+(b.blurred?'checked':'')+' onchange="updateBlockField('+idx+',\'blurred\',this.checked)"><span>🌫️ Заблюрить как в ТГ (Скрыть что внутри)</span></label><label class="adm-check-label"><input type="checkbox" '+(b.hidden?'checked':'')+' onchange="updateBlockField('+idx+',\'hidden\',this.checked)"><span>👁️ Скрыть из меню совсем</span></label></div><div class="adm-grid-2"><div class="adm-field"><label>Название карточки</label><input type="text" class="adm-input" value="'+escapeHtml(b.title)+'" oninput="updateBlockField('+idx+',\'title\',this.value)"></div><div class="adm-field"><label>Статус раздела</label><select class="adm-select" onchange="updateBlockField('+idx+',\'status\',this.value);renderAdminPanel()"><option value="available" '+(b.status==='available'?'selected':'')+'>● Открыто (Доступно)</option><option value="soon" '+(b.status==='soon'?'selected':'')+'>⏳ Скоро (В разработке)</option></select></div></div><div class="adm-grid-2"><div class="adm-field"><label>Короткое описание</label><input type="text" class="adm-input" value="'+escapeHtml(b.desc)+'" oninput="updateBlockField('+idx+',\'desc\',this.value)"></div><div class="adm-field"><label>Текст на кнопке</label><input type="text" class="adm-input" value="'+escapeHtml(b.btnLabel||'')+'" oninput="updateBlockField('+idx+',\'btnLabel\',this.value)"></div></div><div class="adm-field"><label>Обложка (по умолчанию стоит фирменный виджет)</label><div class="adm-cover-row"><label class="adm-upload-label">📁 Загрузить свою картинку<input type="file" accept="image/*" style="display:none" onchange="handleCoverUpload('+idx+',this)"></label>'+(b.coverUrl?'<button type="button" class="adm-mini-btn danger" onclick="updateBlockField('+idx+',\'coverUrl\',\'\');renderAdminPanel();renderHubCards()">↺ Вернуть фирменный виджет</button>':'')+'</div></div>'+ex;
     adminCardsContainer.appendChild(item);
   });
 }
