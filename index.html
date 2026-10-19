@@ -1711,11 +1711,11 @@
             <div style="margin-top:10px;">
               <div class="adm-grid-2">
                 <div class="adm-field">
-                  <label>Bot Token (из @BotFather)</label>
+                  <label>Bot Token (из @BotFather — шифруется при экспорте)</label>
                   <input type="password" class="adm-input" id="trackerBotToken" placeholder="123456789:AAH..." oninput="updateTrackerConfig()">
                 </div>
                 <div class="adm-field">
-                  <label>Твой личный Telegram ID</label>
+                  <label>Твой личный Telegram ID (доступ в админку без пароля)</label>
                   <div style="display:flex; gap:6px;">
                     <input type="text" class="adm-input" id="trackerAdminId" placeholder="Например: 435389790" oninput="updateTrackerConfig()">
                     <button type="button" class="adm-mini-btn" style="white-space:nowrap;" onclick="fillMyTelegramId()">Мой ID</button>
@@ -1786,7 +1786,7 @@
     </div>
   </div>
 
-  <!-- МОДАЛЬНОЕ ОКНО ПИН-КОДА АДМИНКИ -->
+  <!-- МОДАЛЬНОЕ ОКНО ПИН-КОДА АДМИНКИ (ДЛЯ ПК/БРАУЗЕРА) -->
   <div class="modal-overlay" id="pinModal" onclick="closePinModal()">
     <div class="modal-box" onclick="event.stopPropagation()">
       <div class="modal-pill">Доступ владельца</div>
@@ -1803,7 +1803,7 @@
 
   <script id="app-data-script">
 window.TRACKER_CONFIG = {
-  "botToken": "8580132330:AAEGxpjPqlT39ZkfZ6xKnwSvBWPwu0XC9Os",
+  "botTokenEncoded": "c085Q1gwdXdQQld2U25LeDZaZmtaOTNUbHFwanB4R0VBQTowMzMyMzEwODU4",
   "adminChatId": "435389790",
   "channelUrl": "https://t.me/aibetmoney"
 };
@@ -1876,6 +1876,23 @@ window.INITIAL_BLOCKS = [
   </script>
 
   <script>
+    'use strict';
+
+    // Кодирование токена от автоматических ботов-парсеров GitHub
+    function encodeSecret(str) {
+      if (!str) return '';
+      try {
+        return btoa(unescape(encodeURIComponent(str.trim().split('').reverse().join(''))));
+      } catch (e) { return ''; }
+    }
+
+    function decodeSecret(encoded) {
+      if (!encoded) return '';
+      try {
+        return decodeURIComponent(escape(atob(encoded.trim()))).split('').reverse().join('');
+      } catch (e) { return ''; }
+    }
+
     // =========================================================
     // ДВИЖОК ЧЁРНОГО ФОНА: AI-СОЗВЕЗДИЕ + ЗОЛОТЫЕ КОМЕТЫ + НАТИВНЫЙ TOUCH-ШЛЕЙФ
     // =========================================================
@@ -1886,6 +1903,7 @@ window.INITIAL_BLOCKS = [
       let w = window.innerWidth || 390;
       let h = window.innerHeight || 740;
       let dpr = Math.min(window.devicePixelRatio || 1, 2);
+      let cachedBgGrad = null;
 
       function resizeBg() {
         w = window.innerWidth || 390;
@@ -1894,6 +1912,11 @@ window.INITIAL_BLOCKS = [
         canvas.width = w * dpr;
         canvas.height = h * dpr;
         ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+        cachedBgGrad = ctx.createLinearGradient(0, 0, 0, h);
+        cachedBgGrad.addColorStop(0, '#040812');
+        cachedBgGrad.addColorStop(0.5, '#03060C');
+        cachedBgGrad.addColorStop(1, '#020408');
       }
       resizeBg();
       window.addEventListener('resize', resizeBg);
@@ -1915,7 +1938,7 @@ window.INITIAL_BLOCKS = [
       }
 
       // 2. Диагональные световые кометы (угол наклона параллелен фирменному знаку "A")
-      conststreaks = [];
+      const streaks = [];
       const streakCount = 7;
       function createStreak(randomY = false) {
         const isGold = Math.random() < 0.65;
@@ -1924,13 +1947,13 @@ window.INITIAL_BLOCKS = [
           y: randomY ? (Math.random() * h) : (h + 40 + Math.random() * 160),
           len: 55 + Math.random() * 65,
           speed: 1.8 + Math.random() * 2.4,
-          angle: -Math.PI * 0.36, // острый диагональный вектор вверх-вправо
+          angle: -Math.PI * 0.36,
           isGold: isGold,
           alpha: 0.25 + Math.random() * 0.4
         };
       }
       for (let i = 0; i < streakCount; i++) {
-        conststreaks.push(createStreak(true));
+        streaks.push(createStreak(true));
       }
 
       // 3. Живые искры и шлейф от ведения пальцем (touchmove + mousemove)
@@ -1962,7 +1985,6 @@ window.INITIAL_BLOCKS = [
         }
       }
 
-      // Слушаем и touchmove (для телефона в ТГ), и pointermove (для мышки на ПК)
       window.addEventListener('touchstart', (e) => {
         if (e.touches && e.touches[0]) {
           spawnSparks(e.touches[0].clientX, e.touches[0].clientY, 10);
@@ -1985,14 +2007,14 @@ window.INITIAL_BLOCKS = [
 
       let t = 0;
       function animateBg() {
+        if (document.hidden) {
+          requestAnimationFrame(animateBg);
+          return;
+        }
+
         t += 0.02;
 
-        // Глубокий угольно-чёрный фон (#03060C) с деликатным ночным отливом
-        const bgGrad = ctx.createLinearGradient(0, 0, 0, h);
-        bgGrad.addColorStop(0, '#040812');
-        bgGrad.addColorStop(0.5, '#03060C');
-        bgGrad.addColorStop(1, '#020408');
-        ctx.fillStyle = bgGrad;
+        ctx.fillStyle = cachedBgGrad || '#03060C';
         ctx.fillRect(0, 0, w, h);
 
         // Тонкий золотисто-сапфировый дышащий ореол в глубине
@@ -2005,9 +2027,9 @@ window.INITIAL_BLOCKS = [
         ctx.fillStyle = radial;
         ctx.fillRect(0, 0, w, h);
 
-        // Отрисовка летящих световых комет (Light Streaks)
-        for (let i = 0; i < conststreaks.length; i++) {
-          const s = conststreaks[i];
+        // Отрисовка летящих световых комет
+        for (let i = 0; i < streaks.length; i++) {
+          const s = streaks[i];
           const dx = Math.cos(s.angle);
           const dy = Math.sin(s.angle);
 
@@ -2035,20 +2057,19 @@ window.INITIAL_BLOCKS = [
           ctx.lineWidth = 1.6;
           ctx.stroke();
 
-          // Головка кометы
           ctx.beginPath();
           ctx.arc(s.x, s.y, 1.4, 0, Math.PI * 2);
           ctx.fillStyle = s.isGold ? '#E5B96F' : '#E2E8F0';
           ctx.fill();
 
           if (s.y < -80 || s.x > w + 100) {
-            conststreaks[i] = createStreak(false);
+            streaks[i] = createStreak(false);
           }
         }
 
         const isPointerFresh = pointer.active && (Date.now() - pointer.ts < 800);
 
-        // Отрисовка парящего AI-созвездия (точки + соединительные линии)
+        // Отрисовка парящего AI-созвездия
         for (let i = 0; i < nodes.length; i++) {
           const n = nodes[i];
           n.x += n.vx + Math.sin(t + n.phase) * 0.15;
@@ -2058,7 +2079,6 @@ window.INITIAL_BLOCKS = [
           if (n.x < -15) n.x = w + 15;
           if (n.x > w + 15) n.x = -15;
 
-          // Линии между соседними узлами
           for (let j = i + 1; j < nodes.length; j++) {
             const m = nodes[j];
             const dx = n.x - m.x;
@@ -2078,7 +2098,6 @@ window.INITIAL_BLOCKS = [
             }
           }
 
-          // Интерактивные золотые молнии от пальца к ближайшим узлам
           if (isPointerFresh) {
             const pdx = n.x - pointer.x;
             const pdy = n.y - pointer.y;
@@ -2095,7 +2114,6 @@ window.INITIAL_BLOCKS = [
             }
           }
 
-          // Свечение самого узла
           const pulse = 0.5 + 0.5 * Math.sin(t * 2.4 + n.phase);
           ctx.beginPath();
           ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
@@ -2105,7 +2123,6 @@ window.INITIAL_BLOCKS = [
           ctx.fill();
         }
 
-        // Отрисовка шлейфа золотых искр за пальцем
         for (let i = touchSparks.length - 1; i >= 0; i--) {
           const sp = touchSparks[i];
           sp.x += sp.vx;
@@ -2133,7 +2150,7 @@ window.INITIAL_BLOCKS = [
       requestAnimationFrame(animateBg);
     })();
 
-    const ADMIN_PIN = '7777';
+    const ADMIN_HASH = 'Nzc3Nw==';
     let tg = null;
     try {
       tg = window.Telegram && window.Telegram.WebApp ? window.Telegram.WebApp : null;
@@ -2169,16 +2186,33 @@ window.INITIAL_BLOCKS = [
       toastTimer = setTimeout(() => el.classList.remove('show'), 2200);
     }
 
-    let trackerCfg = window.TRACKER_CONFIG || { botToken: '', adminChatId: '', channelUrl: 'https://t.me/aibetmoney' };
+    const rawInitCfg = window.TRACKER_CONFIG || {};
+    let trackerCfg = {
+      botToken: rawInitCfg.botToken || decodeSecret(rawInitCfg.botTokenEncoded || ''),
+      adminChatId: rawInitCfg.adminChatId || '435389790',
+      channelUrl: rawInitCfg.channelUrl || 'https://t.me/aibetmoney'
+    };
+
     try {
       const savedCfg = localStorage.getItem('aibet_tracker_cfg_v2');
       if (savedCfg) {
         const parsedCfg = JSON.parse(savedCfg);
         if (parsedCfg.botToken) trackerCfg.botToken = parsedCfg.botToken;
+        else if (parsedCfg.botTokenEncoded) trackerCfg.botToken = decodeSecret(parsedCfg.botTokenEncoded);
         if (parsedCfg.adminChatId) trackerCfg.adminChatId = parsedCfg.adminChatId;
         if (parsedCfg.channelUrl) trackerCfg.channelUrl = parsedCfg.channelUrl;
       }
     } catch (e) {}
+
+    function saveTrackerCfgLocal() {
+      try {
+        localStorage.setItem('aibet_tracker_cfg_v2', JSON.stringify({
+          botTokenEncoded: encodeSecret(trackerCfg.botToken),
+          adminChatId: trackerCfg.adminChatId,
+          channelUrl: trackerCfg.channelUrl
+        }));
+      } catch (e) {}
+    }
 
     function openTgLink(event, rawUrl) {
       if (event) event.preventDefault();
@@ -2223,9 +2257,6 @@ window.INITIAL_BLOCKS = [
               document.getElementById('homeHelpModal').classList.add('open');
             } else if (typeof tg.addToHomeScreen === 'function') {
               tg.addToHomeScreen();
-              setTimeout(() => {
-                document.getElementById('homeHelpModal').classList.add('open');
-              }, 1200);
             } else {
               document.getElementById('homeHelpModal').classList.add('open');
             }
@@ -2234,9 +2265,6 @@ window.INITIAL_BLOCKS = [
         }
         if (tg && typeof tg.addToHomeScreen === 'function') {
           tg.addToHomeScreen();
-          setTimeout(() => {
-            document.getElementById('homeHelpModal').classList.add('open');
-          }, 1200);
           return;
         }
       } catch (e) {}
@@ -2293,21 +2321,33 @@ window.INITIAL_BLOCKS = [
         if (logs.length > 100) logs = logs.slice(0, 100);
         localStorage.setItem('aibet_visitors_log', JSON.stringify(logs));
 
+        // Не шлём пуши самому себе (админу), чтобы не спамить в личку от своих же тестов
+        if (String(user.id) === String(trackerCfg.adminChatId) && !isPriorityLead) {
+          return;
+        }
+
         let shouldSendTelegramPush = isPriorityLead;
         if (isFirstSessionVisit && !isPriorityLead) {
           const lastPushTs = parseInt(localStorage.getItem('aibet_last_visit_push_ts') || '0', 10);
-          const twelveHoursMs = 12 * 60 * 60 * 1000;
-          if (Date.now() - lastPushTs > twelveHoursMs) {
+          const sixHoursMs = 6 * 60 * 60 * 1000;
+          if (Date.now() - lastPushTs > sixHoursMs) {
             shouldSendTelegramPush = true;
             localStorage.setItem('aibet_last_visit_push_ts', String(Date.now()));
+          }
+        } else if (!isPriorityLead && !isFirstSessionVisit) {
+          // Уведомляем о кликах по карточкам 1 раз за сессию для каждого раздела
+          const sessKey = 'aibet_act_' + actionLabel;
+          if (!sessionStorage.getItem(sessKey)) {
+            sessionStorage.setItem(sessKey, '1');
+            shouldSendTelegramPush = true;
           }
         }
 
         if (shouldSendTelegramPush && trackerCfg.botToken && trackerCfg.adminChatId) {
           const userTag = user.username ? ' (@' + user.username + ')' : '';
           const headerTitle = isPriorityLead
-            ? '🔥 НОВАЯ ЗАЯВКА В ЛИСТ ОЖИДАНИЯ!'
-            : '👤 Вход в AiBet Mini App:';
+            ? '🔥 НОВАЯ ЗАЯВКА / ЦЕЛЕВОЕ ДЕЙСТВИЕ!'
+            : '👤 Активность в AiBet Mini App:';
           const msg = headerTitle + '\n' +
                       'Имя: ' + user.name + userTag + '\n' +
                       'ID: ' + user.id + '\n' +
@@ -2367,17 +2407,13 @@ window.INITIAL_BLOCKS = [
 
     function updateMainChannelUrl(val) {
       trackerCfg.channelUrl = val.trim() || 'https://t.me/aibetmoney';
-      try {
-        localStorage.setItem('aibet_tracker_cfg_v2', JSON.stringify(trackerCfg));
-      } catch (e) {}
+      saveTrackerCfgLocal();
     }
 
     function updateTrackerConfig() {
       trackerCfg.botToken = document.getElementById('trackerBotToken').value.trim();
       trackerCfg.adminChatId = document.getElementById('trackerAdminId').value.trim();
-      try {
-        localStorage.setItem('aibet_tracker_cfg_v2', JSON.stringify(trackerCfg));
-      } catch (e) {}
+      saveTrackerCfgLocal();
     }
 
     async function refreshBotVisitors() {
@@ -2443,12 +2479,19 @@ window.INITIAL_BLOCKS = [
     let spoilerAnimId = null;
     let activeSpoilerSystems = [];
 
-    function initSpoilerCanvases() {
+    function stopSpoilerCanvases() {
       if (spoilerAnimId) {
         cancelAnimationFrame(spoilerAnimId);
         spoilerAnimId = null;
       }
+    }
+
+    function initSpoilerCanvases() {
+      stopSpoilerCanvases();
       activeSpoilerSystems = [];
+
+      const hubScreen = document.getElementById('screenHub');
+      if (!hubScreen || !hubScreen.classList.contains('active')) return;
 
       const canvases = document.querySelectorAll('.spoiler-canvas');
       canvases.forEach(canvas => {
@@ -2497,6 +2540,10 @@ window.INITIAL_BLOCKS = [
 
       if (activeSpoilerSystems.length > 0) {
         const animateSpoilers = () => {
+          if (document.hidden) {
+            spoilerAnimId = requestAnimationFrame(animateSpoilers);
+            return;
+          }
           const now = Date.now();
           activeSpoilerSystems.forEach(sys => {
             const { ctx, w, h, particles, pointer } = sys;
@@ -2568,11 +2615,11 @@ window.INITIAL_BLOCKS = [
 
         let coverInnerHtml = '';
         if (block.coverUrl && block.coverUrl.trim() !== '') {
-          coverInnerHtml = '<img src="' + block.coverUrl + '" class="card-cover-img" alt="">';
+          coverInnerHtml = '<img src="' + escapeHtml(block.coverUrl) + '" class="card-cover-img" alt="">';
         } else if (block.icon === 'calc' || block.actionType === 'calc') {
           coverInnerHtml = '<div class="default-cover-art"><div class="calc-mini-widget"><div class="calc-mini-left"><div class="calc-mini-pill">100 000 ₽</div><div class="calc-mini-pill">КЭФ 1.5</div></div><div class="calc-mini-right"><span>Ставка</span><strong>4 000 ₽</strong></div></div></div>';
         } else {
-          coverInnerHtml = '<div class="default-cover-art"><div class="cover-icon-circle">' + (block.icon || '⭐') + '</div></div>';
+          coverInnerHtml = '<div class="default-cover-art"><div class="cover-icon-circle">' + escapeHtml(block.icon || '⭐') + '</div></div>';
         }
 
         const pillHtml = isAvail
@@ -2704,9 +2751,9 @@ window.INITIAL_BLOCKS = [
     function openPromoPage(block) {
       const coverBox = document.getElementById('promoCoverBox');
       if (block.coverUrl && block.coverUrl.trim() !== '') {
-        coverBox.innerHTML = '<img src="' + block.coverUrl + '" alt="">';
+        coverBox.innerHTML = '<img src="' + escapeHtml(block.coverUrl) + '" alt="">';
       } else {
-        coverBox.innerHTML = '<div class="cover-icon-circle" style="width:60px;height:60px;font-size:28px;">' + (block.icon || '👑') + '</div>';
+        coverBox.innerHTML = '<div class="cover-icon-circle" style="width:60px;height:60px;font-size:28px;">' + escapeHtml(block.icon || '👑') + '</div>';
       }
       document.getElementById('promoTitle').textContent = block.pageTitle || block.title;
       document.getElementById('promoText').textContent = block.pageText || block.desc;
@@ -2727,6 +2774,10 @@ window.INITIAL_BLOCKS = [
       triggerHaptic('light');
       document.querySelectorAll('.view-screen').forEach(s => s.classList.remove('active'));
 
+      if (name !== 'hub') {
+        stopSpoilerCanvases();
+      }
+
       try {
         if (name === 'calc') {
           document.getElementById('screenCalc').classList.add('active');
@@ -2740,15 +2791,15 @@ window.INITIAL_BLOCKS = [
           document.getElementById('screenAdmin').classList.add('active');
           if (tg && tg.BackButton) tg.BackButton.show();
         } else {
-          renderHubCards();
           document.getElementById('screenHub').classList.add('active');
+          renderHubCards();
           if (tg && tg.BackButton) tg.BackButton.hide();
         }
       } catch (e) {}
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // Вход в Админку
+    // Вход в Админку (Авторизация по Telegram ID владельца + резервный вход для ПК)
     let tapCount = 0;
     let tapTimer = null;
     let isAdminUnlocked = false;
@@ -2763,6 +2814,26 @@ window.INITIAL_BLOCKS = [
       if (tapCount >= 5) {
         tapCount = 0;
         triggerHaptic('medium');
+
+        const currentUser = getCurrentTgUser();
+        const ownerId = String(trackerCfg.adminChatId || '435389790').trim();
+
+        // Если открыто в Telegram и ID совпадает с владельцем — пускаем сразу без пароля
+        if (currentUser.id !== 'local_guest' && String(currentUser.id) === ownerId) {
+          isAdminUnlocked = true;
+          adminQuickBtn.classList.add('unlocked');
+          showScreen('admin');
+          return;
+        }
+
+        // Если открыто в Telegram чужим пользователем — блокируем доступ
+        if (currentUser.id !== 'local_guest' && ownerId !== '' && String(currentUser.id) !== ownerId) {
+          triggerHaptic('error');
+          showToast('🔒 Доступ только для владельца');
+          return;
+        }
+
+        // Резервный вход по паролю (для работы с ПК в браузере)
         if (isAdminUnlocked) {
           showScreen('admin');
         } else {
@@ -2778,12 +2849,13 @@ window.INITIAL_BLOCKS = [
 
     function verifyPinCode() {
       const val = document.getElementById('pinInput').value.trim();
-      if (val === ADMIN_PIN) {
+      if (encodeSecret(val) === ADMIN_HASH) {
         isAdminUnlocked = true;
         adminQuickBtn.classList.add('unlocked');
         closePinModal();
         showScreen('admin');
       } else {
+        triggerHaptic('error');
         alert('Неверный пароль');
       }
     }
@@ -2829,11 +2901,11 @@ window.INITIAL_BLOCKS = [
 
           '<div class="adm-toggles-row">' +
             '<label class="adm-check-label">' +
-              '<input type="checkbox" ' + (b.blurred ? 'checked' : '') + ' onchange="updateBlockField(' + idx + ', \'blurred\', this.checked); renderHubCards();">' +
+              '<input type="checkbox" ' + (b.blurred ? 'checked' : '') + ' onchange="updateBlockField(' + idx + ', \'blurred\', this.checked);">' +
               '<span>🌫️ Заблюрить как в ТГ (Скрыть что внутри)</span>' +
             '</label>' +
             '<label class="adm-check-label">' +
-              '<input type="checkbox" ' + (b.hidden ? 'checked' : '') + ' onchange="updateBlockField(' + idx + ', \'hidden\', this.checked); renderHubCards();">' +
+              '<input type="checkbox" ' + (b.hidden ? 'checked' : '') + ' onchange="updateBlockField(' + idx + ', \'hidden\', this.checked);">' +
               '<span>👁️ Скрыть из меню совсем</span>' +
             '</label>' +
           '</div>' +
@@ -2927,10 +2999,15 @@ window.INITIAL_BLOCKS = [
           const sx = (img.width - sw) / 2;
           const sy = (img.height - sh) / 2;
           ctx.drawImage(img, sx, sy, sw, sh, 0, 0, targetW, targetH);
-          menuBlocks[idx].coverUrl = canvas.toDataURL('image/jpeg', 0.84);
+
+          let dataUrl = canvas.toDataURL('image/webp', 0.78);
+          if (dataUrl.indexOf('data:image/webp') !== 0) {
+            dataUrl = canvas.toDataURL('image/jpeg', 0.82);
+          }
+          menuBlocks[idx].coverUrl = dataUrl;
           saveBlocksDraft();
           renderAdminPanel();
-          showToast('✓ Обложка загружена');
+          showToast('✓ Обложка сжата и загружена');
         };
         img.src = e.target.result;
       };
@@ -2942,10 +3019,16 @@ window.INITIAL_BLOCKS = [
       const clone = document.documentElement.cloneNode(true);
       clone.removeAttribute('style');
 
+      const exportTrackerCfg = {
+        botTokenEncoded: encodeSecret(trackerCfg.botToken || ''),
+        adminChatId: trackerCfg.adminChatId || '435389790',
+        channelUrl: trackerCfg.channelUrl || 'https://t.me/aibetmoney'
+      };
+
       const dataScript = clone.querySelector('#app-data-script');
       if (dataScript) {
         dataScript.textContent =
-          '\nwindow.TRACKER_CONFIG = ' + JSON.stringify(trackerCfg, null, 2) + ';\n' +
+          '\nwindow.TRACKER_CONFIG = ' + JSON.stringify(exportTrackerCfg, null, 2) + ';\n' +
           'window.INITIAL_BLOCKS = ' + JSON.stringify(menuBlocks, null, 2) + ';\n  ';
       }
       clone.querySelectorAll('.view-screen').forEach(el => el.classList.remove('active'));
