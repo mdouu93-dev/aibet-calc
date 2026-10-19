@@ -27,7 +27,6 @@ header,section{position:relative;z-index:2}
 .channel-pill:active{transform:scale(.95)}.channel-pill svg{width:14px;height:14px;fill:currentColor;flex-shrink:0}
 .view-screen{display:none}.view-screen.active{display:block;animation:screenFade .24s cubic-bezier(.22,1,.36,1)}
 @keyframes screenFade{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
-/* 3D КНОПКИ + КОНТРАСТНЫЙ ЗОЛОТОЙ БЛИК + ВОЛНА ОТ КАСАНИЯ */
 .shimmer-effect{position:relative;overflow:hidden}
 .shimmer-effect::after{content:"";position:absolute;top:0;left:-130%;width:65%;height:100%;background:linear-gradient(105deg,transparent 15%,rgba(201,168,118,0.35) 40%,rgba(255,255,255,0.9) 50%,rgba(201,168,118,0.35) 60%,transparent 85%);transform:skewX(-20deg);animation:shimmerSweep 4.2s infinite;pointer-events:none}
 @keyframes shimmerSweep{0%,62%{left:-130%}100%{left:160%}}
@@ -523,7 +522,12 @@ function decodeSecret(enc){if(!enc)return '';try{const r=enc.trim();if(r.indexOf
 
 function forceBypassCacheReload(){
   triggerHaptic('medium');
-  try{localStorage.removeItem('aibet_menu_blocks_v9');localStorage.removeItem('aibet_menu_blocks_v10');}catch(e){}
+  try{
+    localStorage.removeItem('aibet_menu_blocks_v9');
+    localStorage.removeItem('aibet_menu_blocks_v10');
+    localStorage.removeItem('aibet_menu_blocks_v12');
+    localStorage.removeItem('aibet_menu_blocks_v13');
+  }catch(e){}
   window.location.replace(window.location.pathname+'?v='+Date.now());
 }
 
@@ -700,8 +704,8 @@ async function refreshBotVisitors(){
 }
 
 let menuBlocks=[];
-try{const sv=localStorage.getItem('aibet_menu_blocks_v12'),pr=sv?JSON.parse(sv):null;menuBlocks=(Array.isArray(pr)&&pr.length>0)?pr:JSON.parse(JSON.stringify(window.INITIAL_BLOCKS));}catch(e){menuBlocks=JSON.parse(JSON.stringify(window.INITIAL_BLOCKS));}
-function saveBlocksDraft(){try{localStorage.setItem('aibet_menu_blocks_v12',JSON.stringify(menuBlocks));}catch(e){}}
+try{const sv=localStorage.getItem('aibet_menu_blocks_v13'),pr=sv?JSON.parse(sv):null;menuBlocks=(Array.isArray(pr)&&pr.length>0)?pr:JSON.parse(JSON.stringify(window.INITIAL_BLOCKS));}catch(e){menuBlocks=JSON.parse(JSON.stringify(window.INITIAL_BLOCKS));}
+function saveBlocksDraft(){try{localStorage.setItem('aibet_menu_blocks_v13',JSON.stringify(menuBlocks));}catch(e){}}
 let waitlistMap={};try{waitlistMap=JSON.parse(localStorage.getItem('aibet_waitlist_v1')||'{}');}catch(e){waitlistMap={};}
 let activeModalBlockIndex=null;
 
@@ -720,6 +724,11 @@ const CARD_PRESETS=[
   const img=new Image();img.crossOrigin='anonymous';
   img.onload=()=>{hdSilkImg=img;if(document.getElementById('screenAdmin').classList.contains('active'))renderBrandCoverPreview();};
   img.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1000&q=85';
+  if(document.fonts&&document.fonts.ready){
+    document.fonts.ready.then(()=>{
+      if(document.getElementById('screenAdmin').classList.contains('active'))renderBrandCoverPreview();
+    });
+  }
 })();
 
 function loadCustomBgTemplate(inp){
@@ -800,14 +809,12 @@ function drawVectorEmblemBadge(ctx,W,H,emblemType,isSquare){
   const bx=cx-badgeW/2,by=cy-badgeH/2;
 
   ctx.save();
-  // Свечение позади капсулы
   const bgGlow=ctx.createRadialGradient(cx,cy,4,cx,cy,badgeW*0.65);
   bgGlow.addColorStop(0,'rgba(229,185,111,0.25)');
   bgGlow.addColorStop(1,'rgba(0,0,0,0)');
   ctx.fillStyle=bgGlow;
   ctx.fillRect(cx-badgeW,cy-badgeH,badgeW*2,badgeH*2);
 
-  // Стеклянная капсула
   drawRoundedRect(ctx,bx,by,badgeW,badgeH,badgeH/2);
   const capFill=ctx.createLinearGradient(bx,by,bx,by+badgeH);
   capFill.addColorStop(0,'rgba(16,26,48,0.92)');
@@ -846,7 +853,6 @@ function drawVectorEmblemBadge(ctx,W,H,emblemType,isSquare){
       }
     }
   } else {
-    // Слева в капсуле рисуем иконку, справа — тег AIBET CLUB
     const iconX=bx+(isSquare?54:44);
     const s=isSquare?1.15:0.95;
     ctx.save();
@@ -882,7 +888,6 @@ function drawVectorEmblemBadge(ctx,W,H,emblemType,isSquare){
     }
     ctx.restore();
 
-    // Разделитель и надпись AIBET MONEY
     const divX=bx+(isSquare?92:74);
     ctx.strokeStyle='rgba(226,232,240,0.16)';
     ctx.lineWidth=1;
@@ -909,7 +914,6 @@ function drawCoverOnCanvas(canvas,line1,line2,styleName,isSquare,emblemOverride)
   const ctx=canvas.getContext('2d');
   const emblemType=emblemOverride||(document.getElementById('genEmblemSelect')?document.getElementById('genEmblemSelect').value:'crown');
 
-  // 1. БАЗОВЫЙ ФОН И 4 ТЕКСТУРЫ
   if(customBgImg){
     const sc=Math.max(W/customBgImg.width,H/customBgImg.height);
     const sw=W/sc,sh=H/sc;
@@ -1028,7 +1032,6 @@ function drawCoverOnCanvas(canvas,line1,line2,styleName,isSquare,emblemOverride)
     }
   }
 
-  // 2. ВОДЯНЫЕ ЗНАКИ ЭМБЛЕМЫ "A" НА ФОНЕ
   if(typeof Path2D!=='undefined'){
     const pA=new Path2D('M512,121 L174,824 L565,594 L401,594 L512,365 L645,648 L805,727 Z');
     const pG=new Path2D('M645,648 L725,820 L848,820 L805,727 Z');
@@ -1041,7 +1044,6 @@ function drawCoverOnCanvas(canvas,line1,line2,styleName,isSquare,emblemOverride)
     ctx.restore();
   }
 
-  // 3. ЦЕНТРАЛЬНОЕ СВЕЧЕНИЕ ПОД ТЕКСТОМ
   const centerGlow=ctx.createRadialGradient(W*0.5,H*0.54,10,W*0.5,H*0.54,W*0.42);
   centerGlow.addColorStop(0,'rgba(229,185,111,0.16)');
   centerGlow.addColorStop(0.6,'rgba(15,25,48,0.08)');
@@ -1049,7 +1051,6 @@ function drawCoverOnCanvas(canvas,line1,line2,styleName,isSquare,emblemOverride)
   ctx.fillStyle=centerGlow;
   ctx.fillRect(0,0,W,H);
 
-  // 4. ЮВЕЛИРНАЯ РАМКА В БЕЗОПАСНОЙ ЗОНЕ
   ctx.save();
   const padX=isSquare?44:38;
   const padY=isSquare?44:30;
@@ -1069,10 +1070,8 @@ function drawCoverOnCanvas(canvas,line1,line2,styleName,isSquare,emblemOverride)
   ctx.stroke();
   ctx.restore();
 
-  // 5. ВЕРХНИЙ СТЕКЛЯННЫЙ БЕЙДЖ С 3D-ЭМБЛЕМОЙ / ЛОГО
   drawVectorEmblemBadge(ctx,W,H,emblemType,isSquare);
 
-  // 6. ТИПОГРАФИКА С АВТО-МАСШТАБОМ И ТРЕКИНГОМ В SAFE-ZONE
   ctx.save();
   ctx.textAlign='center';
   ctx.textBaseline='middle';
@@ -1099,7 +1098,6 @@ function drawCoverOnCanvas(canvas,line1,line2,styleName,isSquare,emblemOverride)
   const y2=isSquare?H*0.625:H*0.665;
   const yBar=isSquare?H*0.725:H*0.805;
 
-  // 1-я строка (Платина)
   ctx.font='800 '+f1+'px Montserrat, sans-serif';
   ctx.shadowColor='rgba(0,0,0,0.92)';
   ctx.shadowBlur=22;
@@ -1110,7 +1108,6 @@ function drawCoverOnCanvas(canvas,line1,line2,styleName,isSquare,emblemOverride)
   ctx.fillStyle=wGrad;
   drawSpacedText(ctx,t1,W/2,y1,isSquare?4:3.5);
 
-  // 2-я строка (Металлическое 3D-золото)
   ctx.font='800 '+f2+'px Montserrat, sans-serif';
   ctx.shadowColor='rgba(229,185,111,0.30)';
   ctx.shadowBlur=26;
@@ -1124,7 +1121,6 @@ function drawCoverOnCanvas(canvas,line1,line2,styleName,isSquare,emblemOverride)
   ctx.fillStyle=gGrad;
   drawSpacedText(ctx,t2,W/2,y2,isSquare?5:4);
 
-  // Нижний ювелирный разделитель с ромбом
   ctx.shadowBlur=0;
   ctx.shadowOffsetY=0;
   const barW=isSquare?180:140;
