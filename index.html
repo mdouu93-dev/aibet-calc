@@ -199,323 +199,309 @@ header,section{position:relative;z-index:2}
 <div class="toast-pill" id="toastPill">✓ Скопировано</div>
 
 <header class="site-header">
-  <div class="container">
-    <div class="header-inner">
-      <a href="#" onclick="showScreen('hub',event)" class="brand-logo" aria-label="AiBet Money">
-        <svg id="brandLogoSvg" viewBox="48 24 308 132" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path fill="#E2E8F0" fill-rule="evenodd" clip-rule="evenodd" d="M270.5,50.2L260.5,55.2L255.5,60.5L253,64.5L251,69.5L249.8,75.8L250,85.2L251.2,90L253,94L256.5,99L259.8,102.2L265.8,106L275.8,108.5L286,108.2L292.5,106.5L298.2,103.2L303.5,97.8L303,96.5L296.5,91.5L294.8,91.2L291.2,94.5L286.2,97L282,97.8L275.5,97.2L268,93.5L264.8,89.8L262.8,84.5L263.8,83.2L305.8,83.2L306.5,76.8L304.5,66.5L299.2,58L296.5,55.2L291.2,52L280.8,49.2ZM262.8,72.8L263.5,70.5L265.5,66.8L268.8,63.5L271.5,61.8L275.8,60.5L280,60.2L285.2,61.5L288.2,63.2L291.5,66.5L293.2,70.5L294,73.2L293.5,74L263.8,74.2ZM322,36L321.5,36.5L321.5,49.2L320.5,50.2L313.5,50.2L312.8,50.8L312.5,60.5L313,61L320.8,61.2L321.5,62.2L321.5,94.2L322.5,98.8L324.2,102L327.5,105.5L332,107.5L335.8,108.2L341.8,108.2L348,106.8L349,105.5L348.2,96.5L339.5,97L337.2,96L334.8,93L334.2,90.2L334.2,62.2L335.2,61L348.2,61L348.8,60.2L348.8,51.2L347.2,50.2L335,50.2L334.2,49.2L334.2,36.5L333.8,36ZM176.8,29.2L176.5,107L218.8,107.2L226.2,105.5L232.2,102.2L236.8,97.2L239.8,88.2L239.2,81L237.2,75.5L233.8,71.2L226.2,67.2L233.5,60.8L236.2,54.5L236.5,45.8L233,37.8L227.2,32.8L218.2,29.5ZM190,74.2L191.5,73.5L213.2,73.5L217.2,74L222.2,76.5L224.2,78.8L225.8,82.2L225.8,87L224.2,90.5L222,92.8L219.2,94.2L215,95.2L190.8,95.2L189.8,94.2ZM190,42.2L191,41.5L214.2,41.8L219.2,43.8L222,47L222.8,49.5L222.8,53.8L220.2,58.8L217.2,61L213,62.2L191,62.2L190,61.5ZM101.5,29.5L86.5,29.5L54.2,105.5L54.5,107.5L68.2,107.2L75.5,91L112.2,91L113.2,91.8L119.5,107.2L134,107ZM94,46.2L107.8,78.5L106.2,79.2L80.8,79L80.2,78.2Z"></path>
-          <rect x="144" y="51" width="14" height="56.2" rx="1" fill="#E2E8F0"></rect>
-          <circle cx="151" cy="35.5" r="8.2" fill="#C9A876"></circle>
-          <rect x="54" y="139.2" width="47" height="2.4" rx="1.2" fill="#C9A876"></rect>
-          <rect x="304" y="139.2" width="45" height="2.4" rx="1.2" fill="#C9A876"></rect>
-          <path fill="#C9A876" fill-rule="evenodd" clip-rule="evenodd" d="M272.2,129.8L272,131L279,143L279,150.2L282.8,150.2L282.8,143L290,131L289.5,129.8L286.5,130.2L281,138.8L275.5,130.2ZM240.2,130L240.2,150.5L254.8,150.5L254.8,147.5L244,147.5L244,141.8L253.5,141.8L253.5,138.6L244,138.6L244,133L254.8,133L254.8,130ZM201.4,130L201.4,150.5L205,150.5L205,136.8L216.2,150.5L220,150.5L220,130L216.2,130L216.2,143.2L205,130ZM119.2,130L119.2,150.5L122.8,150.5L122.8,137.2L129.8,147.5L131.2,147.5L138,137.2L138,150.5L141.6,150.5L141.6,130L137.5,130L130.5,141.2L123.5,130ZM168.5,129.8L164.5,131.8L161.5,135.5L160.5,139L160.8,142.5L162.2,146.5L164.8,149L168.5,150.8L173.5,150.8L177.8,149.2L180.5,146.8L182.2,142.8L182.5,139.2L181.5,135.2L179.5,132.5L176,130.2L173.2,129.5ZM169.5,133L173.8,133L176.5,134.8L178.2,137.8L178.5,142.2L176.5,145.8L173.5,147.6L169.5,147.6L166.2,145.5L164.5,142L164.8,137.8L167.2,134.2Z"></path>
-        </svg>
-      </a>
-      <button type="button" onclick="openMainChannel(event)" class="channel-pill">
-        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.02-1.96 1.25-5.54 3.69-.52.36-1 .53-1.42.52-.47-.01-1.37-.26-2.03-.48-.82-.27-1.47-.42-1.42-.88.03-.24.35-.49.96-.75 3.78-1.65 6.31-2.74 7.58-3.27 3.61-1.51 4.35-1.77 4.84-1.78.11 0 .35.03.5.16.13.1.17.24.18.34.01.07.02.21.01.3z"></path></svg>
-        Канал AiBet Money
-      </button>
-    </div>
-  </div>
+<div class="container">
+<div class="header-inner">
+<a href="#" onclick="showScreen('hub',event)" class="brand-logo" aria-label="AiBet Money">
+<svg id="brandLogoSvg" viewBox="48 24 308 132" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill="#E2E8F0" fill-rule="evenodd" clip-rule="evenodd" d="M270.5,50.2L260.5,55.2L255.5,60.5L253,64.5L251,69.5L249.8,75.8L250,85.2L251.2,90L253,94L256.5,99L259.8,102.2L265.8,106L275.8,108.5L286,108.2L292.5,106.5L298.2,103.2L303.5,97.8L303,96.5L296.5,91.5L294.8,91.2L291.2,94.5L286.2,97L282,97.8L275.5,97.2L268,93.5L264.8,89.8L262.8,84.5L263.8,83.2L305.8,83.2L306.5,76.8L304.5,66.5L299.2,58L296.5,55.2L291.2,52L280.8,49.2ZM262.8,72.8L263.5,70.5L265.5,66.8L268.8,63.5L271.5,61.8L275.8,60.5L280,60.2L285.2,61.5L288.2,63.2L291.5,66.5L293.2,70.5L294,73.2L293.5,74L263.8,74.2ZM322,36L321.5,36.5L321.5,49.2L320.5,50.2L313.5,50.2L312.8,50.8L312.5,60.5L313,61L320.8,61.2L321.5,62.2L321.5,94.2L322.5,98.8L324.2,102L327.5,105.5L332,107.5L335.8,108.2L341.8,108.2L348,106.8L349,105.5L348.2,96.5L339.5,97L337.2,96L334.8,93L334.2,90.2L334.2,62.2L335.2,61L348.2,61L348.8,60.2L348.8,51.2L347.2,50.2L335,50.2L334.2,49.2L334.2,36.5L333.8,36ZM176.8,29.2L176.5,107L218.8,107.2L226.2,105.5L232.2,102.2L236.8,97.2L239.8,88.2L239.2,81L237.2,75.5L233.8,71.2L226.2,67.2L233.5,60.8L236.2,54.5L236.5,45.8L233,37.8L227.2,32.8L218.2,29.5ZM190,74.2L191.5,73.5L213.2,73.5L217.2,74L222.2,76.5L224.2,78.8L225.8,82.2L225.8,87L224.2,90.5L222,92.8L219.2,94.2L215,95.2L190.8,95.2L189.8,94.2ZM190,42.2L191,41.5L214.2,41.8L219.2,43.8L222,47L222.8,49.5L222.8,53.8L220.2,58.8L217.2,61L213,62.2L191,62.2L190,61.5ZM101.5,29.5L86.5,29.5L54.2,105.5L54.5,107.5L68.2,107.2L75.5,91L112.2,91L113.2,91.8L119.5,107.2L134,107ZM94,46.2L107.8,78.5L106.2,79.2L80.8,79L80.2,78.2Z"></path>
+<rect x="144" y="51" width="14" height="56.2" rx="1" fill="#E2E8F0"></rect>
+<circle cx="151" cy="35.5" r="8.2" fill="#C9A876"></circle>
+<rect x="54" y="139.2" width="47" height="2.4" rx="1.2" fill="#C9A876"></rect>
+<rect x="304" y="139.2" width="45" height="2.4" rx="1.2" fill="#C9A876"></rect>
+<path fill="#C9A876" fill-rule="evenodd" clip-rule="evenodd" d="M272.2,129.8L272,131L279,143L279,150.2L282.8,150.2L282.8,143L290,131L289.5,129.8L286.5,130.2L281,138.8L275.5,130.2ZM240.2,130L240.2,150.5L254.8,150.5L254.8,147.5L244,147.5L244,141.8L253.5,141.8L253.5,138.6L244,138.6L244,133L254.8,133L254.8,130ZM201.4,130L201.4,150.5L205,150.5L205,136.8L216.2,150.5L220,150.5L220,130L216.2,130L216.2,143.2L205,130ZM119.2,130L119.2,150.5L122.8,150.5L122.8,137.2L129.8,147.5L131.2,147.5L138,137.2L138,150.5L141.6,150.5L141.6,130L137.5,130L130.5,141.2L123.5,130ZM168.5,129.8L164.5,131.8L161.5,135.5L160.5,139L160.8,142.5L162.2,146.5L164.8,149L168.5,150.8L173.5,150.8L177.8,149.2L180.5,146.8L182.2,142.8L182.5,139.2L181.5,135.2L179.5,132.5L176,130.2L173.2,129.5ZM169.5,133L173.8,133L176.5,134.8L178.2,137.8L178.5,142.2L176.5,145.8L173.5,147.6L169.5,147.6L166.2,145.5L164.5,142L164.8,137.8L167.2,134.2Z"></path>
+</svg>
+</a>
+<button type="button" onclick="openMainChannel(event)" class="channel-pill">
+<svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.02-1.96 1.25-5.54 3.69-.52.36-1 .53-1.42.52-.47-.01-1.37-.26-2.03-.48-.82-.27-1.47-.42-1.42-.88.03-.24.35-.49.96-.75 3.78-1.65 6.31-2.74 7.58-3.27 3.61-1.51 4.35-1.77 4.84-1.78.11 0 .35.03.5.16.13.1.17.24.18.34.01.07.02.21.01.3z"></path></svg>
+Канал AiBet Money
+</button>
+</div>
+</div>
 </header>
 
 <section class="view-screen active" id="screenHub">
-  <div class="container">
-    <div class="hub-wrap">
-      <div class="hub-hero">
-        <h1 class="hub-title">Платформа AiBet Money</h1>
-        <p class="hub-subtitle" id="hubGreetingSubtitle">Выбери нужный инструмент или раздел клуба</p>
-        <div id="hubBankPillWrap"></div>
-      </div>
-      <div class="menu-grid" id="hubCardsGrid"></div>
-      <div class="hub-footer-emblem">
-        <svg class="hub-emblem-svg" id="secretAdminTrigger" viewBox="150 100 725 745" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <polygon points="512,121 174,824 565,594 401,594 512,365 645,648 805,727" fill="#E2E8F0"></polygon>
-          <polygon points="645,648 725,820 848,820 805,727" fill="#E1A856"></polygon>
-        </svg>
-        <div class="hub-bottom-pills">
-          <button type="button" class="home-screen-pill" id="addHomeBtn" onclick="addAppToHomeScreen()">📲 Добавить на экран телефона</button>
-          <button type="button" class="admin-open-pill" id="adminQuickBtn" onclick="showScreen('admin')">⚙️ Открыть Админ-панель</button>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="container">
+<div class="hub-wrap">
+<div class="hub-hero">
+<h1 class="hub-title">Платформа AiBet Money</h1>
+<p class="hub-subtitle" id="hubGreetingSubtitle">Выбери нужный инструмент или раздел клуба</p>
+<div id="hubBankPillWrap"></div>
+</div>
+<div class="menu-grid" id="hubCardsGrid"></div>
+<div class="hub-footer-emblem">
+<svg class="hub-emblem-svg" id="secretAdminTrigger" viewBox="150 100 725 745" fill="none" xmlns="http://www.w3.org/2000/svg">
+<polygon points="512,121 174,824 565,594 401,594 512,365 645,648 805,727" fill="#E2E8F0"></polygon>
+<polygon points="645,648 725,820 848,820 805,727" fill="#E1A856"></polygon>
+</svg>
+<div class="hub-bottom-pills">
+<button type="button" class="home-screen-pill" id="addHomeBtn" onclick="addAppToHomeScreen()">📲 Добавить на экран телефона</button>
+<button type="button" class="admin-open-pill" id="adminQuickBtn" onclick="showScreen('admin')">⚙️ Открыть Админ-панель</button>
+</div>
+</div>
+</div>
+</div>
 </section>
 
 <section class="view-screen" id="screenPromo">
-  <div class="container">
-    <div class="promo-wrap">
-      <button type="button" class="back-to-menu-btn" onclick="showScreen('hub')">← Назад в меню</button>
-      <div class="promo-card">
-        <div class="promo-cover" id="promoCoverBox"></div>
-        <div class="promo-body">
-          <h2 class="promo-title" id="promoTitle">Заголовок</h2>
-          <div class="promo-text" id="promoText">Описание</div>
-          <button type="button" id="promoCtaBtn" class="promo-cta-btn shimmer-effect">Написать в личные сообщения →</button>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="container">
+<div class="promo-wrap">
+<button type="button" class="back-to-menu-btn" onclick="showScreen('hub')">← Назад в меню</button>
+<div class="promo-card">
+<div class="promo-cover" id="promoCoverBox"></div>
+<div class="promo-body">
+<h2 class="promo-title" id="promoTitle">Заголовок</h2>
+<div class="promo-text" id="promoText">Описание</div>
+<button type="button" id="promoCtaBtn" class="promo-cta-btn shimmer-effect">Написать в личные сообщения →</button>
+</div>
+</div>
+</div>
+</div>
 </section>
 
 <section class="view-screen" id="screenCalc">
-  <div class="container">
-    <div class="back-bar"><button type="button" class="back-to-menu-btn" onclick="showScreen('hub')">← Назад в главное меню</button></div>
-    <div class="workspace">
-      <div class="left-column">
-        <div class="card">
-          <div class="block-label"><span class="block-label-left">ТВОИ ДАННЫЕ</span><span class="saved-badge" id="savedBadge">Сохранено ✓</span></div>
-          <div class="input-list">
-            <div class="field-row"><div class="field-title">Банк, ₽</div><div class="gold-input-box"><input type="text" id="bankInput" value="100 000" inputmode="numeric" autocomplete="off"></div></div>
-            <div class="field-row"><div class="field-title">Коэффициент (кэф)</div><div class="gold-input-box"><input type="text" id="oddsInput" value="1.5" inputmode="decimal" autocomplete="off"></div></div>
-            <div class="quick-odds-row" id="quickOddsGroup">
-              <span class="quick-odds-label">Быстрый выбор:</span>
-              <button type="button" class="quick-odd-chip active" data-odd="1.5">1.50</button>
-              <button type="button" class="quick-odd-chip" data-odd="1.7">1.70</button>
-              <button type="button" class="quick-odd-chip" data-odd="1.85">1.85</button>
-              <button type="button" class="quick-odd-chip" data-odd="2.1">2.10</button>
-            </div>
-            <div class="field-block">
-              <div class="field-title"><span>Профиль риска</span><span class="field-title-hint" id="riskHintText">База 2%</span></div>
-              <div class="segmented-grid" id="riskGroup">
-                <div class="seg-glider" id="riskGlider" style="transform:translateX(100%)"></div>
-                <button type="button" class="seg-btn" data-index="0" data-risk="0.01" data-label="База 1%">Осторожно</button>
-                <button type="button" class="seg-btn active" data-index="1" data-risk="0.02" data-label="База 2%">Стандарт</button>
-                <button type="button" class="seg-btn" data-index="2" data-risk="0.03" data-label="База 3%">Смело</button>
-              </div>
-            </div>
-            <div class="round-row">
-              <span class="round-label">Округление суммы:</span>
-              <div class="round-pills" id="roundGroup">
-                <button type="button" class="round-pill" data-step="1">Точно</button>
-                <button type="button" class="round-pill active" data-step="50">до 50 ₽</button>
-                <button type="button" class="round-pill" data-step="100">до 100 ₽</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="result-card">
-          <div class="block-label"><span class="block-label-left">РЕЗУЛЬТАТ</span></div>
-          <div class="result-sublabel"><span>СКОЛЬКО СТАВИТЬ</span><span class="copy-hint">нажми, чтобы скопировать</span></div>
-          <div class="result-display" id="resultBox"><div class="result-number" id="resultValue">2 650 ₽</div></div>
-          <div class="result-meta" id="resultSub">≈ 2.7% банка при кэфе 1.50</div>
-          <div class="profit-grid">
-            <div class="profit-box"><div class="profit-box-label">Чистая прибыль</div><div class="profit-box-val green" id="netProfitVal">+1 325 ₽</div></div>
-            <div class="profit-box"><div class="profit-box-label">Общая выплата</div><div class="profit-box-val" id="totalPayoutVal">3 975 ₽</div></div>
-          </div>
-          <div class="bank-actions">
-            <button type="button" class="action-btn btn-win" id="btnWin">✅ Заход <span id="winBtnDelta">(+1 325 ₽)</span></button>
-            <button type="button" class="action-btn btn-loss" id="btnLoss">❌ Минус <span id="lossBtnDelta">(−2 650 ₽)</span></button>
-          </div>
-          <div class="session-history-bar" id="sessionHistoryBar"><div class="history-pills" id="historyPillsBox"></div><button type="button" class="undo-btn" onclick="clearSessionHistory()">очистить</button></div>
-          <div class="undo-wrap" id="undoWrap"><button type="button" class="undo-btn" id="undoBtn">↺ Отменить последнее изменение банка</button></div>
-        </div>
-        <button type="button" onclick="openMainChannel(event)" class="tg-cta-link">Забрать готовые разборы в Telegram →</button>
-        <div class="emblem-box">
-          <svg class="emblem-svg" viewBox="150 100 725 745" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <polygon points="512,121 174,824 565,594 401,594 512,365 645,648 805,727" fill="#E2E8F0"></polygon>
-            <polygon points="645,648 725,820 848,820 805,727" fill="#E1A856"></polygon>
-          </svg>
-        </div>
-      </div>
-      <div class="right-column">
-        <button type="button" class="mobile-spoiler-btn" id="spoilerBtn"><span>📘 Памятка и Главное правило</span><span id="spoilerArrow">▼</span></button>
-        <div class="spoiler-content" id="spoilerContent">
-          <div class="card info-card">
-            <div><div class="info-item-title">Профиль риска - это "какой % банка тратим на ставку"</div><div class="info-item-text">Осторожно - банк расходуется медленно. Стандарт - средний темп. Смело - заметно больше на ставку, если ты уверен в прогнозе. Дальше калькулятор сам чуть увеличивает или уменьшает сумму в зависимости от коэффициента.</div></div>
-            <div><div class="info-item-title">Почему при высоком кэфе ставка меньше</div><div class="info-item-text">Высокий кэф - это более рискованный исход. Калькулятор автоматически снижает сумму ставки, чтобы одна неудача не съедала банк. Низкий кэф - исход более вероятный, поэтому доля банка на ставку немного выше.</div></div>
-          </div>
-          <div class="rule-card">
-            <div class="rule-heading">ГЛАВНОЕ ПРАВИЛО</div>
-            <div class="rule-content">
-              <p>Не удваивай ставку после проигрыша, чтобы отыграться. Пример: банк 10 000 ₽, 7 минусов подряд: 100+200+400+800+1600+3200+6400 = 12 700 ₽ проиграно. Банк сгорел в минус: −2 700 ₽. Но если ставить флэтом (5% от остатка общего баланса) при тех же 7 минусах на балансе останется 6 983 ₽. Сохранено 70% банка.</p>
-              <p>Фиксированный процент - единственный безопасный путь на дистанции.</p>
-            </div>
-          </div>
-          <div class="footer-note">Если сомневаешься — выбирай "Осторожно". Меньше сумма на одну ставку - дольше банк держится в игре.</div>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="container">
+<div class="back-bar"><button type="button" class="back-to-menu-btn" onclick="showScreen('hub')">← Назад в главное меню</button></div>
+<div class="workspace">
+<div class="left-column">
+<div class="card">
+<div class="block-label"><span class="block-label-left">ТВОИ ДАННЫЕ</span><span class="saved-badge" id="savedBadge">Сохранено ✓</span></div>
+<div class="input-list">
+<div class="field-row"><div class="field-title">Банк, ₽</div><div class="gold-input-box"><input type="text" id="bankInput" value="100 000" inputmode="numeric" autocomplete="off"></div></div>
+<div class="field-row"><div class="field-title">Коэффициент (кэф)</div><div class="gold-input-box"><input type="text" id="oddsInput" value="1.5" inputmode="decimal" autocomplete="off"></div></div>
+<div class="quick-odds-row" id="quickOddsGroup">
+<span class="quick-odds-label">Быстрый выбор:</span>
+<button type="button" class="quick-odd-chip active" data-odd="1.5">1.50</button>
+<button type="button" class="quick-odd-chip" data-odd="1.7">1.70</button>
+<button type="button" class="quick-odd-chip" data-odd="1.85">1.85</button>
+<button type="button" class="quick-odd-chip" data-odd="2.1">2.10</button>
+</div>
+<div class="field-block">
+<div class="field-title"><span>Профиль риска</span><span class="field-title-hint" id="riskHintText">База 2%</span></div>
+<div class="segmented-grid" id="riskGroup">
+<div class="seg-glider" id="riskGlider" style="transform:translateX(100%)"></div>
+<button type="button" class="seg-btn" data-index="0" data-risk="0.01" data-label="База 1%">Осторожно</button>
+<button type="button" class="seg-btn active" data-index="1" data-risk="0.02" data-label="База 2%">Стандарт</button>
+<button type="button" class="seg-btn" data-index="2" data-risk="0.03" data-label="База 3%">Смело</button>
+</div>
+</div>
+<div class="round-row">
+<span class="round-label">Округление суммы:</span>
+<div class="round-pills" id="roundGroup">
+<button type="button" class="round-pill" data-step="1">Точно</button>
+<button type="button" class="round-pill active" data-step="50">до 50 ₽</button>
+<button type="button" class="round-pill" data-step="100">до 100 ₽</button>
+</div>
+</div>
+</div>
+</div>
+<div class="result-card">
+<div class="block-label"><span class="block-label-left">РЕЗУЛЬТАТ</span></div>
+<div class="result-sublabel"><span>СКОЛЬКО СТАВИТЬ</span><span class="copy-hint">нажми, чтобы скопировать</span></div>
+<div class="result-display" id="resultBox"><div class="result-number" id="resultValue">2 650 ₽</div></div>
+<div class="result-meta" id="resultSub">≈ 2.7% банка при кэфе 1.50</div>
+<div class="profit-grid">
+<div class="profit-box"><div class="profit-box-label">Чистая прибыль</div><div class="profit-box-val green" id="netProfitVal">+1 325 ₽</div></div>
+<div class="profit-box"><div class="profit-box-label">Общая выплата</div><div class="profit-box-val" id="totalPayoutVal">3 975 ₽</div></div>
+</div>
+<div class="bank-actions">
+<button type="button" class="action-btn btn-win" id="btnWin">✅ Заход <span id="winBtnDelta">(+1 325 ₽)</span></button>
+<button type="button" class="action-btn btn-loss" id="btnLoss">❌ Минус <span id="lossBtnDelta">(−2 650 ₽)</span></button>
+</div>
+<div class="session-history-bar" id="sessionHistoryBar"><div class="history-pills" id="historyPillsBox"></div><button type="button" class="undo-btn" onclick="clearSessionHistory()">очистить</button></div>
+<div class="undo-wrap" id="undoWrap"><button type="button" class="undo-btn" id="undoBtn">↺ Отменить последнее изменение банка</button></div>
+</div>
+<button type="button" onclick="openMainChannel(event)" class="tg-cta-link">Забрать готовые разборы в Telegram →</button>
+<div class="emblem-box">
+<svg class="emblem-svg" viewBox="150 100 725 745" fill="none" xmlns="http://www.w3.org/2000/svg">
+<polygon points="512,121 174,824 565,594 401,594 512,365 645,648 805,727" fill="#E2E8F0"></polygon>
+<polygon points="645,648 725,820 848,820 805,727" fill="#E1A856"></polygon>
+</svg>
+</div>
+</div>
+<div class="right-column">
+<button type="button" class="mobile-spoiler-btn" id="spoilerBtn"><span>📘 Памятка и Главное правило</span><span id="spoilerArrow">▼</span></button>
+<div class="spoiler-content" id="spoilerContent">
+<div class="card info-card">
+<div><div class="info-item-title">Профиль риска - это "какой % банка тратим на ставку"</div><div class="info-item-text">Осторожно - банк расходуется медленно. Стандарт - средний темп. Смело - заметно больше на ставку, если ты уверен в прогнозе. Дальше калькулятор сам чуть увеличивает или уменьшает сумму в зависимости от коэффициента.</div></div>
+<div><div class="info-item-title">Почему при высоком кэфе ставка меньше</div><div class="info-item-text">Высокий кэф - это более рискованный исход. Калькулятор автоматически снижает сумму ставки, чтобы одна неудача не съедала банк. Низкий кэф - исход более вероятный, поэтому доля банка на ставку немного выше.</div></div>
+</div>
+<div class="rule-card">
+<div class="rule-heading">ГЛАВНОЕ ПРАВИЛО</div>
+<div class="rule-content">
+<p>Не удваивай ставку после проигрыша, чтобы отыграться. Пример: банк 10 000 ₽, 7 минусов подряд: 100+200+400+800+1600+3200+6400 = 12 700 ₽ проиграно. Банк сгорел в минус: −2 700 ₽. Но если ставить флэтом (5% от остатка общего баланса) при тех же 7 минусах на балансе останется 6 983 ₽. Сохранено 70% банка.</p>
+<p>Фиксированный процент - единственный безопасный путь на дистанции.</p>
+</div>
+</div>
+<div class="footer-note">Если сомневаешься — выбирай "Осторожно". Меньше сумма на одну ставку - дольше банк держится в игре.</div>
+</div>
+</div>
+</div>
+</div>
 </section>
 
 <section class="view-screen" id="screenAdmin">
-  <div class="container">
-    <div class="admin-wrap">
-      <div class="admin-top-bar">
-        <div><div class="admin-top-title">⚙️ Админ-панель платформы</div><div class="admin-top-sub">Управление ссылками, обложками, карточками и статистикой</div></div>
-        <div style="display:flex;gap:8px;flex-wrap:wrap">
-          <button type="button" class="adm-mini-btn gold-outline" onclick="forceBypassCacheReload()">🔄 Сбросить кэш ТГ</button>
-          <button type="button" class="back-to-menu-btn" onclick="showScreen('hub')">✓ Готово (В меню)</button>
-        </div>
-      </div>
+<div class="container">
+<div class="admin-wrap">
+<div class="admin-top-bar">
+<div><div class="admin-top-title">⚙️ Админ-панель платформы</div><div class="admin-top-sub">Управление ссылками, обложками, карточками и статистикой</div></div>
+<div style="display:flex;gap:8px;flex-wrap:wrap">
+<button type="button" class="adm-mini-btn gold-outline" onclick="forceBypassCacheReload()">🔄 Сбросить кэш ТГ</button>
+<button type="button" class="back-to-menu-btn" onclick="showScreen('hub')">✓ Готово (В меню)</button>
+</div>
+</div>
 
-      <div class="stats-panel" style="border:1.5px solid var(--gold)">
-        <div class="admin-item-head" style="margin-bottom:10px">
-          <strong>🎨 3D-Студия баннеров AiBet PRO v2.0</strong>
-          <div class="admin-head-btns">
-            <label class="adm-mini-btn gold-outline" style="cursor:pointer">🖼️ Свой фон<input type="file" accept="image/*" style="display:none" onchange="loadCustomBgTemplate(this)"></label>
-            <button type="button" class="adm-mini-btn" onclick="clearCustomBgTemplate()">✕ Сбросить свой фон</button>
-            <button type="button" class="adm-mini-btn danger" onclick="resetAllCoversToWidgets()">↺ Вернуть мини-виджеты</button>
-          </div>
-        </div>
-        <div class="gen-preset-chips">
-          <span style="font-size:11px;color:var(--text-muted);align-self:center;margin-right:4px">Выбери пресет карточки:</span>
-          <button type="button" class="adm-mini-btn gold-outline" onclick="applyGenPreset(0,'КАЛЬКУЛЯТОР','СТАВОК','SMART FLAT • PRO','calc','carbon','poster')">1. 📊 Калькулятор</button>
-          <button type="button" class="adm-mini-btn gold-outline" onclick="applyGenPreset(1,'ЗАКРЫТЫЙ','VIP-КЛУБ','PRIVATE LINE • VIP','crown','guilloche','poster')">2. 👑 VIP-клуб</button>
-          <button type="button" class="adm-mini-btn gold-outline" onclick="applyGenPreset(2,'ЛИЧНОЕ','ВЕДЕНИЕ','1-ON-1 MENTORSHIP','shield','silk_hd','poster')">3. 🛡️ Личное ведение</button>
-          <button type="button" class="adm-mini-btn gold-outline" onclick="applyGenPreset(3,'КУПИТЬ','СТАВКИ','MATCH OF THE DAY','bolt','bokeh','poster')">4. ⚡ Купить ставки</button>
-        </div>
+<div class="stats-panel" style="border:1.5px solid var(--gold)">
+<div class="admin-item-head" style="margin-bottom:10px">
+<strong>🎨 3D-Студия баннеров AiBet PRO v2.0</strong>
+<div class="admin-head-btns">
+<label class="adm-mini-btn gold-outline" style="cursor:pointer">🖼️ Свой фон<input type="file" accept="image/*" style="display:none" onchange="loadCustomBgTemplate(this)"></label>
+<button type="button" class="adm-mini-btn" onclick="clearCustomBgTemplate()">✕ Сбросить свой фон</button>
+<button type="button" class="adm-mini-btn danger" onclick="resetAllCoversToWidgets()">↺ Вернуть мини-виджеты</button>
+</div>
+</div>
+<div class="gen-preset-chips">
+<span style="font-size:11px;color:var(--text-muted);align-self:center;margin-right:4px">Выбери пресет карточки:</span>
+<button type="button" class="adm-mini-btn gold-outline" onclick="applyGenPreset(0,'КАЛЬКУЛЯТОР','СТАВОК','SMART FLAT • PRO','calc','carbon','poster')">1. 📊 Калькулятор</button>
+<button type="button" class="adm-mini-btn gold-outline" onclick="applyGenPreset(1,'ЗАКРЫТЫЙ','VIP-КЛУБ','PRIVATE LINE • VIP','crown','guilloche','poster')">2. 👑 VIP-клуб</button>
+<button type="button" class="adm-mini-btn gold-outline" onclick="applyGenPreset(2,'ЛИЧНОЕ','ВЕДЕНИЕ','1-ON-1 MENTORSHIP','shield','silk_hd','poster')">3. 🛡️ Личное ведение</button>
+<button type="button" class="adm-mini-btn gold-outline" onclick="applyGenPreset(3,'КУПИТЬ','СТАВКИ','MATCH OF THE DAY','bolt','bokeh','poster')">4. ⚡ Купить ставки</button>
+</div>
+<div class="adm-grid-3">
+<div class="adm-field"><label>1-я строка (Белая платина)</label><input type="text" class="adm-input" id="genLine1" value="ЗАКРЫТЫЙ" oninput="renderBrandCoverPreview()"></div>
+<div class="adm-field"><label>2-я строка (3D-Золото)</label><input type="text" class="adm-input" id="genLine2" value="VIP-КЛУБ" oninput="renderBrandCoverPreview()"></div>
+<div class="adm-field"><label>Верхний чип-бейдж</label><input type="text" class="adm-input" id="genBadgeText" value="PRIVATE LINE • VIP" oninput="renderBrandCoverPreview()"></div>
+</div>
+<div class="adm-grid-3">
+<div class="adm-field">
+<label>Композиция (Макет)</label>
+<select class="adm-select" id="genLayoutSelect" onchange="renderBrandCoverPreview()">
+<option value="poster">🔥 1. Постер + 3D-Арт справа</option>
+<option value="hud">🎯 2. Финтех Радар (HUD)</option>
+<option value="imperial">👑 3. Центровой Люкс</option>
+</select>
+</div>
+<div class="adm-field">
+<label>3D-Объект / Иллюстрация</label>
+<select class="adm-select" id="genEmblemSelect" onchange="renderBrandCoverPreview()">
+<option value="crown">👑 VIP-Карта + Корона</option>
+<option value="calc">📊 Свечной График + ROI</option>
+<option value="shield">🛡️ Броне-Щит + Радар</option>
+<option value="bolt">⚡ Снайпер Прицел + Молния</option>
+<option value="logo">🅰️ Монограмма AiBet</option>
+</select>
+</div>
+<div class="adm-field">
+<label>Текстура фона</label>
+<select class="adm-select" id="genStyleSelect" onchange="renderBrandCoverPreview()">
+<option value="guilloche">1. Изумрудно-Золотой Гильош</option>
+<option value="carbon">2. Тёмный 3D-Карбон</option>
+<option value="bokeh">3. Неоновое Боке + Лучи</option>
+<option value="silk_hd">4. Обсидиановый Шёлк</option>
+</select>
+</div>
+</div>
+<div class="adm-grid-2">
+<div class="adm-field"><label>На какую карточку поставить</label><select class="adm-select" id="genTargetCardSelect" onchange="syncPresetFromDropdown(this.value)"></select></div>
+<div class="adm-field"><label>Пропорции холста</label><select class="adm-select" id="genAspectSelect" onchange="renderBrandCoverPreview()"><option value="card">Широкий баннер (1200×600)</option><option value="square">Квадратный пост (1080×1080)</option></select></div>
+</div>
+<div class="cover-gen-preview-wrap"><canvas id="coverGenCanvas" width="1200" height="600"></canvas></div>
+<div class="adm-grid-2" style="margin-bottom:8px">
+<button type="button" class="adm-main-btn gold shimmer-effect" onclick="applyGeneratedCoverToCard()">✨ Поставить на выбранную карточку</button>
+<button type="button" class="adm-main-btn emerald" onclick="applyAllGeneratedCovers(true)">⚡ Обновить все 4 карточки в 1 клик</button>
+</div>
+<button type="button" class="adm-main-btn secondary" style="width:100%" onclick="downloadGeneratedCoverPng()">💾 Скачать этот баннер в оригинальном HD (PNG)</button>
+</div>
 
-        <div class="adm-grid-3">
-          <div class="adm-field"><label>1-я строка (Белая платина)</label><input type="text" class="adm-input" id="genLine1" value="ЗАКРЫТЫЙ" oninput="renderBrandCoverPreview()"></div>
-          <div class="adm-field"><label>2-я строка (3D-Золото)</label><input type="text" class="adm-input" id="genLine2" value="VIP-КЛУБ" oninput="renderBrandCoverPreview()"></div>
-          <div class="adm-field"><label>Верхний чип-бейдж</label><input type="text" class="adm-input" id="genBadgeText" value="PRIVATE LINE • VIP" oninput="renderBrandCoverPreview()"></div>
-        </div>
+<div class="stats-panel">
+<div class="admin-item-head" style="margin-bottom:8px"><strong>🔗 Главная ссылка на твой Telegram-канал</strong></div>
+<div class="adm-field" style="margin-bottom:4px"><label>Укажи точную ссылку на свой канал:</label><input type="text" class="adm-input" id="mainChannelUrlInput" placeholder="https://t.me/aibetmoney" oninput="updateMainChannelUrl(this.value)"></div>
+</div>
 
-        <div class="adm-grid-3">
-          <div class="adm-field">
-            <label>Композиция (Макет)</label>
-            <select class="adm-select" id="genLayoutSelect" onchange="renderBrandCoverPreview()">
-              <option value="poster">🔥 1. Постер + 3D-Арт справа</option>
-              <option value="hud">🎯 2. Финтех Радар (HUD)</option>
-              <option value="imperial">👑 3. Центровой Люкс</option>
-            </select>
-          </div>
-          <div class="adm-field">
-            <label>3D-Объект / Иллюстрация</label>
-            <select class="adm-select" id="genEmblemSelect" onchange="renderBrandCoverPreview()">
-              <option value="crown">👑 VIP-Карта + Корона</option>
-              <option value="calc">📊 Свечной График + ROI</option>
-              <option value="shield">🛡️ Броне-Щит + Радар</option>
-              <option value="bolt">⚡ Снайпер Прицел + Молния</option>
-              <option value="logo">🅰️ Монограмма AiBet</option>
-            </select>
-          </div>
-          <div class="adm-field">
-            <label>Текстура фона</label>
-            <select class="adm-select" id="genStyleSelect" onchange="renderBrandCoverPreview()">
-              <option value="guilloche">1. Изумрудно-Золотой Гильош</option>
-              <option value="carbon">2. Тёмный 3D-Карбон</option>
-              <option value="bokeh">3. Неоновое Боке + Лучи</option>
-              <option value="silk_hd">4. Обсидиановый Шёлк</option>
-            </select>
-          </div>
-        </div>
+<div class="stats-panel">
+<div class="admin-item-head" style="margin-bottom:8px">
+<strong>📊 Статистика входов и кто заходил</strong>
+<button type="button" class="adm-mini-btn" onclick="refreshBotVisitors()">🔄 Загрузить новых из бота</button>
+</div>
+<div class="stats-grid">
+<div class="stat-kpi"><strong id="statTotalVisits">0</strong><span>Всего действий</span></div>
+<div class="stat-kpi"><strong id="statUniqueUsers">0</strong><span>Уникальных людей</span></div>
+<div class="stat-kpi"><strong id="statCalcClicks">0</strong><span>Кликов и заявок</span></div>
+</div>
+<div class="adm-field" style="margin-bottom:4px"><label>Последние посетители и заявки в лист ожидания:</label></div>
+<div class="visitors-table-wrap" id="visitorsListBox"></div>
+<details style="margin-top:12px;border-top:1px solid var(--border-subtle);padding-top:10px">
+<summary style="cursor:pointer;font-size:12px;color:var(--gold-light);font-weight:600">🛡️ Настройки уведомлений и защита Bot Token</summary>
+<div style="margin-top:10px">
+<div class="adm-field">
+<label>🔒 Безопасный Proxy Webhook URL (Cloudflare Worker):</label>
+<div style="display:flex;gap:6px">
+<input type="text" class="adm-input" id="trackerProxyUrl" placeholder="https://aibet-notify.твой-домен.workers.dev" oninput="updateTrackerConfig()">
+<button type="button" class="adm-mini-btn" style="white-space:nowrap" onclick="copyWorkerScript()">📋 Код воркера</button>
+</div>
+</div>
+<div class="adm-grid-2">
+<div class="adm-field"><label>Bot Token (скрывается при наличии Proxy):</label><input type="password" class="adm-input" id="trackerBotToken" placeholder="123456789:AAH..." oninput="updateTrackerConfig()"></div>
+<div class="adm-field">
+<label>Твой личный Telegram ID:</label>
+<div style="display:flex;gap:6px">
+<input type="text" class="adm-input" id="trackerAdminId" placeholder="435389790" oninput="updateTrackerConfig()">
+<button type="button" class="adm-mini-btn" style="white-space:nowrap" onclick="fillMyTelegramId()">Мой ID</button>
+</div>
+</div>
+</div>
+</div>
+</details>
+</div>
 
-        <div class="adm-grid-2">
-          <div class="adm-field">
-            <label>На какую карточку поставить</label>
-            <select class="adm-select" id="genTargetCardSelect" onchange="syncPresetFromDropdown(this.value)"></select>
-          </div>
-          <div class="adm-field">
-            <label>Пропорции холста</label>
-            <select class="adm-select" id="genAspectSelect" onchange="renderBrandCoverPreview()">
-              <option value="card">Широкий баннер (1200×600)</option>
-              <option value="square">Квадратный пост (1080×1080)</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="cover-gen-preview-wrap"><canvas id="coverGenCanvas" width="1200" height="600"></canvas></div>
-
-        <div class="adm-grid-2" style="margin-bottom:8px">
-          <button type="button" class="adm-main-btn gold shimmer-effect" onclick="applyGeneratedCoverToCard()">✨ Поставить на выбранную карточку</button>
-          <button type="button" class="adm-main-btn emerald" onclick="applyAllGeneratedCovers(true)">⚡ Обновить все 4 карточки в 1 клик</button>
-        </div>
-        <button type="button" class="adm-main-btn secondary" style="width:100%" onclick="downloadGeneratedCoverPng()">💾 Скачать этот баннер в оригинальном HD (PNG)</button>
-      </div>
-
-      <div class="stats-panel">
-        <div class="admin-item-head" style="margin-bottom:8px"><strong>🔗 Главная ссылка на твой Telegram-канал</strong></div>
-        <div class="adm-field" style="margin-bottom:4px"><label>Укажи точную ссылку на свой канал:</label><input type="text" class="adm-input" id="mainChannelUrlInput" placeholder="https://t.me/aibetmoney" oninput="updateMainChannelUrl(this.value)"></div>
-      </div>
-
-      <div class="stats-panel">
-        <div class="admin-item-head" style="margin-bottom:8px">
-          <strong>📊 Статистика входов и кто заходил</strong>
-          <button type="button" class="adm-mini-btn" onclick="refreshBotVisitors()">🔄 Загрузить новых из бота</button>
-        </div>
-        <div class="stats-grid">
-          <div class="stat-kpi"><strong id="statTotalVisits">0</strong><span>Всего действий</span></div>
-          <div class="stat-kpi"><strong id="statUniqueUsers">0</strong><span>Уникальных людей</span></div>
-          <div class="stat-kpi"><strong id="statCalcClicks">0</strong><span>Кликов и заявок</span></div>
-        </div>
-        <div class="adm-field" style="margin-bottom:4px"><label>Последние посетители и заявки в лист ожидания:</label></div>
-        <div class="visitors-table-wrap" id="visitorsListBox"></div>
-        <details style="margin-top:12px;border-top:1px solid var(--border-subtle);padding-top:10px">
-          <summary style="cursor:pointer;font-size:12px;color:var(--gold-light);font-weight:600">🛡️ Настройки уведомлений и защита Bot Token</summary>
-          <div style="margin-top:10px">
-            <div class="adm-field">
-              <label>🔒 Безопасный Proxy Webhook URL (Cloudflare Worker):</label>
-              <div style="display:flex;gap:6px">
-                <input type="text" class="adm-input" id="trackerProxyUrl" placeholder="https://aibet-notify.твой-домен.workers.dev" oninput="updateTrackerConfig()">
-                <button type="button" class="adm-mini-btn" style="white-space:nowrap" onclick="copyWorkerScript()">📋 Код воркера</button>
-              </div>
-            </div>
-            <div class="adm-grid-2">
-              <div class="adm-field"><label>Bot Token (скрывается при наличии Proxy):</label><input type="password" class="adm-input" id="trackerBotToken" placeholder="123456789:AAH..." oninput="updateTrackerConfig()"></div>
-              <div class="adm-field">
-                <label>Твой личный Telegram ID:</label>
-                <div style="display:flex;gap:6px">
-                  <input type="text" class="adm-input" id="trackerAdminId" placeholder="435389790" oninput="updateTrackerConfig()">
-                  <button type="button" class="adm-mini-btn" style="white-space:nowrap" onclick="fillMyTelegramId()">Мой ID</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </details>
-      </div>
-
-      <div class="admin-cards-list" id="adminCardsContainer"></div>
-      <button type="button" class="adm-add-block-btn" onclick="addNewBlock()">+ Добавить новый блок в меню</button>
-      <div class="adm-publish-box">
-        <div class="adm-publish-title">🚀 Опубликовать изменения для всех подписчиков</div>
-        <div class="adm-publish-desc">Когда ты настроил разделы и ссылки — скопируй обновлённый код и замени им <code>index.html</code> на GitHub:</div>
-        <div class="adm-export-btns">
-          <button type="button" class="adm-main-btn gold shimmer-effect" onclick="copyUpdatedSiteCode()">📋 Скопировать обновлённый код</button>
-          <button type="button" class="adm-main-btn secondary" onclick="downloadUpdatedSiteFile()">💾 Скачать index.html</button>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="admin-cards-list" id="adminCardsContainer"></div>
+<button type="button" class="adm-add-block-btn" onclick="addNewBlock()">+ Добавить новый блок в меню</button>
+<div class="adm-publish-box">
+<div class="adm-publish-title">🚀 Опубликовать изменения для всех подписчиков</div>
+<div class="adm-publish-desc">Когда ты настроил разделы и ссылки — скопируй обновлённый код и замени им <code>index.html</code> на GitHub:</div>
+<div class="adm-export-btns">
+<button type="button" class="adm-main-btn gold shimmer-effect" onclick="copyUpdatedSiteCode()">📋 Скопировать обновлённый код</button>
+<button type="button" class="adm-main-btn secondary" onclick="downloadUpdatedSiteFile()">💾 Скачать index.html</button>
+</div>
+</div>
+</div>
+</div>
 </section>
 
 <div class="modal-overlay" id="soonModal" onclick="closeSoonModal()">
-  <div class="modal-box" onclick="event.stopPropagation()">
-    <div class="modal-pill">🔒 Закрытый раздел</div>
-    <div class="modal-title" id="modalTitle">Скоро открытие</div>
-    <div class="modal-text" id="modalText"></div>
-    <div class="modal-actions">
-      <button type="button" class="modal-waitlist-btn shimmer-effect" id="waitlistBtn" onclick="joinWaitlist()">🔔 Уведомить меня об открытии первым</button>
-      <button type="button" id="modalTgLink" onclick="openMainChannel(event)" class="modal-tg-btn">Перейти в канал AiBet Money →</button>
-      <button type="button" class="modal-close-btn" onclick="closeSoonModal()">Закрыть</button>
-    </div>
-  </div>
+<div class="modal-box" onclick="event.stopPropagation()">
+<div class="modal-pill">🔒 Закрытый раздел</div>
+<div class="modal-title" id="modalTitle">Скоро открытие</div>
+<div class="modal-text" id="modalText"></div>
+<div class="modal-actions">
+<button type="button" class="modal-waitlist-btn shimmer-effect" id="waitlistBtn" onclick="joinWaitlist()">🔔 Уведомить меня об открытии первым</button>
+<button type="button" id="modalTgLink" onclick="openMainChannel(event)" class="modal-tg-btn">Перейти в канал AiBet Money →</button>
+<button type="button" class="modal-close-btn" onclick="closeSoonModal()">Закрыть</button>
+</div>
+</div>
 </div>
 
 <div class="modal-overlay" id="homeHelpModal" onclick="closeHomeHelpModal()">
-  <div class="modal-box" onclick="event.stopPropagation()">
-    <div class="modal-pill">📲 Быстрый доступ</div>
-    <div class="modal-title">Как закрепить приложение</div>
-    <div class="steps-list">
-      <div><strong>Способ 1 (На рабочий стол Android/iOS):</strong> Открой настройки телефона → <em>Приложения</em> → <em>Telegram</em> → <em>Разрешения</em> и включи галочку <strong>«Ярлыки рабочего стола»</strong>, затем нажми эту кнопку снова.</div>
-      <div><strong>Способ 2 (Внутри Telegram за 2 секунды):</strong> В канале <strong>AiBet money</strong> калькулятор всегда закреплён в верхнем сообщении — достаточно нажать на плашку закрепа вверху канала!</div>
-    </div>
-    <div class="modal-actions"><button type="button" class="modal-waitlist-btn" onclick="closeHomeHelpModal()">Понятно, спасибо!</button></div>
-  </div>
+<div class="modal-box" onclick="event.stopPropagation()">
+<div class="modal-pill">📲 Быстрый доступ</div>
+<div class="modal-title">Как закрепить приложение</div>
+<div class="steps-list">
+<div><strong>Способ 1 (На рабочий стол Android/iOS):</strong> Открой настройки телефона → <em>Приложения</em> → <em>Telegram</em> → <em>Разрешения</em> и включи галочку <strong>«Ярлыки рабочего стола»</strong>, затем нажми эту кнопку снова.</div>
+<div><strong>Способ 2 (Внутри Telegram за 2 секунды):</strong> В канале <strong>AiBet money</strong> калькулятор всегда закреплён в верхнем сообщении — достаточно нажать на плашку закрепа вверху канала!</div>
+</div>
+<div class="modal-actions"><button type="button" class="modal-waitlist-btn" onclick="closeHomeHelpModal()">Понятно, спасибо!</button></div>
+</div>
 </div>
 
 <div class="modal-overlay" id="pinModal" onclick="closePinModal()">
-  <div class="modal-box" onclick="event.stopPropagation()">
-    <div class="modal-pill">Доступ владельца</div>
-    <div class="modal-title">Вход в Админ-панель</div>
-    <div class="adm-field" style="margin:12px 0"><input type="password" id="pinInput" class="adm-input" placeholder="Введите пароль администратора" style="text-align:center;font-size:15px" inputmode="numeric"></div>
-    <div class="modal-actions">
-      <button type="button" class="modal-waitlist-btn" onclick="verifyPinCode()">Войти</button>
-      <button type="button" class="modal-close-btn" onclick="closePinModal()">Отмена</button>
-    </div>
-  </div>
+<div class="modal-box" onclick="event.stopPropagation()">
+<div class="modal-pill">Доступ владельца</div>
+<div class="modal-title">Вход в Админ-панель</div>
+<div class="adm-field" style="margin:12px 0"><input type="password" id="pinInput" class="adm-input" placeholder="Введите пароль администратора" style="text-align:center;font-size:15px" inputmode="numeric"></div>
+<div class="modal-actions">
+<button type="button" class="modal-waitlist-btn" onclick="verifyPinCode()">Войти</button>
+<button type="button" class="modal-close-btn" onclick="closePinModal()">Отмена</button>
+</div>
+</div>
 </div>
 
 <script id="app-data-script">
@@ -541,24 +527,17 @@ function decodeSecret(enc){if(!enc)return '';try{const r=enc.trim();if(r.indexOf
 
 function forceBypassCacheReload(){
   triggerHaptic('medium');
-  try{
-    ['v9','v10','v12','v13','v14'].forEach(v=>localStorage.removeItem('aibet_menu_blocks_'+v));
-    localStorage.removeItem('aibet_use_mini_widgets');
-  }catch(e){}
+  try{['v9','v10','v12','v13','v14','v15'].forEach(v=>localStorage.removeItem('aibet_menu_blocks_'+v));localStorage.removeItem('aibet_use_mini_widgets');}catch(e){}
   window.location.replace(window.location.pathname+'?v='+Date.now());
 }
 
 document.addEventListener('pointerdown',e=>{
   const btn=e.target.closest('.card-action-btn,.promo-cta-btn,.action-btn,.modal-waitlist-btn,.channel-pill,.tg-cta-link,.adm-main-btn');
   if(!btn)return;
-  const r=btn.getBoundingClientRect(),sz=Math.max(r.width,r.height);
-  const sp=document.createElement('span');
-  sp.className='btn-ripple';
-  sp.style.width=sp.style.height=sz+'px';
-  sp.style.left=(e.clientX-r.left-sz/2)+'px';
-  sp.style.top=(e.clientY-r.top-sz/2)+'px';
-  btn.appendChild(sp);
-  setTimeout(()=>sp.remove(),600);
+  const r=btn.getBoundingClientRect(),sz=Math.max(r.width,r.height),sp=document.createElement('span');
+  sp.className='btn-ripple';sp.style.width=sp.style.height=sz+'px';
+  sp.style.left=(e.clientX-r.left-sz/2)+'px';sp.style.top=(e.clientY-r.top-sz/2)+'px';
+  btn.appendChild(sp);setTimeout(()=>sp.remove(),600);
 },{passive:true});
 
 (function initCyberConstellationBg(){
@@ -584,8 +563,7 @@ document.addEventListener('pointerdown',e=>{
     rad.addColorStop(0,'rgba(201,168,118,0.09)');rad.addColorStop(0.45,'rgba(18,34,68,0.12)');rad.addColorStop(1,'rgba(3,6,12,0)');ctx.fillStyle=rad;ctx.fillRect(0,0,w,h);
     for(let i=0;i<streaks.length;i++){
       const s=streaks[i],dx=Math.cos(s.angle),dy=Math.sin(s.angle);s.x+=dx*s.speed;s.y+=dy*s.speed;
-      const tx=s.x-dx*s.len,ty=s.y-dy*s.len,g=ctx.createLinearGradient(s.x,s.y,tx,ty);
-      const col=s.isGold?'229,185,111':'226,232,240';
+      const tx=s.x-dx*s.len,ty=s.y-dy*s.len,g=ctx.createLinearGradient(s.x,s.y,tx,ty),col=s.isGold?'229,185,111':'226,232,240';
       g.addColorStop(0,'rgba('+col+','+s.alpha.toFixed(2)+')');g.addColorStop(0.3,'rgba('+col+','+(s.alpha*0.42).toFixed(2)+')');g.addColorStop(1,'rgba('+col+',0)');
       ctx.beginPath();ctx.moveTo(s.x,s.y);ctx.lineTo(tx,ty);ctx.strokeStyle=g;ctx.lineWidth=1.6;ctx.stroke();
       ctx.beginPath();ctx.arc(s.x,s.y,1.4,0,Math.PI*2);ctx.fillStyle=s.isGold?'#E5B96F':'#E2E8F0';ctx.fill();
@@ -721,14 +699,12 @@ async function refreshBotVisitors(){
 }
 
 let menuBlocks=[];
-try{const sv=localStorage.getItem('aibet_menu_blocks_v14'),pr=sv?JSON.parse(sv):null;menuBlocks=(Array.isArray(pr)&&pr.length>0)?pr:JSON.parse(JSON.stringify(window.INITIAL_BLOCKS));}catch(e){menuBlocks=JSON.parse(JSON.stringify(window.INITIAL_BLOCKS));}
-function saveBlocksDraft(){try{localStorage.setItem('aibet_menu_blocks_v14',JSON.stringify(menuBlocks));}catch(e){}}
+try{const sv=localStorage.getItem('aibet_menu_blocks_v15'),pr=sv?JSON.parse(sv):null;menuBlocks=(Array.isArray(pr)&&pr.length>0)?pr:JSON.parse(JSON.stringify(window.INITIAL_BLOCKS));}catch(e){menuBlocks=JSON.parse(JSON.stringify(window.INITIAL_BLOCKS));}
+function saveBlocksDraft(){try{localStorage.setItem('aibet_menu_blocks_v15',JSON.stringify(menuBlocks));}catch(e){}}
 let waitlistMap={};try{waitlistMap=JSON.parse(localStorage.getItem('aibet_waitlist_v1')||'{}');}catch(e){waitlistMap={};}
 let activeModalBlockIndex=null;
 
-// =========================================================
-// 3D-СТУДИЯ БАННЕРОВ AIBET PRO v2.0 (ПОСТЕРЫ С 3D-АРТОМ, HUD И ИМПЕРСКИЙ ЛЮКС)
-// =========================================================
+// 3D-СТУДИЯ БАННЕРОВ AIBET PRO v2.0
 let customBgImg=null,hdSilkImg=null;
 const CARD_PRESETS=[
   {l1:'КАЛЬКУЛЯТОР',l2:'СТАВОК',badge:'SMART FLAT • PRO',emblem:'calc',style:'carbon',layout:'poster'},
@@ -743,9 +719,7 @@ const CARD_PRESETS=[
   img.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1000&q=85';
   if(document.fonts&&document.fonts.ready){
     document.fonts.ready.then(()=>{
-      if(localStorage.getItem('aibet_use_mini_widgets')!=='1'&&menuBlocks.every(b=>!b.coverUrl)){
-        applyAllGeneratedCovers(false);
-      }
+      if(localStorage.getItem('aibet_use_mini_widgets')!=='1'&&menuBlocks.every(b=>!b.coverUrl))applyAllGeneratedCovers(false);
       if(document.getElementById('screenAdmin').classList.contains('active'))renderBrandCoverPreview();
     });
   }
@@ -757,14 +731,7 @@ function loadCustomBgTemplate(inp){
   r.onload=e=>{const img=new Image();img.onload=()=>{customBgImg=img;renderBrandCoverPreview();triggerHaptic('success');showToast('✓ Свой фон загружен');};img.src=e.target.result;};
   r.readAsDataURL(f);
 }
-
-function clearCustomBgTemplate(){
-  customBgImg=null;
-  renderBrandCoverPreview();
-  triggerHaptic('light');
-  showToast('↺ Включён процедурный фон');
-}
-
+function clearCustomBgTemplate(){customBgImg=null;renderBrandCoverPreview();triggerHaptic('light');showToast('↺ Включён процедурный фон');}
 function resetAllCoversToWidgets(){
   localStorage.setItem('aibet_use_mini_widgets','1');
   menuBlocks.forEach(b=>{b.coverUrl='';});
@@ -773,10 +740,8 @@ function resetAllCoversToWidgets(){
 }
 
 function syncPresetFromDropdown(val){
-  const idx=parseInt(val,10)||0;
-  const p=CARD_PRESETS[idx]||{l1:(menuBlocks[idx]?menuBlocks[idx].title.toUpperCase():'AIBET'),l2:'MONEY',badge:'AIBET MONEY CLUB',emblem:'logo',style:'guilloche',layout:'poster'};
-  document.getElementById('genLine1').value=p.l1;
-  document.getElementById('genLine2').value=p.l2;
+  const idx=parseInt(val,10)||0,p=CARD_PRESETS[idx]||{l1:(menuBlocks[idx]?menuBlocks[idx].title.toUpperCase():'AIBET'),l2:'MONEY',badge:'AIBET MONEY CLUB',emblem:'logo',style:'guilloche',layout:'poster'};
+  document.getElementById('genLine1').value=p.l1;document.getElementById('genLine2').value=p.l2;
   const bIn=document.getElementById('genBadgeText');if(bIn)bIn.value=p.badge;
   const emSel=document.getElementById('genEmblemSelect');if(emSel)emSel.value=p.emblem;
   const stSel=document.getElementById('genStyleSelect');if(stSel)stSel.value=p.style;
@@ -786,8 +751,7 @@ function syncPresetFromDropdown(val){
 
 function applyGenPreset(idx,l1,l2,badge,emblem,style,layout){
   triggerHaptic('light');
-  document.getElementById('genLine1').value=l1;
-  document.getElementById('genLine2').value=l2;
+  document.getElementById('genLine1').value=l1;document.getElementById('genLine2').value=l2;
   const bIn=document.getElementById('genBadgeText');if(bIn&&badge)bIn.value=badge;
   const emSel=document.getElementById('genEmblemSelect');if(emSel&&emblem)emSel.value=emblem;
   const stSel=document.getElementById('genStyleSelect');if(stSel&&style)stSel.value=style;
@@ -798,376 +762,201 @@ function applyGenPreset(idx,l1,l2,badge,emblem,style,layout){
 
 function drawSpacedText(ctx,text,x,y,tracking,align='center'){
   const chars=Array.from(String(text));
-  if(!tracking||tracking<=0){
-    const pa=ctx.textAlign;ctx.textAlign=align;ctx.fillText(text,x,y);ctx.textAlign=pa;return;
-  }
-  let totalW=0;
-  const widths=chars.map(ch=>{const w=ctx.measureText(ch).width;totalW+=w;return w;});
+  if(!tracking||tracking<=0){const pa=ctx.textAlign;ctx.textAlign=align;ctx.fillText(text,x,y);ctx.textAlign=pa;return;}
+  let totalW=0;const widths=chars.map(ch=>{const w=ctx.measureText(ch).width;totalW+=w;return w;});
   totalW+=tracking*(chars.length-1);
   let curX=align==='left'?x:(align==='right'?x-totalW:x-totalW/2);
-  const prevAlign=ctx.textAlign;
-  ctx.textAlign='left';
-  chars.forEach((ch,i)=>{
-    ctx.fillText(ch,curX,y);
-    curX+=widths[i]+tracking;
-  });
+  const prevAlign=ctx.textAlign;ctx.textAlign='left';
+  chars.forEach((ch,i)=>{ctx.fillText(ch,curX,y);curX+=widths[i]+tracking;});
   ctx.textAlign=prevAlign;
 }
 
 function drawRoundedRect(ctx,x,y,w,h,r){
-  ctx.beginPath();
-  ctx.moveTo(x+r,y);
-  ctx.lineTo(x+w-r,y);
-  ctx.quadraticCurveTo(x+w,y,x+w,y+r);
-  ctx.lineTo(x+w,y+h-r);
-  ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h);
-  ctx.lineTo(x+r,y+h);
-  ctx.quadraticCurveTo(x,y+h,x,y+h-r);
-  ctx.lineTo(x,y+r);
-  ctx.quadraticCurveTo(x,y,x+r,y);
-  ctx.closePath();
+  ctx.beginPath();ctx.moveTo(x+r,y);ctx.lineTo(x+w-r,y);ctx.quadraticCurveTo(x+w,y,x+w,y+r);
+  ctx.lineTo(x+w,y+h-r);ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h);ctx.lineTo(x+r,y+h);
+  ctx.quadraticCurveTo(x,y+h,x,y+h-r);ctx.lineTo(x,y+r);ctx.quadraticCurveTo(x,y,x+r,y);ctx.closePath();
 }
 
-// Отрисовка крупных 3D/HUD иллюстраций для правой части баннера
 function drawHero3DArtwork(ctx,cx,cy,scale,emblemType){
-  ctx.save();
-  ctx.translate(cx,cy);
-  ctx.scale(scale,scale);
-
-  // Свечение позади 3D-объекта
+  ctx.save();ctx.translate(cx,cy);ctx.scale(scale,scale);
   const halo=ctx.createRadialGradient(0,0,10,0,0,220);
-  halo.addColorStop(0,'rgba(229,185,111,0.32)');
-  halo.addColorStop(0.5,'rgba(30,58,110,0.18)');
-  halo.addColorStop(1,'rgba(0,0,0,0)');
-  ctx.fillStyle=halo;
-  ctx.beginPath();ctx.arc(0,0,220,0,Math.PI*2);ctx.fill();
+  halo.addColorStop(0,'rgba(229,185,111,0.32)');halo.addColorStop(0.5,'rgba(30,58,110,0.18)');halo.addColorStop(1,'rgba(0,0,0,0)');
+  ctx.fillStyle=halo;ctx.beginPath();ctx.arc(0,0,220,0,Math.PI*2);ctx.fill();
 
-  // Технологические орбиты вокруг объекта
-  ctx.strokeStyle='rgba(229,185,111,0.22)';
-  ctx.lineWidth=1.5;
-  ctx.setLineDash([8,6]);
-  ctx.beginPath();ctx.arc(0,0,152,0,Math.PI*2);ctx.stroke();
-  ctx.setLineDash([]);
-  ctx.strokeStyle='rgba(226,232,240,0.12)';
-  ctx.lineWidth=1;
+  ctx.strokeStyle='rgba(229,185,111,0.22)';ctx.lineWidth=1.5;ctx.setLineDash([8,6]);
+  ctx.beginPath();ctx.arc(0,0,152,0,Math.PI*2);ctx.stroke();ctx.setLineDash([]);
+  ctx.strokeStyle='rgba(226,232,240,0.12)';ctx.lineWidth=1;
   ctx.beginPath();ctx.arc(0,0,178,0,Math.PI*2);ctx.stroke();
 
   const goldGrad=ctx.createLinearGradient(-120,-120,120,120);
-  goldGrad.addColorStop(0,'#FFF7E2');
-  goldGrad.addColorStop(0.35,'#F2C97D');
-  goldGrad.addColorStop(0.7,'#C9A876');
-  goldGrad.addColorStop(1,'#8C6530');
+  goldGrad.addColorStop(0,'#FFF7E2');goldGrad.addColorStop(0.35,'#F2C97D');goldGrad.addColorStop(0.7,'#C9A876');goldGrad.addColorStop(1,'#8C6530');
 
   if(emblemType==='calc'){
-    // 3D Стеклянный Финтех-Терминал со свечным графиком и кривой роста
-    ctx.save();
-    ctx.rotate(-0.06);
+    ctx.save();ctx.rotate(-0.06);
     drawRoundedRect(ctx,-135,-105,270,210,22);
     const cardBg=ctx.createLinearGradient(-135,-105,135,105);
-    cardBg.addColorStop(0,'rgba(18,30,56,0.94)');
-    cardBg.addColorStop(1,'rgba(7,12,24,0.97)');
-    ctx.fillStyle=cardBg;
-    ctx.shadowColor='rgba(0,0,0,0.85)';ctx.shadowBlur=30;ctx.shadowOffsetY=14;
-    ctx.fill();
-    ctx.shadowBlur=0;ctx.shadowOffsetY=0;
-    ctx.strokeStyle=goldGrad;ctx.lineWidth=2.2;ctx.stroke();
+    cardBg.addColorStop(0,'rgba(18,30,56,0.94)');cardBg.addColorStop(1,'rgba(7,12,24,0.97)');
+    ctx.fillStyle=cardBg;ctx.shadowColor='rgba(0,0,0,0.85)';ctx.shadowBlur=30;ctx.shadowOffsetY=14;ctx.fill();
+    ctx.shadowBlur=0;ctx.shadowOffsetY=0;ctx.strokeStyle=goldGrad;ctx.lineWidth=2.2;ctx.stroke();
 
-    // Сетка терминала
     ctx.strokeStyle='rgba(226,232,240,0.08)';ctx.lineWidth=1;
     for(let y=-55;y<=65;y+=40){ctx.beginPath();ctx.moveTo(-110,y);ctx.lineTo(110,y);ctx.stroke();}
     for(let x=-80;x<=80;x+=53){ctx.beginPath();ctx.moveTo(x,-75);ctx.lineTo(x,75);ctx.stroke();}
 
-    // Зелёно-золотые свечи
-    const bars=[
-      {x:-88,h:48,y:25,g:false},{x:-48,h:68,y:5,g:true},{x:-8,h:54,y:15,g:false},
-      {x:32,h:92,y:-20,g:true},{x:72,h:122,y:-50,g:true}
-    ];
+    const bars=[{x:-88,h:48,y:25,g:false},{x:-48,h:68,y:5,g:true},{x:-8,h:54,y:15,g:false},{x:32,h:92,y:-20,g:true},{x:72,h:122,y:-50,g:true}];
     bars.forEach(b=>{
       ctx.strokeStyle=b.g?'#34D399':'#E5B96F';ctx.lineWidth=2;
       ctx.beginPath();ctx.moveTo(b.x+10,b.y-14);ctx.lineTo(b.x+10,b.y+b.h+12);ctx.stroke();
       const bg=ctx.createLinearGradient(0,b.y,0,b.y+b.h);
-      if(b.g){bg.addColorStop(0,'#34D399');bg.addColorStop(1,'#059669');}
-      else{bg.addColorStop(0,'#F5D393');bg.addColorStop(1,'#B48A4E');}
-      ctx.fillStyle=bg;
-      drawRoundedRect(ctx,b.x,b.y,20,b.h,5);ctx.fill();
+      if(b.g){bg.addColorStop(0,'#34D399');bg.addColorStop(1,'#059669');}else{bg.addColorStop(0,'#F5D393');bg.addColorStop(1,'#B48A4E');}
+      ctx.fillStyle=bg;drawRoundedRect(ctx,b.x,b.y,20,b.h,5);ctx.fill();
     });
 
-    // Светящаяся линия тренда
-    ctx.beginPath();
-    ctx.moveTo(-100,45);ctx.bezierCurveTo(-40,35,10,-10,92,-62);
-    ctx.strokeStyle='#FFF';ctx.lineWidth=4;
-    ctx.shadowColor='#34D399';ctx.shadowBlur=16;ctx.stroke();
-    ctx.shadowBlur=0;
+    ctx.beginPath();ctx.moveTo(-100,45);ctx.bezierCurveTo(-40,35,10,-10,92,-62);
+    ctx.strokeStyle='#FFF';ctx.lineWidth=4;ctx.shadowColor='#34D399';ctx.shadowBlur=16;ctx.stroke();ctx.shadowBlur=0;
 
-    // Плашка профита сверху
-    drawRoundedRect(ctx,-112,-90,126,32,8);
-    ctx.fillStyle='rgba(52,211,153,0.18)';ctx.fill();
+    drawRoundedRect(ctx,-112,-90,126,32,8);ctx.fillStyle='rgba(52,211,153,0.18)';ctx.fill();
     ctx.strokeStyle='#34D399';ctx.lineWidth=1.5;ctx.stroke();
     ctx.font='800 15px Montserrat, sans-serif';ctx.fillStyle='#34D399';ctx.textAlign='center';ctx.textBaseline='middle';
     ctx.fillText('BANK SAFE 5%',-49,-74);
     ctx.restore();
 
   } else if(emblemType==='crown'){
-    // 3D Металлическая карта BLACK VIP MEMBER под наклоном + Корона
-    ctx.save();
-    ctx.rotate(-0.11);
+    ctx.save();ctx.rotate(-0.11);
     drawRoundedRect(ctx,-145,-92,290,184,20);
     const vipBg=ctx.createLinearGradient(-145,-92,145,92);
     vipBg.addColorStop(0,'#1B2845');vipBg.addColorStop(0.5,'#090E1A');vipBg.addColorStop(1,'#04070E');
-    ctx.fillStyle=vipBg;
-    ctx.shadowColor='rgba(0,0,0,0.9)';ctx.shadowBlur=34;ctx.shadowOffsetY=16;
-    ctx.fill();
-    ctx.shadowBlur=0;ctx.shadowOffsetY=0;
-    ctx.strokeStyle=goldGrad;ctx.lineWidth=2.5;ctx.stroke();
+    ctx.fillStyle=vipBg;ctx.shadowColor='rgba(0,0,0,0.9)';ctx.shadowBlur=34;ctx.shadowOffsetY=16;ctx.fill();
+    ctx.shadowBlur=0;ctx.shadowOffsetY=0;ctx.strokeStyle=goldGrad;ctx.lineWidth=2.5;ctx.stroke();
 
-    // Внутренняя филигрань карты
-    drawRoundedRect(ctx,-133,-80,266,160,14);
-    ctx.strokeStyle='rgba(229,185,111,0.22)';ctx.lineWidth=1;ctx.stroke();
+    drawRoundedRect(ctx,-133,-80,266,160,14);ctx.strokeStyle='rgba(229,185,111,0.22)';ctx.lineWidth=1;ctx.stroke();
+    drawRoundedRect(ctx,-112,-28,46,36,7);ctx.fillStyle=goldGrad;ctx.fill();
+    ctx.strokeStyle='#090E1A';ctx.lineWidth=1.2;ctx.strokeRect(-102,-28,26,36);
+    ctx.beginPath();ctx.moveTo(-112,-10);ctx.lineTo(-66,-10);ctx.stroke();
 
-    // Золотой EMV-чип
-    drawRoundedRect(ctx,-112,-28,46,36,7);
-    ctx.fillStyle=goldGrad;ctx.fill();
-    ctx.strokeStyle='#090E1A';ctx.lineWidth=1.2;
-    ctx.strokeRect(-102,-28,26,36);ctx.beginPath();ctx.moveTo(-112,-10);ctx.lineTo(-66,-10);ctx.stroke();
-
-    // Большая 3D-Корона в центре-справа карты
-    ctx.save();
-    ctx.translate(42,-8);
-    ctx.scale(1.85,1.85);
-    ctx.fillStyle=goldGrad;
+    ctx.save();ctx.translate(42,-8);ctx.scale(1.85,1.85);ctx.fillStyle=goldGrad;
     ctx.shadowColor='rgba(229,185,111,0.45)';ctx.shadowBlur=18;
-    ctx.beginPath();
-    ctx.moveTo(-22,12);ctx.lineTo(-27,-12);ctx.lineTo(-10,1);ctx.lineTo(0,-18);ctx.lineTo(10,1);ctx.lineTo(27,-12);ctx.lineTo(22,12);
-    ctx.closePath();ctx.fill();
-    ctx.fillRect(-22,16,44,5);
-    ctx.restore();
+    ctx.beginPath();ctx.moveTo(-22,12);ctx.lineTo(-27,-12);ctx.lineTo(-10,1);ctx.lineTo(0,-18);ctx.lineTo(10,1);ctx.lineTo(27,-12);ctx.lineTo(22,12);ctx.closePath();ctx.fill();
+    ctx.fillRect(-22,16,44,5);ctx.restore();
 
-    // Надпись VIP PASS
-    ctx.font='800 15px Montserrat, sans-serif';ctx.fillStyle='#E5B96F';ctx.textAlign='left';
-    ctx.fillText('AIBET PRIVATE CLUB',-112,48);
-    ctx.font='700 11px Montserrat, sans-serif';ctx.fillStyle='#94A3B8';
-    ctx.fillText('UNLIMITED ANALYTICS ACCESS',-112,66);
+    ctx.font='800 15px Montserrat, sans-serif';ctx.fillStyle='#E5B96F';ctx.textAlign='left';ctx.fillText('AIBET PRIVATE CLUB',-112,48);
+    ctx.font='700 11px Montserrat, sans-serif';ctx.fillStyle='#94A3B8';ctx.fillText('UNLIMITED ANALYTICS ACCESS',-112,66);
     ctx.restore();
 
   } else if(emblemType==='shield'){
-    // Многослойный 3D Броне-Щит + Радар 1-на-1
     ctx.save();
-    ctx.beginPath();
-    ctx.moveTo(0,-138);ctx.lineTo(118,-86);ctx.lineTo(118,14);
-    ctx.quadraticCurveTo(118,112,0,152);
-    ctx.quadraticCurveTo(-118,112,-118,14);
-    ctx.lineTo(-118,-86);ctx.closePath();
+    ctx.beginPath();ctx.moveTo(0,-138);ctx.lineTo(118,-86);ctx.lineTo(118,14);ctx.quadraticCurveTo(118,112,0,152);ctx.quadraticCurveTo(-118,112,-118,14);ctx.lineTo(-118,-86);ctx.closePath();
     const shBg=ctx.createLinearGradient(-100,-130,100,140);
     shBg.addColorStop(0,'#1C2D4F');shBg.addColorStop(0.5,'#0B1325');shBg.addColorStop(1,'#050811');
-    ctx.fillStyle=shBg;
-    ctx.shadowColor='rgba(0,0,0,0.9)';ctx.shadowBlur=32;ctx.shadowOffsetY=14;
-    ctx.fill();
-    ctx.shadowBlur=0;ctx.shadowOffsetY=0;
-    ctx.lineWidth=4;ctx.strokeStyle=goldGrad;ctx.stroke();
+    ctx.fillStyle=shBg;ctx.shadowColor='rgba(0,0,0,0.9)';ctx.shadowBlur=32;ctx.shadowOffsetY=14;ctx.fill();
+    ctx.shadowBlur=0;ctx.shadowOffsetY=0;ctx.lineWidth=4;ctx.strokeStyle=goldGrad;ctx.stroke();
 
-    // Внутренний контур щита
     ctx.save();ctx.scale(0.84,0.84);
-    ctx.beginPath();
-    ctx.moveTo(0,-138);ctx.lineTo(118,-86);ctx.lineTo(118,14);
-    ctx.quadraticCurveTo(118,112,0,152);
-    ctx.quadraticCurveTo(-118,112,-118,14);
-    ctx.lineTo(-118,-86);ctx.closePath();
-    ctx.lineWidth=1.5;ctx.strokeStyle='rgba(229,185,111,0.4)';ctx.stroke();
-    ctx.restore();
+    ctx.beginPath();ctx.moveTo(0,-138);ctx.lineTo(118,-86);ctx.lineTo(118,14);ctx.quadraticCurveTo(118,112,0,152);ctx.quadraticCurveTo(-118,112,-118,14);ctx.lineTo(-118,-86);ctx.closePath();
+    ctx.lineWidth=1.5;ctx.strokeStyle='rgba(229,185,111,0.4)';ctx.stroke();ctx.restore();
 
-    // Золотая галочка / герб внутри щита
-    ctx.beginPath();
-    ctx.moveTo(-38,4);ctx.lineTo(-10,32);ctx.lineTo(46,-28);
-    ctx.lineWidth=14;ctx.lineCap='round';ctx.lineJoin='round';
-    ctx.strokeStyle=goldGrad;
-    ctx.shadowColor='rgba(229,185,111,0.5)';ctx.shadowBlur=20;
-    ctx.stroke();
-    ctx.shadowBlur=0;
-
-    ctx.font='900 18px Montserrat, sans-serif';ctx.fillStyle='#FFFFFF';ctx.textAlign='center';
-    ctx.fillText('1-ON-1 PRO',0,76);
+    ctx.beginPath();ctx.moveTo(-38,4);ctx.lineTo(-10,32);ctx.lineTo(46,-28);
+    ctx.lineWidth=14;ctx.lineCap='round';ctx.lineJoin='round';ctx.strokeStyle=goldGrad;
+    ctx.shadowColor='rgba(229,185,111,0.5)';ctx.shadowBlur=20;ctx.stroke();ctx.shadowBlur=0;
+    ctx.font='900 18px Montserrat, sans-serif';ctx.fillStyle='#FFFFFF';ctx.textAlign='center';ctx.fillText('1-ON-1 PRO',0,76);
     ctx.restore();
 
   } else if(emblemType==='bolt'){
-    // Спортивный Снайпер-Радар + 3D Золотая Молния
     ctx.save();
-    // Кольцо радара
     ctx.beginPath();ctx.arc(0,0,122,0,Math.PI*2);
     const rBg=ctx.createRadialGradient(0,0,10,0,0,122);
     rBg.addColorStop(0,'rgba(24,40,72,0.95)');rBg.addColorStop(1,'rgba(6,11,22,0.98)');
-    ctx.fillStyle=rBg;
-    ctx.shadowColor='rgba(0,0,0,0.9)';ctx.shadowBlur=30;ctx.fill();
-    ctx.shadowBlur=0;
-    ctx.lineWidth=3;ctx.strokeStyle=goldGrad;ctx.stroke();
+    ctx.fillStyle=rBg;ctx.shadowColor='rgba(0,0,0,0.9)';ctx.shadowBlur=30;ctx.fill();
+    ctx.shadowBlur=0;ctx.lineWidth=3;ctx.strokeStyle=goldGrad;ctx.stroke();
 
-    // Прицельные засечки
     ctx.strokeStyle='rgba(229,185,111,0.35)';ctx.lineWidth=2;
-    [0,Math.PI/2,Math.PI,Math.PI*1.5].forEach(a=>{
-      ctx.beginPath();
-      ctx.moveTo(Math.cos(a)*92,Math.sin(a)*92);
-      ctx.lineTo(Math.cos(a)*120,Math.sin(a)*120);
-      ctx.stroke();
-    });
+    [0,Math.PI/2,Math.PI,Math.PI*1.5].forEach(a=>{ctx.beginPath();ctx.moveTo(Math.cos(a)*92,Math.sin(a)*92);ctx.lineTo(Math.cos(a)*120,Math.sin(a)*120);ctx.stroke();});
 
-    // Крупная 3D-молния
-    ctx.beginPath();
-    ctx.moveTo(18,-96);ctx.lineTo(-64,10);ctx.lineTo(-4,10);
-    ctx.lineTo(-24,96);ctx.lineTo(66,-14);ctx.lineTo(4,-14);
-    ctx.closePath();
-    ctx.fillStyle=goldGrad;
-    ctx.shadowColor='rgba(229,185,111,0.65)';ctx.shadowBlur=26;
-    ctx.fill();
+    ctx.beginPath();ctx.moveTo(18,-96);ctx.lineTo(-64,10);ctx.lineTo(-4,10);ctx.lineTo(-24,96);ctx.lineTo(66,-14);ctx.lineTo(4,-14);ctx.closePath();
+    ctx.fillStyle=goldGrad;ctx.shadowColor='rgba(229,185,111,0.65)';ctx.shadowBlur=26;ctx.fill();
     ctx.restore();
 
   } else {
-    // Монограмма AiBet
     if(typeof Path2D!=='undefined'){
       const pA=new Path2D('M512,121 L174,824 L565,594 L401,594 L512,365 L645,648 L805,727 Z');
       const pG=new Path2D('M645,648 L725,820 L848,820 L805,727 Z');
-      ctx.save();
-      const sc=0.34;
-      ctx.translate(-512*sc,-470*sc);ctx.scale(sc,sc);
+      ctx.save();const sc=0.34;ctx.translate(-512*sc,-470*sc);ctx.scale(sc,sc);
       ctx.shadowColor='rgba(0,0,0,0.85)';ctx.shadowBlur=28;
-      ctx.fillStyle='#F8FAFC';ctx.fill(pA);
-      ctx.fillStyle='#E5B96F';ctx.fill(pG);
-      ctx.restore();
+      ctx.fillStyle='#F8FAFC';ctx.fill(pA);ctx.fillStyle='#E5B96F';ctx.fill(pG);ctx.restore();
     }
   }
-
   ctx.restore();
 }
 
 function drawCoverOnCanvas(canvas,line1,line2,styleName,isSquare,emblemOverride,badgeOverride,layoutOverride){
-  const W=isSquare?1080:1200;
-  const H=isSquare?1080:600;
-  canvas.width=W;
-  canvas.height=H;
+  const W=isSquare?1080:1200,H=isSquare?1080:600;
+  canvas.width=W;canvas.height=H;
   const ctx=canvas.getContext('2d');
-
   const emblemType=emblemOverride||(document.getElementById('genEmblemSelect')?document.getElementById('genEmblemSelect').value:'crown');
   const badgeText=badgeOverride!==undefined?badgeOverride:(document.getElementById('genBadgeText')?document.getElementById('genBadgeText').value:'AIBET MONEY • PRO');
   const layoutMode=layoutOverride||(document.getElementById('genLayoutSelect')?document.getElementById('genLayoutSelect').value:'poster');
 
-  // 1. БАЗОВЫЙ ФОН И ГЛУБОКИЕ ТЕКСТУРЫ
   if(customBgImg){
-    const sc=Math.max(W/customBgImg.width,H/customBgImg.height);
-    const sw=W/sc,sh=H/sc;
+    const sc=Math.max(W/customBgImg.width,H/customBgImg.height),sw=W/sc,sh=H/sc;
     ctx.drawImage(customBgImg,(customBgImg.width-sw)/2,(customBgImg.height-sh)/2,sw,sh,0,0,W,H);
-    ctx.fillStyle='rgba(3,6,14,0.62)';
-    ctx.fillRect(0,0,W,H);
+    ctx.fillStyle='rgba(3,6,14,0.62)';ctx.fillRect(0,0,W,H);
   } else {
     const bg=ctx.createLinearGradient(0,0,W,H);
-    if(styleName==='guilloche'){
-      bg.addColorStop(0,'#091929');bg.addColorStop(0.5,'#060D1A');bg.addColorStop(1,'#02050B');
-    } else if(styleName==='carbon'){
-      bg.addColorStop(0,'#101829');bg.addColorStop(0.5,'#070B14');bg.addColorStop(1,'#030509');
-    } else if(styleName==='bokeh'){
-      bg.addColorStop(0,'#171429');bg.addColorStop(0.5,'#090D1C');bg.addColorStop(1,'#03050B');
-    } else {
-      bg.addColorStop(0,'#121E38');bg.addColorStop(0.5,'#070C18');bg.addColorStop(1,'#020408');
-    }
-    ctx.fillStyle=bg;
-    ctx.fillRect(0,0,W,H);
+    if(styleName==='guilloche'){bg.addColorStop(0,'#091929');bg.addColorStop(0.5,'#060D1A');bg.addColorStop(1,'#02050B');}
+    else if(styleName==='carbon'){bg.addColorStop(0,'#101829');bg.addColorStop(0.5,'#070B14');bg.addColorStop(1,'#030509');}
+    else if(styleName==='bokeh'){bg.addColorStop(0,'#171429');bg.addColorStop(0.5,'#090D1C');bg.addColorStop(1,'#03050B');}
+    else{bg.addColorStop(0,'#121E38');bg.addColorStop(0.5,'#070C18');bg.addColorStop(1,'#020408');}
+    ctx.fillStyle=bg;ctx.fillRect(0,0,W,H);
 
     if(styleName==='guilloche'){
-      ctx.save();
-      ctx.globalCompositeOperation='screen';
+      ctx.save();ctx.globalCompositeOperation='screen';
       for(let wv=0;wv<32;wv++){
-        ctx.beginPath();
-        const ratio=wv/32,phase=wv*0.19;
-        const amp1=H*(0.14+ratio*0.24),amp2=H*0.09*Math.cos(ratio*Math.PI);
-        ctx.strokeStyle=wv%2===0
-          ?'rgba(229,185,111,'+(0.05+0.14*Math.sin(ratio*Math.PI)).toFixed(3)+')'
-          :'rgba(52,211,153,'+(0.02+0.07*Math.sin(ratio*Math.PI)).toFixed(3)+')';
+        ctx.beginPath();const ratio=wv/32,phase=wv*0.19,amp1=H*(0.14+ratio*0.24),amp2=H*0.09*Math.cos(ratio*Math.PI);
+        ctx.strokeStyle=wv%2===0?'rgba(229,185,111,'+(0.05+0.14*Math.sin(ratio*Math.PI)).toFixed(3)+')':'rgba(52,211,153,'+(0.02+0.07*Math.sin(ratio*Math.PI)).toFixed(3)+')';
         ctx.lineWidth=1.4;
-        for(let x=0;x<=W;x+=5){
-          const nx=x/W;
-          const y=H*0.52+Math.sin(nx*Math.PI*2.8+phase)*amp1+Math.cos(nx*Math.PI*4.5-phase*1.2)*amp2;
-          if(x===0)ctx.moveTo(x,y);else ctx.lineTo(x,y);
-        }
+        for(let x=0;x<=W;x+=5){const nx=x/W,y=H*0.52+Math.sin(nx*Math.PI*2.8+phase)*amp1+Math.cos(nx*Math.PI*4.5-phase*1.2)*amp2;if(x===0)ctx.moveTo(x,y);else ctx.lineTo(x,y);}
         ctx.stroke();
       }
       ctx.restore();
-
     } else if(styleName==='carbon'){
-      const tile=document.createElement('canvas');
-      tile.width=28;tile.height=28;
-      const tctx=tile.getContext('2d');
-      tctx.fillStyle='#04070E';tctx.fillRect(0,0,28,28);
-      const g1=tctx.createLinearGradient(0,0,14,14);
-      g1.addColorStop(0,'#1B2A47');g1.addColorStop(0.5,'#0D1526');g1.addColorStop(1,'#050811');
+      const tile=document.createElement('canvas');tile.width=28;tile.height=28;
+      const tctx=tile.getContext('2d');tctx.fillStyle='#04070E';tctx.fillRect(0,0,28,28);
+      const g1=tctx.createLinearGradient(0,0,14,14);g1.addColorStop(0,'#1B2A47');g1.addColorStop(0.5,'#0D1526');g1.addColorStop(1,'#050811');
       tctx.fillStyle=g1;tctx.fillRect(0,0,13,13);tctx.fillRect(14,14,13,13);
-      const g2=tctx.createLinearGradient(14,0,28,14);
-      g2.addColorStop(0,'#0A101D');g2.addColorStop(0.5,'#16233B');g2.addColorStop(1,'#050811');
+      const g2=tctx.createLinearGradient(14,0,28,14);g2.addColorStop(0,'#0A101D');g2.addColorStop(0.5,'#16233B');g2.addColorStop(1,'#050811');
       tctx.fillStyle=g2;tctx.fillRect(14,0,13,13);tctx.fillRect(0,14,13,13);
-      ctx.fillStyle=ctx.createPattern(tile,'repeat');
-      ctx.fillRect(0,0,W,H);
-
+      ctx.fillStyle=ctx.createPattern(tile,'repeat');ctx.fillRect(0,0,W,H);
       const spot=ctx.createRadialGradient(W*0.72,H*0.48,W*0.02,W*0.65,H*0.5,W*0.75);
-      spot.addColorStop(0,'rgba(229,185,111,0.28)');
-      spot.addColorStop(0.45,'rgba(14,24,45,0.65)');
-      spot.addColorStop(1,'rgba(2,4,9,0.92)');
+      spot.addColorStop(0,'rgba(229,185,111,0.28)');spot.addColorStop(0.45,'rgba(14,24,45,0.65)');spot.addColorStop(1,'rgba(2,4,9,0.92)');
       ctx.fillStyle=spot;ctx.fillRect(0,0,W,H);
-
     } else if(styleName==='bokeh'){
-      ctx.save();
-      ctx.globalCompositeOperation='screen';
+      ctx.save();ctx.globalCompositeOperation='screen';
       const rays=ctx.createLinearGradient(0,0,W,H);
-      rays.addColorStop(0,'rgba(229,185,111,0.22)');
-      rays.addColorStop(0.5,'rgba(30,64,130,0.06)');
-      rays.addColorStop(1,'rgba(229,185,111,0.20)');
+      rays.addColorStop(0,'rgba(229,185,111,0.22)');rays.addColorStop(0.5,'rgba(30,64,130,0.06)');rays.addColorStop(1,'rgba(229,185,111,0.20)');
       ctx.fillStyle=rays;ctx.fillRect(0,0,W,H);
-
-      const orbs=[
-        {x:0.15,y:0.22,r:0.18,a:0.25,g:true},{x:0.82,y:0.26,r:0.22,a:0.26,g:true},
-        {x:0.24,y:0.78,r:0.15,a:0.20,g:true},{x:0.78,y:0.75,r:0.17,a:0.24,g:true},
-        {x:0.48,y:0.18,r:0.10,a:0.28,g:false},{x:0.92,y:0.52,r:0.11,a:0.28,g:false},
-        {x:0.35,y:0.32,r:0.04,a:0.45,g:true},{x:0.64,y:0.72,r:0.05,a:0.42,g:true}
-      ];
+      const orbs=[{x:0.15,y:0.22,r:0.18,a:0.25,g:true},{x:0.82,y:0.26,r:0.22,a:0.26,g:true},{x:0.24,y:0.78,r:0.15,a:0.20,g:true},{x:0.78,y:0.75,r:0.17,a:0.24,g:true},{x:0.48,y:0.18,r:0.10,a:0.28,g:false},{x:0.92,y:0.52,r:0.11,a:0.28,g:false},{x:0.35,y:0.32,r:0.04,a:0.45,g:true},{x:0.64,y:0.72,r:0.05,a:0.42,g:true}];
       orbs.forEach(o=>{
-        const ox=W*o.x,oy=H*o.y,or=W*o.r;
-        const rg=ctx.createRadialGradient(ox,oy,or*0.05,ox,oy,or);
-        const col=o.g?'229,185,111':'96,165,250';
-        rg.addColorStop(0,'rgba('+col+','+o.a.toFixed(2)+')');
-        rg.addColorStop(0.6,'rgba('+col+','+(o.a*0.45).toFixed(2)+')');
-        rg.addColorStop(1,'rgba('+col+',0)');
+        const ox=W*o.x,oy=H*o.y,or=W*o.r,rg=ctx.createRadialGradient(ox,oy,or*0.05,ox,oy,or),col=o.g?'229,185,111':'96,165,250';
+        rg.addColorStop(0,'rgba('+col+','+o.a.toFixed(2)+')');rg.addColorStop(0.6,'rgba('+col+','+(o.a*0.45).toFixed(2)+')');rg.addColorStop(1,'rgba('+col+',0)');
         ctx.fillStyle=rg;ctx.beginPath();ctx.arc(ox,oy,or,0,Math.PI*2);ctx.fill();
       });
       ctx.restore();
-
     } else if(styleName==='silk_hd'){
-      if(hdSilkImg){
-        const sc=Math.max(W/hdSilkImg.width,H/hdSilkImg.height);
-        const sw=W/sc,sh=H/sc;
-        ctx.drawImage(hdSilkImg,(hdSilkImg.width-sw)/2,(hdSilkImg.height-sh)/2,sw,sh,0,0,W,H);
-      }
-      ctx.save();
-      ctx.globalCompositeOperation='screen';
+      if(hdSilkImg){const sc=Math.max(W/hdSilkImg.width,H/hdSilkImg.height),sw=W/sc,sh=H/sc;ctx.drawImage(hdSilkImg,(hdSilkImg.width-sw)/2,(hdSilkImg.height-sh)/2,sw,sh,0,0,W,H);}
+      ctx.save();ctx.globalCompositeOperation='screen';
       for(let i=0;i<6;i++){
-        ctx.beginPath();
-        ctx.moveTo(-100,H*(0.15+i*0.16));
-        ctx.bezierCurveTo(W*0.32,H*(0.02+i*0.14),W*0.68,H*(0.92-i*0.11),W+100,H*(0.24+i*0.15));
-        ctx.lineWidth=H*0.15;
-        const sg=ctx.createLinearGradient(0,0,W,H);
-        sg.addColorStop(0,'rgba(201,168,118,0)');
-        sg.addColorStop(0.5,'rgba(229,185,111,'+(0.09-i*0.012).toFixed(3)+')');
-        sg.addColorStop(1,'rgba(56,110,200,0)');
+        ctx.beginPath();ctx.moveTo(-100,H*(0.15+i*0.16));ctx.bezierCurveTo(W*0.32,H*(0.02+i*0.14),W*0.68,H*(0.92-i*0.11),W+100,H*(0.24+i*0.15));
+        ctx.lineWidth=H*0.15;const sg=ctx.createLinearGradient(0,0,W,H);
+        sg.addColorStop(0,'rgba(201,168,118,0)');sg.addColorStop(0.5,'rgba(229,185,111,'+(0.09-i*0.012).toFixed(3)+')');sg.addColorStop(1,'rgba(56,110,200,0)');
         ctx.strokeStyle=sg;ctx.stroke();
       }
-      ctx.restore();
-      ctx.fillStyle='rgba(4,8,18,0.55)';ctx.fillRect(0,0,W,H);
+      ctx.restore();ctx.fillStyle='rgba(4,8,18,0.55)';ctx.fillRect(0,0,W,H);
     }
   }
 
-  // 2. ДИАГОНАЛЬНЫЙ ЗОЛОТОЙ СВЕТОФИЛЬТР И РАМКА БЕЗОПАСНОЙ ЗОНЫ
-  const padX=isSquare?42:34,padY=isSquare?42:26;
-  const fw=W-padX*2,fh=H-padY*2;
-
+  const padX=isSquare?42:34,padY=isSquare?42:26,fw=W-padX*2,fh=H-padY*2;
   if(layoutMode==='hud'){
-    // HUD-сетка для режима Финтех-Радар
-    ctx.save();
-    ctx.strokeStyle='rgba(229,185,111,0.07)';ctx.lineWidth=1;
-    const step=isSquare?72:60;
+    ctx.save();ctx.strokeStyle='rgba(229,185,111,0.07)';ctx.lineWidth=1;const step=isSquare?72:60;
     for(let x=padX;x<W-padX;x+=step){ctx.beginPath();ctx.moveTo(x,padY);ctx.lineTo(x,H-padY);ctx.stroke();}
     for(let y=padY;y<H-padY;y+=step){ctx.beginPath();ctx.moveTo(padX,y);ctx.lineTo(W-padX,y);ctx.stroke();}
     ctx.restore();
@@ -1175,131 +964,68 @@ function drawCoverOnCanvas(canvas,line1,line2,styleName,isSquare,emblemOverride,
 
   ctx.save();
   const frameGrad=ctx.createLinearGradient(padX,padY,W-padX,H-padY);
-  frameGrad.addColorStop(0,'rgba(245,211,147,0.78)');
-  frameGrad.addColorStop(0.5,'rgba(201,168,118,0.22)');
-  frameGrad.addColorStop(1,'rgba(245,211,147,0.78)');
-  ctx.strokeStyle=frameGrad;ctx.lineWidth=2.2;
-  drawRoundedRect(ctx,padX,padY,fw,fh,20);ctx.stroke();
-
-  // Угловые золотые скобки (Tech Luxury Corners)
-  const cl=28;
-  ctx.strokeStyle='#F5D393';ctx.lineWidth=4;
-  [[padX,padY,1,1],[W-padX,padY,-1,1],[padX,H-padY,1,-1],[W-padX,H-padY,-1,-1]].forEach(([cx,cy,dx,dy])=>{
-    ctx.beginPath();
-    ctx.moveTo(cx+dx*cl,cy);ctx.lineTo(cx,cy);ctx.lineTo(cx,cy+dy*cl);
-    ctx.stroke();
-  });
+  frameGrad.addColorStop(0,'rgba(245,211,147,0.78)');frameGrad.addColorStop(0.5,'rgba(201,168,118,0.22)');frameGrad.addColorStop(1,'rgba(245,211,147,0.78)');
+  ctx.strokeStyle=frameGrad;ctx.lineWidth=2.2;drawRoundedRect(ctx,padX,padY,fw,fh,20);ctx.stroke();
+  const cl=28;ctx.strokeStyle='#F5D393';ctx.lineWidth=4;
+  [[padX,padY,1,1],[W-padX,padY,-1,1],[padX,H-padY,1,-1],[W-padX,H-padY,-1,-1]].forEach(([cx,cy,dx,dy])=>{ctx.beginPath();ctx.moveTo(cx+dx*cl,cy);ctx.lineTo(cx,cy);ctx.lineTo(cx,cy+dy*cl);ctx.stroke();});
   ctx.restore();
 
-  const t1=String(line1||'').trim().toUpperCase();
-  const t2=String(line2||'').trim().toUpperCase();
-  const bTxt=String(badgeText||'AIBET MONEY').trim().toUpperCase();
+  const t1=String(line1||'').trim().toUpperCase(),t2=String(line2||'').trim().toUpperCase(),bTxt=String(badgeText||'AIBET MONEY').trim().toUpperCase();
 
-  // 3. РЕНДЕР ВЫБРАННОЙ КОМПОЗИЦИИ
   if(layoutMode==='poster'||layoutMode==='hud'){
-    // АСИММЕТРИЧНЫЙ PRO-ПОСТЕР: Слева мощная типографика + бейдж, справа крупный 3D-объект
-    const leftX=isSquare?W*0.09:W*0.075;
-    const maxTextW=isSquare?W*0.82:W*0.54;
-
-    // Отрисовка 3D-иллюстрации справа (или сверху-справа для квадрата)
-    const artX=isSquare?W*0.50:W*0.77;
-    const artY=isSquare?H*0.31:H*0.50;
-    const artScale=isSquare?1.18:1.06;
+    const leftX=isSquare?W*0.09:W*0.075,maxTextW=isSquare?W*0.82:W*0.54;
+    const artX=isSquare?W*0.50:W*0.77,artY=isSquare?H*0.31:H*0.50,artScale=isSquare?1.18:1.06;
     drawHero3DArtwork(ctx,artX,artY,artScale,emblemType);
 
     ctx.save();
-    const align=isSquare?'center':'left';
-    const anchorX=isSquare?W*0.5:leftX;
-
-    // Верхняя капсула-бейдж (Чип)
+    const align=isSquare?'center':'left',anchorX=isSquare?W*0.5:leftX;
     ctx.font='800 '+(isSquare?18:16)+'px Montserrat, sans-serif';
-    const bw=Math.max(180,ctx.measureText(bTxt).width+56);
-    const bh=isSquare?44:38;
-    const bx=isSquare?(W-bw)/2:leftX;
-    const by=isSquare?H*0.58:H*0.18;
-
-    drawRoundedRect(ctx,bx,by,bw,bh,bh/2);
-    ctx.fillStyle='rgba(229,185,111,0.14)';ctx.fill();
+    const bw=Math.max(180,ctx.measureText(bTxt).width+56),bh=isSquare?44:38,bx=isSquare?(W-bw)/2:leftX,by=isSquare?H*0.58:H*0.18;
+    drawRoundedRect(ctx,bx,by,bw,bh,bh/2);ctx.fillStyle='rgba(229,185,111,0.14)';ctx.fill();
     ctx.strokeStyle='rgba(245,211,147,0.65)';ctx.lineWidth=1.5;ctx.stroke();
+    ctx.beginPath();ctx.arc(bx+20,by+bh/2,5,0,Math.PI*2);ctx.fillStyle=emblemType==='calc'?'#34D399':'#F5D393';ctx.fill();
+    ctx.fillStyle='#F5D393';ctx.textAlign='left';ctx.textBaseline='middle';ctx.fillText(bTxt,bx+34,by+bh/2+1);
 
-    // Зелёная/золотая живая точка внутри бейджа
-    ctx.beginPath();ctx.arc(bx+20,by+bh/2,5,0,Math.PI*2);
-    ctx.fillStyle=emblemType==='calc'?'#34D399':'#F5D393';ctx.fill();
-
-    ctx.fillStyle='#F5D393';ctx.textAlign='left';ctx.textBaseline='middle';
-    ctx.fillText(bTxt,bx+34,by+bh/2+1);
-
-    // 1-я строка (Белая платина)
-    let f1=isSquare?78:68;
-    ctx.font='900 '+f1+'px Montserrat, sans-serif';
-    while(ctx.measureText(t1).width+t1.length*2>maxTextW&&f1>30){
-      f1-=2;ctx.font='900 '+f1+'px Montserrat, sans-serif';
-    }
+    let f1=isSquare?78:68;ctx.font='900 '+f1+'px Montserrat, sans-serif';
+    while(ctx.measureText(t1).width+t1.length*2>maxTextW&&f1>30){f1-=2;ctx.font='900 '+f1+'px Montserrat, sans-serif';}
     const y1=isSquare?H*0.695:H*0.445;
     ctx.shadowColor='rgba(0,0,0,0.92)';ctx.shadowBlur=22;ctx.shadowOffsetY=6;
-    const wGrad=ctx.createLinearGradient(0,y1-f1/2,0,y1+f1/2);
-    wGrad.addColorStop(0,'#FFFFFF');wGrad.addColorStop(1,'#CBD5E1');
-    ctx.fillStyle=wGrad;
-    drawSpacedText(ctx,t1,anchorX,y1,2,align);
+    const wGrad=ctx.createLinearGradient(0,y1-f1/2,0,y1+f1/2);wGrad.addColorStop(0,'#FFFFFF');wGrad.addColorStop(1,'#CBD5E1');
+    ctx.fillStyle=wGrad;drawSpacedText(ctx,t1,anchorX,y1,2,align);
 
-    // 2-я строка (3D Металлическое Золото)
-    let f2=isSquare?82:72;
-    ctx.font='900 '+f2+'px Montserrat, sans-serif';
-    while(ctx.measureText(t2).width+t2.length*2.5>maxTextW&&f2>30){
-      f2-=2;ctx.font='900 '+f2+'px Montserrat, sans-serif';
-    }
+    let f2=isSquare?82:72;ctx.font='900 '+f2+'px Montserrat, sans-serif';
+    while(ctx.measureText(t2).width+t2.length*2.5>maxTextW&&f2>30){f2-=2;ctx.font='900 '+f2+'px Montserrat, sans-serif';}
     const y2=isSquare?H*0.795:H*0.635;
     ctx.shadowColor='rgba(229,185,111,0.32)';ctx.shadowBlur=26;ctx.shadowOffsetY=4;
     const gGrad=ctx.createLinearGradient(anchorX,y2-f2*0.5,anchorX+300,y2+f2*0.5);
-    gGrad.addColorStop(0,'#FFF7E4');
-    gGrad.addColorStop(0.3,'#F5D393');
-    gGrad.addColorStop(0.6,'#C9A876');
-    gGrad.addColorStop(0.85,'#9A723B');
-    gGrad.addColorStop(1,'#F5D393');
-    ctx.fillStyle=gGrad;
-    drawSpacedText(ctx,t2,anchorX,y2,2.5,align);
+    gGrad.addColorStop(0,'#FFF7E4');gGrad.addColorStop(0.3,'#F5D393');gGrad.addColorStop(0.6,'#C9A876');gGrad.addColorStop(0.85,'#9A723B');gGrad.addColorStop(1,'#F5D393');
+    ctx.fillStyle=gGrad;drawSpacedText(ctx,t2,anchorX,y2,2.5,align);
 
-    // Нижняя фирменная подпись с золотой линией
     ctx.shadowBlur=0;ctx.shadowOffsetY=0;
     const yFoot=isSquare?H*0.885:H*0.815;
     if(!isSquare){
-      ctx.fillStyle='#E5B96F';
-      ctx.fillRect(leftX,yFoot-8,46,3.5);
-      ctx.font='700 15px Montserrat, sans-serif';
-      ctx.fillStyle='rgba(226,232,240,0.72)';
-      ctx.textAlign='left';
+      ctx.fillStyle='#E5B96F';ctx.fillRect(leftX,yFoot-8,46,3.5);
+      ctx.font='700 15px Montserrat, sans-serif';ctx.fillStyle='rgba(226,232,240,0.72)';ctx.textAlign='left';
       ctx.fillText('AIBET MONEY • ОФИЦИАЛЬНАЯ ПЛАТФОРМА',leftX+60,yFoot-6);
     } else {
-      ctx.font='700 18px Montserrat, sans-serif';
-      ctx.fillStyle='rgba(226,232,240,0.75)';
-      ctx.textAlign='center';
+      ctx.font='700 18px Montserrat, sans-serif';ctx.fillStyle='rgba(226,232,240,0.75)';ctx.textAlign='center';
       ctx.fillText('AIBET MONEY • ОФИЦИАЛЬНАЯ ПЛАТФОРМА',W/2,yFoot);
     }
     ctx.restore();
-
   } else {
-    // 3-й РЕЖИМ: ИМПЕРСКИЙ ЦЕНТРОВОЙ ЛЮКС
     drawHero3DArtwork(ctx,W*0.5,isSquare?H*0.28:H*0.26,isSquare?0.78:0.56,emblemType);
-    ctx.save();
-    ctx.textAlign='center';ctx.textBaseline='middle';
+    ctx.save();ctx.textAlign='center';ctx.textBaseline='middle';
     const maxW=W*0.82;
-    let f1=isSquare?74:60;
-    ctx.font='900 '+f1+'px Montserrat, sans-serif';
+    let f1=isSquare?74:60;ctx.font='900 '+f1+'px Montserrat, sans-serif';
     while(ctx.measureText(t1).width+t1.length*3>maxW&&f1>28){f1-=2;ctx.font='900 '+f1+'px Montserrat, sans-serif';}
-    let f2=isSquare?78:64;
-    ctx.font='900 '+f2+'px Montserrat, sans-serif';
+    let f2=isSquare?78:64;ctx.font='900 '+f2+'px Montserrat, sans-serif';
     while(ctx.measureText(t2).width+t2.length*4>maxW&&f2>28){f2-=2;ctx.font='900 '+f2+'px Montserrat, sans-serif';}
-
-    const y1=isSquare?H*0.58:H*0.56;
-    const y2=isSquare?H*0.69:H*0.72;
-    ctx.font='900 '+f1+'px Montserrat, sans-serif';
-    ctx.shadowColor='rgba(0,0,0,0.9)';ctx.shadowBlur=20;ctx.fillStyle='#FFFFFF';
+    const y1=isSquare?H*0.58:H*0.56,y2=isSquare?H*0.69:H*0.72;
+    ctx.font='900 '+f1+'px Montserrat, sans-serif';ctx.shadowColor='rgba(0,0,0,0.9)';ctx.shadowBlur=20;ctx.fillStyle='#FFFFFF';
     drawSpacedText(ctx,t1,W/2,y1,3.5,'center');
-
     const gGrad=ctx.createLinearGradient(W*0.25,y2-30,W*0.75,y2+30);
     gGrad.addColorStop(0,'#FFF6E0');gGrad.addColorStop(0.45,'#E5B96F');gGrad.addColorStop(1,'#9A743E');
-    ctx.font='900 '+f2+'px Montserrat, sans-serif';
-    ctx.fillStyle=gGrad;
+    ctx.font='900 '+f2+'px Montserrat, sans-serif';ctx.fillStyle=gGrad;
     drawSpacedText(ctx,t2,W/2,y2,4,'center');
     ctx.restore();
   }
@@ -1307,13 +1033,7 @@ function drawCoverOnCanvas(canvas,line1,line2,styleName,isSquare,emblemOverride,
 
 function renderBrandCoverPreview(){
   const c=document.getElementById('coverGenCanvas');if(!c)return;
-  drawCoverOnCanvas(
-    c,
-    document.getElementById('genLine1').value||'AIBET',
-    document.getElementById('genLine2').value||'MONEY',
-    document.getElementById('genStyleSelect').value||'guilloche',
-    document.getElementById('genAspectSelect').value==='square'
-  );
+  drawCoverOnCanvas(c,document.getElementById('genLine1').value||'AIBET',document.getElementById('genLine2').value||'MONEY',document.getElementById('genStyleSelect').value||'guilloche',document.getElementById('genAspectSelect').value==='square');
 }
 
 function applyGeneratedCoverToCard(){
@@ -1321,21 +1041,10 @@ function applyGeneratedCoverToCard(){
   const sel=document.getElementById('genTargetCardSelect'),idx=sel?parseInt(sel.value,10):0;
   if(!menuBlocks[idx])return;
   const tc=document.createElement('canvas');
-  drawCoverOnCanvas(
-    tc,
-    document.getElementById('genLine1').value||'AIBET',
-    document.getElementById('genLine2').value||'MONEY',
-    document.getElementById('genStyleSelect').value||'guilloche',
-    false
-  );
-  let url=tc.toDataURL('image/webp',0.90);
-  if(url.indexOf('data:image/webp')!==0)url=tc.toDataURL('image/jpeg',0.92);
-  menuBlocks[idx].coverUrl=url;
-  saveBlocksDraft();
-  renderAdminPanel();
-  renderHubCards();
-  triggerHaptic('success');
-  showToast('✓ Новый 3D-баннер установлен на «'+menuBlocks[idx].title+'»');
+  drawCoverOnCanvas(tc,document.getElementById('genLine1').value||'AIBET',document.getElementById('genLine2').value||'MONEY',document.getElementById('genStyleSelect').value||'guilloche',false);
+  let url=tc.toDataURL('image/webp',0.90);if(url.indexOf('data:image/webp')!==0)url=tc.toDataURL('image/jpeg',0.92);
+  menuBlocks[idx].coverUrl=url;saveBlocksDraft();renderAdminPanel();renderHubCards();
+  triggerHaptic('success');showToast('✓ Новый 3D-баннер установлен на «'+menuBlocks[idx].title+'»');
 }
 
 function applyAllGeneratedCovers(notify=true){
@@ -1344,17 +1053,13 @@ function applyAllGeneratedCovers(notify=true){
   menuBlocks.forEach((b,idx)=>{
     const p=CARD_PRESETS[idx]||{l1:b.title.toUpperCase(),l2:'AIBET CLUB',badge:'AIBET MONEY',emblem:'logo',style:'guilloche',layout:'poster'};
     drawCoverOnCanvas(tc,p.l1,p.l2,p.style,false,p.emblem,p.badge,p.layout);
-    let url=tc.toDataURL('image/webp',0.90);
-    if(url.indexOf('data:image/webp')!==0)url=tc.toDataURL('image/jpeg',0.92);
+    let url=tc.toDataURL('image/webp',0.90);if(url.indexOf('data:image/webp')!==0)url=tc.toDataURL('image/jpeg',0.92);
     b.coverUrl=url;
   });
   saveBlocksDraft();
   if(document.getElementById('screenAdmin').classList.contains('active'))renderAdminPanel();
   renderHubCards();
-  if(notify){
-    triggerHaptic('success');
-    showToast('⚡ Все 4 карточки получили новые 3D-баннеры!');
-  }
+  if(notify){triggerHaptic('success');showToast('⚡ Все 4 карточки получили новые 3D-баннеры!');}
 }
 
 function downloadGeneratedCoverPng(){
@@ -1406,18 +1111,10 @@ function initSpoilerCanvases(){
 const hubCardsGrid=document.getElementById('hubCardsGrid');
 
 function getSignatureWidgetHtml(b,idx,pBank,pBet){
-  if(b.icon==='calc'||b.actionType==='calc'){
-    return '<div class="default-cover-art"><div class="calc-mini-widget"><div class="calc-mini-left"><div class="calc-mini-pill">'+formatSpaces(pBank)+' ₽</div><div class="calc-mini-pill">КЭФ 1.5</div></div><div class="calc-mini-right"><span>Ставка</span><strong>'+formatSpaces(pBet)+' ₽</strong></div></div></div>';
-  }
-  if(b.id==='vip'||idx===1){
-    return '<div class="default-cover-art"><div class="calc-mini-widget"><div class="calc-mini-left"><div class="calc-mini-pill">👑 VIP LINE</div><div class="calc-mini-pill">PRO МОДЕЛЬ</div></div><div class="calc-mini-right"><span>Доступ</span><strong>ЗАКРЫТЫЙ</strong></div></div></div>';
-  }
-  if(b.id==='personal'||idx===2){
-    return '<div class="default-cover-art"><div class="calc-mini-widget"><div class="calc-mini-left"><div class="calc-mini-pill">🛡️ 1-НА-1</div><div class="calc-mini-pill">КОНТРОЛЬ</div></div><div class="calc-mini-right"><span>Формат</span><strong>ВЕДЕНИЕ</strong></div></div></div>';
-  }
-  if(b.id==='buy'||idx===3){
-    return '<div class="default-cover-art"><div class="calc-mini-widget"><div class="calc-mini-left"><div class="calc-mini-pill">⚡ МАТЧ ДНЯ</div><div class="calc-mini-pill">ТОП ИСХОД</div></div><div class="calc-mini-right"><span>Купон</span><strong>ОРДИНАР</strong></div></div></div>';
-  }
+  if(b.icon==='calc'||b.actionType==='calc')return '<div class="default-cover-art"><div class="calc-mini-widget"><div class="calc-mini-left"><div class="calc-mini-pill">'+formatSpaces(pBank)+' ₽</div><div class="calc-mini-pill">КЭФ 1.5</div></div><div class="calc-mini-right"><span>Ставка</span><strong>'+formatSpaces(pBet)+' ₽</strong></div></div></div>';
+  if(b.id==='vip'||idx===1)return '<div class="default-cover-art"><div class="calc-mini-widget"><div class="calc-mini-left"><div class="calc-mini-pill">👑 VIP LINE</div><div class="calc-mini-pill">PRO МОДЕЛЬ</div></div><div class="calc-mini-right"><span>Доступ</span><strong>ЗАКРЫТЫЙ</strong></div></div></div>';
+  if(b.id==='personal'||idx===2)return '<div class="default-cover-art"><div class="calc-mini-widget"><div class="calc-mini-left"><div class="calc-mini-pill">🛡️ 1-НА-1</div><div class="calc-mini-pill">КОНТРОЛЬ</div></div><div class="calc-mini-right"><span>Формат</span><strong>ВЕДЕНИЕ</strong></div></div></div>';
+  if(b.id==='buy'||idx===3)return '<div class="default-cover-art"><div class="calc-mini-widget"><div class="calc-mini-left"><div class="calc-mini-pill">⚡ МАТЧ ДНЯ</div><div class="calc-mini-pill">ТОП ИСХОД</div></div><div class="calc-mini-right"><span>Купон</span><strong>ОРДИНАР</strong></div></div></div>';
   return '<div class="default-cover-art"><div class="cover-icon-circle">'+escapeHtml(b.icon||'⭐')+'</div></div>';
 }
 
@@ -1426,35 +1123,24 @@ function renderHubCards(){
   if(!hubCardsGrid||!Array.isArray(menuBlocks))return;
   hubCardsGrid.innerHTML='';
   const {pBank,pBet}=getSavedBankAndBet();
-
   menuBlocks.forEach((b,idx)=>{
     if(b.hidden)return;
-    const isAvail=b.status==='available'&&!b.blurred,isBlur=Boolean(b.blurred),isWait=Boolean(waitlistMap[b.id]);
-    const hasCustomCover=Boolean(b.coverUrl&&b.coverUrl.trim()!=='');
+    const isAvail=b.status==='available'&&!b.blurred,isBlur=Boolean(b.blurred),isWait=Boolean(waitlistMap[b.id]),hasCustomCover=Boolean(b.coverUrl&&b.coverUrl.trim()!=='');
     const card=document.createElement('div');
     card.className='menu-card '+(isAvail?'available':'soon')+(isBlur?' blurred':'');
     card.setAttribute('onclick','handleCardClick('+idx+')');
-
-    const cov=hasCustomCover
-      ?'<img src="'+escapeHtml(b.coverUrl)+'" class="card-cover-img" alt="">'
-      :getSignatureWidgetHtml(b,idx,pBank,pBet);
-
-    const pill=!isBlur
-      ?(isAvail?'<span class="status-pill active-pill"><span class="live-dot"></span>Открыто</span>':'<span class="status-pill soon-pill">⏳ Скоро</span>')
-      :'';
-
+    const cov=hasCustomCover?'<img src="'+escapeHtml(b.coverUrl)+'" class="card-cover-img" alt="">':getSignatureWidgetHtml(b,idx,pBank,pBet);
+    const pill=!isBlur?(isAvail?'<span class="status-pill active-pill"><span class="live-dot"></span>Открыто</span>':'<span class="status-pill soon-pill">⏳ Скоро</span>'):'';
     const btnTxt=b.btnLabel||(isAvail?'Открыть →':'Скоро');
     const spLbl=isWait?'✓ В листе ожидания':'Скоро открытие',spCls=isWait?'tg-spoiler-pill waitlisted':'tg-spoiler-pill';
     const blurOv=isBlur?'<div class="tg-spoiler-overlay"><canvas class="spoiler-canvas"></canvas><div class="'+spCls+'"><span class="dot"></span>'+spLbl+'</div></div>':'';
     const ttl=isBlur?'Секретный раздел':b.title,dsc=isBlur?'Новый закрытый инструмент платформы клуба':b.desc;
-
     card.innerHTML=blurOv+'<div class="card-inner-blur" style="display:flex;flex-direction:column;flex:1"><div class="card-cover">'+pill+cov+'</div><div class="card-body"><div><div class="card-title">'+escapeHtml(ttl)+'</div><div class="card-desc">'+escapeHtml(dsc)+'</div></div><div class="card-action-btn'+(isAvail?' shimmer-effect':'')+'">'+escapeHtml(btnTxt)+'</div></div></div>';
     hubCardsGrid.appendChild(card);
   });
   requestAnimationFrame(()=>initSpoilerCanvases());
 }
 
-// Сразу при старте генерируем 3D-баннеры на карточки, если ещё не заданы свои
 if(localStorage.getItem('aibet_use_mini_widgets')!=='1'&&menuBlocks.every(b=>!b.coverUrl)){
   applyAllGeneratedCovers(false);
 } else {
@@ -1489,8 +1175,7 @@ function joinWaitlist(){
 function closeSoonModal(){document.getElementById('soonModal').classList.remove('open');}
 
 function openPromoPage(b){
-  const cb=document.getElementById('promoCoverBox');
-  const {pBank,pBet}=getSavedBankAndBet();
+  const cb=document.getElementById('promoCoverBox'),{pBank,pBet}=getSavedBankAndBet();
   if(b.coverUrl&&b.coverUrl.trim()!=='')cb.innerHTML='<img src="'+escapeHtml(b.coverUrl)+'" alt="">';
   else cb.innerHTML=getSignatureWidgetHtml(b,menuBlocks.indexOf(b),pBank,pBet);
   document.getElementById('promoTitle').textContent=b.pageTitle||b.title;
@@ -1576,12 +1261,7 @@ function generateFullSiteHtml(){
   clone.querySelectorAll('style').forEach(st=>{if(st.id!=='app-main-style')st.remove();});
   const bgC=clone.querySelector('#bgCanvas');if(bgC){bgC.removeAttribute('width');bgC.removeAttribute('height');}
   const hasProxy=Boolean(trackerCfg.proxyUrl&&trackerCfg.proxyUrl.trim().indexOf('http')===0);
-  const expCfg={
-    proxyUrl:trackerCfg.proxyUrl||'',
-    botTokenEncoded:hasProxy?'':encodeSecret(trackerCfg.botToken||''),
-    adminChatId:trackerCfg.adminChatId||'435389790',
-    channelUrl:trackerCfg.channelUrl||'https://t.me/aibetmoney'
-  };
+  const expCfg={proxyUrl:trackerCfg.proxyUrl||'',botTokenEncoded:hasProxy?'':encodeSecret(trackerCfg.botToken||''),adminChatId:trackerCfg.adminChatId||'435389790',channelUrl:trackerCfg.channelUrl||'https://t.me/aibetmoney'};
   const ds=clone.querySelector('#app-data-script');
   if(ds)ds.textContent='\nwindow.TRACKER_CONFIG = '+JSON.stringify(expCfg,null,2)+';\nwindow.INITIAL_BLOCKS = '+JSON.stringify(menuBlocks,null,2)+';\n';
   clone.querySelectorAll('.view-screen').forEach(el=>el.classList.remove('active'));
