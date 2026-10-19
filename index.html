@@ -3,28 +3,31 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>AiBet Money — Платформа</title>
+<title>AiBet Money — Платформа v3.0</title>
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@500;600;700;800;900&display=swap" rel="stylesheet">
 <style id="app-main-style">
-:root{--bg-page:#03060C;--bg-card:rgba(12,20,36,0.72);--bg-dark-inner:rgba(6,10,19,0.82);--platinum:#E2E8F0;--text-secondary:#CBD5E1;--text-muted:#8E9BAE;--cream:#F5EFE4;--cream-focus:#FFF;--gold:#C9A876;--gold-emblem:#E1A856;--gold-light:#E5B96F;--gold-border:rgba(201,168,118,0.48);--gold-glow:rgba(201,168,118,0.16);--green:#34D399;--green-bg:rgba(52,211,153,0.14);--green-border:rgba(52,211,153,0.4);--red:#F87171;--red-bg:rgba(248,113,113,0.12);--red-border:rgba(248,113,113,0.35);--text-dark:#070B12;--border-subtle:rgba(226,232,240,0.11)}
+:root{--bg-page:#03060C;--bg-card:rgba(12,20,36,0.78);--bg-dark-inner:rgba(6,10,19,0.86);--platinum:#E2E8F0;--text-secondary:#CBD5E1;--text-muted:#8E9BAE;--cream:#F5EFE4;--cream-focus:#FFF;--gold:#C9A876;--gold-emblem:#E1A856;--gold-light:#E5B96F;--gold-border:rgba(201,168,118,0.48);--gold-glow:rgba(201,168,118,0.16);--green:#34D399;--green-bg:rgba(52,211,153,0.14);--green-border:rgba(52,211,153,0.4);--red:#F87171;--red-bg:rgba(248,113,113,0.12);--red-border:rgba(248,113,113,0.35);--text-dark:#070B12;--border-subtle:rgba(226,232,240,0.12)}
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 body{background:var(--bg-page);color:var(--platinum);font-family:'Inter',-apple-system,sans-serif;min-height:100vh;display:flex;flex-direction:column;position:relative;overflow-x:hidden;-webkit-font-smoothing:antialiased}
-.toast-pill,.hub-title,.hub-bank-pill,.status-pill,.calc-mini-pill,.calc-mini-right strong,.card-title,.card-action-btn,.tg-spoiler-pill,.admin-open-pill,.promo-title,.promo-cta-btn,.back-to-menu-btn,.block-label,.gold-input-box input,.quick-odd-chip,.seg-btn,.result-sublabel,.result-number,.profit-box-val,.action-btn,.hist-tag,.mobile-spoiler-btn,.info-item-title,.rule-heading,.admin-top-title,.stat-kpi strong,.admin-item-head strong,.adm-add-block-btn,.adm-publish-title,.adm-main-btn,.modal-pill,.modal-title,.modal-waitlist-btn,.modal-tg-btn,.modal-close-btn{font-family:'Montserrat',sans-serif}
+.toast-pill,.hub-title,.hub-bank-pill,.status-pill,.calc-mini-pill,.calc-mini-right strong,.card-title,.card-action-btn,.tg-spoiler-pill,.admin-open-pill,.promo-title,.promo-cta-btn,.back-to-menu-btn,.block-label,.gold-input-box input,.quick-odd-chip,.seg-btn,.result-sublabel,.result-number,.profit-box-val,.action-btn,.hist-tag,.mobile-spoiler-btn,.info-item-title,.rule-heading,.admin-top-title,.stat-kpi strong,.admin-item-head strong,.adm-add-block-btn,.adm-publish-title,.adm-main-btn,.modal-pill,.modal-title,.modal-waitlist-btn,.modal-tg-btn,.modal-close-btn,.studio-badge-top{font-family:'Montserrat',sans-serif}
 ::-webkit-scrollbar{width:8px;height:8px}::-webkit-scrollbar-track{background:rgba(255,255,255,0.04)}::-webkit-scrollbar-thumb{background:rgba(201,168,118,0.35);border-radius:4px}
 #bgCanvas{position:fixed;inset:0;width:100vw;height:100vh;z-index:0;pointer-events:none;display:block}
 header,section{position:relative;z-index:2}
 .toast-pill{position:fixed;top:14px;left:50%;transform:translate(-50%,-80px);background:rgba(6,10,19,0.96);border:1.5px solid var(--gold);color:var(--cream);font-size:12.5px;font-weight:700;padding:9px 18px;border-radius:999px;box-shadow:0 12px 30px rgba(0,0,0,0.75),0 0 20px rgba(201,168,118,0.25);z-index:200;pointer-events:none;opacity:0;transition:transform .28s cubic-bezier(.22,1,.36,1),opacity .25s ease;white-space:nowrap}
 .toast-pill.show{transform:translate(-50%,0);opacity:1}
-.site-header{background:rgba(4,7,14,0.78);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(201,168,118,0.24);position:sticky;top:0;z-index:30}
+.site-header{background:rgba(4,7,14,0.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(201,168,118,0.24);position:sticky;top:0;z-index:30}
 .container{width:100%;max-width:1040px;margin:0 auto;padding:0 14px}
-.header-inner{display:flex;justify-content:space-between;align-items:center;padding:8px 0;gap:10px}
-.brand-logo{display:inline-flex;align-items:center;width:108px;text-decoration:none;cursor:pointer;user-select:none}
+.header-inner{display:flex;justify-content:space-between;align-items:center;padding:8px 0;gap:8px}
+.brand-logo{display:inline-flex;align-items:center;width:104px;text-decoration:none;cursor:pointer;user-select:none}
 .brand-logo svg{width:100%;height:auto;display:block}
-.channel-pill{display:inline-flex;align-items:center;gap:6px;color:var(--gold-light);font-size:12px;font-weight:600;text-decoration:none;padding:7px 12px;background:var(--gold-glow);border:1px solid var(--gold-border);border-radius:8px;cursor:pointer;position:relative;overflow:hidden;transition:transform .16s cubic-bezier(.34,1.56,.64,1),box-shadow .2s ease}
-.channel-pill:active{transform:scale(.95)}.channel-pill svg{width:14px;height:14px;fill:currentColor;flex-shrink:0}
+.header-right-btns{display:flex;align-items:center;gap:6px}
+.studio-badge-top{display:none;align-items:center;gap:5px;background:linear-gradient(180deg,rgba(52,211,153,0.22) 0%,rgba(52,211,153,0.08) 100%);border:1px solid var(--green);color:var(--green);font-size:11px;font-weight:800;padding:6px 10px;border-radius:8px;cursor:pointer;box-shadow:0 0 14px rgba(52,211,153,0.2)}
+.studio-badge-top.unlocked{display:inline-flex}
+.channel-pill{display:inline-flex;align-items:center;gap:6px;color:var(--gold-light);font-size:11.5px;font-weight:600;text-decoration:none;padding:7px 11px;background:var(--gold-glow);border:1px solid var(--gold-border);border-radius:8px;cursor:pointer;position:relative;overflow:hidden;transition:transform .16s cubic-bezier(.34,1.56,.64,1)}
+.channel-pill:active,.studio-badge-top:active{transform:scale(.95)}.channel-pill svg{width:14px;height:14px;fill:currentColor;flex-shrink:0}
 .view-screen{display:none}.view-screen.active{display:block;animation:screenFade .24s cubic-bezier(.22,1,.36,1)}
 @keyframes screenFade{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
 .shimmer-effect{position:relative;overflow:hidden}
@@ -41,14 +44,13 @@ header,section{position:relative;z-index:2}
 .hub-bank-pill{display:inline-flex;align-items:center;gap:6px;margin-top:6px;padding:4px 12px;border-radius:999px;background:rgba(12,20,36,0.85);border:1px solid var(--gold-border);font-size:11px;font-weight:700;color:var(--platinum);cursor:pointer;transition:transform .15s ease;box-shadow:0 4px 14px rgba(0,0,0,0.4)}
 .hub-bank-pill:active{transform:scale(.96)}.hub-bank-pill .delta-pos{color:var(--green)}.hub-bank-pill .delta-neg{color:var(--red)}
 .menu-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
-.menu-card{background:linear-gradient(165deg,rgba(16,26,46,0.70) 0%,rgba(8,14,26,0.78) 100%);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid var(--border-subtle);border-top:1px solid rgba(226,232,240,0.2);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;cursor:pointer;transition:transform .18s cubic-bezier(.34,1.56,.64,1),border-color .16s ease,box-shadow .2s ease;box-shadow:0 10px 26px rgba(0,0,0,0.6);position:relative;min-height:190px}
+.menu-card{background:linear-gradient(165deg,rgba(16,26,46,0.78) 0%,rgba(8,14,26,0.88) 100%);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(201,168,118,0.28);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;cursor:pointer;transition:transform .18s cubic-bezier(.34,1.56,.64,1),border-color .16s ease,box-shadow .2s ease;box-shadow:0 10px 26px rgba(0,0,0,0.65);position:relative;min-height:198px}
 .menu-card:active{transform:scale(.97)}
-.menu-card.available{border:1.5px solid var(--gold);background:linear-gradient(165deg,rgba(22,36,64,0.76) 0%,rgba(10,17,32,0.84) 100%);box-shadow:0 12px 30px rgba(0,0,0,0.65),0 0 24px rgba(201,168,118,0.16);animation:goldBorderBreathe 3.8s ease-in-out infinite alternate}
-@keyframes goldBorderBreathe{0%{border-color:rgba(201,168,118,0.55);box-shadow:0 12px 28px rgba(0,0,0,0.65),0 0 14px rgba(201,168,118,0.10)}100%{border-color:rgba(229,185,111,0.98);box-shadow:0 12px 32px rgba(0,0,0,0.75),0 0 26px rgba(229,185,111,0.26)}}
-.card-cover{width:100%;height:96px;background:rgba(5,9,18,0.65);border-bottom:1px solid var(--border-subtle);position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
-.menu-card.available .card-cover{background:radial-gradient(circle at 50% 45%,rgba(201,168,118,0.24) 0%,rgba(6,10,20,0.8) 82%);border-bottom:1px solid rgba(201,168,118,0.26)}
+.menu-card.available{border:1.5px solid var(--gold);background:linear-gradient(165deg,rgba(22,36,64,0.82) 0%,rgba(10,17,32,0.9) 100%);box-shadow:0 12px 30px rgba(0,0,0,0.7),0 0 24px rgba(201,168,118,0.18);animation:goldBorderBreathe 3.8s ease-in-out infinite alternate}
+@keyframes goldBorderBreathe{0%{border-color:rgba(201,168,118,0.55);box-shadow:0 12px 28px rgba(0,0,0,0.65),0 0 14px rgba(201,168,118,0.10)}100%{border-color:rgba(229,185,111,0.98);box-shadow:0 12px 32px rgba(0,0,0,0.75),0 0 26px rgba(229,185,111,0.28)}}
+.card-cover{width:100%;height:104px;background:#050912;border-bottom:1px solid rgba(201,168,118,0.25);position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
 .card-cover-img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
-.status-pill{position:absolute;top:5px;right:5px;font-size:7.5px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;padding:2.5px 6.5px;border-radius:999px;z-index:4;display:inline-flex;align-items:center;gap:4px;box-shadow:0 2px 8px rgba(0,0,0,0.6)}
+.status-pill{position:absolute;top:5px;right:5px;font-size:7.5px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;padding:2.5px 6.5px;border-radius:999px;z-index:6;display:inline-flex;align-items:center;gap:4px;box-shadow:0 2px 8px rgba(0,0,0,0.75)}
 .status-pill .live-dot{width:5px;height:5px;border-radius:50%;background:var(--green);animation:livePulseGreen 2s infinite}
 .status-pill.active-pill{background:rgba(6,10,19,0.92);border:1px solid rgba(52,211,153,0.55);color:var(--green)}
 .status-pill.soon-pill{background:rgba(6,10,19,0.92);border:1px solid var(--gold-border);color:var(--gold-light)}
@@ -65,13 +67,15 @@ header,section{position:relative;z-index:2}
 .card-desc{font-size:10.5px;line-height:1.28;color:var(--text-muted)}
 .card-action-btn{width:100%;padding:6.5px 8px;border-radius:8px;font-size:11px;font-weight:800;text-align:center;position:relative;overflow:hidden;transition:transform .15s ease,box-shadow .2s ease}
 .menu-card.available .card-action-btn,.promo-cta-btn,.adm-main-btn.gold,.modal-waitlist-btn{background:linear-gradient(180deg,#FFFFFF 0%,#F5EFE4 52%,#DFC8A4 100%);border:1.5px solid #D8B47E;color:var(--text-dark);box-shadow:inset 0 1.5px 0 #FFFFFF,0 4px 14px rgba(201,168,118,0.28),0 1.5px 0 #9A7846}
-.menu-card.soon .card-action-btn{background:rgba(226,232,240,0.04);border:1px solid var(--border-subtle);color:var(--text-muted)}
-.menu-card.blurred .card-inner-blur{filter:blur(18px) saturate(1.15) brightness(0.55);transform:scale(1.12);opacity:0.28;pointer-events:none;user-select:none}
-.tg-spoiler-overlay{position:absolute;inset:0;z-index:5;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 50% 45%,rgba(16,26,48,0.5) 0%,rgba(5,9,18,0.72) 100%);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);overflow:hidden;padding:12px}
+.menu-card.soon .card-action-btn{background:rgba(201,168,118,0.08);border:1px solid rgba(201,168,118,0.28);color:var(--gold-light)}
+/* УМНЫЙ ПОЛУПРОЗРАЧНЫЙ ЛЮКС-СПОЙЛЕР (НЕ ПРЯЧЕТ НОВЫЙ 3D-БАННЕР В СЕРОЕ ПЯТНО) */
+.menu-card.blurred .card-cover img{filter:brightness(0.88) saturate(1.1);transition:transform .3s ease}
+.menu-card.blurred .card-body{filter:blur(5px);opacity:0.45;pointer-events:none;user-select:none}
+.tg-spoiler-overlay{position:absolute;inset:0;z-index:5;display:flex;align-items:flex-end;justify-content:center;background:linear-gradient(180deg,rgba(4,7,14,0.08) 0%,rgba(4,7,14,0.55) 52%,rgba(4,7,14,0.92) 100%);overflow:hidden;padding:12px 10px 14px 10px}
 .spoiler-canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1}
-.tg-spoiler-pill{position:relative;z-index:2;display:inline-flex;align-items:center;gap:6px;background:rgba(6,10,19,0.9);border:1px solid rgba(226,232,240,0.22);box-shadow:0 6px 20px rgba(0,0,0,0.6);backdrop-filter:blur(6px);color:var(--platinum);font-size:10.5px;font-weight:700;padding:7px 13px;border-radius:999px;letter-spacing:.3px;text-align:center;white-space:nowrap;transition:all .25s ease}
+.tg-spoiler-pill{position:relative;z-index:2;display:inline-flex;align-items:center;gap:6px;background:rgba(6,10,19,0.94);border:1px solid var(--gold);box-shadow:0 6px 20px rgba(0,0,0,0.85),0 0 14px rgba(201,168,118,0.22);backdrop-filter:blur(6px);color:var(--cream);font-size:10.5px;font-weight:700;padding:7px 13px;border-radius:999px;letter-spacing:.3px;text-align:center;white-space:nowrap;transition:all .25s ease}
 .tg-spoiler-pill span.dot{width:6px;height:6px;border-radius:50%;background:var(--gold);animation:livePulseGold 2.2s infinite}
-.tg-spoiler-pill.waitlisted{border-color:rgba(52,211,153,0.55);background:rgba(8,22,22,0.92);color:var(--green)}
+.tg-spoiler-pill.waitlisted{border-color:rgba(52,211,153,0.65);background:rgba(8,22,22,0.95);color:var(--green)}
 .tg-spoiler-pill.waitlisted span.dot{background:var(--green);animation:livePulseGreen 2s infinite}
 .hub-footer-emblem{margin-top:10px;display:flex;flex-direction:column;align-items:center;gap:6px}
 .hub-emblem-svg{width:44px;height:auto;cursor:pointer;user-select:none;transition:transform .15s ease;filter:drop-shadow(0 0 14px rgba(201,168,118,0.25))}
@@ -79,11 +83,11 @@ header,section{position:relative;z-index:2}
 .hub-bottom-pills{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap}
 .home-screen-pill{display:inline-flex;align-items:center;gap:5px;background:rgba(16,26,46,0.72);border:1px solid var(--border-subtle);color:var(--text-secondary);font-size:10.5px;font-weight:500;padding:5px 11px;border-radius:999px;cursor:pointer;transition:all .2s ease}
 .home-screen-pill:active{transform:scale(.96);border-color:var(--gold)}
-.admin-open-pill{display:none;background:var(--gold-glow);border:1px solid var(--gold);color:var(--gold-light);font-size:10.5px;font-weight:700;padding:4px 11px;border-radius:999px;cursor:pointer}
+.admin-open-pill{display:none;background:var(--gold-glow);border:1px solid var(--gold);color:var(--gold-light);font-size:10.5px;font-weight:700;padding:5px 12px;border-radius:999px;cursor:pointer}
 .admin-open-pill.unlocked{display:inline-flex;align-items:center;gap:5px}
 .promo-wrap{max-width:600px;margin:0 auto;padding:14px 0 36px 0}
 .promo-card{background:var(--bg-card);backdrop-filter:blur(10px);border:1.5px solid var(--gold-border);border-radius:16px;overflow:hidden;margin-top:12px}
-.promo-cover{width:100%;aspect-ratio:2/1;max-height:250px;background:var(--bg-dark-inner);border-bottom:1px solid var(--border-subtle);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.promo-cover{width:100%;aspect-ratio:2/1;max-height:260px;background:var(--bg-dark-inner);border-bottom:1px solid var(--border-subtle);display:flex;align-items:center;justify-content:center;overflow:hidden}
 .promo-cover img{width:100%;height:100%;object-fit:cover;object-position:center}
 .promo-body{padding:20px 18px}.promo-title{font-size:20px;font-weight:800;color:var(--platinum);margin-bottom:12px}
 .promo-text{font-size:14px;line-height:1.6;color:var(--text-secondary);white-space:pre-line;margin-bottom:20px}
@@ -146,7 +150,7 @@ header,section{position:relative;z-index:2}
 .rule-heading{font-size:14px;font-weight:700;color:var(--gold-light);text-transform:uppercase;margin-bottom:9px}
 .rule-content{font-size:13.5px;line-height:1.55;color:var(--platinum)}.rule-content p+p{margin-top:10px;font-weight:600;color:var(--gold-light)}
 .footer-note{font-size:12px;font-style:italic;color:var(--text-muted);line-height:1.5}
-.admin-wrap{max-width:780px;margin:0 auto;padding:16px 0 50px 0}
+.admin-wrap{max-width:800px;margin:0 auto;padding:16px 0 50px 0}
 .admin-top-bar{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:16px;background:var(--bg-card);border:1px solid var(--gold-border);padding:14px 16px;border-radius:14px}
 .admin-top-title{font-size:16px;font-weight:800;color:var(--gold-light)}.admin-top-sub{font-size:11.5px;color:var(--text-muted);margin-top:2px}
 .stats-panel{background:var(--bg-card);border:1px solid var(--gold-border);border-radius:14px;padding:16px;margin-bottom:18px}
@@ -167,8 +171,9 @@ header,section{position:relative;z-index:2}
 .adm-check-label input{width:16px;height:16px;accent-color:var(--gold);cursor:pointer}
 .adm-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
 .adm-grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:10px}
-.adm-field{display:flex;flex-direction:column;gap:4px;margin-bottom:10px}.adm-field label{font-size:11.5px;font-weight:600;color:var(--text-muted)}
+.adm-field{display:flex;flex-direction:column;gap:4px;margin-bottom:10px}.adm-field label{font-size:11.5px;font-weight:600;color:var(--text-muted);display:flex;justify-content:space-between}
 .adm-input,.adm-select,.adm-textarea{width:100%;background:var(--bg-dark-inner);border:1px solid rgba(226,232,240,0.16);border-radius:8px;padding:9px 11px;color:var(--platinum);font-family:inherit;font-size:13px;outline:none}
+.adm-range{width:100%;accent-color:var(--gold);cursor:pointer;height:6px;margin-top:6px}
 .adm-textarea{min-height:80px;resize:vertical;line-height:1.45}.adm-cover-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .adm-upload-label{display:inline-flex;align-items:center;gap:6px;background:var(--gold-glow);border:1px solid var(--gold);color:var(--gold-light);padding:7px 12px;border-radius:7px;font-size:12px;font-weight:600;cursor:pointer}
 .adm-add-block-btn{width:100%;padding:12px;background:rgba(52,211,153,0.1);border:1.5px dashed var(--green);border-radius:12px;color:var(--green);font-size:13px;font-weight:700;cursor:pointer;margin-bottom:18px}
@@ -178,7 +183,7 @@ header,section{position:relative;z-index:2}
 .adm-main-btn{padding:11px 14px;border-radius:9px;font-size:12px;font-weight:700;cursor:pointer;border:none;text-align:center;position:relative;overflow:hidden}
 .adm-main-btn.secondary{background:var(--bg-dark-inner);border:1px solid var(--gold-border);color:var(--gold-light)}
 .adm-main-btn.emerald{background:var(--green-bg);border:1px solid var(--green);color:var(--green)}
-.cover-gen-preview-wrap{width:100%;background:#04070E;border:1.5px solid var(--gold);border-radius:14px;overflow:hidden;margin:10px 0 14px 0;display:flex;align-items:center;justify-content:center;box-shadow:0 16px 40px rgba(0,0,0,0.85),0 0 28px rgba(201,168,118,0.15)}
+.cover-gen-preview-wrap{width:100%;background:#04070E;border:1.5px solid var(--gold);border-radius:14px;overflow:hidden;margin:10px 0 14px 0;display:flex;align-items:center;justify-content:center;box-shadow:0 16px 40px rgba(0,0,0,0.85),0 0 28px rgba(201,168,118,0.18)}
 #coverGenCanvas{width:100%;max-height:360px;object-fit:contain;display:block}
 .gen-preset-chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
 .modal-overlay{position:fixed;inset:0;background:rgba(4,7,14,0.86);backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center;padding:16px;z-index:100}.modal-overlay.open{display:flex;animation:screenFade .18s ease-out}
@@ -211,10 +216,13 @@ header,section{position:relative;z-index:2}
 <path fill="#C9A876" fill-rule="evenodd" clip-rule="evenodd" d="M272.2,129.8L272,131L279,143L279,150.2L282.8,150.2L282.8,143L290,131L289.5,129.8L286.5,130.2L281,138.8L275.5,130.2ZM240.2,130L240.2,150.5L254.8,150.5L254.8,147.5L244,147.5L244,141.8L253.5,141.8L253.5,138.6L244,138.6L244,133L254.8,133L254.8,130ZM201.4,130L201.4,150.5L205,150.5L205,136.8L216.2,150.5L220,150.5L220,130L216.2,130L216.2,143.2L205,130ZM119.2,130L119.2,150.5L122.8,150.5L122.8,137.2L129.8,147.5L131.2,147.5L138,137.2L138,150.5L141.6,150.5L141.6,130L137.5,130L130.5,141.2L123.5,130ZM168.5,129.8L164.5,131.8L161.5,135.5L160.5,139L160.8,142.5L162.2,146.5L164.8,149L168.5,150.8L173.5,150.8L177.8,149.2L180.5,146.8L182.2,142.8L182.5,139.2L181.5,135.2L179.5,132.5L176,130.2L173.2,129.5ZM169.5,133L173.8,133L176.5,134.8L178.2,137.8L178.5,142.2L176.5,145.8L173.5,147.6L169.5,147.6L166.2,145.5L164.5,142L164.8,137.8L167.2,134.2Z"></path>
 </svg>
 </a>
+<div class="header-right-btns">
+<button type="button" id="topStudioBtn" onclick="showScreen('admin')" class="studio-badge-top">🎨 Студия v3.0</button>
 <button type="button" onclick="openMainChannel(event)" class="channel-pill">
 <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.02-1.96 1.25-5.54 3.69-.52.36-1 .53-1.42.52-.47-.01-1.37-.26-2.03-.48-.82-.27-1.47-.42-1.42-.88.03-.24.35-.49.96-.75 3.78-1.65 6.31-2.74 7.58-3.27 3.61-1.51 4.35-1.77 4.84-1.78.11 0 .35.03.5.16.13.1.17.24.18.34.01.07.02.21.01.3z"></path></svg>
-Канал AiBet Money
+Канал AiBet
 </button>
+</div>
 </div>
 </div>
 </header>
@@ -235,7 +243,7 @@ header,section{position:relative;z-index:2}
 </svg>
 <div class="hub-bottom-pills">
 <button type="button" class="home-screen-pill" id="addHomeBtn" onclick="addAppToHomeScreen()">📲 Добавить на экран телефона</button>
-<button type="button" class="admin-open-pill" id="adminQuickBtn" onclick="showScreen('admin')">⚙️ Открыть Админ-панель</button>
+<button type="button" class="admin-open-pill" id="adminQuickBtn" onclick="showScreen('admin')">🎨 Открыть 3D-Студию v3.0 и Админку</button>
 </div>
 </div>
 </div>
@@ -343,73 +351,114 @@ header,section{position:relative;z-index:2}
 <div class="container">
 <div class="admin-wrap">
 <div class="admin-top-bar">
-<div><div class="admin-top-title">⚙️ Админ-панель платформы</div><div class="admin-top-sub">Управление ссылками, обложками, карточками и статистикой</div></div>
+<div><div class="admin-top-title">🎨 3D-Студия баннеров AiBet v3.0 & Админ-панель</div><div class="admin-top-sub">Настройка 3D-сцен, цветовых палитр, карточек и аналитики</div></div>
 <div style="display:flex;gap:8px;flex-wrap:wrap">
 <button type="button" class="adm-mini-btn gold-outline" onclick="forceBypassCacheReload()">🔄 Сбросить кэш ТГ</button>
 <button type="button" class="back-to-menu-btn" onclick="showScreen('hub')">✓ Готово (В меню)</button>
 </div>
 </div>
 
-<div class="stats-panel" style="border:1.5px solid var(--gold)">
+<div class="stats-panel" style="border:2px solid var(--gold);box-shadow:0 0 30px rgba(201,168,118,0.14)">
 <div class="admin-item-head" style="margin-bottom:10px">
-<strong>🎨 3D-Студия баннеров AiBet PRO v2.0</strong>
+<strong>🚀 ГЕНЕРАТОР БАННЕРОВ AI-BET STUDIO v3.0</strong>
 <div class="admin-head-btns">
 <label class="adm-mini-btn gold-outline" style="cursor:pointer">🖼️ Свой фон<input type="file" accept="image/*" style="display:none" onchange="loadCustomBgTemplate(this)"></label>
-<button type="button" class="adm-mini-btn" onclick="clearCustomBgTemplate()">✕ Сбросить свой фон</button>
+<button type="button" class="adm-mini-btn" onclick="clearCustomBgTemplate()">✕ Сбросить фон</button>
 <button type="button" class="adm-mini-btn danger" onclick="resetAllCoversToWidgets()">↺ Вернуть мини-виджеты</button>
 </div>
 </div>
+
 <div class="gen-preset-chips">
-<span style="font-size:11px;color:var(--text-muted);align-self:center;margin-right:4px">Выбери пресет карточки:</span>
-<button type="button" class="adm-mini-btn gold-outline" onclick="applyGenPreset(0,'КАЛЬКУЛЯТОР','СТАВОК','SMART FLAT • PRO','calc','carbon','poster')">1. 📊 Калькулятор</button>
-<button type="button" class="adm-mini-btn gold-outline" onclick="applyGenPreset(1,'ЗАКРЫТЫЙ','VIP-КЛУБ','PRIVATE LINE • VIP','crown','guilloche','poster')">2. 👑 VIP-клуб</button>
-<button type="button" class="adm-mini-btn gold-outline" onclick="applyGenPreset(2,'ЛИЧНОЕ','ВЕДЕНИЕ','1-ON-1 MENTORSHIP','shield','silk_hd','poster')">3. 🛡️ Личное ведение</button>
-<button type="button" class="adm-mini-btn gold-outline" onclick="applyGenPreset(3,'КУПИТЬ','СТАВКИ','MATCH OF THE DAY','bolt','bokeh','poster')">4. ⚡ Купить ставки</button>
+<span style="font-size:11px;color:var(--text-muted);align-self:center;margin-right:4px">Быстрые пресеты v3.0:</span>
+<button type="button" class="adm-mini-btn gold-outline" onclick="applyGenPreset(0,'КАЛЬКУЛЯТОР','СТАВОК','SMART FLAT • AI','calc','emerald_vip','carbon','split_3d')">1. 📊 Калькулятор (Изумруд)</button>
+<button type="button" class="adm-mini-btn gold-outline" onclick="applyGenPreset(1,'ЗАКРЫТЫЙ','VIP-КЛУБ','PRIVATE LINE • VIP','crown','imperial_gold','guilloche','split_3d')">2. 👑 VIP-клуб (Золото)</button>
+<button type="button" class="adm-mini-btn gold-outline" onclick="applyGenPreset(2,'ЛИЧНОЕ','ВЕДЕНИЕ','1-ON-1 MENTORSHIP','shield','royal_sapphire','silk_hd','split_3d')">3. 🛡️ Ведение (Сапфир)</button>
+<button type="button" class="adm-mini-btn gold-outline" onclick="applyGenPreset(3,'КУПИТЬ','СТАВКИ','MATCH OF THE DAY','bolt','crimson_fire','bokeh','split_3d')">4. ⚡ Ставки (Рубин)</button>
 </div>
+
 <div class="adm-grid-3">
 <div class="adm-field"><label>1-я строка (Белая платина)</label><input type="text" class="adm-input" id="genLine1" value="ЗАКРЫТЫЙ" oninput="renderBrandCoverPreview()"></div>
-<div class="adm-field"><label>2-я строка (3D-Золото)</label><input type="text" class="adm-input" id="genLine2" value="VIP-КЛУБ" oninput="renderBrandCoverPreview()"></div>
-<div class="adm-field"><label>Верхний чип-бейдж</label><input type="text" class="adm-input" id="genBadgeText" value="PRIVATE LINE • VIP" oninput="renderBrandCoverPreview()"></div>
+<div class="adm-field"><label>2-я строка (3D-Металл)</label><input type="text" class="adm-input" id="genLine2" value="VIP-КЛУБ" oninput="renderBrandCoverPreview()"></div>
+<div class="adm-field"><label>Верхний неоновый бейдж</label><input type="text" class="adm-input" id="genBadgeText" value="PRIVATE LINE • VIP" oninput="renderBrandCoverPreview()"></div>
 </div>
+
+<div class="adm-grid-2">
+<div class="adm-field">
+<label>🎨 Цветовая палитра света (Тема v3.0)</label>
+<select class="adm-select" id="genThemeSelect" onchange="renderBrandCoverPreview()">
+<option value="imperial_gold">👑 1. Имперское Золото (Gold & Obsidian)</option>
+<option value="emerald_vip">💎 2. Изумрудный Банк (Emerald & Gold)</option>
+<option value="royal_sapphire">🌌 3. Королевский Сапфир (Champions Blue)</option>
+<option value="crimson_fire">🔥 4. Рубиновый Инсайд (Crimson & Gold)</option>
+</select>
+</div>
+<div class="adm-field">
+<label>🏆 3D-Сцена / Главный объект</label>
+<select class="adm-select" id="genEmblemSelect" onchange="renderBrandCoverPreview()">
+<option value="crown">👑 3D VIP-Карта + Золотая Корона</option>
+<option value="calc">📊 3D Финтех-Терминал + Свечи ROI</option>
+<option value="shield">🛡️ 3D Силовой Щит + Радар Безопасности</option>
+<option value="bolt">⚡ 3D Снайпер-Прицел + Молния Матча</option>
+<option value="trophy">🏆 3D Кубок Чемпионов + Звёзды</option>
+</select>
+</div>
+</div>
+
 <div class="adm-grid-3">
 <div class="adm-field">
-<label>Композиция (Макет)</label>
+<label>📐 Архитектура макета</label>
 <select class="adm-select" id="genLayoutSelect" onchange="renderBrandCoverPreview()">
-<option value="poster">🔥 1. Постер + 3D-Арт справа</option>
-<option value="hud">🎯 2. Финтех Радар (HUD)</option>
-<option value="imperial">👑 3. Центровой Люкс</option>
+<option value="split_3d">🔥 1. Постер + 3D-Сцена справа</option>
+<option value="cyber_hud">🎯 2. Финтех-Радар + Прицельная сетка</option>
+<option value="center_hero">🏛️ 3. Центровой Имперский Люкс</option>
 </select>
 </div>
 <div class="adm-field">
-<label>3D-Объект / Иллюстрация</label>
-<select class="adm-select" id="genEmblemSelect" onchange="renderBrandCoverPreview()">
-<option value="crown">👑 VIP-Карта + Корона</option>
-<option value="calc">📊 Свечной График + ROI</option>
-<option value="shield">🛡️ Броне-Щит + Радар</option>
-<option value="bolt">⚡ Снайпер Прицел + Молния</option>
-<option value="logo">🅰️ Монограмма AiBet</option>
-</select>
-</div>
-<div class="adm-field">
-<label>Текстура фона</label>
+<label>✨ Текстура глубины</label>
 <select class="adm-select" id="genStyleSelect" onchange="renderBrandCoverPreview()">
-<option value="guilloche">1. Изумрудно-Золотой Гильош</option>
-<option value="carbon">2. Тёмный 3D-Карбон</option>
-<option value="bokeh">3. Неоновое Боке + Лучи</option>
-<option value="silk_hd">4. Обсидиановый Шёлк</option>
+<option value="guilloche">1. Банковский Гильош v3</option>
+<option value="carbon">2. 3D Карбон + Соты</option>
+<option value="bokeh">3. Кибер-Боке + Прожекторы</option>
+<option value="silk_hd">4. Жидкий Шёлк + Волны</option>
+</select>
+</div>
+<div class="adm-field">
+<label>🖼️ Размер / Назначение</label>
+<select class="adm-select" id="genAspectSelect" onchange="renderBrandCoverPreview()">
+<option value="card">Карточка меню (1200×600)</option>
+<option value="tg_post">Пост в ТГ-канал (1280×720)</option>
+<option value="square">Квадрат (1080×1080)</option>
 </select>
 </div>
 </div>
-<div class="adm-grid-2">
-<div class="adm-field"><label>На какую карточку поставить</label><select class="adm-select" id="genTargetCardSelect" onchange="syncPresetFromDropdown(this.value)"></select></div>
-<div class="adm-field"><label>Пропорции холста</label><select class="adm-select" id="genAspectSelect" onchange="renderBrandCoverPreview()"><option value="card">Широкий баннер (1200×600)</option><option value="square">Квадратный пост (1080×1080)</option></select></div>
+
+<div class="adm-grid-3">
+<div class="adm-field">
+<label><span>Масштаб текста</span><span id="lblTextScale">100%</span></label>
+<input type="range" class="adm-range" id="genTextScale" min="75" max="125" value="100" oninput="document.getElementById('lblTextScale').textContent=this.value+'%';renderBrandCoverPreview()">
 </div>
+<div class="adm-field">
+<label><span>Масштаб 3D-сцены</span><span id="lblArtScale">100%</span></label>
+<input type="range" class="adm-range" id="genArtScale" min="70" max="130" value="100" oninput="document.getElementById('lblArtScale').textContent=this.value+'%';renderBrandCoverPreview()">
+</div>
+<div class="adm-field">
+<label><span>Мощность неона и бликов</span><span id="lblGlowPower">100%</span></label>
+<input type="range" class="adm-range" id="genGlowPower" min="20" max="150" value="100" oninput="document.getElementById('lblGlowPower').textContent=this.value+'%';renderBrandCoverPreview()">
+</div>
+</div>
+
 <div class="cover-gen-preview-wrap"><canvas id="coverGenCanvas" width="1200" height="600"></canvas></div>
+
+<div class="adm-field">
+<label>Выбери карточку для установки этого баннера:</label>
+<select class="adm-select" id="genTargetCardSelect" onchange="syncPresetFromDropdown(this.value)"></select>
+</div>
+
 <div class="adm-grid-2" style="margin-bottom:8px">
 <button type="button" class="adm-main-btn gold shimmer-effect" onclick="applyGeneratedCoverToCard()">✨ Поставить на выбранную карточку</button>
-<button type="button" class="adm-main-btn emerald" onclick="applyAllGeneratedCovers(true)">⚡ Обновить все 4 карточки в 1 клик</button>
+<button type="button" class="adm-main-btn emerald" onclick="applyAllGeneratedCovers(true)">⚡ Сгенерировать все 4 карточки в разных цветах</button>
 </div>
-<button type="button" class="adm-main-btn secondary" style="width:100%" onclick="downloadGeneratedCoverPng()">💾 Скачать этот баннер в оригинальном HD (PNG)</button>
+<button type="button" class="adm-main-btn secondary" style="width:100%" onclick="downloadGeneratedCoverPng()">💾 Скачать баннер в оригинальном HD (PNG)</button>
 </div>
 
 <div class="stats-panel">
@@ -457,7 +506,7 @@ header,section{position:relative;z-index:2}
 <button type="button" class="adm-add-block-btn" onclick="addNewBlock()">+ Добавить новый блок в меню</button>
 <div class="adm-publish-box">
 <div class="adm-publish-title">🚀 Опубликовать изменения для всех подписчиков</div>
-<div class="adm-publish-desc">Когда ты настроил разделы и ссылки — скопируй обновлённый код и замени им <code>index.html</code> на GitHub:</div>
+<div class="adm-publish-desc">Когда ты настроил разделы и обложки — скопируй обновлённый код и замени им <code>index.html</code> на GitHub:</div>
 <div class="adm-export-btns">
 <button type="button" class="adm-main-btn gold shimmer-effect" onclick="copyUpdatedSiteCode()">📋 Скопировать обновлённый код</button>
 <button type="button" class="adm-main-btn secondary" onclick="downloadUpdatedSiteFile()">💾 Скачать index.html</button>
@@ -527,12 +576,15 @@ function decodeSecret(enc){if(!enc)return '';try{const r=enc.trim();if(r.indexOf
 
 function forceBypassCacheReload(){
   triggerHaptic('medium');
-  try{['v9','v10','v12','v13','v14','v15'].forEach(v=>localStorage.removeItem('aibet_menu_blocks_'+v));localStorage.removeItem('aibet_use_mini_widgets');}catch(e){}
+  try{
+    ['v9','v10','v12','v13','v14','v15','v30'].forEach(v=>localStorage.removeItem('aibet_menu_blocks_'+v));
+    localStorage.removeItem('aibet_use_mini_widgets');
+  }catch(e){}
   window.location.replace(window.location.pathname+'?v='+Date.now());
 }
 
 document.addEventListener('pointerdown',e=>{
-  const btn=e.target.closest('.card-action-btn,.promo-cta-btn,.action-btn,.modal-waitlist-btn,.channel-pill,.tg-cta-link,.adm-main-btn');
+  const btn=e.target.closest('.card-action-btn,.promo-cta-btn,.action-btn,.modal-waitlist-btn,.channel-pill,.tg-cta-link,.adm-main-btn,.studio-badge-top');
   if(!btn)return;
   const r=btn.getBoundingClientRect(),sz=Math.max(r.width,r.height),sp=document.createElement('span');
   sp.className='btn-ripple';sp.style.width=sp.style.height=sz+'px';
@@ -699,18 +751,27 @@ async function refreshBotVisitors(){
 }
 
 let menuBlocks=[];
-try{const sv=localStorage.getItem('aibet_menu_blocks_v15'),pr=sv?JSON.parse(sv):null;menuBlocks=(Array.isArray(pr)&&pr.length>0)?pr:JSON.parse(JSON.stringify(window.INITIAL_BLOCKS));}catch(e){menuBlocks=JSON.parse(JSON.stringify(window.INITIAL_BLOCKS));}
-function saveBlocksDraft(){try{localStorage.setItem('aibet_menu_blocks_v15',JSON.stringify(menuBlocks));}catch(e){}}
+try{const sv=localStorage.getItem('aibet_menu_blocks_v30'),pr=sv?JSON.parse(sv):null;menuBlocks=(Array.isArray(pr)&&pr.length>0)?pr:JSON.parse(JSON.stringify(window.INITIAL_BLOCKS));}catch(e){menuBlocks=JSON.parse(JSON.stringify(window.INITIAL_BLOCKS));}
+function saveBlocksDraft(){try{localStorage.setItem('aibet_menu_blocks_v30',JSON.stringify(menuBlocks));}catch(e){}}
 let waitlistMap={};try{waitlistMap=JSON.parse(localStorage.getItem('aibet_waitlist_v1')||'{}');}catch(e){waitlistMap={};}
 let activeModalBlockIndex=null;
 
-// 3D-СТУДИЯ БАННЕРОВ AIBET PRO v2.0
+// =========================================================
+// ГЕНЕРАТОР БАННЕРОВ AI-BET STUDIO v3.0 (4 ПАЛИТРЫ СВЕТА, 5 3D-СЦЕН, СЛАЙДЕРЫ)
+// =========================================================
 let customBgImg=null,hdSilkImg=null;
+const STUDIO_THEMES={
+  imperial_gold:{bg0:'#17130A',bg1:'#090C15',bg2:'#030509',accent:'#F5D393',accent2:'#C9A876',glow:'229,185,111',secondary:'201,168,118',badgeDot:'#F5D393'},
+  emerald_vip:{bg0:'#06221B',bg1:'#061019',bg2:'#020509',accent:'#34D399',accent2:'#E5B96F',glow:'52,211,153',secondary:'229,185,111',badgeDot:'#34D399'},
+  royal_sapphire:{bg0:'#0A1E3C',bg1:'#070F20',bg2:'#02040A',accent:'#38BDF8',accent2:'#F5D393',glow:'56,189,248',secondary:'229,185,111',badgeDot:'#38BDF8'},
+  crimson_fire:{bg0:'#280B14',bg1:'#0D0914',bg2:'#040307',accent:'#F87171',accent2:'#F5D393',glow:'248,113,113',secondary:'229,185,111',badgeDot:'#F87171'}
+};
+
 const CARD_PRESETS=[
-  {l1:'КАЛЬКУЛЯТОР',l2:'СТАВОК',badge:'SMART FLAT • PRO',emblem:'calc',style:'carbon',layout:'poster'},
-  {l1:'ЗАКРЫТЫЙ',l2:'VIP-КЛУБ',badge:'PRIVATE LINE • VIP',emblem:'crown',style:'guilloche',layout:'poster'},
-  {l1:'ЛИЧНОЕ',l2:'ВЕДЕНИЕ',badge:'1-ON-1 MENTORSHIP',emblem:'shield',style:'silk_hd',layout:'poster'},
-  {l1:'КУПИТЬ',l2:'СТАВКИ',badge:'MATCH OF THE DAY',emblem:'bolt',style:'bokeh',layout:'poster'}
+  {l1:'КАЛЬКУЛЯТОР',l2:'СТАВОК',badge:'SMART FLAT • AI',emblem:'calc',theme:'emerald_vip',style:'carbon',layout:'split_3d'},
+  {l1:'ЗАКРЫТЫЙ',l2:'VIP-КЛУБ',badge:'PRIVATE LINE • VIP',emblem:'crown',theme:'imperial_gold',style:'guilloche',layout:'split_3d'},
+  {l1:'ЛИЧНОЕ',l2:'ВЕДЕНИЕ',badge:'1-ON-1 MENTORSHIP',emblem:'shield',theme:'royal_sapphire',style:'silk_hd',layout:'split_3d'},
+  {l1:'КУПИТЬ',l2:'СТАВКИ',badge:'MATCH OF THE DAY',emblem:'bolt',theme:'crimson_fire',style:'bokeh',layout:'split_3d'}
 ];
 
 (function preloadSilkTexture(){
@@ -740,22 +801,24 @@ function resetAllCoversToWidgets(){
 }
 
 function syncPresetFromDropdown(val){
-  const idx=parseInt(val,10)||0,p=CARD_PRESETS[idx]||{l1:(menuBlocks[idx]?menuBlocks[idx].title.toUpperCase():'AIBET'),l2:'MONEY',badge:'AIBET MONEY CLUB',emblem:'logo',style:'guilloche',layout:'poster'};
+  const idx=parseInt(val,10)||0,p=CARD_PRESETS[idx]||{l1:(menuBlocks[idx]?menuBlocks[idx].title.toUpperCase():'AIBET'),l2:'MONEY',badge:'AIBET MONEY CLUB',emblem:'trophy',theme:'imperial_gold',style:'guilloche',layout:'split_3d'};
   document.getElementById('genLine1').value=p.l1;document.getElementById('genLine2').value=p.l2;
-  const bIn=document.getElementById('genBadgeText');if(bIn)bIn.value=p.badge;
-  const emSel=document.getElementById('genEmblemSelect');if(emSel)emSel.value=p.emblem;
-  const stSel=document.getElementById('genStyleSelect');if(stSel)stSel.value=p.style;
-  const lySel=document.getElementById('genLayoutSelect');if(lySel)lySel.value=p.layout;
+  document.getElementById('genBadgeText').value=p.badge;
+  document.getElementById('genEmblemSelect').value=p.emblem;
+  document.getElementById('genThemeSelect').value=p.theme;
+  document.getElementById('genStyleSelect').value=p.style;
+  document.getElementById('genLayoutSelect').value=p.layout;
   renderBrandCoverPreview();
 }
 
-function applyGenPreset(idx,l1,l2,badge,emblem,style,layout){
+function applyGenPreset(idx,l1,l2,badge,emblem,theme,style,layout){
   triggerHaptic('light');
   document.getElementById('genLine1').value=l1;document.getElementById('genLine2').value=l2;
-  const bIn=document.getElementById('genBadgeText');if(bIn&&badge)bIn.value=badge;
-  const emSel=document.getElementById('genEmblemSelect');if(emSel&&emblem)emSel.value=emblem;
-  const stSel=document.getElementById('genStyleSelect');if(stSel&&style)stSel.value=style;
-  const lySel=document.getElementById('genLayoutSelect');if(lySel&&layout)lySel.value=layout;
+  document.getElementById('genBadgeText').value=badge;
+  document.getElementById('genEmblemSelect').value=emblem;
+  document.getElementById('genThemeSelect').value=theme;
+  document.getElementById('genStyleSelect').value=style;
+  document.getElementById('genLayoutSelect').value=layout;
   const sel=document.getElementById('genTargetCardSelect');if(sel&&sel.options[idx])sel.value=String(idx);
   renderBrandCoverPreview();
 }
@@ -777,142 +840,153 @@ function drawRoundedRect(ctx,x,y,w,h,r){
   ctx.quadraticCurveTo(x,y+h,x,y+h-r);ctx.lineTo(x,y+r);ctx.quadraticCurveTo(x,y,x+r,y);ctx.closePath();
 }
 
-function drawHero3DArtwork(ctx,cx,cy,scale,emblemType){
+function drawHero3DArtwork(ctx,cx,cy,scale,emblemType,themeObj,glowMult){
   ctx.save();ctx.translate(cx,cy);ctx.scale(scale,scale);
-  const halo=ctx.createRadialGradient(0,0,10,0,0,220);
-  halo.addColorStop(0,'rgba(229,185,111,0.32)');halo.addColorStop(0.5,'rgba(30,58,110,0.18)');halo.addColorStop(1,'rgba(0,0,0,0)');
-  ctx.fillStyle=halo;ctx.beginPath();ctx.arc(0,0,220,0,Math.PI*2);ctx.fill();
+  const halo=ctx.createRadialGradient(0,0,8,0,0,240);
+  halo.addColorStop(0,'rgba('+themeObj.glow+','+(0.42*glowMult).toFixed(2)+')');
+  halo.addColorStop(0.5,'rgba('+themeObj.secondary+','+(0.18*glowMult).toFixed(2)+')');
+  halo.addColorStop(1,'rgba(0,0,0,0)');
+  ctx.fillStyle=halo;ctx.beginPath();ctx.arc(0,0,240,0,Math.PI*2);ctx.fill();
 
-  ctx.strokeStyle='rgba(229,185,111,0.22)';ctx.lineWidth=1.5;ctx.setLineDash([8,6]);
-  ctx.beginPath();ctx.arc(0,0,152,0,Math.PI*2);ctx.stroke();ctx.setLineDash([]);
-  ctx.strokeStyle='rgba(226,232,240,0.12)';ctx.lineWidth=1;
-  ctx.beginPath();ctx.arc(0,0,178,0,Math.PI*2);ctx.stroke();
+  ctx.strokeStyle='rgba('+themeObj.glow+',0.28)';ctx.lineWidth=1.6;ctx.setLineDash([10,6]);
+  ctx.beginPath();ctx.arc(0,0,156,0,Math.PI*2);ctx.stroke();ctx.setLineDash([]);
+  ctx.strokeStyle='rgba(226,232,240,0.14)';ctx.lineWidth=1;
+  ctx.beginPath();ctx.arc(0,0,182,0,Math.PI*2);ctx.stroke();
 
   const goldGrad=ctx.createLinearGradient(-120,-120,120,120);
-  goldGrad.addColorStop(0,'#FFF7E2');goldGrad.addColorStop(0.35,'#F2C97D');goldGrad.addColorStop(0.7,'#C9A876');goldGrad.addColorStop(1,'#8C6530');
+  goldGrad.addColorStop(0,'#FFF7E2');goldGrad.addColorStop(0.35,'#F5D393');goldGrad.addColorStop(0.7,'#C9A876');goldGrad.addColorStop(1,'#8C6530');
 
   if(emblemType==='calc'){
-    ctx.save();ctx.rotate(-0.06);
-    drawRoundedRect(ctx,-135,-105,270,210,22);
-    const cardBg=ctx.createLinearGradient(-135,-105,135,105);
-    cardBg.addColorStop(0,'rgba(18,30,56,0.94)');cardBg.addColorStop(1,'rgba(7,12,24,0.97)');
-    ctx.fillStyle=cardBg;ctx.shadowColor='rgba(0,0,0,0.85)';ctx.shadowBlur=30;ctx.shadowOffsetY=14;ctx.fill();
-    ctx.shadowBlur=0;ctx.shadowOffsetY=0;ctx.strokeStyle=goldGrad;ctx.lineWidth=2.2;ctx.stroke();
+    ctx.save();ctx.rotate(-0.05);
+    drawRoundedRect(ctx,-140,-108,280,216,22);
+    const cardBg=ctx.createLinearGradient(-140,-108,140,108);
+    cardBg.addColorStop(0,'rgba(14,28,48,0.95)');cardBg.addColorStop(1,'rgba(5,10,20,0.98)');
+    ctx.fillStyle=cardBg;ctx.shadowColor='rgba(0,0,0,0.9)';ctx.shadowBlur=32;ctx.shadowOffsetY=14;ctx.fill();
+    ctx.shadowBlur=0;ctx.shadowOffsetY=0;ctx.strokeStyle=themeObj.accent;ctx.lineWidth=2.5;ctx.stroke();
 
     ctx.strokeStyle='rgba(226,232,240,0.08)';ctx.lineWidth=1;
-    for(let y=-55;y<=65;y+=40){ctx.beginPath();ctx.moveTo(-110,y);ctx.lineTo(110,y);ctx.stroke();}
-    for(let x=-80;x<=80;x+=53){ctx.beginPath();ctx.moveTo(x,-75);ctx.lineTo(x,75);ctx.stroke();}
-
-    const bars=[{x:-88,h:48,y:25,g:false},{x:-48,h:68,y:5,g:true},{x:-8,h:54,y:15,g:false},{x:32,h:92,y:-20,g:true},{x:72,h:122,y:-50,g:true}];
+    for(let y=-55;y<=65;y+=40){ctx.beginPath();ctx.moveTo(-115,y);ctx.lineTo(115,y);ctx.stroke();}
+    const bars=[{x:-92,h:50,y:25,g:false},{x:-50,h:72,y:3,g:true},{x:-8,h:58,y:15,g:false},{x:34,h:96,y:-22,g:true},{x:76,h:128,y:-54,g:true}];
     bars.forEach(b=>{
-      ctx.strokeStyle=b.g?'#34D399':'#E5B96F';ctx.lineWidth=2;
-      ctx.beginPath();ctx.moveTo(b.x+10,b.y-14);ctx.lineTo(b.x+10,b.y+b.h+12);ctx.stroke();
+      ctx.strokeStyle=b.g?themeObj.accent:'#E5B96F';ctx.lineWidth=2.2;
+      ctx.beginPath();ctx.moveTo(b.x+11,b.y-14);ctx.lineTo(b.x+11,b.y+b.h+12);ctx.stroke();
       const bg=ctx.createLinearGradient(0,b.y,0,b.y+b.h);
-      if(b.g){bg.addColorStop(0,'#34D399');bg.addColorStop(1,'#059669');}else{bg.addColorStop(0,'#F5D393');bg.addColorStop(1,'#B48A4E');}
-      ctx.fillStyle=bg;drawRoundedRect(ctx,b.x,b.y,20,b.h,5);ctx.fill();
+      if(b.g){bg.addColorStop(0,themeObj.accent);bg.addColorStop(1,'#059669');}else{bg.addColorStop(0,'#F5D393');bg.addColorStop(1,'#9A723B');}
+      ctx.fillStyle=bg;drawRoundedRect(ctx,b.x,b.y,22,b.h,5);ctx.fill();
     });
-
-    ctx.beginPath();ctx.moveTo(-100,45);ctx.bezierCurveTo(-40,35,10,-10,92,-62);
-    ctx.strokeStyle='#FFF';ctx.lineWidth=4;ctx.shadowColor='#34D399';ctx.shadowBlur=16;ctx.stroke();ctx.shadowBlur=0;
-
-    drawRoundedRect(ctx,-112,-90,126,32,8);ctx.fillStyle='rgba(52,211,153,0.18)';ctx.fill();
-    ctx.strokeStyle='#34D399';ctx.lineWidth=1.5;ctx.stroke();
-    ctx.font='800 15px Montserrat, sans-serif';ctx.fillStyle='#34D399';ctx.textAlign='center';ctx.textBaseline='middle';
-    ctx.fillText('BANK SAFE 5%',-49,-74);
+    ctx.beginPath();ctx.moveTo(-102,48);ctx.bezierCurveTo(-40,35,12,-12,96,-66);
+    ctx.strokeStyle='#FFF';ctx.lineWidth=4.5;ctx.shadowColor=themeObj.accent;ctx.shadowBlur=18;ctx.stroke();ctx.shadowBlur=0;
+    drawRoundedRect(ctx,-116,-92,138,34,9);ctx.fillStyle='rgba('+themeObj.glow+',0.2)';ctx.fill();
+    ctx.strokeStyle=themeObj.accent;ctx.lineWidth=1.5;ctx.stroke();
+    ctx.font='900 15px Montserrat, sans-serif';ctx.fillStyle='#FFF';ctx.textAlign='center';ctx.textBaseline='middle';
+    ctx.fillText('FLAT SAFE 5%',-47,-75);
     ctx.restore();
 
   } else if(emblemType==='crown'){
-    ctx.save();ctx.rotate(-0.11);
-    drawRoundedRect(ctx,-145,-92,290,184,20);
-    const vipBg=ctx.createLinearGradient(-145,-92,145,92);
-    vipBg.addColorStop(0,'#1B2845');vipBg.addColorStop(0.5,'#090E1A');vipBg.addColorStop(1,'#04070E');
-    ctx.fillStyle=vipBg;ctx.shadowColor='rgba(0,0,0,0.9)';ctx.shadowBlur=34;ctx.shadowOffsetY=16;ctx.fill();
-    ctx.shadowBlur=0;ctx.shadowOffsetY=0;ctx.strokeStyle=goldGrad;ctx.lineWidth=2.5;ctx.stroke();
+    ctx.save();ctx.rotate(-0.10);
+    drawRoundedRect(ctx,-148,-94,296,188,20);
+    const vipBg=ctx.createLinearGradient(-148,-94,148,94);
+    vipBg.addColorStop(0,'#1E293B');vipBg.addColorStop(0.5,'#090D16');vipBg.addColorStop(1,'#030509');
+    ctx.fillStyle=vipBg;ctx.shadowColor='rgba(0,0,0,0.92)';ctx.shadowBlur=36;ctx.shadowOffsetY=16;ctx.fill();
+    ctx.shadowBlur=0;ctx.shadowOffsetY=0;ctx.strokeStyle=goldGrad;ctx.lineWidth=2.8;ctx.stroke();
 
-    drawRoundedRect(ctx,-133,-80,266,160,14);ctx.strokeStyle='rgba(229,185,111,0.22)';ctx.lineWidth=1;ctx.stroke();
-    drawRoundedRect(ctx,-112,-28,46,36,7);ctx.fillStyle=goldGrad;ctx.fill();
-    ctx.strokeStyle='#090E1A';ctx.lineWidth=1.2;ctx.strokeRect(-102,-28,26,36);
-    ctx.beginPath();ctx.moveTo(-112,-10);ctx.lineTo(-66,-10);ctx.stroke();
+    drawRoundedRect(ctx,-135,-81,270,162,14);ctx.strokeStyle='rgba(229,185,111,0.26)';ctx.lineWidth=1;ctx.stroke();
+    drawRoundedRect(ctx,-114,-30,48,38,7);ctx.fillStyle=goldGrad;ctx.fill();
+    ctx.strokeStyle='#090E1A';ctx.lineWidth=1.2;ctx.strokeRect(-103,-30,26,38);
 
-    ctx.save();ctx.translate(42,-8);ctx.scale(1.85,1.85);ctx.fillStyle=goldGrad;
-    ctx.shadowColor='rgba(229,185,111,0.45)';ctx.shadowBlur=18;
+    ctx.save();ctx.translate(44,-8);ctx.scale(1.9,1.9);ctx.fillStyle=goldGrad;
+    ctx.shadowColor='rgba('+themeObj.glow+',0.6)';ctx.shadowBlur=20;
     ctx.beginPath();ctx.moveTo(-22,12);ctx.lineTo(-27,-12);ctx.lineTo(-10,1);ctx.lineTo(0,-18);ctx.lineTo(10,1);ctx.lineTo(27,-12);ctx.lineTo(22,12);ctx.closePath();ctx.fill();
     ctx.fillRect(-22,16,44,5);ctx.restore();
 
-    ctx.font='800 15px Montserrat, sans-serif';ctx.fillStyle='#E5B96F';ctx.textAlign='left';ctx.fillText('AIBET PRIVATE CLUB',-112,48);
-    ctx.font='700 11px Montserrat, sans-serif';ctx.fillStyle='#94A3B8';ctx.fillText('UNLIMITED ANALYTICS ACCESS',-112,66);
+    ctx.font='900 15px Montserrat, sans-serif';ctx.fillStyle=themeObj.accent;ctx.textAlign='left';ctx.fillText('AIBET BLACK MEMBER',-114,48);
+    ctx.font='700 11px Montserrat, sans-serif';ctx.fillStyle='#94A3B8';ctx.fillText('PRIVATE ANALYTICS ACCESS',-114,66);
     ctx.restore();
 
   } else if(emblemType==='shield'){
     ctx.save();
-    ctx.beginPath();ctx.moveTo(0,-138);ctx.lineTo(118,-86);ctx.lineTo(118,14);ctx.quadraticCurveTo(118,112,0,152);ctx.quadraticCurveTo(-118,112,-118,14);ctx.lineTo(-118,-86);ctx.closePath();
+    ctx.beginPath();ctx.moveTo(0,-142);ctx.lineTo(122,-88);ctx.lineTo(122,14);ctx.quadraticCurveTo(122,115,0,156);ctx.quadraticCurveTo(-122,115,-122,14);ctx.lineTo(-122,-88);ctx.closePath();
     const shBg=ctx.createLinearGradient(-100,-130,100,140);
-    shBg.addColorStop(0,'#1C2D4F');shBg.addColorStop(0.5,'#0B1325');shBg.addColorStop(1,'#050811');
-    ctx.fillStyle=shBg;ctx.shadowColor='rgba(0,0,0,0.9)';ctx.shadowBlur=32;ctx.shadowOffsetY=14;ctx.fill();
+    shBg.addColorStop(0,'#162A4A');shBg.addColorStop(0.5,'#091224');shBg.addColorStop(1,'#040710');
+    ctx.fillStyle=shBg;ctx.shadowColor='rgba(0,0,0,0.9)';ctx.shadowBlur=34;ctx.shadowOffsetY=14;ctx.fill();
     ctx.shadowBlur=0;ctx.shadowOffsetY=0;ctx.lineWidth=4;ctx.strokeStyle=goldGrad;ctx.stroke();
 
-    ctx.save();ctx.scale(0.84,0.84);
-    ctx.beginPath();ctx.moveTo(0,-138);ctx.lineTo(118,-86);ctx.lineTo(118,14);ctx.quadraticCurveTo(118,112,0,152);ctx.quadraticCurveTo(-118,112,-118,14);ctx.lineTo(-118,-86);ctx.closePath();
-    ctx.lineWidth=1.5;ctx.strokeStyle='rgba(229,185,111,0.4)';ctx.stroke();ctx.restore();
-
-    ctx.beginPath();ctx.moveTo(-38,4);ctx.lineTo(-10,32);ctx.lineTo(46,-28);
-    ctx.lineWidth=14;ctx.lineCap='round';ctx.lineJoin='round';ctx.strokeStyle=goldGrad;
-    ctx.shadowColor='rgba(229,185,111,0.5)';ctx.shadowBlur=20;ctx.stroke();ctx.shadowBlur=0;
-    ctx.font='900 18px Montserrat, sans-serif';ctx.fillStyle='#FFFFFF';ctx.textAlign='center';ctx.fillText('1-ON-1 PRO',0,76);
+    ctx.beginPath();ctx.moveTo(-38,4);ctx.lineTo(-10,32);ctx.lineTo(48,-28);
+    ctx.lineWidth=15;ctx.lineCap='round';ctx.lineJoin='round';ctx.strokeStyle=themeObj.accent;
+    ctx.shadowColor='rgba('+themeObj.glow+',0.65)';ctx.shadowBlur=22;ctx.stroke();ctx.shadowBlur=0;
+    ctx.font='900 18px Montserrat, sans-serif';ctx.fillStyle='#FFFFFF';ctx.textAlign='center';ctx.fillText('1-ON-1 PRO',0,78);
     ctx.restore();
 
   } else if(emblemType==='bolt'){
     ctx.save();
-    ctx.beginPath();ctx.arc(0,0,122,0,Math.PI*2);
-    const rBg=ctx.createRadialGradient(0,0,10,0,0,122);
-    rBg.addColorStop(0,'rgba(24,40,72,0.95)');rBg.addColorStop(1,'rgba(6,11,22,0.98)');
-    ctx.fillStyle=rBg;ctx.shadowColor='rgba(0,0,0,0.9)';ctx.shadowBlur=30;ctx.fill();
-    ctx.shadowBlur=0;ctx.lineWidth=3;ctx.strokeStyle=goldGrad;ctx.stroke();
+    ctx.beginPath();ctx.arc(0,0,126,0,Math.PI*2);
+    const rBg=ctx.createRadialGradient(0,0,10,0,0,126);
+    rBg.addColorStop(0,'rgba(36,18,32,0.95)');rBg.addColorStop(1,'rgba(7,9,18,0.98)');
+    ctx.fillStyle=rBg;ctx.shadowColor='rgba(0,0,0,0.9)';ctx.shadowBlur=32;ctx.fill();
+    ctx.shadowBlur=0;ctx.lineWidth=3.2;ctx.strokeStyle=themeObj.accent;ctx.stroke();
 
-    ctx.strokeStyle='rgba(229,185,111,0.35)';ctx.lineWidth=2;
-    [0,Math.PI/2,Math.PI,Math.PI*1.5].forEach(a=>{ctx.beginPath();ctx.moveTo(Math.cos(a)*92,Math.sin(a)*92);ctx.lineTo(Math.cos(a)*120,Math.sin(a)*120);ctx.stroke();});
+    ctx.strokeStyle='rgba(245,211,147,0.45)';ctx.lineWidth=2.5;
+    [0,Math.PI/2,Math.PI,Math.PI*1.5].forEach(a=>{ctx.beginPath();ctx.moveTo(Math.cos(a)*94,Math.sin(a)*94);ctx.lineTo(Math.cos(a)*124,Math.sin(a)*124);ctx.stroke();});
 
-    ctx.beginPath();ctx.moveTo(18,-96);ctx.lineTo(-64,10);ctx.lineTo(-4,10);ctx.lineTo(-24,96);ctx.lineTo(66,-14);ctx.lineTo(4,-14);ctx.closePath();
-    ctx.fillStyle=goldGrad;ctx.shadowColor='rgba(229,185,111,0.65)';ctx.shadowBlur=26;ctx.fill();
+    ctx.beginPath();ctx.moveTo(20,-100);ctx.lineTo(-66,10);ctx.lineTo(-4,10);ctx.lineTo(-24,100);ctx.lineTo(68,-14);ctx.lineTo(4,-14);ctx.closePath();
+    ctx.fillStyle=goldGrad;ctx.shadowColor='rgba('+themeObj.glow+',0.8)';ctx.shadowBlur=28;ctx.fill();
     ctx.restore();
 
   } else {
-    if(typeof Path2D!=='undefined'){
-      const pA=new Path2D('M512,121 L174,824 L565,594 L401,594 L512,365 L645,648 L805,727 Z');
-      const pG=new Path2D('M645,648 L725,820 L848,820 L805,727 Z');
-      ctx.save();const sc=0.34;ctx.translate(-512*sc,-470*sc);ctx.scale(sc,sc);
-      ctx.shadowColor='rgba(0,0,0,0.85)';ctx.shadowBlur=28;
-      ctx.fillStyle='#F8FAFC';ctx.fill(pA);ctx.fillStyle='#E5B96F';ctx.fill(pG);ctx.restore();
-    }
+    // 3D Кубок Чемпионов + Монограмма
+    ctx.save();
+    ctx.fillStyle=goldGrad;ctx.shadowColor='rgba('+themeObj.glow+',0.65)';ctx.shadowBlur=26;
+    ctx.beginPath();ctx.moveTo(-68,-88);ctx.lineTo(68,-88);ctx.quadraticCurveTo(64,22,0,46);ctx.quadraticCurveTo(-64,22,-68,-88);ctx.closePath();ctx.fill();
+    ctx.fillRect(-14,44,28,42);
+    drawRoundedRect(ctx,-52,84,104,24,6);ctx.fill();
+    ctx.strokeStyle=goldGrad;ctx.lineWidth=10;
+    ctx.beginPath();ctx.arc(-64,-42,28,Math.PI*0.5,Math.PI*1.5);ctx.stroke();
+    ctx.beginPath();ctx.arc(64,-42,28,-Math.PI*0.5,Math.PI*0.5);ctx.stroke();
+    ctx.restore();
   }
   ctx.restore();
 }
 
-function drawCoverOnCanvas(canvas,line1,line2,styleName,isSquare,emblemOverride,badgeOverride,layoutOverride){
-  const W=isSquare?1080:1200,H=isSquare?1080:600;
+function drawCoverOnCanvas(canvas,line1,line2,styleName,aspectMode,emblemOverride,badgeOverride,layoutOverride,themeOverride){
+  const isSquare=aspectMode==='square'||aspectMode===true;
+  const isTgPost=aspectMode==='tg_post';
+  const W=isSquare?1080:(isTgPost?1280:1200);
+  const H=isSquare?1080:(isTgPost?720:600);
   canvas.width=W;canvas.height=H;
   const ctx=canvas.getContext('2d');
+
   const emblemType=emblemOverride||(document.getElementById('genEmblemSelect')?document.getElementById('genEmblemSelect').value:'crown');
-  const badgeText=badgeOverride!==undefined?badgeOverride:(document.getElementById('genBadgeText')?document.getElementById('genBadgeText').value:'AIBET MONEY • PRO');
-  const layoutMode=layoutOverride||(document.getElementById('genLayoutSelect')?document.getElementById('genLayoutSelect').value:'poster');
+  const badgeText=badgeOverride!==undefined?badgeOverride:(document.getElementById('genBadgeText')?document.getElementById('genBadgeText').value:'PRIVATE LINE • VIP');
+  const layoutMode=layoutOverride||(document.getElementById('genLayoutSelect')?document.getElementById('genLayoutSelect').value:'split_3d');
+  const themeKey=themeOverride||(document.getElementById('genThemeSelect')?document.getElementById('genThemeSelect').value:'imperial_gold');
+  const themeObj=STUDIO_THEMES[themeKey]||STUDIO_THEMES.imperial_gold;
+
+  const txtScaleEl=document.getElementById('genTextScale'),artScaleEl=document.getElementById('genArtScale'),glowEl=document.getElementById('genGlowPower');
+  const txtMult=emblemOverride?1:(txtScaleEl?parseInt(txtScaleEl.value,10)/100:1);
+  const artMult=emblemOverride?1:(artScaleEl?parseInt(artScaleEl.value,10)/100:1);
+  const glowMult=emblemOverride?1.1:(glowEl?parseInt(glowEl.value,10)/100:1);
 
   if(customBgImg){
     const sc=Math.max(W/customBgImg.width,H/customBgImg.height),sw=W/sc,sh=H/sc;
     ctx.drawImage(customBgImg,(customBgImg.width-sw)/2,(customBgImg.height-sh)/2,sw,sh,0,0,W,H);
-    ctx.fillStyle='rgba(3,6,14,0.62)';ctx.fillRect(0,0,W,H);
+    ctx.fillStyle='rgba(3,6,14,0.58)';ctx.fillRect(0,0,W,H);
   } else {
     const bg=ctx.createLinearGradient(0,0,W,H);
-    if(styleName==='guilloche'){bg.addColorStop(0,'#091929');bg.addColorStop(0.5,'#060D1A');bg.addColorStop(1,'#02050B');}
-    else if(styleName==='carbon'){bg.addColorStop(0,'#101829');bg.addColorStop(0.5,'#070B14');bg.addColorStop(1,'#030509');}
-    else if(styleName==='bokeh'){bg.addColorStop(0,'#171429');bg.addColorStop(0.5,'#090D1C');bg.addColorStop(1,'#03050B');}
-    else{bg.addColorStop(0,'#121E38');bg.addColorStop(0.5,'#070C18');bg.addColorStop(1,'#020408');}
+    bg.addColorStop(0,themeObj.bg0);bg.addColorStop(0.55,themeObj.bg1);bg.addColorStop(1,themeObj.bg2);
     ctx.fillStyle=bg;ctx.fillRect(0,0,W,H);
+
+    // Мощный цветовой прожектор выбранной темы
+    const mainSpot=ctx.createRadialGradient(W*0.72,H*0.45,10,W*0.65,H*0.5,W*0.75);
+    mainSpot.addColorStop(0,'rgba('+themeObj.glow+','+(0.30*glowMult).toFixed(2)+')');
+    mainSpot.addColorStop(0.5,'rgba('+themeObj.secondary+','+(0.10*glowMult).toFixed(2)+')');
+    mainSpot.addColorStop(1,'rgba(0,0,0,0)');
+    ctx.fillStyle=mainSpot;ctx.fillRect(0,0,W,H);
 
     if(styleName==='guilloche'){
       ctx.save();ctx.globalCompositeOperation='screen';
       for(let wv=0;wv<32;wv++){
         ctx.beginPath();const ratio=wv/32,phase=wv*0.19,amp1=H*(0.14+ratio*0.24),amp2=H*0.09*Math.cos(ratio*Math.PI);
-        ctx.strokeStyle=wv%2===0?'rgba(229,185,111,'+(0.05+0.14*Math.sin(ratio*Math.PI)).toFixed(3)+')':'rgba(52,211,153,'+(0.02+0.07*Math.sin(ratio*Math.PI)).toFixed(3)+')';
+        ctx.strokeStyle=wv%2===0?'rgba('+themeObj.glow+','+(0.06+0.15*Math.sin(ratio*Math.PI)*glowMult).toFixed(3)+')':'rgba('+themeObj.secondary+',0.06)';
         ctx.lineWidth=1.4;
         for(let x=0;x<=W;x+=5){const nx=x/W,y=H*0.52+Math.sin(nx*Math.PI*2.8+phase)*amp1+Math.cos(nx*Math.PI*4.5-phase*1.2)*amp2;if(x===0)ctx.moveTo(x,y);else ctx.lineTo(x,y);}
         ctx.stroke();
@@ -920,43 +994,32 @@ function drawCoverOnCanvas(canvas,line1,line2,styleName,isSquare,emblemOverride,
       ctx.restore();
     } else if(styleName==='carbon'){
       const tile=document.createElement('canvas');tile.width=28;tile.height=28;
-      const tctx=tile.getContext('2d');tctx.fillStyle='#04070E';tctx.fillRect(0,0,28,28);
-      const g1=tctx.createLinearGradient(0,0,14,14);g1.addColorStop(0,'#1B2A47');g1.addColorStop(0.5,'#0D1526');g1.addColorStop(1,'#050811');
-      tctx.fillStyle=g1;tctx.fillRect(0,0,13,13);tctx.fillRect(14,14,13,13);
-      const g2=tctx.createLinearGradient(14,0,28,14);g2.addColorStop(0,'#0A101D');g2.addColorStop(0.5,'#16233B');g2.addColorStop(1,'#050811');
-      tctx.fillStyle=g2;tctx.fillRect(14,0,13,13);tctx.fillRect(0,14,13,13);
+      const tctx=tile.getContext('2d');tctx.fillStyle='rgba(4,7,14,0.55)';tctx.fillRect(0,0,28,28);
+      tctx.fillStyle='rgba(255,255,255,0.03)';tctx.fillRect(0,0,13,13);tctx.fillRect(14,14,13,13);
       ctx.fillStyle=ctx.createPattern(tile,'repeat');ctx.fillRect(0,0,W,H);
-      const spot=ctx.createRadialGradient(W*0.72,H*0.48,W*0.02,W*0.65,H*0.5,W*0.75);
-      spot.addColorStop(0,'rgba(229,185,111,0.28)');spot.addColorStop(0.45,'rgba(14,24,45,0.65)');spot.addColorStop(1,'rgba(2,4,9,0.92)');
-      ctx.fillStyle=spot;ctx.fillRect(0,0,W,H);
     } else if(styleName==='bokeh'){
       ctx.save();ctx.globalCompositeOperation='screen';
-      const rays=ctx.createLinearGradient(0,0,W,H);
-      rays.addColorStop(0,'rgba(229,185,111,0.22)');rays.addColorStop(0.5,'rgba(30,64,130,0.06)');rays.addColorStop(1,'rgba(229,185,111,0.20)');
-      ctx.fillStyle=rays;ctx.fillRect(0,0,W,H);
-      const orbs=[{x:0.15,y:0.22,r:0.18,a:0.25,g:true},{x:0.82,y:0.26,r:0.22,a:0.26,g:true},{x:0.24,y:0.78,r:0.15,a:0.20,g:true},{x:0.78,y:0.75,r:0.17,a:0.24,g:true},{x:0.48,y:0.18,r:0.10,a:0.28,g:false},{x:0.92,y:0.52,r:0.11,a:0.28,g:false},{x:0.35,y:0.32,r:0.04,a:0.45,g:true},{x:0.64,y:0.72,r:0.05,a:0.42,g:true}];
+      const orbs=[{x:0.15,y:0.22,r:0.18,a:0.28,g:true},{x:0.82,y:0.26,r:0.22,a:0.30,g:true},{x:0.24,y:0.78,r:0.15,a:0.22,g:false},{x:0.78,y:0.75,r:0.17,a:0.26,g:true}];
       orbs.forEach(o=>{
-        const ox=W*o.x,oy=H*o.y,or=W*o.r,rg=ctx.createRadialGradient(ox,oy,or*0.05,ox,oy,or),col=o.g?'229,185,111':'96,165,250';
-        rg.addColorStop(0,'rgba('+col+','+o.a.toFixed(2)+')');rg.addColorStop(0.6,'rgba('+col+','+(o.a*0.45).toFixed(2)+')');rg.addColorStop(1,'rgba('+col+',0)');
+        const ox=W*o.x,oy=H*o.y,or=W*o.r,rg=ctx.createRadialGradient(ox,oy,or*0.05,ox,oy,or),col=o.g?themeObj.glow:themeObj.secondary;
+        rg.addColorStop(0,'rgba('+col+','+(o.a*glowMult).toFixed(2)+')');rg.addColorStop(1,'rgba('+col+',0)');
         ctx.fillStyle=rg;ctx.beginPath();ctx.arc(ox,oy,or,0,Math.PI*2);ctx.fill();
       });
       ctx.restore();
     } else if(styleName==='silk_hd'){
-      if(hdSilkImg){const sc=Math.max(W/hdSilkImg.width,H/hdSilkImg.height),sw=W/sc,sh=H/sc;ctx.drawImage(hdSilkImg,(hdSilkImg.width-sw)/2,(hdSilkImg.height-sh)/2,sw,sh,0,0,W,H);}
+      if(hdSilkImg){ctx.save();ctx.globalAlpha=0.35;const sc=Math.max(W/hdSilkImg.width,H/hdSilkImg.height),sw=W/sc,sh=H/sc;ctx.drawImage(hdSilkImg,(hdSilkImg.width-sw)/2,(hdSilkImg.height-sh)/2,sw,sh,0,0,W,H);ctx.restore();}
       ctx.save();ctx.globalCompositeOperation='screen';
-      for(let i=0;i<6;i++){
-        ctx.beginPath();ctx.moveTo(-100,H*(0.15+i*0.16));ctx.bezierCurveTo(W*0.32,H*(0.02+i*0.14),W*0.68,H*(0.92-i*0.11),W+100,H*(0.24+i*0.15));
-        ctx.lineWidth=H*0.15;const sg=ctx.createLinearGradient(0,0,W,H);
-        sg.addColorStop(0,'rgba(201,168,118,0)');sg.addColorStop(0.5,'rgba(229,185,111,'+(0.09-i*0.012).toFixed(3)+')');sg.addColorStop(1,'rgba(56,110,200,0)');
-        ctx.strokeStyle=sg;ctx.stroke();
+      for(let i=0;i<5;i++){
+        ctx.beginPath();ctx.moveTo(-100,H*(0.15+i*0.17));ctx.bezierCurveTo(W*0.32,H*(0.02+i*0.14),W*0.68,H*(0.92-i*0.11),W+100,H*(0.24+i*0.15));
+        ctx.lineWidth=H*0.14;ctx.strokeStyle='rgba('+themeObj.glow+','+(0.07*glowMult).toFixed(3)+')';ctx.stroke();
       }
-      ctx.restore();ctx.fillStyle='rgba(4,8,18,0.55)';ctx.fillRect(0,0,W,H);
+      ctx.restore();
     }
   }
 
-  const padX=isSquare?42:34,padY=isSquare?42:26,fw=W-padX*2,fh=H-padY*2;
-  if(layoutMode==='hud'){
-    ctx.save();ctx.strokeStyle='rgba(229,185,111,0.07)';ctx.lineWidth=1;const step=isSquare?72:60;
+  const padX=isSquare?40:30,padY=isSquare?40:24,fw=W-padX*2,fh=H-padY*2;
+  if(layoutMode==='cyber_hud'){
+    ctx.save();ctx.strokeStyle='rgba('+themeObj.glow+',0.09)';ctx.lineWidth=1;const step=60;
     for(let x=padX;x<W-padX;x+=step){ctx.beginPath();ctx.moveTo(x,padY);ctx.lineTo(x,H-padY);ctx.stroke();}
     for(let y=padY;y<H-padY;y+=step){ctx.beginPath();ctx.moveTo(padX,y);ctx.lineTo(W-padX,y);ctx.stroke();}
     ctx.restore();
@@ -964,68 +1027,61 @@ function drawCoverOnCanvas(canvas,line1,line2,styleName,isSquare,emblemOverride,
 
   ctx.save();
   const frameGrad=ctx.createLinearGradient(padX,padY,W-padX,H-padY);
-  frameGrad.addColorStop(0,'rgba(245,211,147,0.78)');frameGrad.addColorStop(0.5,'rgba(201,168,118,0.22)');frameGrad.addColorStop(1,'rgba(245,211,147,0.78)');
-  ctx.strokeStyle=frameGrad;ctx.lineWidth=2.2;drawRoundedRect(ctx,padX,padY,fw,fh,20);ctx.stroke();
-  const cl=28;ctx.strokeStyle='#F5D393';ctx.lineWidth=4;
+  frameGrad.addColorStop(0,themeObj.accent);frameGrad.addColorStop(0.5,'rgba(201,168,118,0.22)');frameGrad.addColorStop(1,themeObj.accent2);
+  ctx.strokeStyle=frameGrad;ctx.lineWidth=2.5;drawRoundedRect(ctx,padX,padY,fw,fh,20);ctx.stroke();
+  const cl=28;ctx.strokeStyle=themeObj.accent;ctx.lineWidth=4.5;
   [[padX,padY,1,1],[W-padX,padY,-1,1],[padX,H-padY,1,-1],[W-padX,H-padY,-1,-1]].forEach(([cx,cy,dx,dy])=>{ctx.beginPath();ctx.moveTo(cx+dx*cl,cy);ctx.lineTo(cx,cy);ctx.lineTo(cx,cy+dy*cl);ctx.stroke();});
   ctx.restore();
 
   const t1=String(line1||'').trim().toUpperCase(),t2=String(line2||'').trim().toUpperCase(),bTxt=String(badgeText||'AIBET MONEY').trim().toUpperCase();
 
-  if(layoutMode==='poster'||layoutMode==='hud'){
-    const leftX=isSquare?W*0.09:W*0.075,maxTextW=isSquare?W*0.82:W*0.54;
-    const artX=isSquare?W*0.50:W*0.77,artY=isSquare?H*0.31:H*0.50,artScale=isSquare?1.18:1.06;
-    drawHero3DArtwork(ctx,artX,artY,artScale,emblemType);
+  if(layoutMode==='split_3d'||layoutMode==='cyber_hud'){
+    const leftX=isSquare?W*0.08:W*0.07,maxTextW=(isSquare?W*0.84:W*0.55)*txtMult;
+    const artX=isSquare?W*0.50:W*0.76,artY=isSquare?H*0.31:H*0.50,artScale=(isSquare?1.15:1.08)*artMult;
+    drawHero3DArtwork(ctx,artX,artY,artScale,emblemType,themeObj,glowMult);
 
     ctx.save();
     const align=isSquare?'center':'left',anchorX=isSquare?W*0.5:leftX;
     ctx.font='800 '+(isSquare?18:16)+'px Montserrat, sans-serif';
-    const bw=Math.max(180,ctx.measureText(bTxt).width+56),bh=isSquare?44:38,bx=isSquare?(W-bw)/2:leftX,by=isSquare?H*0.58:H*0.18;
-    drawRoundedRect(ctx,bx,by,bw,bh,bh/2);ctx.fillStyle='rgba(229,185,111,0.14)';ctx.fill();
-    ctx.strokeStyle='rgba(245,211,147,0.65)';ctx.lineWidth=1.5;ctx.stroke();
-    ctx.beginPath();ctx.arc(bx+20,by+bh/2,5,0,Math.PI*2);ctx.fillStyle=emblemType==='calc'?'#34D399':'#F5D393';ctx.fill();
-    ctx.fillStyle='#F5D393';ctx.textAlign='left';ctx.textBaseline='middle';ctx.fillText(bTxt,bx+34,by+bh/2+1);
+    const bw=Math.max(180,ctx.measureText(bTxt).width+56),bh=isSquare?44:38,bx=isSquare?(W-bw)/2:leftX,by=isSquare?H*0.57:H*0.16;
+    drawRoundedRect(ctx,bx,by,bw,bh,bh/2);ctx.fillStyle='rgba(6,10,20,0.82)';ctx.fill();
+    ctx.strokeStyle=themeObj.accent;ctx.lineWidth=1.8;ctx.stroke();
+    ctx.beginPath();ctx.arc(bx+20,by+bh/2,5.5,0,Math.PI*2);ctx.fillStyle=themeObj.badgeDot;ctx.fill();
+    ctx.fillStyle='#FFFFFF';ctx.textAlign='left';ctx.textBaseline='middle';ctx.fillText(bTxt,bx+34,by+bh/2+1);
 
-    let f1=isSquare?78:68;ctx.font='900 '+f1+'px Montserrat, sans-serif';
-    while(ctx.measureText(t1).width+t1.length*2>maxTextW&&f1>30){f1-=2;ctx.font='900 '+f1+'px Montserrat, sans-serif';}
-    const y1=isSquare?H*0.695:H*0.445;
-    ctx.shadowColor='rgba(0,0,0,0.92)';ctx.shadowBlur=22;ctx.shadowOffsetY=6;
-    const wGrad=ctx.createLinearGradient(0,y1-f1/2,0,y1+f1/2);wGrad.addColorStop(0,'#FFFFFF');wGrad.addColorStop(1,'#CBD5E1');
-    ctx.fillStyle=wGrad;drawSpacedText(ctx,t1,anchorX,y1,2,align);
+    let f1=Math.round((isSquare?78:70)*txtMult);ctx.font='900 '+f1+'px Montserrat, sans-serif';
+    while(ctx.measureText(t1).width+t1.length*2>maxTextW&&f1>28){f1-=2;ctx.font='900 '+f1+'px Montserrat, sans-serif';}
+    const y1=isSquare?H*0.69:H*0.44;
+    ctx.shadowColor='rgba(0,0,0,0.95)';ctx.shadowBlur=24;ctx.shadowOffsetY=6;
+    ctx.fillStyle='#FFFFFF';drawSpacedText(ctx,t1,anchorX,y1,2,align);
 
-    let f2=isSquare?82:72;ctx.font='900 '+f2+'px Montserrat, sans-serif';
-    while(ctx.measureText(t2).width+t2.length*2.5>maxTextW&&f2>30){f2-=2;ctx.font='900 '+f2+'px Montserrat, sans-serif';}
-    const y2=isSquare?H*0.795:H*0.635;
-    ctx.shadowColor='rgba(229,185,111,0.32)';ctx.shadowBlur=26;ctx.shadowOffsetY=4;
-    const gGrad=ctx.createLinearGradient(anchorX,y2-f2*0.5,anchorX+300,y2+f2*0.5);
-    gGrad.addColorStop(0,'#FFF7E4');gGrad.addColorStop(0.3,'#F5D393');gGrad.addColorStop(0.6,'#C9A876');gGrad.addColorStop(0.85,'#9A723B');gGrad.addColorStop(1,'#F5D393');
+    let f2=Math.round((isSquare?82:74)*txtMult);ctx.font='900 '+f2+'px Montserrat, sans-serif';
+    while(ctx.measureText(t2).width+t2.length*2.5>maxTextW&&f2>28){f2-=2;ctx.font='900 '+f2+'px Montserrat, sans-serif';}
+    const y2=isSquare?H*0.79:H*0.64;
+    ctx.shadowColor='rgba('+themeObj.glow+',0.45)';ctx.shadowBlur=28;ctx.shadowOffsetY=4;
+    const gGrad=ctx.createLinearGradient(anchorX,y2-f2*0.5,anchorX+320,y2+f2*0.5);
+    gGrad.addColorStop(0,'#FFFFFF');gGrad.addColorStop(0.35,themeObj.accent);gGrad.addColorStop(1,themeObj.accent2);
     ctx.fillStyle=gGrad;drawSpacedText(ctx,t2,anchorX,y2,2.5,align);
 
     ctx.shadowBlur=0;ctx.shadowOffsetY=0;
-    const yFoot=isSquare?H*0.885:H*0.815;
+    const yFoot=isSquare?H*0.885:H*0.83;
     if(!isSquare){
-      ctx.fillStyle='#E5B96F';ctx.fillRect(leftX,yFoot-8,46,3.5);
-      ctx.font='700 15px Montserrat, sans-serif';ctx.fillStyle='rgba(226,232,240,0.72)';ctx.textAlign='left';
-      ctx.fillText('AIBET MONEY • ОФИЦИАЛЬНАЯ ПЛАТФОРМА',leftX+60,yFoot-6);
+      ctx.fillStyle=themeObj.accent;ctx.fillRect(leftX,yFoot-8,46,3.5);
+      ctx.font='700 15px Montserrat, sans-serif';ctx.fillStyle='rgba(226,232,240,0.82)';ctx.textAlign='left';
+      ctx.fillText('AIBET MONEY • STUDIO v3.0',leftX+60,yFoot-6);
     } else {
-      ctx.font='700 18px Montserrat, sans-serif';ctx.fillStyle='rgba(226,232,240,0.75)';ctx.textAlign='center';
-      ctx.fillText('AIBET MONEY • ОФИЦИАЛЬНАЯ ПЛАТФОРМА',W/2,yFoot);
+      ctx.font='700 18px Montserrat, sans-serif';ctx.fillStyle='rgba(226,232,240,0.82)';ctx.textAlign='center';
+      ctx.fillText('AIBET MONEY • STUDIO v3.0',W/2,yFoot);
     }
     ctx.restore();
   } else {
-    drawHero3DArtwork(ctx,W*0.5,isSquare?H*0.28:H*0.26,isSquare?0.78:0.56,emblemType);
+    drawHero3DArtwork(ctx,W*0.5,isSquare?H*0.28:H*0.27,(isSquare?0.82:0.62)*artMult,emblemType,themeObj,glowMult);
     ctx.save();ctx.textAlign='center';ctx.textBaseline='middle';
-    const maxW=W*0.82;
-    let f1=isSquare?74:60;ctx.font='900 '+f1+'px Montserrat, sans-serif';
-    while(ctx.measureText(t1).width+t1.length*3>maxW&&f1>28){f1-=2;ctx.font='900 '+f1+'px Montserrat, sans-serif';}
-    let f2=isSquare?78:64;ctx.font='900 '+f2+'px Montserrat, sans-serif';
-    while(ctx.measureText(t2).width+t2.length*4>maxW&&f2>28){f2-=2;ctx.font='900 '+f2+'px Montserrat, sans-serif';}
-    const y1=isSquare?H*0.58:H*0.56,y2=isSquare?H*0.69:H*0.72;
+    let f1=Math.round((isSquare?74:62)*txtMult),f2=Math.round((isSquare?78:66)*txtMult);
+    const y1=isSquare?H*0.58:H*0.58,y2=isSquare?H*0.69:H*0.75;
     ctx.font='900 '+f1+'px Montserrat, sans-serif';ctx.shadowColor='rgba(0,0,0,0.9)';ctx.shadowBlur=20;ctx.fillStyle='#FFFFFF';
     drawSpacedText(ctx,t1,W/2,y1,3.5,'center');
-    const gGrad=ctx.createLinearGradient(W*0.25,y2-30,W*0.75,y2+30);
-    gGrad.addColorStop(0,'#FFF6E0');gGrad.addColorStop(0.45,'#E5B96F');gGrad.addColorStop(1,'#9A743E');
-    ctx.font='900 '+f2+'px Montserrat, sans-serif';ctx.fillStyle=gGrad;
+    ctx.font='900 '+f2+'px Montserrat, sans-serif';ctx.fillStyle=themeObj.accent;
     drawSpacedText(ctx,t2,W/2,y2,4,'center');
     ctx.restore();
   }
@@ -1033,7 +1089,13 @@ function drawCoverOnCanvas(canvas,line1,line2,styleName,isSquare,emblemOverride,
 
 function renderBrandCoverPreview(){
   const c=document.getElementById('coverGenCanvas');if(!c)return;
-  drawCoverOnCanvas(c,document.getElementById('genLine1').value||'AIBET',document.getElementById('genLine2').value||'MONEY',document.getElementById('genStyleSelect').value||'guilloche',document.getElementById('genAspectSelect').value==='square');
+  drawCoverOnCanvas(
+    c,
+    document.getElementById('genLine1').value||'AIBET',
+    document.getElementById('genLine2').value||'MONEY',
+    document.getElementById('genStyleSelect').value||'guilloche',
+    document.getElementById('genAspectSelect').value||'card'
+  );
 }
 
 function applyGeneratedCoverToCard(){
@@ -1041,32 +1103,38 @@ function applyGeneratedCoverToCard(){
   const sel=document.getElementById('genTargetCardSelect'),idx=sel?parseInt(sel.value,10):0;
   if(!menuBlocks[idx])return;
   const tc=document.createElement('canvas');
-  drawCoverOnCanvas(tc,document.getElementById('genLine1').value||'AIBET',document.getElementById('genLine2').value||'MONEY',document.getElementById('genStyleSelect').value||'guilloche',false);
+  drawCoverOnCanvas(
+    tc,
+    document.getElementById('genLine1').value||'AIBET',
+    document.getElementById('genLine2').value||'MONEY',
+    document.getElementById('genStyleSelect').value||'guilloche',
+    'card'
+  );
   let url=tc.toDataURL('image/webp',0.90);if(url.indexOf('data:image/webp')!==0)url=tc.toDataURL('image/jpeg',0.92);
   menuBlocks[idx].coverUrl=url;saveBlocksDraft();renderAdminPanel();renderHubCards();
-  triggerHaptic('success');showToast('✓ Новый 3D-баннер установлен на «'+menuBlocks[idx].title+'»');
+  triggerHaptic('success');showToast('✓ 3D-баннер v3.0 установлен на «'+menuBlocks[idx].title+'»');
 }
 
 function applyAllGeneratedCovers(notify=true){
   localStorage.removeItem('aibet_use_mini_widgets');
   const tc=document.createElement('canvas');
   menuBlocks.forEach((b,idx)=>{
-    const p=CARD_PRESETS[idx]||{l1:b.title.toUpperCase(),l2:'AIBET CLUB',badge:'AIBET MONEY',emblem:'logo',style:'guilloche',layout:'poster'};
-    drawCoverOnCanvas(tc,p.l1,p.l2,p.style,false,p.emblem,p.badge,p.layout);
+    const p=CARD_PRESETS[idx]||{l1:b.title.toUpperCase(),l2:'AIBET CLUB',badge:'AIBET MONEY',emblem:'trophy',theme:'imperial_gold',style:'guilloche',layout:'split_3d'};
+    drawCoverOnCanvas(tc,p.l1,p.l2,p.style,'card',p.emblem,p.badge,p.layout,p.theme);
     let url=tc.toDataURL('image/webp',0.90);if(url.indexOf('data:image/webp')!==0)url=tc.toDataURL('image/jpeg',0.92);
     b.coverUrl=url;
   });
   saveBlocksDraft();
   if(document.getElementById('screenAdmin').classList.contains('active'))renderAdminPanel();
   renderHubCards();
-  if(notify){triggerHaptic('success');showToast('⚡ Все 4 карточки получили новые 3D-баннеры!');}
+  if(notify){triggerHaptic('success');showToast('⚡ Все 4 карточки получили разноцветные 3D-баннеры v3.0!');}
 }
 
 function downloadGeneratedCoverPng(){
   renderBrandCoverPreview();
   const c=document.getElementById('coverGenCanvas'),a=document.createElement('a');
-  a.href=c.toDataURL('image/png');a.download='aibet-pro-banner-'+Date.now()+'.png';a.click();
-  triggerHaptic('success');showToast('✓ Картинка скачана в HD');
+  a.href=c.toDataURL('image/png');a.download='aibet-studio-v3-'+Date.now()+'.png';a.click();
+  triggerHaptic('success');showToast('✓ Баннер v3.0 скачан в HD');
 }
 
 let spoilerAnimId=null,activeSpoilerSystems=[];
@@ -1076,10 +1144,10 @@ function initSpoilerCanvases(){
   const hub=document.getElementById('screenHub');if(!hub||!hub.classList.contains('active'))return;
   document.querySelectorAll('.spoiler-canvas').forEach(canvas=>{
     const parent=canvas.parentElement;if(!parent)return;
-    const rect=parent.getBoundingClientRect(),w=Math.max(150,rect.width||180),h=Math.max(160,rect.height||190),dpr=Math.min(window.devicePixelRatio||1,2);
+    const rect=parent.getBoundingClientRect(),w=Math.max(150,rect.width||180),h=Math.max(160,rect.height||198),dpr=Math.min(window.devicePixelRatio||1,2);
     canvas.width=w*dpr;canvas.height=h*dpr;const ctx=canvas.getContext('2d');ctx.scale(dpr,dpr);
     const particles=[];
-    for(let i=0;i<42;i++){const ig=i%4===0;particles.push({x:Math.random()*w,y:Math.random()*h,vx:(Math.random()-0.5)*0.35,vy:(Math.random()-0.5)*0.35,r:ig?(1.2+Math.random()*1.1):(0.9+Math.random()*1.1),alpha:0.25+Math.random()*0.65,dAlpha:(Math.random()*0.015+0.005)*(Math.random()<0.5?1:-1),color:ig?'201,168,118':'226,232,240'});}
+    for(let i=0;i<32;i++){const ig=i%3===0;particles.push({x:Math.random()*w,y:Math.random()*h,vx:(Math.random()-0.5)*0.35,vy:(Math.random()-0.5)*0.35,r:ig?(1.3+Math.random()):(0.9+Math.random()),alpha:0.2+Math.random()*0.55,dAlpha:(Math.random()*0.015+0.005)*(Math.random()<0.5?1:-1),color:ig?'229,185,111':'226,232,240'});}
     const sys={canvas,ctx,w,h,particles,pointer:null};
     const rep=(cx,cy)=>{const r=parent.getBoundingClientRect();sys.pointer={x:cx-r.left,y:cy-r.top,time:Date.now()};};
     parent.addEventListener('pointerdown',e=>rep(e.clientX,e.clientY),{passive:true});
@@ -1098,7 +1166,7 @@ function initSpoilerCanvases(){
           const p=particles[i];
           if(hp){const dx=p.x-pointer.x,dy=p.y-pointer.y,d2=dx*dx+dy*dy;if(d2<3364&&d2>1){const d=Math.sqrt(d2),f=(58-d)/58;p.vx+=(dx/d)*f*0.9;p.vy+=(dy/d)*f*0.9;}}
           p.vx*=0.96;p.vy*=0.96;if(Math.abs(p.vx)<0.12)p.vx+=(Math.random()-0.5)*0.06;if(Math.abs(p.vy)<0.12)p.vy+=(Math.random()-0.5)*0.06;
-          p.x=(p.x+p.vx+w)%w;p.y=(p.y+p.vy+h)%h;p.alpha+=p.dAlpha;if(p.alpha>0.9||p.alpha<0.2)p.dAlpha=-p.dAlpha;
+          p.x=(p.x+p.vx+w)%w;p.y=(p.y+p.vy+h)%h;p.alpha+=p.dAlpha;if(p.alpha>0.85||p.alpha<0.15)p.dAlpha=-p.dAlpha;
           ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle='rgba('+p.color+','+p.alpha.toFixed(2)+')';ctx.fill();
         }
       });
@@ -1130,12 +1198,11 @@ function renderHubCards(){
     card.className='menu-card '+(isAvail?'available':'soon')+(isBlur?' blurred':'');
     card.setAttribute('onclick','handleCardClick('+idx+')');
     const cov=hasCustomCover?'<img src="'+escapeHtml(b.coverUrl)+'" class="card-cover-img" alt="">':getSignatureWidgetHtml(b,idx,pBank,pBet);
-    const pill=!isBlur?(isAvail?'<span class="status-pill active-pill"><span class="live-dot"></span>Открыто</span>':'<span class="status-pill soon-pill">⏳ Скоро</span>'):'';
+    const pill=isAvail?'<span class="status-pill active-pill"><span class="live-dot"></span>Открыто</span>':'<span class="status-pill soon-pill">⏳ Скоро</span>';
     const btnTxt=b.btnLabel||(isAvail?'Открыть →':'Скоро');
-    const spLbl=isWait?'✓ В листе ожидания':'Скоро открытие',spCls=isWait?'tg-spoiler-pill waitlisted':'tg-spoiler-pill';
-    const blurOv=isBlur?'<div class="tg-spoiler-overlay"><canvas class="spoiler-canvas"></canvas><div class="'+spCls+'"><span class="dot"></span>'+spLbl+'</div></div>':'';
-    const ttl=isBlur?'Секретный раздел':b.title,dsc=isBlur?'Новый закрытый инструмент платформы клуба':b.desc;
-    card.innerHTML=blurOv+'<div class="card-inner-blur" style="display:flex;flex-direction:column;flex:1"><div class="card-cover">'+pill+cov+'</div><div class="card-body"><div><div class="card-title">'+escapeHtml(ttl)+'</div><div class="card-desc">'+escapeHtml(dsc)+'</div></div><div class="card-action-btn'+(isAvail?' shimmer-effect':'')+'">'+escapeHtml(btnTxt)+'</div></div></div>';
+    const spLbl=isWait?'✓ В листе ожидания':'🔒 '+(b.title||'Скоро открытие'),spCls=isWait?'tg-spoiler-pill waitlisted':'tg-spoiler-pill';
+    const blurOv=isBlur?'<div class="tg-spoiler-overlay"><canvas class="spoiler-canvas"></canvas><div class="'+spCls+'"><span class="dot"></span>'+escapeHtml(spLbl)+'</div></div>':'';
+    card.innerHTML=blurOv+'<div class="card-inner-blur" style="display:flex;flex-direction:column;flex:1"><div class="card-cover">'+pill+cov+'</div><div class="card-body"><div><div class="card-title">'+escapeHtml(b.title)+'</div><div class="card-desc">'+escapeHtml(b.desc)+'</div></div><div class="card-action-btn'+(isAvail?' shimmer-effect':'')+'">'+escapeHtml(btnTxt)+'</div></div></div>';
     hubCardsGrid.appendChild(card);
   });
   requestAnimationFrame(()=>initSpoilerCanvases());
@@ -1161,7 +1228,7 @@ function syncWaitlistBtnState(b){
   if(waitlistMap[b.id]){btn.textContent='✅ Ты в списке ожидания!';btn.classList.add('done');btn.classList.remove('shimmer-effect');}
   else{btn.textContent='🔔 Уведомить меня об открытии первым';btn.classList.remove('done');btn.classList.add('shimmer-effect');}
 }
-function openMysterySoonModal(b){document.getElementById('modalTitle').textContent='Скоро открытие';document.getElementById('modalText').textContent='Мы готовим к запуску закрытый раздел платформы AiBet Money. Оставь отметку ниже, чтобы получить персональное уведомление и доступ в числе первых:';syncWaitlistBtnState(b);document.getElementById('soonModal').classList.add('open');}
+function openMysterySoonModal(b){document.getElementById('modalTitle').textContent=b.title||'Скоро открытие';document.getElementById('modalText').textContent='Раздел «'+(b.title||'Закрытый клуб')+'» готовится к запуску на платформе AiBet Money. Оставь отметку ниже, чтобы получить персональное уведомление и доступ в числе первых:';syncWaitlistBtnState(b);document.getElementById('soonModal').classList.add('open');}
 function openSoonModal(b){document.getElementById('modalTitle').textContent=b.title;document.getElementById('modalText').textContent=b.pageText||'Этот раздел готовится к запуску. Нажми кнопку ниже, чтобы узнать об открытии первым:';syncWaitlistBtnState(b);document.getElementById('soonModal').classList.add('open');}
 function joinWaitlist(){
   if(activeModalBlockIndex===null||!menuBlocks[activeModalBlockIndex])return;
@@ -1200,19 +1267,30 @@ function showScreen(name,ev){
 }
 
 let tapCount=0,tapTimer=null,isAdminUnlocked=false;
-const secretTrigger=document.getElementById('secretAdminTrigger'),adminQuickBtn=document.getElementById('adminQuickBtn');
+const secretTrigger=document.getElementById('secretAdminTrigger'),adminQuickBtn=document.getElementById('adminQuickBtn'),topStudioBtn=document.getElementById('topStudioBtn');
+
+// Авто-показ кнопки "🎨 Студия v3.0" для владельца (ID 435389790) и при тесте в браузере
+(function autoUnlockForOwner(){
+  const cu=getCurrentTgUser(),oid=String(trackerCfg.adminChatId||'435389790').trim();
+  if(cu.id==='local_guest'||String(cu.id)===oid){
+    isAdminUnlocked=true;
+    if(adminQuickBtn)adminQuickBtn.classList.add('unlocked');
+    if(topStudioBtn)topStudioBtn.classList.add('unlocked');
+  }
+})();
+
 secretTrigger.addEventListener('click',()=>{
   tapCount++;clearTimeout(tapTimer);tapTimer=setTimeout(()=>{tapCount=0;},1600);
   if(tapCount>=5){
     tapCount=0;triggerHaptic('medium');
     const cu=getCurrentTgUser(),oid=String(trackerCfg.adminChatId||'435389790').trim();
-    if(cu.id!=='local_guest'&&String(cu.id)===oid){isAdminUnlocked=true;adminQuickBtn.classList.add('unlocked');showScreen('admin');return;}
+    if(cu.id!=='local_guest'&&String(cu.id)===oid){isAdminUnlocked=true;adminQuickBtn.classList.add('unlocked');if(topStudioBtn)topStudioBtn.classList.add('unlocked');showScreen('admin');return;}
     if(cu.id!=='local_guest'&&oid!==''&&String(cu.id)!==oid){triggerHaptic('error');showToast('🔒 Доступ только для владельца');return;}
     if(isAdminUnlocked)showScreen('admin');else{document.getElementById('pinInput').value='';document.getElementById('pinModal').classList.add('open');}
   }
 });
 function closePinModal(){document.getElementById('pinModal').classList.remove('open');}
-function verifyPinCode(){if(document.getElementById('pinInput').value.trim()===ADMIN_PIN_PLAINTEXT){isAdminUnlocked=true;adminQuickBtn.classList.add('unlocked');closePinModal();showScreen('admin');}else{triggerHaptic('error');alert('Неверный пароль');}}
+function verifyPinCode(){if(document.getElementById('pinInput').value.trim()===ADMIN_PIN_PLAINTEXT){isAdminUnlocked=true;adminQuickBtn.classList.add('unlocked');if(topStudioBtn)topStudioBtn.classList.add('unlocked');closePinModal();showScreen('admin');}else{triggerHaptic('error');alert('Неверный пароль');}}
 
 const adminCardsContainer=document.getElementById('adminCardsContainer');
 function renderAdminPanel(){
@@ -1231,7 +1309,7 @@ function renderAdminPanel(){
     const item=document.createElement('div');item.className='admin-item-card';
     const isCalc=b.actionType==='calc';
     const ex=!isCalc?'<details style="margin-top:8px;border-top:1px solid var(--border-subtle);padding-top:10px"><summary style="cursor:pointer;font-size:12px;color:var(--gold-light);font-weight:600">📝 Настроить продающий текст и ссылку на ЛС</summary><div style="margin-top:10px"><div class="adm-field"><label>Заголовок внутри страницы</label><input type="text" class="adm-input" value="'+escapeHtml(b.pageTitle||'')+'" oninput="updateBlockField('+idx+',\'pageTitle\',this.value)"></div><div class="adm-field"><label>Продающий текст</label><textarea class="adm-textarea" oninput="updateBlockField('+idx+',\'pageText\',this.value)">'+escapeHtml(b.pageText||'')+'</textarea></div><div class="adm-grid-2"><div class="adm-field"><label>Текст кнопки</label><input type="text" class="adm-input" value="'+escapeHtml(b.ctaText||'')+'" oninput="updateBlockField('+idx+',\'ctaText\',this.value)"></div><div class="adm-field"><label>Ссылка на твой ЛС (https://t.me/...)</label><input type="text" class="adm-input" value="'+escapeHtml(b.ctaUrl||'')+'" oninput="updateBlockField('+idx+',\'ctaUrl\',this.value)"></div></div></div></details>':'';
-    item.innerHTML='<div class="admin-item-head"><strong>Блок #'+(idx+1)+': '+escapeHtml(b.title)+'</strong><div class="admin-head-btns"><button type="button" class="adm-mini-btn" onclick="moveBlock('+idx+',-1)">↑</button><button type="button" class="adm-mini-btn" onclick="moveBlock('+idx+',1)">↓</button>'+(!isCalc?'<button type="button" class="adm-mini-btn danger" onclick="deleteBlock('+idx+')">Удалить</button>':'')+'</div></div><div class="adm-toggles-row"><label class="adm-check-label"><input type="checkbox" '+(b.blurred?'checked':'')+' onchange="updateBlockField('+idx+',\'blurred\',this.checked)"><span>🌫️ Заблюрить как в ТГ (Скрыть что внутри)</span></label><label class="adm-check-label"><input type="checkbox" '+(b.hidden?'checked':'')+' onchange="updateBlockField('+idx+',\'hidden\',this.checked)"><span>👁️ Скрыть из меню совсем</span></label></div><div class="adm-grid-2"><div class="adm-field"><label>Название карточки</label><input type="text" class="adm-input" value="'+escapeHtml(b.title)+'" oninput="updateBlockField('+idx+',\'title\',this.value)"></div><div class="adm-field"><label>Статус раздела</label><select class="adm-select" onchange="updateBlockField('+idx+',\'status\',this.value);renderAdminPanel()"><option value="available" '+(b.status==='available'?'selected':'')+'>● Открыто (Доступно)</option><option value="soon" '+(b.status==='soon'?'selected':'')+'>⏳ Скоро (В разработке)</option></select></div></div><div class="adm-grid-2"><div class="adm-field"><label>Короткое описание</label><input type="text" class="adm-input" value="'+escapeHtml(b.desc)+'" oninput="updateBlockField('+idx+',\'desc\',this.value)"></div><div class="adm-field"><label>Текст на кнопке</label><input type="text" class="adm-input" value="'+escapeHtml(b.btnLabel||'')+'" oninput="updateBlockField('+idx+',\'btnLabel\',this.value)"></div></div><div class="adm-field"><label>Обложка карточки</label><div class="adm-cover-row"><label class="adm-upload-label">📁 Загрузить свою картинку<input type="file" accept="image/*" style="display:none" onchange="handleCoverUpload('+idx+',this)"></label>'+(b.coverUrl?'<button type="button" class="adm-mini-btn danger" onclick="updateBlockField('+idx+',\'coverUrl\',\'\');renderAdminPanel();renderHubCards()">↺ Вернуть мини-виджет</button>':'')+'</div></div>'+ex;
+    item.innerHTML='<div class="admin-item-head"><strong>Блок #'+(idx+1)+': '+escapeHtml(b.title)+'</strong><div class="admin-head-btns"><button type="button" class="adm-mini-btn" onclick="moveBlock('+idx+',-1)">↑</button><button type="button" class="adm-mini-btn" onclick="moveBlock('+idx+',1)">↓</button>'+(!isCalc?'<button type="button" class="adm-mini-btn danger" onclick="deleteBlock('+idx+')">Удалить</button>':'')+'</div></div><div class="adm-toggles-row"><label class="adm-check-label"><input type="checkbox" '+(b.blurred?'checked':'')+' onchange="updateBlockField('+idx+',\'blurred\',this.checked)"><span>🌫️ Закрыть спойлером «Скоро открытие»</span></label><label class="adm-check-label"><input type="checkbox" '+(b.hidden?'checked':'')+' onchange="updateBlockField('+idx+',\'hidden\',this.checked)"><span>👁️ Скрыть из меню совсем</span></label></div><div class="adm-grid-2"><div class="adm-field"><label>Название карточки</label><input type="text" class="adm-input" value="'+escapeHtml(b.title)+'" oninput="updateBlockField('+idx+',\'title\',this.value)"></div><div class="adm-field"><label>Статус раздела</label><select class="adm-select" onchange="updateBlockField('+idx+',\'status\',this.value);renderAdminPanel()"><option value="available" '+(b.status==='available'?'selected':'')+'>● Открыто (Доступно)</option><option value="soon" '+(b.status==='soon'?'selected':'')+'>⏳ Скоро (В разработке)</option></select></div></div><div class="adm-grid-2"><div class="adm-field"><label>Короткое описание</label><input type="text" class="adm-input" value="'+escapeHtml(b.desc)+'" oninput="updateBlockField('+idx+',\'desc\',this.value)"></div><div class="adm-field"><label>Текст на кнопке</label><input type="text" class="adm-input" value="'+escapeHtml(b.btnLabel||'')+'" oninput="updateBlockField('+idx+',\'btnLabel\',this.value)"></div></div><div class="adm-field"><label>Обложка карточки</label><div class="adm-cover-row"><label class="adm-upload-label">📁 Загрузить свою картинку<input type="file" accept="image/*" style="display:none" onchange="handleCoverUpload('+idx+',this)"></label>'+(b.coverUrl?'<button type="button" class="adm-mini-btn danger" onclick="updateBlockField('+idx+',\'coverUrl\',\'\');renderAdminPanel();renderHubCards()">↺ Вернуть мини-виджет</button>':'')+'</div></div>'+ex;
     adminCardsContainer.appendChild(item);
   });
 }
@@ -1243,11 +1321,11 @@ function updateBlockField(idx,f,v){
     if(v==='available'&&(!menuBlocks[idx].btnLabel||menuBlocks[idx].btnLabel==='Скоро'))menuBlocks[idx].btnLabel='Открыть →';
     else if(v==='soon'&&menuBlocks[idx].btnLabel==='Открыть →')menuBlocks[idx].btnLabel='Скоро';
   }
-  saveBlocksDraft();
+  saveBlocksDraft();renderHubCards();
 }
-function moveBlock(idx,dir){const t=idx+dir;if(t<0||t>=menuBlocks.length)return;const tmp=menuBlocks[idx];menuBlocks[idx]=menuBlocks[t];menuBlocks[t]=tmp;saveBlocksDraft();renderAdminPanel();}
-function deleteBlock(idx){if(!confirm('Удалить этот блок?'))return;menuBlocks.splice(idx,1);saveBlocksDraft();renderAdminPanel();}
-function addNewBlock(){menuBlocks.push({id:'block_'+Date.now(),title:'Новый раздел',desc:'Короткое описание нового продукта',status:'soon',hidden:false,blurred:true,actionType:'page',btnLabel:'Скоро',icon:'🔥',coverUrl:'',pageTitle:'Заголовок раздела',pageText:'Описание условий...',ctaText:'Написать в ЛС →',ctaUrl:trackerCfg.channelUrl||'https://t.me/aibetmoney'});saveBlocksDraft();renderAdminPanel();}
+function moveBlock(idx,dir){const t=idx+dir;if(t<0||t>=menuBlocks.length)return;const tmp=menuBlocks[idx];menuBlocks[idx]=menuBlocks[t];menuBlocks[t]=tmp;saveBlocksDraft();renderAdminPanel();renderHubCards();}
+function deleteBlock(idx){if(!confirm('Удалить этот блок?'))return;menuBlocks.splice(idx,1);saveBlocksDraft();renderAdminPanel();renderHubCards();}
+function addNewBlock(){menuBlocks.push({id:'block_'+Date.now(),title:'Новый раздел',desc:'Короткое описание нового продукта',status:'soon',hidden:false,blurred:true,actionType:'page',btnLabel:'Скоро',icon:'🔥',coverUrl:'',pageTitle:'Заголовок раздела',pageText:'Описание условий...',ctaText:'Написать в ЛС →',ctaUrl:trackerCfg.channelUrl||'https://t.me/aibetmoney'});saveBlocksDraft();renderAdminPanel();renderHubCards();}
 
 function handleCoverUpload(idx,inp){
   const f=inp.files&&inp.files[0];if(!f)return;
@@ -1270,6 +1348,7 @@ function generateFullSiteHtml(){
   ['hubCardsGrid','hubBankPillWrap','adminCardsContainer','visitorsListBox'].forEach(id=>{const el=clone.querySelector('#'+id);if(el)el.innerHTML='';});
   ['statTotalVisits','statUniqueUsers','statCalcClicks'].forEach(id=>{const el=clone.querySelector('#'+id);if(el)el.textContent='0';});
   const qb=clone.querySelector('#adminQuickBtn');if(qb)qb.classList.remove('unlocked');
+  const tb=clone.querySelector('#topStudioBtn');if(tb)tb.classList.remove('unlocked');
   const se=clone.querySelector('#hubGreetingSubtitle');if(se)se.textContent='Выбери нужный инструмент или раздел клуба';
   return '<!DOCTYPE html>\n'+clone.outerHTML;
 }
