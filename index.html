@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="ru"><head>
+<html lang="ru">
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>AiBet Money — Платформа</title>
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Montserrat:wght@500;600;700;800&amp;display=swap" rel="stylesheet">
-  <style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <style id="app-main-style">
     :root {
       /* ГЛУБОКИЙ ЧЁРНЫЙ ФОН + ПОЛУПРОЗРАЧНЫЕ СТЕКЛЯННЫЕ КАРТОЧКИ DEEP NAVY */
       --bg-page: #03060C;
@@ -46,6 +47,12 @@
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
     }
+
+    /* КАСТОМНЫЙ АККУРАТНЫЙ СКРОЛЛБАР */
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.04); }
+    ::-webkit-scrollbar-thumb { background: rgba(201, 168, 118, 0.35); border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: rgba(201, 168, 118, 0.55); }
 
     /* =====================================================
        ПОЛНОЭКРАННЫЙ ЧЁРНЫЙ КОСМОС: КОМЕТЫ + AI-СОЗВЕЗДИЕ + ШЛЕЙФ ПАЛЬЦА
@@ -434,9 +441,9 @@
 
     /* ИНТЕРАКТИВНЫЙ TELEGRAM CANVAS-СПОЙЛЕР НА КАРТОЧКАХ */
     .menu-card.blurred .card-inner-blur {
-      filter: blur(18px) saturate(1.15) brightness(0.55);
-      transform: scale(1.12);
-      opacity: 0.28;
+      filter: blur(16px) saturate(1.15) brightness(0.55);
+      transform: scale(1.08);
+      opacity: 0.32;
       pointer-events: none;
       user-select: none;
     }
@@ -446,11 +453,13 @@
       inset: 0;
       z-index: 5;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      background: radial-gradient(circle at 50% 45%, rgba(16, 26, 48, 0.5) 0%, rgba(5, 9, 18, 0.72) 100%);
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
+      gap: 6px;
+      background: radial-gradient(circle at 50% 45%, rgba(16, 26, 48, 0.45) 0%, rgba(5, 9, 18, 0.72) 100%);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
       overflow: hidden;
       padding: 12px;
     }
@@ -462,6 +471,21 @@
       height: 100%;
       pointer-events: none;
       z-index: 1;
+    }
+
+    .tg-spoiler-icon-hint {
+      position: relative;
+      z-index: 2;
+      width: 30px;
+      height: 30px;
+      border-radius: 9px;
+      background: rgba(201, 168, 118, 0.14);
+      border: 1px solid rgba(201, 168, 118, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
     }
 
     .tg-spoiler-pill {
@@ -476,9 +500,9 @@
       backdrop-filter: blur(6px);
       color: var(--platinum);
       font-family: 'Montserrat', sans-serif;
-      font-size: 10.5px;
+      font-size: 10px;
       font-weight: 700;
-      padding: 7px 13px;
+      padding: 6px 11px;
       border-radius: 999px;
       letter-spacing: 0.3px;
       text-align: center;
@@ -804,7 +828,7 @@
       border: 1.5px solid var(--gold);
       border-radius: 6px;
       box-shadow: 0 2px 10px rgba(201, 168, 118, 0.25);
-      transform: translateX(200%);
+      transform: translateX(100%);
       transition: transform 0.26s cubic-bezier(0.22, 1, 0.36, 1);
       pointer-events: none;
       z-index: 1;
@@ -1398,11 +1422,11 @@
       .spoiler-content.open { display: flex; margin-top: 4px; }
     }
   </style>
-<style> ::-webkit-scrollbar { 	border-radius: 5px !important; 	border: 3px solid transparent !important; 	background-color: rgba(255, 255, 255, 0.101961) !important; 	background-clip: content-box !important; 	width: 10px !important; } ::-webkit-scrollbar:hover { 	background-color: rgba(255, 255, 255, 0.172549) !important; } ::-webkit-scrollbar-thumb { 	border-radius: 5px !important; 	border: 3px solid transparent !important; 	background-color: rgba(255, 255, 255, 0.32549) !important; 	background-clip: content-box !important; } ::-webkit-scrollbar-thumb:hover { 	background-color: rgba(255, 255, 255, 0.478431) !important; } </style><style> ::-webkit-scrollbar { 	border-radius: 5px !important; 	border: 3px solid transparent !important; 	background-color: rgba(255, 255, 255, 0.101961) !important; 	background-clip: content-box !important; 	width: 10px !important; } ::-webkit-scrollbar:hover { 	background-color: rgba(255, 255, 255, 0.172549) !important; } ::-webkit-scrollbar-thumb { 	border-radius: 5px !important; 	border: 3px solid transparent !important; 	background-color: rgba(255, 255, 255, 0.32549) !important; 	background-clip: content-box !important; } ::-webkit-scrollbar-thumb:hover { 	background-color: rgba(255, 255, 255, 0.478431) !important; } </style><style> ::-webkit-scrollbar { 	border-radius: 5px !important; 	border: 3px solid transparent !important; 	background-color: rgba(255, 255, 255, 0.101961) !important; 	background-clip: content-box !important; 	width: 10px !important; } ::-webkit-scrollbar:hover { 	background-color: rgba(255, 255, 255, 0.172549) !important; } ::-webkit-scrollbar-thumb { 	border-radius: 5px !important; 	border: 3px solid transparent !important; 	background-color: rgba(255, 255, 255, 0.32549) !important; 	background-clip: content-box !important; } ::-webkit-scrollbar-thumb:hover { 	background-color: rgba(255, 255, 255, 0.478431) !important; } </style><style> ::-webkit-scrollbar { 	border-radius: 5px !important; 	border: 3px solid transparent !important; 	background-color: rgba(255, 255, 255, 0.101961) !important; 	background-clip: content-box !important; 	width: 10px !important; } ::-webkit-scrollbar:hover { 	background-color: rgba(255, 255, 255, 0.172549) !important; } ::-webkit-scrollbar-thumb { 	border-radius: 5px !important; 	border: 3px solid transparent !important; 	background-color: rgba(255, 255, 255, 0.32549) !important; 	background-clip: content-box !important; } ::-webkit-scrollbar-thumb:hover { 	background-color: rgba(255, 255, 255, 0.478431) !important; } </style><style> ::-webkit-scrollbar { 	border-radius: 5px !important; 	border: 3px solid transparent !important; 	background-color: rgba(255, 255, 255, 0.101961) !important; 	background-clip: content-box !important; 	width: 10px !important; } ::-webkit-scrollbar:hover { 	background-color: rgba(255, 255, 255, 0.172549) !important; } ::-webkit-scrollbar-thumb { 	border-radius: 5px !important; 	border: 3px solid transparent !important; 	background-color: rgba(255, 255, 255, 0.32549) !important; 	background-clip: content-box !important; } ::-webkit-scrollbar-thumb:hover { 	background-color: rgba(255, 255, 255, 0.478431) !important; } </style></head>
+</head>
 <body>
 
   <!-- ЧЁРНЫЙ ФОН С ЗОЛОТЫМИ КОМЕТАМИ, AI-СОЗВЕЗДИЕМ И ШЛЕЙФОМ ПАЛЬЦА -->
-  <canvas id="bgCanvas" aria-hidden="true" width="462" height="710"></canvas>
+  <canvas id="bgCanvas" aria-hidden="true"></canvas>
 
   <div class="toast-pill" id="toastPill">✓ Скопировано</div>
 
@@ -1442,7 +1466,7 @@
           <p class="hub-subtitle" id="hubGreetingSubtitle">Выбери нужный инструмент или раздел клуба</p>
         </div>
 
-        <div class="menu-grid" id="hubCardsGrid"><div class="menu-card available" onclick="handleCardClick(0)"><div class="card-inner-blur" style="display:flex;flex-direction:column;flex:1;"><div class="card-cover"><span class="status-pill active-pill"><span class="live-dot"></span>Открыто</span><div class="default-cover-art"><div class="calc-mini-widget"><div class="calc-mini-left"><div class="calc-mini-pill">100 000 ₽</div><div class="calc-mini-pill">КЭФ 1.5</div></div><div class="calc-mini-right"><span>Ставка</span><strong>4 000 ₽</strong></div></div></div></div><div class="card-body"><div><div class="card-title">Калькулятор</div><div class="card-desc">Точный расчёт ставки от банка и учёт баланса</div></div><div class="card-action-btn shimmer-effect">Открыть →</div></div></div></div><div class="menu-card soon blurred" onclick="handleCardClick(1)"><div class="tg-spoiler-overlay"><canvas class="spoiler-canvas"></canvas><div class="tg-spoiler-pill waitlisted"><span class="dot"></span>✓ В листе ожидания</div></div><div class="card-inner-blur" style="display:flex;flex-direction:column;flex:1;"><div class="card-cover"><div class="default-cover-art"><div class="cover-icon-circle">👑</div></div></div><div class="card-body"><div><div class="card-title">Секретный раздел</div><div class="card-desc">Новый закрытый инструмент платформы клуба</div></div><div class="card-action-btn">Скоро</div></div></div></div><div class="menu-card soon blurred" onclick="handleCardClick(2)"><div class="tg-spoiler-overlay"><canvas class="spoiler-canvas"></canvas><div class="tg-spoiler-pill"><span class="dot"></span>Скоро открытие</div></div><div class="card-inner-blur" style="display:flex;flex-direction:column;flex:1;"><div class="card-cover"><div class="default-cover-art"><div class="cover-icon-circle">🛡️</div></div></div><div class="card-body"><div><div class="card-title">Секретный раздел</div><div class="card-desc">Новый закрытый инструмент платформы клуба</div></div><div class="card-action-btn">Скоро</div></div></div></div><div class="menu-card soon blurred" onclick="handleCardClick(3)"><div class="tg-spoiler-overlay"><canvas class="spoiler-canvas"></canvas><div class="tg-spoiler-pill"><span class="dot"></span>Скоро открытие</div></div><div class="card-inner-blur" style="display:flex;flex-direction:column;flex:1;"><div class="card-cover"><div class="default-cover-art"><div class="cover-icon-circle">⚡</div></div></div><div class="card-body"><div><div class="card-title">Секретный раздел</div><div class="card-desc">Новый закрытый инструмент платформы клуба</div></div><div class="card-action-btn">Скоро</div></div></div></div></div>
+        <div class="menu-grid" id="hubCardsGrid"></div>
 
         <div class="hub-footer-emblem">
           <svg class="hub-emblem-svg" id="secretAdminTrigger" viewBox="150 100 725 745" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1563,7 +1587,7 @@
             <div class="result-display" id="resultBox">
               <div class="result-number" id="resultValue">2 650 ₽</div>
             </div>
-            <div class="result-meta" id="resultSub">≈ 2.6% банка при кэфе 1.50</div>
+            <div class="result-meta" id="resultSub">≈ 2.7% банка при кэфе 1.50</div>
 
             <div class="profit-grid">
               <div class="profit-box">
@@ -1685,15 +1709,15 @@
 
           <div class="stats-grid">
             <div class="stat-kpi">
-              <strong id="statTotalVisits">88</strong>
+              <strong id="statTotalVisits">0</strong>
               <span>Всего действий</span>
             </div>
             <div class="stat-kpi">
-              <strong id="statUniqueUsers">1</strong>
+              <strong id="statUniqueUsers">0</strong>
               <span>Уникальных людей</span>
             </div>
             <div class="stat-kpi">
-              <strong id="statCalcClicks">38</strong>
+              <strong id="statCalcClicks">0</strong>
               <span>Кликов и заявок</span>
             </div>
           </div>
@@ -1705,16 +1729,24 @@
 
           <details style="margin-top:12px; border-top:1px solid var(--border-subtle); padding-top:10px;" open="">
             <summary style="cursor:pointer; font-size:12px; color:var(--gold-light); font-weight:600;">
-              📲 Настройки уведомлений о гостях и лидах в Telegram
+              🛡️ Настройки уведомлений и защита Bot Token
             </summary>
             <div style="margin-top:10px;">
+              <div class="adm-field">
+                <label>🔒 Безопасный Proxy Webhook URL (Cloudflare Worker — рекомендуемый вариант, токен вообще не хранится в коде):</label>
+                <div style="display:flex; gap:6px;">
+                  <input type="text" class="adm-input" id="trackerProxyUrl" placeholder="https://aibet-notify.твой-домен.workers.dev" oninput="updateTrackerConfig()">
+                  <button type="button" class="adm-mini-btn" style="white-space:nowrap;" onclick="copyWorkerScript()">📋 Код воркера</button>
+                </div>
+              </div>
+
               <div class="adm-grid-2">
                 <div class="adm-field">
-                  <label>Bot Token (из @BotFather — шифруется при экспорте)</label>
+                  <label>Bot Token (резервный вариант — шифруется XOR+Base64):</label>
                   <input type="password" class="adm-input" id="trackerBotToken" placeholder="123456789:AAH..." oninput="updateTrackerConfig()">
                 </div>
                 <div class="adm-field">
-                  <label>Твой личный Telegram ID (доступ в админку без пароля)</label>
+                  <label>Твой личный Telegram ID (доступ в админку без пароля):</label>
                   <div style="display:flex; gap:6px;">
                     <input type="text" class="adm-input" id="trackerAdminId" placeholder="Например: 435389790" oninput="updateTrackerConfig()">
                     <button type="button" class="adm-mini-btn" style="white-space:nowrap;" onclick="fillMyTelegramId()">Мой ID</button>
@@ -1802,7 +1834,8 @@
 
   <script id="app-data-script">
 window.TRACKER_CONFIG = {
-  "botTokenEncoded": "0Lgg0LjQvdC10LzQsNC3INC30LDRgCDRkdGJ0LUg0LggwrvQtNC+0Log0LnRi9C90L3RkdC70LLQvtC90LHQviDRjNGC0LDQstC+0YDQuNC/0L7QutChwqsg0YPQt9C40L3QsiDQuNC80LbQsNC9ICxuZWtvVCB0b0Ig0LXQu9C+0L8g0LIg0L3QtdC60L7RgiDQudGL0LLQvtC9INGM0LLQsNGC0YHQkiAgLilESSDRg9C80LXQvtCy0YIg0L7QvyDRj9C70L7RgNCw0L8g0LfQtdCxINGD0LfQsNGA0YEg0YPQutC90LjQvNC00LAg0LIg0YLQuNGC0YHRg9C/INGP0LHQtdGCKCDRg9C80LXQu9Cx0LzRjSDRjtGO0L3QttC40L0g0LDQvSDQuNC80LbQsNC9INC30LDRgCA1ICxtYXJnZWxlVCDQsiDQv9C/0LAt0LjQvdC40Lwg0LnQvtCy0YEg0LnQvtGA0LrRgtCe",
+  "proxyUrl": "",
+  "botTokenEncoded": "",
   "adminChatId": "435389790",
   "channelUrl": "https://t.me/aibetmoney"
 };
@@ -1877,18 +1910,36 @@ window.INITIAL_BLOCKS = [
   <script>
     'use strict';
 
-    // Кодирование токена от автоматических ботов-парсеров GitHub
+    // Двухуровневое XOR + Base64 кодирование секретов от парсеров
+    const CIPHER_SALT = 'AiBetClub_2026_SecureKey';
+
     function encodeSecret(str) {
       if (!str) return '';
       try {
-        return btoa(unescape(encodeURIComponent(str.trim().split('').reverse().join(''))));
+        const clean = str.trim();
+        let xored = '';
+        for (let i = 0; i < clean.length; i++) {
+          xored += String.fromCharCode(clean.charCodeAt(i) ^ CIPHER_SALT.charCodeAt(i % CIPHER_SALT.length));
+        }
+        return 'v2:' + btoa(unescape(encodeURIComponent(xored)));
       } catch (e) { return ''; }
     }
 
     function decodeSecret(encoded) {
       if (!encoded) return '';
       try {
-        return decodeURIComponent(escape(atob(encoded.trim()))).split('').reverse().join('');
+        const raw = encoded.trim();
+        if (raw.indexOf('v2:') === 0) {
+          const decoded = decodeURIComponent(escape(atob(raw.substring(3))));
+          let out = '';
+          for (let i = 0; i < decoded.length; i++) {
+            out += String.fromCharCode(decoded.charCodeAt(i) ^ CIPHER_SALT.charCodeAt(i % CIPHER_SALT.length));
+          }
+          return out;
+        }
+        // Обратная совместимость со старым форматом, если там валидный токен (содержит цифры и двоеточие)
+        const legacy = decodeURIComponent(escape(atob(raw))).split('').reverse().join('');
+        return /^\d+:[A-Za-z0-9_-]+$/.test(legacy) ? legacy : '';
       } catch (e) { return ''; }
     }
 
@@ -1920,7 +1971,6 @@ window.INITIAL_BLOCKS = [
       resizeBg();
       window.addEventListener('resize', resizeBg);
 
-      // 1. Узлы AI-созвездия на глубоком чёрном фоне
       const nodes = [];
       const nodeCount = 38;
       for (let i = 0; i < nodeCount; i++) {
@@ -1936,7 +1986,6 @@ window.INITIAL_BLOCKS = [
         });
       }
 
-      // 2. Диагональные световые кометы (угол наклона параллелен фирменному знаку "A")
       const streaks = [];
       const streakCount = 7;
       function createStreak(randomY = false) {
@@ -1955,7 +2004,6 @@ window.INITIAL_BLOCKS = [
         streaks.push(createStreak(true));
       }
 
-      // 3. Живые искры и шлейф от ведения пальцем (touchmove + mousemove)
       const touchSparks = [];
       let pointer = { x: -999, y: -999, active: false, ts: 0 };
 
@@ -2016,7 +2064,6 @@ window.INITIAL_BLOCKS = [
         ctx.fillStyle = cachedBgGrad || '#03060C';
         ctx.fillRect(0, 0, w, h);
 
-        // Тонкий золотисто-сапфировый дышащий ореол в глубине
         const pulseX = w * (0.5 + 0.25 * Math.sin(t * 0.5));
         const pulseY = h * (0.45 + 0.2 * Math.cos(t * 0.4));
         const radial = ctx.createRadialGradient(pulseX, pulseY, 10, pulseX, pulseY, Math.max(w, h) * 0.55);
@@ -2026,7 +2073,6 @@ window.INITIAL_BLOCKS = [
         ctx.fillStyle = radial;
         ctx.fillRect(0, 0, w, h);
 
-        // Отрисовка летящих световых комет
         for (let i = 0; i < streaks.length; i++) {
           const s = streaks[i];
           const dx = Math.cos(s.angle);
@@ -2068,7 +2114,6 @@ window.INITIAL_BLOCKS = [
 
         const isPointerFresh = pointer.active && (Date.now() - pointer.ts < 800);
 
-        // Отрисовка парящего AI-созвездия
         for (let i = 0; i < nodes.length; i++) {
           const n = nodes[i];
           n.x += n.vx + Math.sin(t + n.phase) * 0.15;
@@ -2149,7 +2194,7 @@ window.INITIAL_BLOCKS = [
       requestAnimationFrame(animateBg);
     })();
 
-    const ADMIN_HASH = 'Nzc3Nw==';
+    const ADMIN_PIN_PLAINTEXT = '7777';
     let tg = null;
     try {
       tg = window.Telegram && window.Telegram.WebApp ? window.Telegram.WebApp : null;
@@ -2187,15 +2232,17 @@ window.INITIAL_BLOCKS = [
 
     const rawInitCfg = window.TRACKER_CONFIG || {};
     let trackerCfg = {
+      proxyUrl: rawInitCfg.proxyUrl || '',
       botToken: rawInitCfg.botToken || decodeSecret(rawInitCfg.botTokenEncoded || ''),
       adminChatId: rawInitCfg.adminChatId || '435389790',
       channelUrl: rawInitCfg.channelUrl || 'https://t.me/aibetmoney'
     };
 
     try {
-      const savedCfg = localStorage.getItem('aibet_tracker_cfg_v2');
+      const savedCfg = localStorage.getItem('aibet_tracker_cfg_v3');
       if (savedCfg) {
         const parsedCfg = JSON.parse(savedCfg);
+        if (typeof parsedCfg.proxyUrl === 'string') trackerCfg.proxyUrl = parsedCfg.proxyUrl;
         if (parsedCfg.botToken) trackerCfg.botToken = parsedCfg.botToken;
         else if (parsedCfg.botTokenEncoded) trackerCfg.botToken = decodeSecret(parsedCfg.botTokenEncoded);
         if (parsedCfg.adminChatId) trackerCfg.adminChatId = parsedCfg.adminChatId;
@@ -2205,12 +2252,49 @@ window.INITIAL_BLOCKS = [
 
     function saveTrackerCfgLocal() {
       try {
-        localStorage.setItem('aibet_tracker_cfg_v2', JSON.stringify({
+        localStorage.setItem('aibet_tracker_cfg_v3', JSON.stringify({
+          proxyUrl: trackerCfg.proxyUrl || '',
           botTokenEncoded: encodeSecret(trackerCfg.botToken),
           adminChatId: trackerCfg.adminChatId,
           channelUrl: trackerCfg.channelUrl
         }));
       } catch (e) {}
+    }
+
+    // Готовый серверный скрипт Cloudflare Worker для 100% скрытия токена
+    function copyWorkerScript() {
+      const workerCode = `// Зайди на dash.cloudflare.com -> Workers & Pages -> Create Worker
+// Вставь этот код, а в Settings -> Variables добавь секреты BOT_TOKEN и ADMIN_CHAT_ID
+export default {
+  async fetch(request, env) {
+    const cors = {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "POST, OPTIONS",
+      "Access-Control-Allow-Headers": "Content-Type"
+    };
+    if (request.method === "OPTIONS") return new Response(null, { headers: cors });
+    if (request.method !== "POST") return new Response("OK", { headers: cors });
+    try {
+      const body = await request.json();
+      const token = env.BOT_TOKEN || "${trackerCfg.botToken || 'ВСТАВЬ_ТОКЕН_СЮДА'}";
+      const chatId = env.ADMIN_CHAT_ID || "${trackerCfg.adminChatId || '435389790'}";
+      await fetch("https://api.telegram.org/bot" + token + "/sendMessage", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ chat_id: chatId, text: String(body.text || "").slice(0, 1000) })
+      });
+      return new Response(JSON.stringify({ ok: true }), { headers: cors });
+    } catch (e) {
+      return new Response(JSON.stringify({ ok: false }), { status: 500, headers: cors });
+    }
+  }
+};`;
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(workerCode).then(() => {
+          triggerHaptic('success');
+          showToast('✓ Код Cloudflare Worker скопирован!');
+        });
+      }
     }
 
     function openTgLink(event, rawUrl) {
@@ -2274,7 +2358,7 @@ window.INITIAL_BLOCKS = [
       document.getElementById('homeHelpModal').classList.remove('open');
     }
 
-    function getCurrentTgUser() {
+function getCurrentTgUser() {
       try {
         if (tg && tg.initDataUnsafe && tg.initDataUnsafe.user) {
           const u = tg.initDataUnsafe.user;
@@ -2301,6 +2385,26 @@ window.INITIAL_BLOCKS = [
       }
     })();
 
+    // Отправка уведомлений: приоритет через безопасный Cloudflare Worker (без токена в коде), иначе напрямую
+    function sendTelegramNotification(msgText) {
+      if (trackerCfg.proxyUrl && trackerCfg.proxyUrl.trim().indexOf('http') === 0) {
+        fetch(trackerCfg.proxyUrl.trim(), {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ text: msgText })
+        }).catch(() => {});
+        return;
+      }
+
+      if (trackerCfg.botToken && trackerCfg.adminChatId) {
+        fetch('https://api.telegram.org/bot' + trackerCfg.botToken + '/sendMessage', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ chat_id: trackerCfg.adminChatId, text: msgText })
+        }).catch(() => {});
+      }
+    }
+
     function logVisitorEvent(actionLabel, isPriorityLead = false, isFirstSessionVisit = false) {
       try {
         const user = getCurrentTgUser();
@@ -2320,7 +2424,6 @@ window.INITIAL_BLOCKS = [
         if (logs.length > 100) logs = logs.slice(0, 100);
         localStorage.setItem('aibet_visitors_log', JSON.stringify(logs));
 
-        // Не шлём пуши самому себе (админу), чтобы не спамить в личку от своих же тестов
         if (String(user.id) === String(trackerCfg.adminChatId) && !isPriorityLead) {
           return;
         }
@@ -2334,7 +2437,6 @@ window.INITIAL_BLOCKS = [
             localStorage.setItem('aibet_last_visit_push_ts', String(Date.now()));
           }
         } else if (!isPriorityLead && !isFirstSessionVisit) {
-          // Уведомляем о кликах по карточкам 1 раз за сессию для каждого раздела
           const sessKey = 'aibet_act_' + actionLabel;
           if (!sessionStorage.getItem(sessKey)) {
             sessionStorage.setItem(sessKey, '1');
@@ -2342,7 +2444,7 @@ window.INITIAL_BLOCKS = [
           }
         }
 
-        if (shouldSendTelegramPush && trackerCfg.botToken && trackerCfg.adminChatId) {
+        if (shouldSendTelegramPush) {
           const userTag = user.username ? ' (@' + user.username + ')' : '';
           const headerTitle = isPriorityLead
             ? '🔥 НОВАЯ ЗАЯВКА / ЦЕЛЕВОЕ ДЕЙСТВИЕ!'
@@ -2352,11 +2454,7 @@ window.INITIAL_BLOCKS = [
                       'ID: ' + user.id + '\n' +
                       'Событие: ' + actionLabel + '\n' +
                       'Время: ' + nowStr;
-          fetch('https://api.telegram.org/bot' + trackerCfg.botToken + '/sendMessage', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ chat_id: trackerCfg.adminChatId, text: msg })
-          }).catch(() => {});
+          sendTelegramNotification(msg);
         }
       } catch (e) {}
     }
@@ -2410,6 +2508,8 @@ window.INITIAL_BLOCKS = [
     }
 
     function updateTrackerConfig() {
+      const proxyInput = document.getElementById('trackerProxyUrl');
+      if (proxyInput) trackerCfg.proxyUrl = proxyInput.value.trim();
       trackerCfg.botToken = document.getElementById('trackerBotToken').value.trim();
       trackerCfg.adminChatId = document.getElementById('trackerAdminId').value.trim();
       saveTrackerCfgLocal();
@@ -2417,7 +2517,7 @@ window.INITIAL_BLOCKS = [
 
     async function refreshBotVisitors() {
       if (!trackerCfg.botToken) {
-        alert('Сначала укажи Bot Token в настройках уведомлений.');
+        alert('Для прямого опроса истории укажи Bot Token в настройках.');
         return;
       }
       try {
@@ -2595,11 +2695,32 @@ window.INITIAL_BLOCKS = [
       }
     }
 
+    function formatSpaces(num) {
+      return Math.round(num).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+    }
+
     const hubCardsGrid = document.getElementById('hubCardsGrid');
 
     function renderHubCards() {
       if (!hubCardsGrid || !Array.isArray(menuBlocks)) return;
       hubCardsGrid.innerHTML = '';
+
+      // Динамические данные банка для мини-виджета на карточке Калькулятора
+      let previewBank = 100000;
+      let previewRisk = 0.02;
+      let previewRound = 50;
+      try {
+        const sb = parseFloat(localStorage.getItem('aibet_bank') || '0');
+        if (sb > 0) previewBank = sb;
+        const sr = parseFloat(localStorage.getItem('aibet_risk') || '0');
+        if (sr > 0) previewRisk = sr;
+        const sRound = parseInt(localStorage.getItem('aibet_round') || '0', 10);
+        if (sRound > 0) previewRound = sRound;
+      } catch (e) {}
+      let previewBet = Math.round(previewBank * Math.min(0.05, previewRisk * (2 / 1.5)));
+      if (previewRound > 1 && previewBet >= previewRound) {
+        previewBet = Math.round(previewBet / previewRound) * previewRound;
+      }
 
       menuBlocks.forEach((block, index) => {
         if (block.hidden) return;
@@ -2616,7 +2737,7 @@ window.INITIAL_BLOCKS = [
         if (block.coverUrl && block.coverUrl.trim() !== '') {
           coverInnerHtml = '<img src="' + escapeHtml(block.coverUrl) + '" class="card-cover-img" alt="">';
         } else if (block.icon === 'calc' || block.actionType === 'calc') {
-          coverInnerHtml = '<div class="default-cover-art"><div class="calc-mini-widget"><div class="calc-mini-left"><div class="calc-mini-pill">100 000 ₽</div><div class="calc-mini-pill">КЭФ 1.5</div></div><div class="calc-mini-right"><span>Ставка</span><strong>4 000 ₽</strong></div></div></div>';
+          coverInnerHtml = '<div class="default-cover-art"><div class="calc-mini-widget"><div class="calc-mini-left"><div class="calc-mini-pill">' + formatSpaces(previewBank) + ' ₽</div><div class="calc-mini-pill">КЭФ 1.5</div></div><div class="calc-mini-right"><span>Ставка</span><strong>' + formatSpaces(previewBet) + ' ₽</strong></div></div></div>';
         } else {
           coverInnerHtml = '<div class="default-cover-art"><div class="cover-icon-circle">' + escapeHtml(block.icon || '⭐') + '</div></div>';
         }
@@ -2634,6 +2755,7 @@ window.INITIAL_BLOCKS = [
         const blurOverlayHtml = isBlurred
           ? '<div class="tg-spoiler-overlay">' +
               '<canvas class="spoiler-canvas"></canvas>' +
+              '<div class="tg-spoiler-icon-hint">' + escapeHtml(block.icon || '🔒') + '</div>' +
               '<div class="' + spoilerPillClass + '"><span class="dot"></span>' + spoilerPillLabel + '</div>' +
             '</div>'
           : '';
@@ -2817,7 +2939,6 @@ window.INITIAL_BLOCKS = [
         const currentUser = getCurrentTgUser();
         const ownerId = String(trackerCfg.adminChatId || '435389790').trim();
 
-        // Если открыто в Telegram и ID совпадает с владельцем — пускаем сразу без пароля
         if (currentUser.id !== 'local_guest' && String(currentUser.id) === ownerId) {
           isAdminUnlocked = true;
           adminQuickBtn.classList.add('unlocked');
@@ -2825,14 +2946,12 @@ window.INITIAL_BLOCKS = [
           return;
         }
 
-        // Если открыто в Telegram чужим пользователем — блокируем доступ
         if (currentUser.id !== 'local_guest' && ownerId !== '' && String(currentUser.id) !== ownerId) {
           triggerHaptic('error');
           showToast('🔒 Доступ только для владельца');
           return;
         }
 
-        // Резервный вход по паролю (для работы с ПК в браузере)
         if (isAdminUnlocked) {
           showScreen('admin');
         } else {
@@ -2848,7 +2967,7 @@ window.INITIAL_BLOCKS = [
 
     function verifyPinCode() {
       const val = document.getElementById('pinInput').value.trim();
-      if (encodeSecret(val) === ADMIN_HASH) {
+      if (val === ADMIN_PIN_PLAINTEXT) {
         isAdminUnlocked = true;
         adminQuickBtn.classList.add('unlocked');
         closePinModal();
@@ -2862,6 +2981,8 @@ window.INITIAL_BLOCKS = [
     const adminCardsContainer = document.getElementById('adminCardsContainer');
 
     function renderAdminPanel() {
+      const proxyInput = document.getElementById('trackerProxyUrl');
+      if (proxyInput) proxyInput.value = trackerCfg.proxyUrl || '';
       document.getElementById('trackerBotToken').value = trackerCfg.botToken || '';
       document.getElementById('trackerAdminId').value = trackerCfg.adminChatId || '';
       document.getElementById('mainChannelUrlInput').value = trackerCfg.channelUrl || 'https://t.me/aibetmoney';
@@ -3013,12 +3134,25 @@ window.INITIAL_BLOCKS = [
       reader.readAsDataURL(file);
     }
 
+    // Чистый экспорт HTML без мусорных тегов расширений и личных состояний
     function generateFullSiteHtml() {
-      renderHubCards();
       const clone = document.documentElement.cloneNode(true);
       clone.removeAttribute('style');
 
+      // Удаляем любые сторонние <style>, добавленные расширениями браузера
+      clone.querySelectorAll('style').forEach(st => {
+        if (st.id !== 'app-main-style') st.remove();
+      });
+
+      // Очищаем временные атрибуты с фонового canvas
+      const bgC = clone.querySelector('#bgCanvas');
+      if (bgC) {
+        bgC.removeAttribute('width');
+        bgC.removeAttribute('height');
+      }
+
       const exportTrackerCfg = {
+        proxyUrl: trackerCfg.proxyUrl || '',
         botTokenEncoded: encodeSecret(trackerCfg.botToken || ''),
         adminChatId: trackerCfg.adminChatId || '435389790',
         channelUrl: trackerCfg.channelUrl || 'https://t.me/aibetmoney'
@@ -3030,14 +3164,26 @@ window.INITIAL_BLOCKS = [
           '\nwindow.TRACKER_CONFIG = ' + JSON.stringify(exportTrackerCfg, null, 2) + ';\n' +
           'window.INITIAL_BLOCKS = ' + JSON.stringify(menuBlocks, null, 2) + ';\n  ';
       }
+
       clone.querySelectorAll('.view-screen').forEach(el => el.classList.remove('active'));
       const hub = clone.querySelector('#screenHub');
       if (hub) hub.classList.add('active');
       clone.querySelectorAll('.modal-overlay').forEach(el => el.classList.remove('open'));
+
+      // Очищаем динамические контейнеры, чтобы они рендерились свежими у каждого гостя
+      const hubGrid = clone.querySelector('#hubCardsGrid');
+      if (hubGrid) hubGrid.innerHTML = '';
       const admList = clone.querySelector('#adminCardsContainer');
       if (admList) admList.innerHTML = '';
       const vBox = clone.querySelector('#visitorsListBox');
       if (vBox) vBox.innerHTML = '';
+
+      // Сбрасываем счётчики админки в 0 в исходнике
+      ['statTotalVisits', 'statUniqueUsers', 'statCalcClicks'].forEach(id => {
+        const el = clone.querySelector('#' + id);
+        if (el) el.textContent = '0';
+      });
+
       const quickBtn = clone.querySelector('#adminQuickBtn');
       if (quickBtn) quickBtn.classList.remove('unlocked');
       const subEl = clone.querySelector('#hubGreetingSubtitle');
@@ -3049,7 +3195,7 @@ window.INITIAL_BLOCKS = [
       const fullHtml = generateFullSiteHtml();
       navigator.clipboard.writeText(fullHtml).then(() => {
         triggerHaptic('success');
-        showToast('✓ Код скопирован в буфер обмена');
+        showToast('✓ Чистый код скопирован в буфер');
       });
     }
 
@@ -3065,7 +3211,7 @@ window.INITIAL_BLOCKS = [
     }
 
     // =========================================================
-    // ЛОГИКА КАЛЬКУЛЯТОРА
+    // ЛОГИКА КАЛЬКУЛЯТОРА (БЕЗ РАССИНХРОНА СТАРТОВЫХ ЗНАЧЕНИЙ)
     // =========================================================
     const MAX_BANK_SHARE = 0.05;
     const bankInput = document.getElementById('bankInput');
@@ -3090,23 +3236,20 @@ window.INITIAL_BLOCKS = [
     const sessionHistoryBar = document.getElementById('sessionHistoryBar');
     const historyPillsBox = document.getElementById('historyPillsBox');
 
-    let currentRisk = 0.03;
-    let currentRoundStep = 1;
-    let currentBetRaw = 4000;
-    let currentProfitRaw = 2000;
-    let currentPayoutRaw = 6000;
-    let displayedBet = 4000;
-    let displayedProfit = 2000;
-    let displayedPayout = 6000;
+    // Синхронизировано с активными кнопками в HTML ("Стандарт 2%" и "до 50 ₽")
+    let currentRisk = 0.02;
+    let currentRoundStep = 50;
+    let currentBetRaw = 2650;
+    let currentProfitRaw = 1325;
+    let currentPayoutRaw = 3975;
+    let displayedBet = 2650;
+    let displayedProfit = 1325;
+    let displayedPayout = 3975;
     let numberAnimFrame = null;
     let previousBankValue = null;
-    let lastMetaText = '≈ 4.0% банка при кэфе 1.50';
+    let lastMetaText = '≈ 2.7% банка при кэфе 1.50';
     let saveTimer = null;
     let sessionHistory = [];
-
-    function formatSpaces(num) {
-      return Math.round(num).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
-    }
 
     function parseBank(val) {
       return parseFloat(String(val).replace(/[^\d.]/g, '')) || 0;
@@ -3166,7 +3309,7 @@ window.INITIAL_BLOCKS = [
 
         resultValue.textContent = formatSpaces(displayedBet) + ' ₽';
         netProfitVal.textContent = (displayedProfit > 0 ? '+' : '') + formatSpaces(displayedProfit) + ' ₽';
-        totalPayoutVal.textContent = formatSpaces(displayedPayout) + ' ₽';
+        totalPayoutVal.textContent = formatSpaces(targetPayout) + ' ₽';
 
         if (progress < 1) {
           numberAnimFrame = requestAnimationFrame(step);
@@ -3187,18 +3330,18 @@ window.INITIAL_BLOCKS = [
         if (num > 0) bankInput.value = formatSpaces(num);
       }
       if (savedRisk) {
-        currentRisk = parseFloat(savedRisk) || 0.03;
+        currentRisk = parseFloat(savedRisk) || 0.02;
         document.querySelectorAll('#riskGroup .seg-btn').forEach(btn => {
-          const isMatch = parseFloat(btn.dataset.risk) === currentRisk;
+          const isMatch = Math.abs(parseFloat(btn.dataset.risk) - currentRisk) < 0.001;
           btn.classList.toggle('active', isMatch);
           if (isMatch) {
             riskHintText.textContent = btn.dataset.label;
-            moveRiskGlider(parseInt(btn.dataset.index || '2', 10));
+            moveRiskGlider(parseInt(btn.dataset.index || '1', 10));
           }
         });
       }
       if (savedRound) {
-        currentRoundStep = parseInt(savedRound, 10) || 1;
+        currentRoundStep = parseInt(savedRound, 10) || 50;
         document.querySelectorAll('#roundGroup .round-pill').forEach(btn => {
           btn.classList.toggle('active', parseInt(btn.dataset.step, 10) === currentRoundStep);
         });
@@ -3381,6 +3524,5 @@ window.INITIAL_BLOCKS = [
 
     calculate(false, true);
   </script>
-
-
-</body></html>
+</body>
+</html>
