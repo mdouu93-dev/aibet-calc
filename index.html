@@ -9,10 +9,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@500;600;700;800;900&display=swap" rel="stylesheet">
 <style id="app-main-style">
-:root{--bg-page:#03060C;--bg-card:rgba(12,20,36,0.78);--bg-dark-inner:rgba(6,10,19,0.86);--platinum:#E2E8F0;--text-secondary:#CBD5E1;--text-muted:#8E9BAE;--cream:#F5EFE4;--cream-focus:#FFFFFF;--gold:#C9A876;--gold-emblem:#E1A856;--gold-light:#E5B96F;--gold-border:rgba(201,168,118,0.48);--gold-glow:rgba(201,168,118,0.16);--green:#34D399;--green-bg:rgba(52,211,153,0.14);--green-border:rgba(52,211,153,0.4);--red:#F87171;--red-bg:rgba(248,113,113,0.12);--red-border:rgba(248,113,113,0.35);--text-dark:#070B12;--border-subtle:rgba(226,232,240,0.12)}
+:root{--bg-page:#03060C;--bg-card:rgba(12,20,36,0.78);--bg-dark-inner:rgba(6,10,19,0.86);--platinum:#E2E8F0;--text-secondary:#CBD5E1;--text-muted:#8E9BAE;--cream:#F5EFE4;--cream-focus:#FFFFFF;--gold:#C9A876;--gold-emblem:#E1A856;--gold-light:#E5B96F;--gold-border:rgba(201,168,118,0.48);--gold-glow:rgba(201,168,118,0.16);--green:#34D399;--green-bg:rgba(52,211,153,0.14);--green-border:rgba(52,211,153,0.4);--red:#F87171;--red-bg:rgba(248,113,113,0.12);--red-border:rgba(248,113,113,0.35);--amber:#FBBF24;--amber-bg:rgba(251,191,36,0.12);--amber-border:rgba(251,191,36,0.42);--text-dark:#070B12;--border-subtle:rgba(226,232,240,0.12)}
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 body{background:var(--bg-page);color:var(--platinum);font-family:'Inter',-apple-system,sans-serif;min-height:100vh;display:flex;flex-direction:column;position:relative;overflow-x:hidden;-webkit-font-smoothing:antialiased}
-.toast-pill,.hub-title,.hub-bank-pill,.status-pill,.calc-mini-pill,.calc-mini-right strong,.card-title,.card-action-btn,.tg-spoiler-pill,.admin-open-pill,.promo-title,.promo-cta-btn,.back-to-menu-btn,.block-label,.gold-input-box input,.quick-odd-chip,.seg-btn,.result-sublabel,.result-number,.profit-box-val,.action-btn,.hist-tag,.mobile-spoiler-btn,.info-item-title,.rule-heading,.admin-top-title,.stat-kpi strong,.admin-item-head strong,.adm-add-block-btn,.adm-publish-title,.adm-main-btn,.modal-pill,.modal-title,.modal-waitlist-btn,.modal-tg-btn,.modal-close-btn,.studio-badge-top{font-family:'Montserrat',sans-serif}
+.toast-pill,.hub-title,.hub-bank-pill,.rank-pill-badge,.hot-deal-badge,.hot-deal-title,.hot-deal-odd,.hot-deal-timer,.hot-deal-cta,.status-pill,.calc-mini-pill,.calc-mini-right strong,.card-title,.card-action-btn,.tg-spoiler-pill,.admin-open-pill,.promo-title,.promo-cta-btn,.back-to-menu-btn,.block-label,.gold-input-box input,.quick-odd-chip,.seg-btn,.result-sublabel,.result-number,.profit-box-val,.action-btn,.hist-tag,.tilt-alert-title,.tilt-action-btn,.mobile-spoiler-btn,.info-item-title,.rule-heading,.admin-top-title,.stat-kpi strong,.admin-item-head strong,.adm-add-block-btn,.adm-publish-title,.adm-main-btn,.modal-pill,.modal-title,.modal-waitlist-btn,.modal-tg-btn,.modal-close-btn,.studio-badge-top{font-family:'Montserrat',sans-serif}
 ::-webkit-scrollbar{width:8px;height:8px}::-webkit-scrollbar-track{background:rgba(255,255,255,0.04)}::-webkit-scrollbar-thumb{background:rgba(201,168,118,0.35);border-radius:4px}
 #bgCanvas{position:fixed;inset:0;width:100vw;height:100vh;z-index:0;pointer-events:none;display:block}
 header,section{position:relative;z-index:2}
@@ -21,7 +21,7 @@ header,section{position:relative;z-index:2}
 .site-header{background:rgba(4,7,14,0.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(201,168,118,0.24);position:sticky;top:0;z-index:30}
 .container{width:100%;max-width:1040px;margin:0 auto;padding:0 14px}
 .header-inner{display:flex;justify-content:space-between;align-items:center;padding:8px 0;gap:8px}
-.brand-logo{display:inline-flex;align-items:center;width:104px;text-decoration:none;cursor:pointer;user-select:none}
+.brand-logo{display:inline-flex;align-items:center;width:104px;text-decoration:none;cursor:pointer;user-select:none;background:none;border:none;padding:0}
 .brand-logo svg{width:100%;height:auto;display:block}
 .header-right-btns{display:flex;align-items:center;gap:6px}
 .studio-badge-top{display:none;align-items:center;gap:5px;background:var(--gold-glow);border:1px solid var(--gold);color:var(--gold-light);font-size:11px;font-weight:800;padding:6px 10px;border-radius:8px;cursor:pointer;box-shadow:0 0 14px rgba(201,168,118,0.18)}
@@ -41,8 +41,24 @@ header,section{position:relative;z-index:2}
 .hub-hero{text-align:center;margin-bottom:10px}
 .hub-title{font-size:17px;font-weight:800;color:var(--platinum);margin-bottom:2px}
 .hub-subtitle{font-size:11.5px;color:var(--text-muted)}.hub-subtitle strong{color:var(--gold-light);font-weight:600}
-.hub-bank-pill{display:inline-flex;align-items:center;gap:6px;margin-top:6px;padding:4px 12px;border-radius:999px;background:rgba(12,20,36,0.85);border:1px solid var(--gold-border);font-size:11px;font-weight:700;color:var(--platinum);cursor:pointer;transition:transform .15s ease;box-shadow:0 4px 14px rgba(0,0,0,0.4)}
-.hub-bank-pill:active{transform:scale(.96)}.hub-bank-pill .delta-pos{color:var(--green)}.hub-bank-pill .delta-neg{color:var(--red)}
+.hub-status-row{display:flex;align-items:center;justify-content:center;gap:6px;flex-wrap:wrap;margin-top:7px}
+.hub-bank-pill{display:inline-flex;align-items:center;gap:6px;padding:4.5px 12px;border-radius:999px;background:rgba(12,20,36,0.88);border:1px solid var(--gold-border);font-size:11px;font-weight:700;color:var(--platinum);cursor:pointer;transition:transform .15s ease;box-shadow:0 4px 14px rgba(0,0,0,0.4)}
+.hub-bank-pill:active,.rank-pill-badge:active{transform:scale(.96)}.hub-bank-pill .delta-pos{color:var(--green)}.hub-bank-pill .delta-neg{color:var(--red)}
+.rank-pill-badge{display:inline-flex;align-items:center;gap:5px;padding:4.5px 11px;border-radius:999px;background:linear-gradient(135deg,rgba(201,168,118,0.18) 0%,rgba(12,20,36,0.92) 100%);border:1px solid var(--gold);font-size:10.5px;font-weight:700;color:var(--gold-light);cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,0.4)}
+.rank-pill-badge.tilt-warn{border-color:var(--amber);color:var(--amber);background:var(--amber-bg)}
+.hot-deal-banner{display:none;margin-bottom:10px;background:linear-gradient(135deg,rgba(26,40,70,0.92) 0%,rgba(10,16,30,0.96) 100%);border:1.5px solid var(--gold);border-radius:14px;padding:10px 12px;box-shadow:0 10px 28px rgba(0,0,0,0.72),0 0 22px rgba(201,168,118,0.22);cursor:pointer;position:relative;overflow:hidden;transition:transform .16s cubic-bezier(.34,1.56,.64,1);animation:goldBorderBreathe 3.2s ease-in-out infinite alternate}
+.hot-deal-banner.visible{display:block}
+.hot-deal-banner:active{transform:scale(.98)}
+.hot-deal-top{display:flex;align-items:center;justify-content:space-between;gap:6px;margin-bottom:6px;flex-wrap:wrap}
+.hot-deal-badge{display:inline-flex;align-items:center;gap:5px;background:rgba(201,168,118,0.16);border:1px solid var(--gold-border);color:var(--gold-light);font-size:9.5px;font-weight:800;padding:2.5px 8px;border-radius:999px;text-transform:uppercase;letter-spacing:.3px}
+.hot-deal-badge .pulse-dot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:livePulseGreen 1.8s infinite;flex-shrink:0}
+.hot-deal-timer{display:inline-flex;align-items:center;gap:4px;background:rgba(6,10,19,0.9);border:1px solid rgba(251,191,36,0.45);color:var(--amber);font-size:10px;font-weight:800;padding:2.5px 8px;border-radius:999px;font-variant-numeric:tabular-nums}
+.hot-deal-main{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.hot-deal-info{display:flex;flex-direction:column;gap:2px;min-width:0;flex:1}
+.hot-deal-title{font-size:13px;font-weight:800;color:#FFF;line-height:1.22;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hot-deal-sub{font-size:11px;color:var(--text-secondary);display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.hot-deal-odd{display:inline-block;background:var(--cream);color:var(--text-dark);font-size:10px;font-weight:900;padding:1.5px 6px;border-radius:4px}
+.hot-deal-cta{flex-shrink:0;background:linear-gradient(180deg,#FFFFFF 0%,#F5EFE4 52%,#DFC8A4 100%);border:1.5px solid #D8B47E;color:var(--text-dark);font-size:11px;font-weight:800;padding:7px 12px;border-radius:9px;box-shadow:inset 0 1px 0 #FFF,0 4px 12px rgba(201,168,118,0.28);white-space:nowrap}
 .menu-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
 .menu-card{background:linear-gradient(165deg,rgba(16,26,46,0.78) 0%,rgba(8,14,26,0.88) 100%);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(201,168,118,0.28);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;cursor:pointer;transition:transform .18s cubic-bezier(.34,1.56,.64,1),border-color .16s ease,box-shadow .2s ease;box-shadow:0 10px 26px rgba(0,0,0,0.65);position:relative}
 .menu-card:active{transform:scale(.97)}
@@ -103,7 +119,7 @@ header,section{position:relative;z-index:2}
 .left-column{display:flex;flex-direction:column;gap:14px}.input-list{display:flex;flex-direction:column;gap:9px}
 .field-row{display:grid;grid-template-columns:1fr 150px;align-items:center;gap:10px;background:rgba(255,255,255,0.03);padding:5px 5px 5px 12px;border-radius:11px;border:1px solid rgba(255,255,255,0.06)}
 .field-block{display:flex;flex-direction:column;gap:7px;background:rgba(255,255,255,0.03);padding:9px 10px 10px 12px;border-radius:11px;border:1px solid rgba(255,255,255,0.06)}
-.field-title{font-size:13.5px;font-weight:500;color:var(--text-secondary);display:flex;justify-content:space-between;align-items:center}
+.field-title{font-size:13.5px;font-weight:500;color:var(--text-secondary);display:flex;justify-content:space-between;align-items:center;gap:6px}
 .field-title-hint{font-size:11px;color:var(--text-muted);font-weight:400}
 .gold-input-box{height:40px;background:var(--cream);border:1.5px solid var(--gold);border-radius:8px;display:flex;align-items:center;transition:box-shadow .2s ease,background-color .2s ease}
 .gold-input-box:focus-within{background:var(--cream-focus);box-shadow:0 0 0 3px rgba(201,168,118,0.28)}
@@ -125,18 +141,38 @@ header,section{position:relative;z-index:2}
 .copy-hint{font-size:10.5px;font-weight:400;text-transform:none;color:var(--gold-light)}
 .result-display{background:var(--bg-dark-inner);border:1.5px solid var(--gold);border-radius:11px;height:76px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:transform .12s ease,box-shadow .25s ease,border-color .25s ease}
 .result-display:active{transform:scale(.985)}.result-display.copied-flash{border-color:var(--green)!important;box-shadow:0 0 22px rgba(52,211,153,0.35)!important}
-.result-number{font-size:34px;font-weight:800;color:#FFF;font-variant-numeric:tabular-nums}
+.result-number{font-size:32px;font-weight:800;color:#FFF;font-variant-numeric:tabular-nums}
 .result-meta{text-align:center;font-size:12.5px;font-style:italic;color:var(--gold-light);margin-top:7px}
 .profit-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px;padding-top:12px;border-top:1px solid var(--border-subtle)}
 .profit-box{background:var(--bg-dark-inner);border:1px solid var(--border-subtle);border-radius:9px;padding:8px 10px;text-align:center}
 .profit-box-label{font-size:10.5px;color:var(--text-muted);margin-bottom:2px}
 .profit-box-val{font-size:14px;font-weight:700;color:var(--platinum);font-variant-numeric:tabular-nums}.profit-box-val.green{color:var(--green)}
-.bank-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:9px}
-.action-btn{border-radius:9px;padding:9px 6px;font-size:11.5px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:4px;position:relative;overflow:hidden;transition:transform .14s cubic-bezier(.34,1.56,.64,1);white-space:nowrap}
-.action-btn:active{transform:scale(.95)}.btn-win{background:var(--green-bg);border:1px solid var(--green-border);color:var(--green);box-shadow:inset 0 1px 0 rgba(52,211,153,0.25)}.btn-loss{background:var(--red-bg);border:1px solid var(--red-border);color:var(--red);box-shadow:inset 0 1px 0 rgba(248,113,113,0.2)}
-.session-history-bar{display:none;align-items:center;justify-content:space-between;gap:6px;margin-top:9px;padding-top:8px;border-top:1px dashed var(--border-subtle);font-size:11px}.session-history-bar.visible{display:flex}
+.bank-actions{display:grid;grid-template-columns:1.15fr 0.85fr 1.15fr;gap:6px;margin-top:9px}
+.action-btn{border-radius:9px;padding:9px 5px;font-size:11px;font-weight:700;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;position:relative;overflow:hidden;transition:transform .14s cubic-bezier(.34,1.56,.64,1);white-space:nowrap;line-height:1.15}
+.action-btn span{font-size:10px;opacity:0.9}
+.action-btn:active{transform:scale(.95)}
+.btn-win{background:var(--green-bg);border:1px solid var(--green-border);color:var(--green);box-shadow:inset 0 1px 0 rgba(52,211,153,0.25)}
+.btn-push{background:rgba(201,168,118,0.12);border:1px solid var(--gold-border);color:var(--gold-light);box-shadow:inset 0 1px 0 rgba(201,168,118,0.2)}
+.btn-loss{background:var(--red-bg);border:1px solid var(--red-border);color:var(--red);box-shadow:inset 0 1px 0 rgba(248,113,113,0.2)}
+.tilt-radar-box{display:none;margin-top:10px;padding:11px 12px;border-radius:11px;background:linear-gradient(145deg,rgba(251,191,36,0.16) 0%,rgba(12,20,36,0.95) 100%);border:1.5px solid var(--amber);box-shadow:0 6px 20px rgba(0,0,0,0.5),0 0 16px rgba(251,191,36,0.15);animation:screenFade .22s ease-out}
+.tilt-radar-box.visible{display:block}
+.tilt-alert-title{font-size:11.5px;font-weight:800;color:var(--amber);display:flex;align-items:center;justify-content:space-between;gap:6px;margin-bottom:4px}
+.tilt-alert-text{font-size:11.5px;line-height:1.4;color:var(--platinum);margin-bottom:8px}
+.tilt-alert-actions{display:flex;gap:6px;flex-wrap:wrap}
+.tilt-action-btn{background:var(--cream);color:var(--text-dark);border:1px solid var(--gold);border-radius:7px;padding:5px 10px;font-size:10.5px;font-weight:800;cursor:pointer;transition:transform .12s ease}
+.tilt-action-btn:active{transform:scale(.96)}
+.tilt-dismiss-btn{background:rgba(255,255,255,0.06);color:var(--text-secondary);border:1px solid var(--border-subtle);border-radius:7px;padding:5px 9px;font-size:10.5px;font-weight:600;cursor:pointer}
+.session-history-bar{display:none;flex-direction:column;gap:7px;margin-top:10px;padding-top:9px;border-top:1px dashed var(--border-subtle);font-size:11px}.session-history-bar.visible{display:flex}
+.session-stats-top{display:flex;align-items:center;justify-content:space-between;gap:6px;flex-wrap:wrap}
+.session-rank-chip{display:inline-flex;align-items:center;gap:4px;background:var(--gold-glow);border:1px solid var(--gold-border);color:var(--gold-light);padding:2.5px 8px;border-radius:6px;font-size:10.5px;font-weight:700}
+.session-winrate-text{font-size:11px;color:var(--text-secondary);font-weight:600}
+.session-winrate-text strong{color:var(--green)}
+.session-history-bottom{display:flex;align-items:center;justify-content:space-between;gap:6px}
 .history-pills{display:flex;align-items:center;gap:5px;flex-wrap:wrap}
-.hist-tag{padding:2px 6px;border-radius:5px;font-size:10px;font-weight:700}.hist-tag.win{background:var(--green-bg);color:var(--green);border:1px solid var(--green-border)}.hist-tag.loss{background:var(--red-bg);color:var(--red);border:1px solid var(--red-border)}
+.hist-tag{padding:2px 6px;border-radius:5px;font-size:10px;font-weight:700}
+.hist-tag.win{background:var(--green-bg);color:var(--green);border:1px solid var(--green-border)}
+.hist-tag.push{background:rgba(201,168,118,0.14);color:var(--gold-light);border:1px solid var(--gold-border)}
+.hist-tag.loss{background:var(--red-bg);color:var(--red);border:1px solid var(--red-border)}
 .undo-wrap{text-align:center;margin-top:7px;display:none}.undo-wrap.visible{display:block}
 .undo-btn{background:none;border:none;color:var(--text-muted);font-size:11.5px;text-decoration:underline;cursor:pointer}
 .tg-cta-link{display:inline-flex;align-items:center;justify-content:center;width:100%;padding:12px 16px;background:linear-gradient(180deg,rgba(201,168,118,0.22) 0%,rgba(201,168,118,0.1) 100%);border:1px solid var(--gold);border-radius:11px;color:var(--gold-light);font-size:13.5px;font-weight:600;text-decoration:none;cursor:pointer;position:relative;overflow:hidden;box-shadow:inset 0 1px 0 rgba(255,255,255,0.18),0 4px 16px rgba(0,0,0,0.4)}
@@ -204,7 +240,7 @@ header,section{position:relative;z-index:2}
 <header class="site-header">
 <div class="container">
 <div class="header-inner">
-<a href="#" onclick="showScreen('hub',event)" class="brand-logo" aria-label="AiBet Money">
+<button type="button" onclick="showScreen('hub',event)" class="brand-logo" aria-label="AiBet Money">
 <svg id="brandLogoSvg" viewBox="48 24 308 132" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path fill="#E2E8F0" fill-rule="evenodd" clip-rule="evenodd" d="M270.5,50.2L260.5,55.2L255.5,60.5L253,64.5L251,69.5L249.8,75.8L250,85.2L251.2,90L253,94L256.5,99L259.8,102.2L265.8,106L275.8,108.5L286,108.2L292.5,106.5L298.2,103.2L303.5,97.8L303,96.5L296.5,91.5L294.8,91.2L291.2,94.5L286.2,97L282,97.8L275.5,97.2L268,93.5L264.8,89.8L262.8,84.5L263.8,83.2L305.8,83.2L306.5,76.8L304.5,66.5L299.2,58L296.5,55.2L291.2,52L280.8,49.2ZM262.8,72.8L263.5,70.5L265.5,66.8L268.8,63.5L271.5,61.8L275.8,60.5L280,60.2L285.2,61.5L288.2,63.2L291.5,66.5L293.2,70.5L294,73.2L293.5,74L263.8,74.2ZM322,36L321.5,36.5L321.5,49.2L320.5,50.2L313.5,50.2L312.8,50.8L312.5,60.5L313,61L320.8,61.2L321.5,62.2L321.5,94.2L322.5,98.8L324.2,102L327.5,105.5L332,107.5L335.8,108.2L341.8,108.2L348,106.8L349,105.5L348.2,96.5L339.5,97L337.2,96L334.8,93L334.2,90.2L334.2,62.2L335.2,61L348.2,61L348.8,60.2L348.8,51.2L347.2,50.2L335,50.2L334.2,49.2L334.2,36.5L333.8,36ZM176.8,29.2L176.5,107L218.8,107.2L226.2,105.5L232.2,102.2L236.8,97.2L239.8,88.2L239.2,81L237.2,75.5L233.8,71.2L226.2,67.2L233.5,60.8L236.2,54.5L236.5,45.8L233,37.8L227.2,32.8L218.2,29.5ZM190,74.2L191.5,73.5L213.2,73.5L217.2,74L222.2,76.5L224.2,78.8L225.8,82.2L225.8,87L224.2,90.5L222,92.8L219.2,94.2L215,95.2L190.8,95.2L189.8,94.2ZM190,42.2L191,41.5L214.2,41.8L219.2,43.8L222,47L222.8,49.5L222.8,53.8L220.2,58.8L217.2,61L213,62.2L191,62.2L190,61.5ZM101.5,29.5L86.5,29.5L54.2,105.5L54.5,107.5L68.2,107.2L75.5,91L112.2,91L113.2,91.8L119.5,107.2L134,107ZM94,46.2L107.8,78.5L106.2,79.2L80.8,79L80.2,78.2Z"></path>
 <rect x="144" y="51" width="14" height="56.2" rx="1" fill="#E2E8F0"></rect>
@@ -213,7 +249,7 @@ header,section{position:relative;z-index:2}
 <rect x="304" y="139.2" width="45" height="2.4" rx="1.2" fill="#C9A876"></rect>
 <path fill="#C9A876" fill-rule="evenodd" clip-rule="evenodd" d="M272.2,129.8L272,131L279,143L279,150.2L282.8,150.2L282.8,143L290,131L289.5,129.8L286.5,130.2L281,138.8L275.5,130.2ZM240.2,130L240.2,150.5L254.8,150.5L254.8,147.5L244,147.5L244,141.8L253.5,141.8L253.5,138.6L244,138.6L244,133L254.8,133L254.8,130ZM201.4,130L201.4,150.5L205,150.5L205,136.8L216.2,150.5L220,150.5L220,130L216.2,130L216.2,143.2L205,130ZM119.2,130L119.2,150.5L122.8,150.5L122.8,137.2L129.8,147.5L131.2,147.5L138,137.2L138,150.5L141.6,150.5L141.6,130L137.5,130L130.5,141.2L123.5,130ZM168.5,129.8L164.5,131.8L161.5,135.5L160.5,139L160.8,142.5L162.2,146.5L164.8,149L168.5,150.8L173.5,150.8L177.8,149.2L180.5,146.8L182.2,142.8L182.5,139.2L181.5,135.2L179.5,132.5L176,130.2L173.2,129.5ZM169.5,133L173.8,133L176.5,134.8L178.2,137.8L178.5,142.2L176.5,145.8L173.5,147.6L169.5,147.6L166.2,145.5L164.5,142L164.8,137.8L167.2,134.2Z"></path>
 </svg>
-</a>
+</button>
 <div class="header-right-btns">
 <button type="button" id="topStudioBtn" onclick="showScreen('admin')" class="studio-badge-top">⚙️ Админка</button>
 <button type="button" onclick="openMainChannel(event)" class="channel-pill">
@@ -231,8 +267,9 @@ header,section{position:relative;z-index:2}
 <div class="hub-hero">
 <h1 class="hub-title">Платформа AiBet Money</h1>
 <p class="hub-subtitle" id="hubGreetingSubtitle">Выбери нужный инструмент или раздел клуба</p>
-<div id="hubBankPillWrap"></div>
+<div class="hub-status-row" id="hubBankPillWrap"></div>
 </div>
+<div class="hot-deal-banner shimmer-effect" id="hotDealBanner" onclick="handleHotDealClick(event)"></div>
 <div class="menu-grid" id="hubCardsGrid"></div>
 <div class="hub-footer-emblem">
 <svg class="hub-emblem-svg" id="secretAdminTrigger" viewBox="150 100 725 745" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -272,7 +309,10 @@ header,section{position:relative;z-index:2}
 <div class="card">
 <div class="block-label"><span class="block-label-left">ТВОИ ДАННЫЕ</span><span class="saved-badge" id="savedBadge">Сохранено ✓</span></div>
 <div class="input-list">
-<div class="field-row"><div class="field-title">Банк, ₽</div><div class="gold-input-box"><input type="text" id="bankInput" value="100 000" inputmode="numeric" autocomplete="off"></div></div>
+<div class="field-row">
+<div class="field-title">Банк, ₽</div>
+<div class="gold-input-box"><input type="text" id="bankInput" value="100 000" inputmode="numeric" autocomplete="off"></div>
+</div>
 <div class="field-row"><div class="field-title">Коэффициент (кэф)</div><div class="gold-input-box"><input type="text" id="oddsInput" value="1.5" inputmode="decimal" autocomplete="off"></div></div>
 <div class="quick-odds-row" id="quickOddsGroup">
 <span class="quick-odds-label">Быстрый выбор:</span>
@@ -311,10 +351,28 @@ header,section{position:relative;z-index:2}
 </div>
 <div class="bank-actions">
 <button type="button" class="action-btn btn-win" id="btnWin">✅ Заход <span id="winBtnDelta">(+1 325 ₽)</span></button>
+<button type="button" class="action-btn btn-push" id="btnPush">🔄 Возврат <span id="pushBtnDelta">(0 ₽)</span></button>
 <button type="button" class="action-btn btn-loss" id="btnLoss">❌ Минус <span id="lossBtnDelta">(−2 650 ₽)</span></button>
 </div>
-<div class="session-history-bar" id="sessionHistoryBar"><div class="history-pills" id="historyPillsBox"></div><button type="button" class="undo-btn" onclick="clearSessionHistory()">очистить</button></div>
-<div class="undo-wrap" id="undoWrap"><button type="button" class="undo-btn" id="undoBtn">↺ Отменить последнее изменение банка</button></div>
+<div class="tilt-radar-box" id="tiltRadarBox">
+<div class="tilt-alert-title"><span id="tiltAlertTitleText">⚠️ Анти-тильт радар: 3 минуса подряд</span></div>
+<div class="tilt-alert-text" id="tiltAlertBodyText">Серия неудач провоцирует желание отыграться. Рекомендуем временно переключить риск на «Осторожно (1%)» или сделать паузу.</div>
+<div class="tilt-alert-actions">
+<button type="button" class="tilt-action-btn" id="tiltSafeModeBtn" onclick="activateSafeRiskFromTilt()">🛡️ Включить «Осторожно (1%)»</button>
+<button type="button" class="tilt-dismiss-btn" onclick="dismissTiltRadar()">Принял, держу дисциплину</button>
+</div>
+</div>
+<div class="session-history-bar" id="sessionHistoryBar">
+<div class="session-stats-top">
+<span class="session-rank-chip" id="calcRankBadge">🌱 Старт</span>
+<span class="session-winrate-text" id="calcWinrateText">Winrate: <strong>—</strong></span>
+</div>
+<div class="session-history-bottom">
+<div class="history-pills" id="historyPillsBox"></div>
+<button type="button" class="undo-btn" onclick="clearSessionHistory()">очистить</button>
+</div>
+</div>
+<div class="undo-wrap" id="undoWrap"><button type="button" class="undo-btn" id="undoBtn">↺ Отменить последнее действие</button></div>
 </div>
 <button type="button" onclick="openMainChannel(event)" class="tg-cta-link">Забрать готовые разборы в Telegram →</button>
 <div class="emblem-box">
@@ -353,6 +411,51 @@ header,section{position:relative;z-index:2}
 <div style="display:flex;gap:8px;flex-wrap:wrap">
 <button type="button" class="adm-mini-btn gold-outline" onclick="forceBypassCacheReload()">🔄 Сбросить кэш ТГ</button>
 <button type="button" class="back-to-menu-btn" onclick="showScreen('hub')">✓ Готово (В меню)</button>
+</div>
+</div>
+
+<div class="stats-panel" style="border:1.5px solid var(--amber)">
+<div class="admin-item-head" style="margin-bottom:10px">
+<strong style="color:var(--amber)">🔥 ВИДЖЕТ «СТАВКА ДНЯ / ГЛАВНЫЙ АНОНС» (НАД МЕНЮ)</strong>
+<div class="admin-head-btns">
+<button type="button" class="adm-mini-btn gold-outline" onclick="setHotTimerPreset(2)">⏱ +2 часа</button>
+<button type="button" class="adm-mini-btn gold-outline" onclick="setHotTimerPreset(4)">⏱ +4 часа</button>
+<button type="button" class="adm-mini-btn gold-outline" onclick="setHotTimerTonight21()">🕘 Сегодня 21:00</button>
+<button type="button" class="adm-mini-btn" onclick="clearHotTimer()">✕ Без таймера</button>
+</div>
+</div>
+<div class="adm-toggles-row">
+<label class="adm-check-label">
+<input type="checkbox" id="hotEnabledCheck" onchange="updateHotBannerFromAdmin()">
+<span>⚡ Показывать плашку «Ставка дня» на главном экране</span>
+</label>
+<label class="adm-check-label">
+<input type="checkbox" id="hotAutoHideCheck" onchange="updateHotBannerFromAdmin()">
+<span>⏳ Авто-отключение плашки по истечении таймера</span>
+</label>
+</div>
+<div class="adm-grid-3">
+<div class="adm-field"><label>Верхний бейдж</label><input type="text" class="adm-input" id="hotBadgeInput" placeholder="🔥 СТАВКА ДНЯ ГОТОВА" oninput="updateHotBannerFromAdmin()"></div>
+<div class="adm-field"><label>Заголовок (Матч / Событие)</label><input type="text" class="adm-input" id="hotTitleInput" placeholder="Главный матч вечера по спец-модели" oninput="updateHotBannerFromAdmin()"></div>
+<div class="adm-field"><label>Коэффициент (кэф)</label><input type="text" class="adm-input" id="hotOddInput" placeholder="1.85" oninput="updateHotBannerFromAdmin()"></div>
+</div>
+<div class="adm-grid-3">
+<div class="adm-field"><label>Подпись рядом с кэфом</label><input type="text" class="adm-input" id="hotSubInput" placeholder="Уверенный ординар • Старт в 21:00 МСК" oninput="updateHotBannerFromAdmin()"></div>
+<div class="adm-field"><label>Текст кнопки</label><input type="text" class="adm-input" id="hotCtaTextInput" placeholder="Забрать →" oninput="updateHotBannerFromAdmin()"></div>
+<div class="adm-field"><label>Таймер отключения (Дата и время)</label><input type="datetime-local" class="adm-input" id="hotDeadlineInput" oninput="updateHotBannerFromAdmin()"></div>
+</div>
+<div class="adm-grid-2" style="margin-bottom:0">
+<div class="adm-field" style="margin-bottom:0">
+<label>Куда ведёт клик по плашке:</label>
+<select class="adm-select" id="hotActionTypeSelect" onchange="updateHotBannerFromAdmin()">
+<option value="link">В личные сообщения / по ссылке ниже</option>
+<option value="calc_odd">Открыть Калькулятор и сразу подставить этот кэф</option>
+</select>
+</div>
+<div class="adm-field" style="margin-bottom:0">
+<label>Ссылка на твой ЛС или пост (если выбран переход):</label>
+<input type="text" class="adm-input" id="hotUrlInput" placeholder="https://t.me/aibetmoney" oninput="updateHotBannerFromAdmin()">
+</div>
 </div>
 </div>
 
@@ -436,8 +539,17 @@ header,section{position:relative;z-index:2}
 </div>
 
 <div class="stats-panel">
-<div class="admin-item-head" style="margin-bottom:8px"><strong>🔗 Главная ссылка на твой Telegram-канал</strong></div>
-<div class="adm-field" style="margin-bottom:4px"><label>Укажи точную ссылку на свой канал:</label><input type="text" class="adm-input" id="mainChannelUrlInput" placeholder="https://t.me/aibetmoney" oninput="updateMainChannelUrl(this.value)"></div>
+<div class="admin-item-head" style="margin-bottom:8px"><strong>🔗 Главная ссылка на твой Telegram-канал и защита входа</strong></div>
+<div class="adm-grid-2" style="margin-bottom:4px">
+<div class="adm-field" style="margin-bottom:0"><label>Укажи точную ссылку на свой канал:</label><input type="text" class="adm-input" id="mainChannelUrlInput" placeholder="https://t.me/aibetmoney" oninput="updateMainChannelUrl(this.value)"></div>
+<div class="adm-field" style="margin-bottom:0">
+<label>🔑 Сменить PIN-код админки (хэшируется):</label>
+<div style="display:flex;gap:6px">
+<input type="password" class="adm-input" id="newAdminPinInput" placeholder="Новый PIN (по умолч. 7777)" inputmode="numeric">
+<button type="button" class="adm-mini-btn gold-outline" style="white-space:nowrap" onclick="saveNewAdminPin()">Сохранить PIN</button>
+</div>
+</div>
+</div>
 </div>
 
 <div class="stats-panel">
@@ -456,14 +568,14 @@ header,section{position:relative;z-index:2}
 <summary style="cursor:pointer;font-size:12px;color:var(--gold-light);font-weight:600">🛡️ Настройки уведомлений и защита Bot Token</summary>
 <div style="margin-top:10px">
 <div class="adm-field">
-<label>🔒 Безопасный Proxy Webhook URL (Cloudflare Worker):</label>
+<label>🔒 Безопасный Proxy Webhook URL (опционально):</label>
 <div style="display:flex;gap:6px">
 <input type="text" class="adm-input" id="trackerProxyUrl" placeholder="https://aibet-notify.твой-домен.workers.dev" oninput="updateTrackerConfig()">
 <button type="button" class="adm-mini-btn" style="white-space:nowrap" onclick="copyWorkerScript()">📋 Код воркера</button>
 </div>
 </div>
 <div class="adm-grid-2">
-<div class="adm-field"><label>Bot Token (скрывается при наличии Proxy):</label><input type="password" class="adm-input" id="trackerBotToken" placeholder="123456789:AAH..." oninput="updateTrackerConfig()"></div>
+<div class="adm-field"><label>Bot Token (скрывается при экспорте):</label><input type="password" class="adm-input" id="trackerBotToken" placeholder="123456789:AAH..." oninput="updateTrackerConfig()"></div>
 <div class="adm-field">
 <label>Твой личный Telegram ID:</label>
 <div style="display:flex;gap:6px">
@@ -480,9 +592,12 @@ header,section{position:relative;z-index:2}
 <button type="button" class="adm-add-block-btn" onclick="addNewBlock()">+ Добавить новый блок в меню</button>
 <div class="adm-publish-box">
 <div class="adm-publish-title">🚀 Опубликовать изменения для всех подписчиков</div>
-<div class="adm-publish-desc">Когда ты настроил разделы и обложки — скопируй обновлённый код и замени им <code>index.html</code> на GitHub:</div>
+<div class="adm-publish-desc">Способ 1 (Мгновенно с телефона без GitHub): если в настройках ниже подключён <strong>Live-воркер</strong>, нажми <strong>«⚡ Опубликовать мгновенно с телефона»</strong> — плашка «Ставка дня» и все карточки обновятся у подписчиков за 1 секунду.<br>Способ 2 (Классический): скопируй код или скачай <code>index.html</code> для GitHub:</div>
+<div style="margin-bottom:10px">
+<button type="button" class="adm-main-btn gold shimmer-effect" style="width:100%;font-size:13px;padding:13px" onclick="publishLiveToCloud()">⚡ Опубликовать мгновенно с телефона (Cloud Live Sync)</button>
+</div>
 <div class="adm-export-btns">
-<button type="button" class="adm-main-btn gold shimmer-effect" onclick="copyUpdatedSiteCode()">📋 Скопировать обновлённый код</button>
+<button type="button" class="adm-main-btn secondary" onclick="copyUpdatedSiteCode()">📋 Скопировать обновлённый код</button>
 <button type="button" class="adm-main-btn secondary" onclick="downloadUpdatedSiteFile()">💾 Скачать index.html</button>
 </div>
 </div>
@@ -527,12 +642,37 @@ header,section{position:relative;z-index:2}
 </div>
 </div>
 
+<div class="modal-overlay" id="confirmDeleteModal" onclick="closeConfirmDeleteModal()">
+<div class="modal-box" onclick="event.stopPropagation()">
+<div class="modal-pill">Подтверждение</div>
+<div class="modal-title">Удалить этот блок?</div>
+<div class="modal-text" id="confirmDeleteText">Вы уверены, что хотите удалить выбранный раздел из меню?</div>
+<div class="modal-actions">
+<button type="button" class="modal-waitlist-btn" onclick="confirmDeleteBlockNow()">Да, удалить</button>
+<button type="button" class="modal-close-btn" onclick="closeConfirmDeleteModal()">Отмена</button>
+</div>
+</div>
+</div>
+
 <script id="app-data-script">
 window.TRACKER_CONFIG = {
   "proxyUrl": "",
   "botTokenEncoded": "",
   "adminChatId": "435389790",
-  "channelUrl": "https://t.me/aibetmoney"
+  "channelUrl": "https://t.me/aibetmoney",
+  "adminPinHash": "aibet_h1_55fc9c19_14a997fb"
+};
+window.HOT_BANNER = {
+  "enabled": false,
+  "autoHide": true,
+  "badge": "🔥 СТАВКА ДНЯ ГОТОВА",
+  "title": "Главный матч вечера по спец-модели",
+  "odd": "1.85",
+  "sub": "Начало в 21:00 МСК • Топ-исход",
+  "ctaText": "Забрать →",
+  "actionType": "link",
+  "ctaUrl": "https://t.me/aibetmoney",
+  "deadlineTs": 0
 };
 window.INITIAL_BLOCKS = [
   {"id":"calc","title":"Калькулятор","desc":"Точный расчёт ставки от банка и учёт баланса","status":"available","hidden":false,"blurred":false,"actionType":"calc","btnLabel":"Открыть →","icon":"calc","coverUrl":"","pageTitle":"","pageText":"","ctaText":"","ctaUrl":"https://t.me/aibetmoney"},
@@ -547,6 +687,36 @@ window.INITIAL_BLOCKS = [
 const CIPHER_SALT='AiBetClub_2026_SecureKey';
 function encodeSecret(str){if(!str)return '';try{const c=str.trim();let x='';for(let i=0;i<c.length;i++)x+=String.fromCharCode(c.charCodeAt(i)^CIPHER_SALT.charCodeAt(i%CIPHER_SALT.length));return 'v2:'+btoa(unescape(encodeURIComponent(x)));}catch(e){return '';}}
 function decodeSecret(enc){if(!enc)return '';try{const r=enc.trim();if(r.indexOf('v2:')===0){const d=decodeURIComponent(escape(atob(r.substring(3))));let o='';for(let i=0;i<d.length;i++)o+=String.fromCharCode(d.charCodeAt(i)^CIPHER_SALT.charCodeAt(i%CIPHER_SALT.length));return o;}const leg=decodeURIComponent(escape(atob(r))).split('').reverse().join('');return /^\d+:[A-Za-z0-9_-]+$/.test(leg)?leg:'';}catch(e){return '';}}
+
+function computePinHash(pin){
+  const str='AiBetPinSalt_2026::'+String(pin||'').trim();
+  let h1=0xdeadbeef^str.length,h2=0x41c6ce57^str.length;
+  for(let i=0,ch;i<str.length;i++){
+    ch=str.charCodeAt(i);
+    h1=Math.imul(h1^ch,2654435761);
+    h2=Math.imul(h2^ch,1597334677);
+  }
+  h1=Math.imul(h1^(h1>>>16),2246822507)^Math.imul(h2^(h2>>>13),3266489909);
+  h2=Math.imul(h2^(h2>>>16),2246822507)^Math.imul(h1^(h1>>>13),3266489909);
+  return 'aibet_h1_'+(h1>>>0).toString(16).padStart(8,'0')+'_'+(h2>>>0).toString(16).padStart(8,'0');
+}
+
+function copyTextSafe(text,onDone){
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(()=>{if(onDone)onDone();}).catch(()=>fallbackCopyText(text,onDone));
+  }else{
+    fallbackCopyText(text,onDone);
+  }
+}
+function fallbackCopyText(text,onDone){
+  try{
+    const ta=document.createElement('textarea');
+    ta.value=text;ta.style.position='fixed';ta.style.opacity='0';
+    document.body.appendChild(ta);ta.focus();ta.select();
+    document.execCommand('copy');ta.remove();
+    if(onDone)onDone();
+  }catch(e){}
+}
 
 function forceBypassCacheReload(){
   triggerHaptic('medium');
@@ -626,32 +796,126 @@ document.addEventListener('pointerdown',e=>{
   requestAnimationFrame(animateBg);
 })();
 
-const ADMIN_PIN_PLAINTEXT='7777';
 let tg=null;
 try{
   tg=window.Telegram&&window.Telegram.WebApp?window.Telegram.WebApp:null;
-  if(tg){tg.ready();tg.expand();if(tg.setHeaderColor)tg.setHeaderColor('#03060C');if(tg.setBackgroundColor)tg.setBackgroundColor('#03060C');if(tg.BackButton&&tg.BackButton.onClick)tg.BackButton.onClick(()=>showScreen('hub'));}
+  if(tg){
+    tg.ready();
+    tg.expand();
+    const canColor=Boolean(typeof tg.isVersionAtLeast==='function'&&tg.isVersionAtLeast('6.1'));
+    if(canColor&&typeof tg.setHeaderColor==='function')tg.setHeaderColor('#03060C');
+    if(canColor&&typeof tg.setBackgroundColor==='function')tg.setBackgroundColor('#03060C');
+    if(canColor&&tg.BackButton&&typeof tg.BackButton.onClick==='function')tg.BackButton.onClick(()=>showScreen('hub'));
+  }
 }catch(e){}
 
 function triggerHaptic(type='light'){
-  try{if(!tg||!tg.HapticFeedback)return;if(type==='success'||type==='warning'||type==='error')tg.HapticFeedback.notificationOccurred(type);else tg.HapticFeedback.impactOccurred(type);}catch(e){}
+  try{
+    if(!tg||!tg.HapticFeedback||typeof tg.isVersionAtLeast!=='function'||!tg.isVersionAtLeast('6.1'))return;
+    if(type==='success'||type==='warning'||type==='error')tg.HapticFeedback.notificationOccurred(type);
+    else tg.HapticFeedback.impactOccurred(type);
+  }catch(e){}
 }
 
 let toastTimer=null;
-function showToast(msg){const el=document.getElementById('toastPill');if(!el)return;el.textContent=msg;el.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('show'),2200);}
+function showToast(msg){const el=document.getElementById('toastPill');if(!el)return;el.textContent=msg;el.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('show'),2400);}
 
+const CLOUD_KEYS=['aibet_bank','aibet_risk','aibet_round','aibet_session_hist','aibet_waitlist_v1'];
+function hasTgCloudStorage(){
+  try{return Boolean(tg&&typeof tg.isVersionAtLeast==='function'&&tg.isVersionAtLeast('6.9')&&tg.CloudStorage&&typeof tg.CloudStorage.getItems==='function'&&typeof tg.CloudStorage.setItem==='function');}catch(e){return false;}
+}
+function saveKeyEverywhere(key,valStr){
+  try{localStorage.setItem(key,valStr);}catch(e){}
+  if(hasTgCloudStorage()){
+    try{tg.CloudStorage.setItem(key,String(valStr||''),()=>{});}catch(e){}
+  }
+}
+function removeKeyEverywhere(key){
+  try{localStorage.removeItem(key);}catch(e){}
+  if(hasTgCloudStorage()){
+    try{tg.CloudStorage.removeItem(key,()=>{});}catch(e){}
+  }
+}
+
+const DEFAULT_PIN_HASH=computePinHash('7777');
 const rawInitCfg=window.TRACKER_CONFIG||{};
-let trackerCfg={proxyUrl:rawInitCfg.proxyUrl||'',botToken:rawInitCfg.botToken||decodeSecret(rawInitCfg.botTokenEncoded||''),adminChatId:rawInitCfg.adminChatId||'435389790',channelUrl:rawInitCfg.channelUrl||'https://t.me/aibetmoney'};
+let trackerCfg={
+  proxyUrl:rawInitCfg.proxyUrl||'',
+  botToken:rawInitCfg.botToken||decodeSecret(rawInitCfg.botTokenEncoded||''),
+  adminChatId:rawInitCfg.adminChatId||'435389790',
+  channelUrl:rawInitCfg.channelUrl||'https://t.me/aibetmoney',
+  adminPinHash:rawInitCfg.adminPinHash||DEFAULT_PIN_HASH
+};
 try{
   const sc=localStorage.getItem('aibet_tracker_cfg_v3');
-  if(sc){const pc=JSON.parse(sc);if(typeof pc.proxyUrl==='string')trackerCfg.proxyUrl=pc.proxyUrl;if(pc.botToken)trackerCfg.botToken=pc.botToken;else if(pc.botTokenEncoded)trackerCfg.botToken=decodeSecret(pc.botTokenEncoded);if(pc.adminChatId)trackerCfg.adminChatId=pc.adminChatId;if(pc.channelUrl)trackerCfg.channelUrl=pc.channelUrl;}
+  if(sc){
+    const pc=JSON.parse(sc);
+    if(typeof pc.proxyUrl==='string')trackerCfg.proxyUrl=pc.proxyUrl;
+    if(pc.botToken)trackerCfg.botToken=pc.botToken;
+    else if(pc.botTokenEncoded)trackerCfg.botToken=decodeSecret(pc.botTokenEncoded);
+    if(pc.adminChatId)trackerCfg.adminChatId=pc.adminChatId;
+    if(pc.channelUrl)trackerCfg.channelUrl=pc.channelUrl;
+    if(pc.adminPinHash)trackerCfg.adminPinHash=pc.adminPinHash;
+  }
 }catch(e){}
 
-function saveTrackerCfgLocal(){try{localStorage.setItem('aibet_tracker_cfg_v3',JSON.stringify({proxyUrl:trackerCfg.proxyUrl||'',botTokenEncoded:encodeSecret(trackerCfg.botToken),adminChatId:trackerCfg.adminChatId,channelUrl:trackerCfg.channelUrl}));}catch(e){}}
+function saveTrackerCfgLocal(){
+  try{
+    localStorage.setItem('aibet_tracker_cfg_v3',JSON.stringify({
+      proxyUrl:trackerCfg.proxyUrl||'',
+      botTokenEncoded:encodeSecret(trackerCfg.botToken),
+      adminChatId:trackerCfg.adminChatId,
+      channelUrl:trackerCfg.channelUrl,
+      adminPinHash:trackerCfg.adminPinHash||DEFAULT_PIN_HASH
+    }));
+  }catch(e){}
+}
+
+function saveNewAdminPin(){
+  const inp=document.getElementById('newAdminPinInput');
+  const raw=(inp?inp.value:'').trim();
+  if(!raw||raw.length<4){
+    triggerHaptic('error');
+    showToast('⚠️ Введи новый PIN (минимум 4 символа)');
+    return;
+  }
+  trackerCfg.adminPinHash=computePinHash(raw);
+  saveTrackerCfgLocal();
+  if(inp)inp.value='';
+  triggerHaptic('success');
+  showToast('🔑 Новый PIN зашифрован и сохранён!');
+}
 
 function copyWorkerScript(){
-  const wc=['export default {','  async fetch(request, env) {','    const cors = { "Access-Control-Allow-Origin": "*", "Access-Control-Allow-Methods": "POST, OPTIONS", "Access-Control-Allow-Headers": "Content-Type" };','    if (request.method === "OPTIONS") return new Response(null, { headers: cors });','    if (request.method !== "POST") return new Response("OK", { headers: cors });','    try {','      const body = await request.json();','      const token = env.BOT_TOKEN || "'+(trackerCfg.botToken||'ВСТАВЬ_ТОКЕН_СЮДА')+'";','      const chatId = env.ADMIN_CHAT_ID || "'+(trackerCfg.adminChatId||'435389790')+'";','      await fetch("https://api.telegram.org/bot" + token + "/sendMessage", {','        method: "POST", headers: { "Content-Type": "application/json" },','        body: JSON.stringify({ chat_id: chatId, text: String(body.text || "").slice(0, 1000) })','      });','      return new Response(JSON.stringify({ ok: true }), { headers: cors });','    } catch (e) { return new Response(JSON.stringify({ ok: false }), { status: 500, headers: cors }); }','  }','};'].join('\n');
-  if(navigator.clipboard)navigator.clipboard.writeText(wc).then(()=>{triggerHaptic('success');showToast('✓ Код Cloudflare Worker скопирован!');});
+  const wc=[
+    'export default {',
+    '  async fetch(request, env) {',
+    '    const cors = { "Access-Control-Allow-Origin": "*", "Access-Control-Allow-Methods": "GET, POST, OPTIONS", "Access-Control-Allow-Headers": "Content-Type" };',
+    '    if (request.method === "OPTIONS") return new Response(null, { headers: cors });',
+    '    const url = new URL(request.url);',
+    '    if (request.method === "GET" && url.searchParams.get("action") === "get_config") {',
+    '      const saved = env.AIBET_KV ? await env.AIBET_KV.get("live_state") : null;',
+    '      return new Response(saved || "{}", { headers: { ...cors, "Content-Type": "application/json" } });',
+    '    }',
+    '    if (request.method !== "POST") return new Response("OK", { headers: cors });',
+    '    try {',
+    '      const body = await request.json();',
+    '      if (body.action === "save_config" && env.AIBET_KV) {',
+    '        await env.AIBET_KV.put("live_state", JSON.stringify({ blocks: body.blocks, hotBanner: body.hotBanner, updatedAt: Date.now() }));',
+    '        return new Response(JSON.stringify({ ok: true }), { headers: cors });',
+    '      }',
+    '      const token = env.BOT_TOKEN || "'+(trackerCfg.botToken||'ВСТАВЬ_ТОКЕН_СЮДА')+'";',
+    '      const chatId = env.ADMIN_CHAT_ID || "'+(trackerCfg.adminChatId||'435389790')+'";',
+    '      await fetch("https://api.telegram.org/bot" + token + "/sendMessage", {',
+    '        method: "POST", headers: { "Content-Type": "application/json" },',
+    '        body: JSON.stringify({ chat_id: chatId, text: String(body.text || "").slice(0, 1000) })',
+    '      });',
+    '      return new Response(JSON.stringify({ ok: true }), { headers: cors });',
+    '    } catch (e) { return new Response(JSON.stringify({ ok: false }), { status: 500, headers: cors }); }',
+    '  }',
+    '};'
+  ].join('\n');
+  copyTextSafe(wc,()=>{triggerHaptic('success');showToast('✓ Код Live-воркера скопирован!');});
 }
 
 function openTgLink(ev,rawUrl){
@@ -667,8 +931,9 @@ function openMainChannel(ev){openTgLink(ev,trackerCfg.channelUrl||'https://t.me/
 function addAppToHomeScreen(){
   triggerHaptic('medium');
   try{
-    if(tg&&typeof tg.checkHomeScreenStatus==='function'){tg.checkHomeScreenStatus(st=>{if(st==='added')showToast('✓ Ярлык уже на твоём рабочем столе!');else if(st==='unsupported')document.getElementById('homeHelpModal').classList.add('open');else if(typeof tg.addToHomeScreen==='function')tg.addToHomeScreen();else document.getElementById('homeHelpModal').classList.add('open');});return;}
-    if(tg&&typeof tg.addToHomeScreen==='function'){tg.addToHomeScreen();return;}
+    const canHome=Boolean(tg&&typeof tg.isVersionAtLeast==='function'&&tg.isVersionAtLeast('8.0'));
+    if(canHome&&typeof tg.checkHomeScreenStatus==='function'){tg.checkHomeScreenStatus(st=>{if(st==='added')showToast('✓ Ярлык уже на твоём рабочем столе!');else if(st==='unsupported')document.getElementById('homeHelpModal').classList.add('open');else if(typeof tg.addToHomeScreen==='function')tg.addToHomeScreen();else document.getElementById('homeHelpModal').classList.add('open');});return;}
+    if(canHome&&typeof tg.addToHomeScreen==='function'){tg.addToHomeScreen();return;}
   }catch(e){}
   document.getElementById('homeHelpModal').classList.add('open');
 }
@@ -682,6 +947,34 @@ function escapeHtml(s){return String(s||'').replace(/&/g,'&amp;').replace(/"/g,'
 function formatSpaces(n){return Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g,' ');}
 
 (function initPersonalGreeting(){const u=getCurrentTgUser(),sub=document.getElementById('hubGreetingSubtitle');if(u&&u.firstName&&sub)sub.innerHTML='<strong>'+escapeHtml(u.firstName)+'</strong>, выбери нужный инструмент или раздел клуба';})();
+
+function getDisciplineStats(histArr){
+  const list=Array.isArray(histArr)?histArr:[];
+  let wins=0,losses=0,pushes=0,net=0,lossStreak=0,streakBroken=false;
+  list.forEach(it=>{
+    const isPush=Boolean(it.push||it.type==='push');
+    const isWin=Boolean(!isPush&&it.win);
+    if(isPush){
+      pushes++;
+    }else if(isWin){
+      wins++;
+      net+=Number(it.amount)||0;
+      streakBroken=true;
+    }else{
+      losses++;
+      net-=Number(it.amount)||0;
+      if(!streakBroken)lossStreak++;
+    }
+  });
+  const total=list.length;
+  const decided=wins+losses;
+  const winrate=decided>0?Math.round((wins/decided)*100):null;
+  let rankIcon='🌱',rankTitle='Старт',nextAt=3;
+  if(total>=15){rankIcon='👑';rankTitle='Профи дистанции';nextAt=null;}
+  else if(total>=7){rankIcon='🎯';rankTitle='Снайпер флэта';nextAt=15;}
+  else if(total>=3){rankIcon='🧊';rankTitle='Холодный расчёт';nextAt=7;}
+  return{total,wins,losses,pushes,net,lossStreak,winrate,rankIcon,rankTitle,nextAt};
+}
 
 function getSavedBankAndBet(){
   let pBank=100000,pRisk=0.02,pRound=50;
@@ -700,10 +993,20 @@ function renderHubBankPill(){
   try{
     const sb=parseFloat(localStorage.getItem('aibet_bank')||'0'),hist=JSON.parse(localStorage.getItem('aibet_session_hist')||'[]');
     if(!sb&&!hist.length){wrap.innerHTML='';return;}
-    const bv=sb>0?sb:100000;let net=0;hist.forEach(it=>{net+=it.win?it.amount:-it.amount;});
+    const bv=sb>0?sb:100000;
+    const st=getDisciplineStats(hist);
     let dHtml='';
-    if(net!==0){const st=Math.max(1,bv-net),pct=((net/st)*100).toFixed(1),sg=net>0?'+':'−',cls=net>0?'delta-pos':'delta-neg';dHtml=' • <span class="'+cls+'">'+sg+formatSpaces(Math.abs(net))+' ₽ ('+(net>0?'+':'')+pct+'%)</span>';}
-    wrap.innerHTML='<div class="hub-bank-pill" onclick="showScreen(\'calc\')">💼 Твой банк: '+formatSpaces(bv)+' ₽'+dHtml+'</div>';
+    if(st.net!==0){
+      const startBank=Math.max(1,bv-st.net),pct=((st.net/startBank)*100).toFixed(1),sg=st.net>0?'+':'−',cls=st.net>0?'delta-pos':'delta-neg';
+      dHtml=' • <span class="'+cls+'">'+sg+formatSpaces(Math.abs(st.net))+' ₽ ('+(st.net>0?'+':'')+pct+'%)</span>';
+    }
+    const wrPart=st.winrate!==null?' • WR '+st.winrate+'%':'';
+    const isTilt=st.lossStreak>=3;
+    const rankCls=isTilt?'rank-pill-badge tilt-warn':'rank-pill-badge';
+    const rankText=isTilt?'⚠️ Анти-тильт ('+st.lossStreak+'L)':(st.rankIcon+' '+st.rankTitle+wrPart);
+    wrap.innerHTML=
+      '<div class="hub-bank-pill" onclick="showScreen(\'calc\')">💼 Твой банк: '+formatSpaces(bv)+' ₽'+dHtml+'</div>'+
+      '<div class="'+rankCls+'" onclick="showScreen(\'calc\')" title="Ранг финансовой дисциплины">'+escapeHtml(rankText)+'</div>';
   }catch(e){wrap.innerHTML='';}
 }
 
@@ -738,12 +1041,12 @@ function renderStatsInAdmin(){
   box.innerHTML=logs.slice(0,40).map(it=>{const uh=it.username?' <a class="visitor-link" href="https://t.me/'+escapeHtml(it.username)+'" target="_blank">@'+escapeHtml(it.username)+'</a>':'';return '<div class="visitor-row"><div><span class="visitor-name">'+escapeHtml(it.name)+'</span>'+uh+' <span style="font-size:10.5px;color:var(--text-muted)">(ID: '+escapeHtml(it.id)+')</span></div><div class="visitor-meta"><div>'+escapeHtml(it.action)+'</div><div>'+escapeHtml(it.time)+'</div></div></div>';}).join('');
 }
 
-function fillMyTelegramId(){const u=getCurrentTgUser();if(u&&u.id&&u.id!=='local_guest'){document.getElementById('trackerAdminId').value=String(u.id);updateTrackerConfig();showToast('✓ Твой ID ('+u.id+') подставлен');}else alert('Открой это окно внутри Telegram, чтобы ID определился автоматически.');}
+function fillMyTelegramId(){const u=getCurrentTgUser();if(u&&u.id&&u.id!=='local_guest'){document.getElementById('trackerAdminId').value=String(u.id);updateTrackerConfig();showToast('✓ Твой ID ('+u.id+') подставлен');}else showToast('⚠️ Открой приложение внутри Telegram для автоопределения ID');}
 function updateMainChannelUrl(v){trackerCfg.channelUrl=v.trim()||'https://t.me/aibetmoney';saveTrackerCfgLocal();}
 function updateTrackerConfig(){const p=document.getElementById('trackerProxyUrl');if(p)trackerCfg.proxyUrl=p.value.trim();trackerCfg.botToken=document.getElementById('trackerBotToken').value.trim();trackerCfg.adminChatId=document.getElementById('trackerAdminId').value.trim();saveTrackerCfgLocal();}
 
 async function refreshBotVisitors(){
-  if(!trackerCfg.botToken){alert('Для прямого опроса истории укажи Bot Token.');return;}
+  if(!trackerCfg.botToken){showToast('⚠️ Укажи Bot Token в настройках уведомлений');return;}
   try{
     const res=await fetch('https://api.telegram.org/bot'+trackerCfg.botToken+'/getUpdates?limit=50'),data=await res.json();
     if(data&&Array.isArray(data.result)){
@@ -751,7 +1054,7 @@ async function refreshBotVisitors(){
       data.result.forEach(upd=>{const f=(upd.message&&upd.message.from)||(upd.callback_query&&upd.callback_query.from);if(f&&!logs.some(l=>String(l.id)===String(f.id)))logs.unshift({id:f.id,name:((f.first_name||'')+' '+(f.last_name||'')).trim(),username:f.username||'',action:'Запускал бота',time:'Из истории бота'});});
       localStorage.setItem('aibet_visitors_log',JSON.stringify(logs));renderStatsInAdmin();triggerHaptic('medium');showToast('✓ Список гостей обновлён');
     }
-  }catch(e){alert('Не удалось получить список из бота.');}
+  }catch(e){showToast('⚠️ Не удалось получить список из бота');}
 }
 
 let menuBlocks=[];
@@ -764,10 +1067,233 @@ function saveBlocksDraft(){try{localStorage.setItem('aibet_menu_blocks_v32_clean
 
 let waitlistMap={};try{waitlistMap=JSON.parse(localStorage.getItem('aibet_waitlist_v1')||'{}');}catch(e){waitlistMap={};}
 let activeModalBlockIndex=null;
+let pendingDeleteBlockIdx=null;
 
-// =========================================================
-// ФИРМЕННЫЙ ГЕНЕРАТОР ОБЛОЖЕК AIBET MONEY (800x400, 10 УЗОРОВ, 12 ЗНАКОВ)
-// =========================================================
+const defaultHotBanner=window.HOT_BANNER||{
+  enabled:false,
+  autoHide:true,
+  badge:'🔥 СТАВКА ДНЯ ГОТОВА',
+  title:'Главный матч вечера по спец-модели',
+  odd:'1.85',
+  sub:'Начало в 21:00 МСК • Топ-исход',
+  ctaText:'Забрать →',
+  actionType:'link',
+  ctaUrl:'https://t.me/aibetmoney',
+  deadlineTs:0
+};
+let hotBannerCfg=JSON.parse(JSON.stringify(defaultHotBanner));
+try{
+  const shb=localStorage.getItem('aibet_hot_banner_v1');
+  if(shb){
+    const phb=JSON.parse(shb);
+    if(phb&&typeof phb==='object')hotBannerCfg=Object.assign({},defaultHotBanner,phb);
+  }
+}catch(e){}
+
+function saveHotBannerDraft(){
+  try{localStorage.setItem('aibet_hot_banner_v1',JSON.stringify(hotBannerCfg));}catch(e){}
+}
+
+function formatCountdown(msLeft){
+  const totalSec=Math.max(0,Math.floor(msLeft/1000));
+  const h=Math.floor(totalSec/3600);
+  const m=Math.floor((totalSec%3600)/60);
+  const s=totalSec%60;
+  return String(h).padStart(2,'0')+':'+String(m).padStart(2,'0')+':'+String(s).padStart(2,'0');
+}
+
+function renderHotDealBanner(){
+  const box=document.getElementById('hotDealBanner');
+  if(!box)return;
+  if(!hotBannerCfg||!hotBannerCfg.enabled){
+    box.classList.remove('visible');
+    box.innerHTML='';
+    return;
+  }
+  const now=Date.now();
+  const deadline=Number(hotBannerCfg.deadlineTs)||0;
+  if(deadline>0&&hotBannerCfg.autoHide&&now>=deadline){
+    box.classList.remove('visible');
+    box.innerHTML='';
+    return;
+  }
+  let timerHtml='';
+  if(deadline>0){
+    const left=deadline-now;
+    if(left>0){
+      timerHtml='<span class="hot-deal-timer" id="hotDealLiveTimer">⏳ До старта: '+formatCountdown(left)+'</span>';
+    }else{
+      timerHtml='<span class="hot-deal-timer">⚡ LIVE / Старт</span>';
+    }
+  }
+  const oddPart=hotBannerCfg.odd&&String(hotBannerCfg.odd).trim()!==''
+    ?'<span class="hot-deal-odd">КЭФ '+escapeHtml(hotBannerCfg.odd)+'</span>'
+    :'';
+  box.innerHTML=
+    '<div class="hot-deal-top">'+
+      '<span class="hot-deal-badge"><span class="pulse-dot"></span>'+escapeHtml(hotBannerCfg.badge||'🔥 СТАВКА ДНЯ ГОТОВА')+'</span>'+
+      timerHtml+
+    '</div>'+
+    '<div class="hot-deal-main">'+
+      '<div class="hot-deal-info">'+
+        '<div class="hot-deal-title">'+escapeHtml(hotBannerCfg.title||'Матч дня готов')+'</div>'+
+        '<div class="hot-deal-sub">'+oddPart+'<span>'+escapeHtml(hotBannerCfg.sub||'')+'</span></div>'+
+      '</div>'+
+      '<div class="hot-deal-cta">'+escapeHtml(hotBannerCfg.ctaText||'Забрать →')+'</div>'+
+    '</div>';
+  box.classList.add('visible');
+}
+
+setInterval(()=>{
+  if(document.hidden)return;
+  if(!hotBannerCfg||!hotBannerCfg.enabled||!hotBannerCfg.deadlineTs)return;
+  const left=Number(hotBannerCfg.deadlineTs)-Date.now();
+  if(left<=0&&hotBannerCfg.autoHide){
+    renderHotDealBanner();
+    return;
+  }
+  const tEl=document.getElementById('hotDealLiveTimer');
+  if(tEl&&left>0){
+    tEl.textContent='⏳ До старта: '+formatCountdown(left);
+  }
+},1000);
+
+function handleHotDealClick(ev){
+  if(ev)ev.preventDefault();
+  triggerHaptic('medium');
+  logVisitorEvent('🔥 Нажал на плашку Ставка дня: '+(hotBannerCfg.title||'Анонс'),true,false);
+  if(hotBannerCfg.actionType==='calc_odd'){
+    const rawOdd=parseFloat(String(hotBannerCfg.odd||'1.85').replace(',','.'));
+    showScreen('calc');
+    if(rawOdd>1){
+      const oInp=document.getElementById('oddsInput');
+      if(oInp){oInp.value=String(rawOdd);calculate(false,false);}
+      showToast('⚡ Кэф '+rawOdd+' подставлен в расчёт!');
+    }
+    return;
+  }
+  openTgLink(ev,hotBannerCfg.ctaUrl||trackerCfg.channelUrl||'https://t.me/aibetmoney');
+}
+
+function toLocalDatetimeValue(ts){
+  if(!ts||ts<=0)return '';
+  const d=new Date(ts);
+  if(isNaN(d.getTime()))return '';
+  const pad=n=>String(n).padStart(2,'0');
+  return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate())+'T'+pad(d.getHours())+':'+pad(d.getMinutes());
+}
+
+function syncHotAdminInputs(){
+  const en=document.getElementById('hotEnabledCheck');if(!en)return;
+  en.checked=Boolean(hotBannerCfg.enabled);
+  document.getElementById('hotAutoHideCheck').checked=hotBannerCfg.autoHide!==false;
+  document.getElementById('hotBadgeInput').value=hotBannerCfg.badge||'';
+  document.getElementById('hotTitleInput').value=hotBannerCfg.title||'';
+  document.getElementById('hotOddInput').value=hotBannerCfg.odd||'';
+  document.getElementById('hotSubInput').value=hotBannerCfg.sub||'';
+  document.getElementById('hotCtaTextInput').value=hotBannerCfg.ctaText||'';
+  document.getElementById('hotActionTypeSelect').value=hotBannerCfg.actionType||'link';
+  document.getElementById('hotUrlInput').value=hotBannerCfg.ctaUrl||trackerCfg.channelUrl||'https://t.me/aibetmoney';
+  document.getElementById('hotDeadlineInput').value=toLocalDatetimeValue(hotBannerCfg.deadlineTs);
+}
+
+function updateHotBannerFromAdmin(){
+  const en=document.getElementById('hotEnabledCheck');if(!en)return;
+  hotBannerCfg.enabled=Boolean(en.checked);
+  hotBannerCfg.autoHide=Boolean(document.getElementById('hotAutoHideCheck').checked);
+  hotBannerCfg.badge=document.getElementById('hotBadgeInput').value.trim()||'🔥 СТАВКА ДНЯ ГОТОВА';
+  hotBannerCfg.title=document.getElementById('hotTitleInput').value.trim()||'Главный матч вечера';
+  hotBannerCfg.odd=document.getElementById('hotOddInput').value.trim();
+  hotBannerCfg.sub=document.getElementById('hotSubInput').value.trim();
+  hotBannerCfg.ctaText=document.getElementById('hotCtaTextInput').value.trim()||'Забрать →';
+  hotBannerCfg.actionType=document.getElementById('hotActionTypeSelect').value||'link';
+  hotBannerCfg.ctaUrl=document.getElementById('hotUrlInput').value.trim()||trackerCfg.channelUrl||'https://t.me/aibetmoney';
+  const dtVal=document.getElementById('hotDeadlineInput').value;
+  hotBannerCfg.deadlineTs=dtVal?new Date(dtVal).getTime():0;
+  saveHotBannerDraft();
+  renderHotDealBanner();
+}
+
+function setHotTimerPreset(hoursAhead){
+  triggerHaptic('light');
+  const target=Date.now()+Math.round(hoursAhead*3600*1000);
+  hotBannerCfg.deadlineTs=target;
+  hotBannerCfg.enabled=true;
+  hotBannerCfg.autoHide=true;
+  saveHotBannerDraft();
+  syncHotAdminInputs();
+  renderHotDealBanner();
+  showToast('⏱ Таймер включён на +'+hoursAhead+' ч.');
+}
+
+function setHotTimerTonight21(){
+  triggerHaptic('light');
+  const d=new Date();
+  d.setHours(21,0,0,0);
+  if(d.getTime()<=Date.now())d.setDate(d.getDate()+1);
+  hotBannerCfg.deadlineTs=d.getTime();
+  hotBannerCfg.enabled=true;
+  hotBannerCfg.autoHide=true;
+  saveHotBannerDraft();
+  syncHotAdminInputs();
+  renderHotDealBanner();
+  showToast('🕘 Таймер установлен на 21:00');
+}
+
+function clearHotTimer(){
+  triggerHaptic('light');
+  hotBannerCfg.deadlineTs=0;
+  saveHotBannerDraft();
+  syncHotAdminInputs();
+  renderHotDealBanner();
+  showToast('✕ Таймер отключён');
+}
+
+async function publishLiveToCloud(){
+  const pUrl=(trackerCfg.proxyUrl||'').trim();
+  if(!pUrl||pUrl.indexOf('http')!==0){
+    triggerHaptic('warning');
+    showToast('⚠️ Для мгновенной публикации укажи Proxy URL или скачай index.html');
+    return;
+  }
+  try{
+    triggerHaptic('medium');
+    const res=await fetch(pUrl,{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({action:'save_config',blocks:menuBlocks,hotBanner:hotBannerCfg})
+    });
+    if(res.ok){
+      triggerHaptic('success');
+      showToast('⚡ Опубликовано! Изменения уже видны всем подписчикам');
+    }else{
+      showToast('⚠️ Воркер ответил ошибкой — проверь привязку AIBET_KV');
+    }
+  }catch(e){
+    showToast('⚠️ Нет связи с Proxy URL — используй кнопку «Скопировать код»');
+  }
+}
+
+(async function fetchLiveCloudConfigOnStart(){
+  const pUrl=(trackerCfg.proxyUrl||'').trim();
+  if(!pUrl||pUrl.indexOf('http')!==0)return;
+  try{
+    const sep=pUrl.indexOf('?')===-1?'?':'&';
+    const res=await fetch(pUrl+sep+'action=get_config&t='+Date.now());
+    if(!res.ok)return;
+    const data=await res.json();
+    if(data&&Array.isArray(data.blocks)&&data.blocks.length>0){
+      menuBlocks=data.blocks;
+      saveBlocksDraft();
+    }
+    if(data&&data.hotBanner&&typeof data.hotBanner==='object'){
+      hotBannerCfg=Object.assign({},defaultHotBanner,data.hotBanner);
+      saveHotBannerDraft();
+    }
+    renderHubCards();
+  }catch(e){}
+})();
+
 let customBgImg=null;
 const CARD_PRESETS=[
   {l1:'КАЛЬКУЛЯТОР',l2:'СТАВОК',badge:'AIBET MONEY • FLAT',emblem:'chart',style:'guilloche'},
@@ -820,15 +1346,12 @@ function drawRoundedRect(ctx,x,y,w,h,r){
 
 function drawBrandEmblemRight(ctx,cx,cy,scale,emblemType){
   ctx.save();ctx.translate(cx,cy);ctx.scale(scale,scale);
-
-  // Мягкое фирменное золотое свечение позади медальона
   const halo=ctx.createRadialGradient(0,0,6,0,0,122);
   halo.addColorStop(0,'rgba(201,168,118,0.28)');
   halo.addColorStop(0.55,'rgba(201,168,118,0.08)');
   halo.addColorStop(1,'rgba(0,0,0,0)');
   ctx.fillStyle=halo;ctx.beginPath();ctx.arc(0,0,122,0,Math.PI*2);ctx.fill();
 
-  // Медальон в фирменном тёмно-золотом стиле AiBet Money
   ctx.beginPath();ctx.arc(0,0,82,0,Math.PI*2);
   ctx.fillStyle='rgba(7,12,22,0.9)';
   ctx.shadowColor='rgba(0,0,0,0.85)';ctx.shadowBlur=18;ctx.fill();ctx.shadowBlur=0;
@@ -1005,13 +1528,11 @@ function drawCoverOnCanvas(canvas,line1,line2,styleName,aspectMode,emblemOverrid
     }
   }
 
-  // Внутренняя тонкая золотая рамка
   const padX=24,padY=20,fw=W-padX*2,fh=H-padY*2;
   ctx.save();ctx.strokeStyle='rgba(201,168,118,0.38)';ctx.lineWidth=1.5;drawRoundedRect(ctx,padX,padY,fw,fh,14);ctx.stroke();ctx.restore();
 
   const t1=String(line1||'').trim().toUpperCase(),t2=String(line2||'').trim().toUpperCase(),bTxt=String(badgeText||'AIBET MONEY').trim().toUpperCase();
 
-  // Кольцо со знаком справа чуть ниже центра (H*0.56), чтобы верхняя плашка статуса не задевала его
   const hasIcon=emblemType!=='none';
   if(hasIcon&&!isSquare){
     drawBrandEmblemRight(ctx,W*0.77,H*0.56,0.95,emblemType);
@@ -1152,6 +1673,7 @@ function getSignatureWidgetHtml(b,idx,pBank,pBet){
 
 function renderHubCards(){
   renderHubBankPill();
+  renderHotDealBanner();
   if(!hubCardsGrid||!Array.isArray(menuBlocks))return;
   hubCardsGrid.innerHTML='';
   const{pBank,pBet}=getSavedBankAndBet();
@@ -1205,7 +1727,8 @@ function joinWaitlist(){
   if(activeModalBlockIndex===null||!menuBlocks[activeModalBlockIndex])return;
   const b=menuBlocks[activeModalBlockIndex];
   if(waitlistMap[b.id]){showToast('✓ Ты уже в списке ожидания');return;}
-  waitlistMap[b.id]=true;try{localStorage.setItem('aibet_waitlist_v1',JSON.stringify(waitlistMap));}catch(e){}
+  waitlistMap[b.id]=true;
+  saveKeyEverywhere('aibet_waitlist_v1',JSON.stringify(waitlistMap));
   triggerHaptic('success');syncWaitlistBtnState(b);renderHubCards();showToast('🔔 Отлично! Сообщим об открытии');
   logVisitorEvent('🔥 Записался в лист ожидания: '+b.title+' (Блок #'+(activeModalBlockIndex+1)+')',true,false);
   setTimeout(()=>closeSoonModal(),850);
@@ -1229,10 +1752,11 @@ function showScreen(name,ev){
   document.querySelectorAll('.view-screen').forEach(s=>s.classList.remove('active'));
   if(name!=='hub')stopSpoilerCanvases();
   try{
-    if(name==='calc'){document.getElementById('screenCalc').classList.add('active');if(tg&&tg.BackButton)tg.BackButton.show();}
-    else if(name==='promo'){document.getElementById('screenPromo').classList.add('active');if(tg&&tg.BackButton)tg.BackButton.show();}
-    else if(name==='admin'){renderAdminPanel();renderStatsInAdmin();renderBrandCoverPreview();document.getElementById('screenAdmin').classList.add('active');if(tg&&tg.BackButton)tg.BackButton.show();}
-    else{document.getElementById('screenHub').classList.add('active');renderHubCards();if(tg&&tg.BackButton)tg.BackButton.hide();}
+    const canBack=Boolean(tg&&tg.BackButton&&typeof tg.isVersionAtLeast==='function'&&tg.isVersionAtLeast('6.1'));
+    if(name==='calc'){document.getElementById('screenCalc').classList.add('active');if(canBack)tg.BackButton.show();}
+    else if(name==='promo'){document.getElementById('screenPromo').classList.add('active');if(canBack)tg.BackButton.show();}
+    else if(name==='admin'){renderAdminPanel();renderStatsInAdmin();renderBrandCoverPreview();document.getElementById('screenAdmin').classList.add('active');if(canBack)tg.BackButton.show();}
+    else{document.getElementById('screenHub').classList.add('active');renderHubCards();if(canBack)tg.BackButton.hide();}
   }catch(e){}
   window.scrollTo({top:0,behavior:'smooth'});
 }
@@ -1261,7 +1785,20 @@ secretTrigger.addEventListener('click',()=>{
   }
 });
 function closePinModal(){document.getElementById('pinModal').classList.remove('open');}
-function verifyPinCode(){if(document.getElementById('pinInput').value.trim()===ADMIN_PIN_PLAINTEXT){isAdminUnlocked=true;adminQuickBtn.classList.add('unlocked');if(topStudioBtn)topStudioBtn.classList.add('unlocked');closePinModal();showScreen('admin');}else{triggerHaptic('error');alert('Неверный пароль');}}
+function verifyPinCode(){
+  const entered=document.getElementById('pinInput').value.trim();
+  const expectedHash=trackerCfg.adminPinHash||DEFAULT_PIN_HASH;
+  if(computePinHash(entered)===expectedHash){
+    isAdminUnlocked=true;
+    adminQuickBtn.classList.add('unlocked');
+    if(topStudioBtn)topStudioBtn.classList.add('unlocked');
+    closePinModal();
+    showScreen('admin');
+  }else{
+    triggerHaptic('error');
+    showToast('🔒 Неверный пароль администратора');
+  }
+}
 
 const adminCardsContainer=document.getElementById('adminCardsContainer');
 function renderAdminPanel(){
@@ -1269,6 +1806,7 @@ function renderAdminPanel(){
   document.getElementById('trackerBotToken').value=trackerCfg.botToken||'';
   document.getElementById('trackerAdminId').value=trackerCfg.adminChatId||'';
   document.getElementById('mainChannelUrlInput').value=trackerCfg.channelUrl||'https://t.me/aibetmoney';
+  syncHotAdminInputs();
   const ts=document.getElementById('genTargetCardSelect');
   if(ts){
     const pv=ts.value!==''?ts.value:'1';
@@ -1295,7 +1833,25 @@ function updateBlockField(idx,f,v){
   saveBlocksDraft();renderHubCards();
 }
 function moveBlock(idx,dir){const t=idx+dir;if(t<0||t>=menuBlocks.length)return;const tmp=menuBlocks[idx];menuBlocks[idx]=menuBlocks[t];menuBlocks[t]=tmp;saveBlocksDraft();renderAdminPanel();renderHubCards();}
-function deleteBlock(idx){if(!confirm('Удалить этот блок?'))return;menuBlocks.splice(idx,1);saveBlocksDraft();renderAdminPanel();renderHubCards();}
+function deleteBlock(idx){
+  if(!menuBlocks[idx])return;
+  pendingDeleteBlockIdx=idx;
+  const txt=document.getElementById('confirmDeleteText');
+  if(txt)txt.textContent='Удалить раздел «'+menuBlocks[idx].title+'» из главного меню?';
+  document.getElementById('confirmDeleteModal').classList.add('open');
+}
+function closeConfirmDeleteModal(){
+  pendingDeleteBlockIdx=null;
+  document.getElementById('confirmDeleteModal').classList.remove('open');
+}
+function confirmDeleteBlockNow(){
+  if(pendingDeleteBlockIdx===null||!menuBlocks[pendingDeleteBlockIdx]){closeConfirmDeleteModal();return;}
+  menuBlocks.splice(pendingDeleteBlockIdx,1);
+  saveBlocksDraft();renderAdminPanel();renderHubCards();
+  closeConfirmDeleteModal();
+  triggerHaptic('medium');
+  showToast('✓ Раздел удалён');
+}
 function addNewBlock(){menuBlocks.push({id:'block_'+Date.now(),title:'Новый раздел',desc:'Короткое описание нового продукта',status:'soon',hidden:false,blurred:true,actionType:'page',btnLabel:'Скоро',icon:'🔥',coverUrl:'',pageTitle:'Заголовок раздела',pageText:'Описание условий...',ctaText:'Написать в ЛС →',ctaUrl:trackerCfg.channelUrl||'https://t.me/aibetmoney'});saveBlocksDraft();renderAdminPanel();renderHubCards();}
 
 function handleCoverUpload(idx,inp){
@@ -1311,34 +1867,49 @@ function generateFullSiteHtml(){
   clone.querySelectorAll('.btn-ripple').forEach(el=>el.remove());
   const bgC=clone.querySelector('#bgCanvas');if(bgC){bgC.removeAttribute('width');bgC.removeAttribute('height');}
   const hasProxy=Boolean(trackerCfg.proxyUrl&&trackerCfg.proxyUrl.trim().indexOf('http')===0);
-  const expCfg={proxyUrl:trackerCfg.proxyUrl||'',botTokenEncoded:hasProxy?'':encodeSecret(trackerCfg.botToken||''),adminChatId:trackerCfg.adminChatId||'435389790',channelUrl:trackerCfg.channelUrl||'https://t.me/aibetmoney'};
+  const expCfg={
+    proxyUrl:trackerCfg.proxyUrl||'',
+    botTokenEncoded:hasProxy?'':encodeSecret(trackerCfg.botToken||''),
+    adminChatId:trackerCfg.adminChatId||'435389790',
+    channelUrl:trackerCfg.channelUrl||'https://t.me/aibetmoney',
+    adminPinHash:trackerCfg.adminPinHash||DEFAULT_PIN_HASH
+  };
   const ds=clone.querySelector('#app-data-script');
-  if(ds)ds.textContent='\nwindow.TRACKER_CONFIG = '+JSON.stringify(expCfg,null,2)+';\nwindow.INITIAL_BLOCKS = '+JSON.stringify(menuBlocks,null,2)+';\n';
+  if(ds)ds.textContent='\nwindow.TRACKER_CONFIG = '+JSON.stringify(expCfg,null,2)+';\nwindow.HOT_BANNER = '+JSON.stringify(hotBannerCfg,null,2)+';\nwindow.INITIAL_BLOCKS = '+JSON.stringify(menuBlocks,null,2)+';\n';
   clone.querySelectorAll('.view-screen').forEach(el=>el.classList.remove('active'));
   const hub=clone.querySelector('#screenHub');if(hub)hub.classList.add('active');
   clone.querySelectorAll('.modal-overlay').forEach(el=>el.classList.remove('open'));
-  ['hubCardsGrid','hubBankPillWrap','adminCardsContainer','visitorsListBox'].forEach(id=>{const el=clone.querySelector('#'+id);if(el)el.innerHTML='';});
+  ['hubCardsGrid','hubBankPillWrap','hotDealBanner','adminCardsContainer','visitorsListBox'].forEach(id=>{const el=clone.querySelector('#'+id);if(el)el.innerHTML='';});
+  const hBanner=clone.querySelector('#hotDealBanner');if(hBanner)hBanner.classList.remove('visible');
   ['statTotalVisits','statUniqueUsers','statCalcClicks'].forEach(id=>{const el=clone.querySelector('#'+id);if(el)el.textContent='0';});
   const qb=clone.querySelector('#adminQuickBtn');if(qb)qb.classList.remove('unlocked');
   const tb=clone.querySelector('#topStudioBtn');if(tb)tb.classList.remove('unlocked');
   const toast=clone.querySelector('#toastPill');if(toast)toast.classList.remove('show');
   const histBar=clone.querySelector('#sessionHistoryBar');if(histBar)histBar.classList.remove('visible');
+  const tiltBox=clone.querySelector('#tiltRadarBox');if(tiltBox)tiltBox.classList.remove('visible');
   const undoW=clone.querySelector('#undoWrap');if(undoW)undoW.classList.remove('visible');
   const bInp=clone.querySelector('#bankInput');if(bInp)bInp.setAttribute('value','100 000');
   const oInp=clone.querySelector('#oddsInput');if(oInp)oInp.setAttribute('value','1.5');
   const se=clone.querySelector('#hubGreetingSubtitle');if(se)se.textContent='Выбери нужный инструмент или раздел клуба';
   return '<!DOCTYPE html>\n'+clone.outerHTML;
 }
-function copyUpdatedSiteCode(){navigator.clipboard.writeText(generateFullSiteHtml()).then(()=>{triggerHaptic('success');showToast('✓ Чистый код скопирован в буфер');});}
+function copyUpdatedSiteCode(){copyTextSafe(generateFullSiteHtml(),()=>{triggerHaptic('success');showToast('✓ Чистый код скопирован в буфер');});}
 function downloadUpdatedSiteFile(){const b=new Blob([generateFullSiteHtml()],{type:'text/html;charset=utf-8'}),u=URL.createObjectURL(b),a=document.createElement('a');a.href=u;a.download='index.html';a.click();URL.revokeObjectURL(u);}
 
-// КАЛЬКУЛЯТОР
 const MAX_BANK_SHARE=0.05;
-const bankInput=document.getElementById('bankInput'),oddsInput=document.getElementById('oddsInput'),riskHintText=document.getElementById('riskHintText'),riskGlider=document.getElementById('riskGlider'),resultValue=document.getElementById('resultValue'),resultSub=document.getElementById('resultSub'),resultBox=document.getElementById('resultBox'),netProfitVal=document.getElementById('netProfitVal'),totalPayoutVal=document.getElementById('totalPayoutVal'),winBtnDelta=document.getElementById('winBtnDelta'),lossBtnDelta=document.getElementById('lossBtnDelta'),btnWin=document.getElementById('btnWin'),btnLoss=document.getElementById('btnLoss'),undoWrap=document.getElementById('undoWrap'),undoBtn=document.getElementById('undoBtn'),savedBadge=document.getElementById('savedBadge'),spoilerBtn=document.getElementById('spoilerBtn'),spoilerContent=document.getElementById('spoilerContent'),spoilerArrow=document.getElementById('spoilerArrow'),sessionHistoryBar=document.getElementById('sessionHistoryBar'),historyPillsBox=document.getElementById('historyPillsBox');
-let currentRisk=0.02,currentRoundStep=50,currentBetRaw=2650,currentProfitRaw=1325,currentPayoutRaw=3975,displayedBet=2650,displayedProfit=1325,displayedPayout=3975,numberAnimFrame=null,previousBankValue=null,saveTimer=null,sessionHistory=[];
+const bankInput=document.getElementById('bankInput'),oddsInput=document.getElementById('oddsInput'),riskHintText=document.getElementById('riskHintText'),riskGlider=document.getElementById('riskGlider'),resultValue=document.getElementById('resultValue'),resultSub=document.getElementById('resultSub'),resultBox=document.getElementById('resultBox'),netProfitVal=document.getElementById('netProfitVal'),totalPayoutVal=document.getElementById('totalPayoutVal'),winBtnDelta=document.getElementById('winBtnDelta'),pushBtnDelta=document.getElementById('pushBtnDelta'),lossBtnDelta=document.getElementById('lossBtnDelta'),btnWin=document.getElementById('btnWin'),btnPush=document.getElementById('btnPush'),btnLoss=document.getElementById('btnLoss'),undoWrap=document.getElementById('undoWrap'),undoBtn=document.getElementById('undoBtn'),savedBadge=document.getElementById('savedBadge'),spoilerBtn=document.getElementById('spoilerBtn'),spoilerContent=document.getElementById('spoilerContent'),spoilerArrow=document.getElementById('spoilerArrow'),sessionHistoryBar=document.getElementById('sessionHistoryBar'),historyPillsBox=document.getElementById('historyPillsBox'),tiltRadarBox=document.getElementById('tiltRadarBox'),tiltAlertTitleText=document.getElementById('tiltAlertTitleText'),tiltSafeModeBtn=document.getElementById('tiltSafeModeBtn'),calcRankBadge=document.getElementById('calcRankBadge'),calcWinrateText=document.getElementById('calcWinrateText');
+
+let currentRisk=0.02,currentRoundStep=50,currentBetRaw=2650,currentProfitRaw=1325,currentPayoutRaw=3975,displayedBet=2650,displayedProfit=1325,displayedPayout=3975,numberAnimFrame=null,previousBankValue=null,saveTimer=null,sessionHistory=[],tiltDismissedForStreak=0;
+
 function parseBank(v){return parseFloat(String(v).replace(/[^\d.]/g,''))||0;}
 function parseOdds(v){return parseFloat(String(v).replace(',','.').replace(/[^\d.]/g,''))||0;}
-function showSavedIndicator(t='Сохранено ✓'){savedBadge.textContent=t;savedBadge.classList.add('show');clearTimeout(saveTimer);saveTimer=setTimeout(()=>savedBadge.classList.remove('show'),1500);}
+function showSavedIndicator(customLabel){
+  const defaultLbl=hasTgCloudStorage()?'☁️ В облаке ТГ ✓':'Сохранено ✓';
+  savedBadge.textContent=customLabel||defaultLbl;
+  savedBadge.classList.add('show');
+  clearTimeout(saveTimer);
+  saveTimer=setTimeout(()=>savedBadge.classList.remove('show'),1600);
+}
 function moveRiskGlider(i){if(riskGlider)riskGlider.style.transform='translateX('+(i*100)+'%)';}
 function syncQuickOddsHighlight(){const co=parseOdds(oddsInput.value);document.querySelectorAll('#quickOddsGroup .quick-odd-chip').forEach(ch=>ch.classList.toggle('active',Math.abs(co-parseFloat(ch.dataset.odd))<0.005));}
 
@@ -1350,34 +1921,119 @@ function animateNumbersTo(tb,tp,tpay,inst=false){
   numberAnimFrame=requestAnimationFrame(step);
 }
 
-try{
-  const sB=localStorage.getItem('aibet_bank'),sR=localStorage.getItem('aibet_risk'),sRn=localStorage.getItem('aibet_round'),sH=localStorage.getItem('aibet_session_hist');
-  if(sB&&parseBank(sB)>0)bankInput.value=formatSpaces(parseBank(sB));
-  if(sR){currentRisk=parseFloat(sR)||0.02;document.querySelectorAll('#riskGroup .seg-btn').forEach(b=>{const m=Math.abs(parseFloat(b.dataset.risk)-currentRisk)<0.001;b.classList.toggle('active',m);if(m){riskHintText.textContent=b.dataset.label;moveRiskGlider(parseInt(b.dataset.index||'1',10));}});}
-  if(sRn){currentRoundStep=parseInt(sRn,10)||50;document.querySelectorAll('#roundGroup .round-pill').forEach(b=>b.classList.toggle('active',parseInt(b.dataset.step,10)===currentRoundStep));}
-  if(sH)sessionHistory=JSON.parse(sH)||[];
-}catch(e){}
+function loadLocalCalcState(){
+  try{
+    const sB=localStorage.getItem('aibet_bank'),sR=localStorage.getItem('aibet_risk'),sRn=localStorage.getItem('aibet_round'),sH=localStorage.getItem('aibet_session_hist');
+    if(sB&&parseBank(sB)>0)bankInput.value=formatSpaces(parseBank(sB));
+    if(sR){currentRisk=parseFloat(sR)||0.02;document.querySelectorAll('#riskGroup .seg-btn').forEach(b=>{const m=Math.abs(parseFloat(b.dataset.risk)-currentRisk)<0.001;b.classList.toggle('active',m);if(m){riskHintText.textContent=b.dataset.label;moveRiskGlider(parseInt(b.dataset.index||'1',10));}});}
+    if(sRn){
+      currentRoundStep=parseInt(sRn,10)||50;
+      if(![1,50,100].includes(currentRoundStep))currentRoundStep=50;
+      document.querySelectorAll('#roundGroup .round-pill').forEach(b=>b.classList.toggle('active',parseInt(b.dataset.step,10)===currentRoundStep));
+    }
+    if(sH)sessionHistory=JSON.parse(sH)||[];
+  }catch(e){}
+}
+loadLocalCalcState();
+
+function renderTiltRadar(stats){
+  if(!tiltRadarBox)return;
+  const streak=stats.lossStreak;
+  if(streak>=3&&tiltDismissedForStreak<streak){
+    tiltRadarBox.classList.add('visible');
+    if(tiltAlertTitleText)tiltAlertTitleText.textContent='⚠️ Анти-тильт радар: '+streak+' минуса подряд';
+    if(tiltSafeModeBtn){
+      tiltSafeModeBtn.style.display=currentRisk>0.0105?'inline-block':'none';
+    }
+  }else{
+    tiltRadarBox.classList.remove('visible');
+  }
+}
+
+function activateSafeRiskFromTilt(){
+  triggerHaptic('medium');
+  const safeBtn=document.querySelector('#riskGroup .seg-btn[data-index="0"]');
+  if(safeBtn){
+    document.querySelectorAll('#riskGroup .seg-btn').forEach(b=>b.classList.remove('active'));
+    safeBtn.classList.add('active');
+    currentRisk=0.01;
+    riskHintText.textContent=safeBtn.dataset.label||'База 1%';
+    moveRiskGlider(0);
+    calculate(true,false);
+    renderSessionHistory();
+    showToast('🛡️ Профиль риска снижен до «Осторожно (1%)»');
+  }
+}
+function dismissTiltRadar(){
+  triggerHaptic('light');
+  const st=getDisciplineStats(sessionHistory);
+  tiltDismissedForStreak=st.lossStreak;
+  renderTiltRadar(st);
+}
 
 function renderSessionHistory(){
-  if(!sessionHistory.length){sessionHistoryBar.classList.remove('visible');return;}
+  const stats=getDisciplineStats(sessionHistory);
+  renderTiltRadar(stats);
+  if(!sessionHistory.length){
+    sessionHistoryBar.classList.remove('visible');
+    renderHubBankPill();
+    return;
+  }
   sessionHistoryBar.classList.add('visible');
-  historyPillsBox.innerHTML=sessionHistory.slice(0,4).map(it=>'<span class="hist-tag '+(it.win?'win':'loss')+'">'+(it.win?'+':'−')+formatSpaces(it.amount)+' ₽</span>').join('');
+  if(calcRankBadge){
+    const nextHint=stats.nextAt?(' ('+stats.total+'/'+stats.nextAt+')'):' (MAX)';
+    calcRankBadge.textContent=stats.rankIcon+' '+stats.rankTitle+nextHint;
+  }
+  if(calcWinrateText){
+    const wrStr=stats.winrate!==null?(stats.winrate+'%'):'—';
+    calcWinrateText.innerHTML='Winrate: <strong>'+wrStr+'</strong> <span style="color:var(--text-muted);font-size:10px">('+stats.wins+'W • '+stats.pushes+'🔄 • '+stats.losses+'L)</span>';
+  }
+  historyPillsBox.innerHTML=sessionHistory.slice(0,5).map(it=>{
+    const isPush=Boolean(it.push||it.type==='push');
+    if(isPush)return '<span class="hist-tag push">🔄 0 ₽</span>';
+    return '<span class="hist-tag '+(it.win?'win':'loss')+'">'+(it.win?'+':'−')+formatSpaces(it.amount)+' ₽</span>';
+  }).join('');
+  renderHubBankPill();
 }
-function clearSessionHistory(){triggerHaptic('light');sessionHistory=[];try{localStorage.removeItem('aibet_session_hist');}catch(e){}renderSessionHistory();renderHubBankPill();}
+
+function clearSessionHistory(){
+  triggerHaptic('light');
+  sessionHistory=[];
+  tiltDismissedForStreak=0;
+  removeKeyEverywhere('aibet_session_hist');
+  renderSessionHistory();
+  renderHubBankPill();
+}
 renderSessionHistory();
 
 function calculate(save=false,inst=false){
   const bank=parseBank(bankInput.value),odds=parseOdds(oddsInput.value);
   syncQuickOddsHighlight();
-  if(save){try{localStorage.setItem('aibet_bank',String(bank));localStorage.setItem('aibet_risk',String(currentRisk));localStorage.setItem('aibet_round',String(currentRoundStep));showSavedIndicator();}catch(e){}}
-  if(bank<=0||odds<=1){currentBetRaw=0;currentProfitRaw=0;currentPayoutRaw=0;animateNumbersTo(0,0,0,true);resultSub.textContent='Введите банк и кэф больше 1.00';winBtnDelta.textContent='';lossBtnDelta.textContent='';return;}
+  if(save){
+    saveKeyEverywhere('aibet_bank',String(bank));
+    saveKeyEverywhere('aibet_risk',String(currentRisk));
+    saveKeyEverywhere('aibet_round',String(currentRoundStep));
+    showSavedIndicator();
+    renderHubBankPill();
+  }
+  if(bank<=0||odds<=1){
+    currentBetRaw=0;currentProfitRaw=0;currentPayoutRaw=0;
+    animateNumbersTo(0,0,0,true);
+    resultSub.textContent='Введите банк и кэф больше 1.00';
+    winBtnDelta.textContent='';
+    if(pushBtnDelta)pushBtnDelta.textContent='';
+    lossBtnDelta.textContent='';
+    return;
+  }
   const raw=currentRisk*(2/odds),cap=raw>MAX_BANK_SHARE,sh=cap?MAX_BANK_SHARE:raw;
   let bet=Math.round(bank*sh);if(currentRoundStep>1&&bet>=currentRoundStep)bet=Math.round(bet/currentRoundStep)*currentRoundStep;
   const prof=Math.round(bet*(odds-1)),pay=bet+prof,pct=(bet/bank)*100;
   currentBetRaw=bet;currentProfitRaw=prof;currentPayoutRaw=pay;
   animateNumbersTo(bet,prof,pay,inst);
   resultSub.textContent='≈ '+pct.toFixed(1)+'% банка при кэфе '+odds.toFixed(2)+(cap?' (макс. лимит 5%)':'');
-  winBtnDelta.textContent='(+'+formatSpaces(prof)+' ₽)';lossBtnDelta.textContent='(−'+formatSpaces(bet)+' ₽)';
+  winBtnDelta.textContent='(+'+formatSpaces(prof)+' ₽)';
+  if(pushBtnDelta)pushBtnDelta.textContent='(0 ₽)';
+  lossBtnDelta.textContent='(−'+formatSpaces(bet)+' ₽)';
 }
 
 bankInput.addEventListener('input',()=>{
@@ -1387,29 +2043,79 @@ bankInput.addEventListener('input',()=>{
 oddsInput.addEventListener('input',()=>calculate(false,false));
 bankInput.addEventListener('focus',()=>bankInput.select());oddsInput.addEventListener('focus',()=>oddsInput.select());
 document.querySelectorAll('#quickOddsGroup .quick-odd-chip').forEach(ch=>ch.addEventListener('click',()=>{triggerHaptic('light');oddsInput.value=ch.dataset.odd;calculate(false,false);}));
-document.querySelectorAll('#riskGroup .seg-btn').forEach(btn=>btn.addEventListener('click',()=>{triggerHaptic('light');document.querySelectorAll('#riskGroup .seg-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');currentRisk=parseFloat(btn.dataset.risk);riskHintText.textContent=btn.dataset.label;moveRiskGlider(parseInt(btn.dataset.index||'0',10));calculate(true,false);}));
+document.querySelectorAll('#riskGroup .seg-btn').forEach(btn=>btn.addEventListener('click',()=>{triggerHaptic('light');document.querySelectorAll('#riskGroup .seg-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');currentRisk=parseFloat(btn.dataset.risk);riskHintText.textContent=btn.dataset.label;moveRiskGlider(parseInt(btn.dataset.index||'0',10));calculate(true,false);renderTiltRadar(getDisciplineStats(sessionHistory));}));
 document.querySelectorAll('#roundGroup .round-pill').forEach(btn=>btn.addEventListener('click',()=>{triggerHaptic('light');document.querySelectorAll('#roundGroup .round-pill').forEach(b=>b.classList.remove('active'));btn.classList.add('active');currentRoundStep=parseInt(btn.dataset.step,10);calculate(true,false);}));
 
-function updateBankBalance(delta,isWin,lbl,hap){
+function updateBankBalance(delta,outcomeType,lbl,hap){
   const cb=parseBank(bankInput.value);if(cb<=0||currentBetRaw<=0)return;
-  previousBankValue=cb;sessionHistory.unshift({win:isWin,amount:Math.abs(delta)});
-  if(sessionHistory.length>6)sessionHistory=sessionHistory.slice(0,6);
-  try{localStorage.setItem('aibet_session_hist',JSON.stringify(sessionHistory));}catch(e){}
-  renderSessionHistory();bankInput.value=formatSpaces(Math.max(0,Math.round(cb+delta)));
-  undoWrap.classList.add('visible');triggerHaptic(hap);calculate(true,false);showToast(lbl);
+  previousBankValue=cb;
+  const isWin=outcomeType==='win';
+  const isPush=outcomeType==='push';
+  if(isWin)tiltDismissedForStreak=0;
+  sessionHistory.unshift({
+    type:outcomeType,
+    win:isWin,
+    push:isPush,
+    amount:isPush?0:Math.abs(delta)
+  });
+  if(sessionHistory.length>50)sessionHistory=sessionHistory.slice(0,50);
+  saveKeyEverywhere('aibet_session_hist',JSON.stringify(sessionHistory));
+  renderSessionHistory();
+  if(!isPush){
+    bankInput.value=formatSpaces(Math.max(0,Math.round(cb+delta)));
+  }
+  undoWrap.classList.add('visible');
+  triggerHaptic(hap);
+  calculate(true,false);
+  showToast(lbl);
 }
-btnWin.addEventListener('click',()=>updateBankBalance(currentProfitRaw,true,'✅ Заход! Банк увеличен','success'));
-btnLoss.addEventListener('click',()=>updateBankBalance(-currentBetRaw,false,'Банк пересчитан','warning'));
+btnWin.addEventListener('click',()=>updateBankBalance(currentProfitRaw,'win','✅ Заход! Банк увеличен','success'));
+btnPush.addEventListener('click',()=>updateBankBalance(0,'push','🔄 Возврат зафиксирован (банк без изменений)','light'));
+btnLoss.addEventListener('click',()=>updateBankBalance(-currentBetRaw,'loss','Банк пересчитан','warning'));
+
 undoBtn.addEventListener('click',()=>{
   if(previousBankValue!==null){
     triggerHaptic('light');bankInput.value=formatSpaces(previousBankValue);previousBankValue=null;
-    if(sessionHistory.length>0){sessionHistory.shift();try{localStorage.setItem('aibet_session_hist',JSON.stringify(sessionHistory));}catch(e){}renderSessionHistory();}
-    undoWrap.classList.remove('visible');calculate(true,false);showToast('↺ Изменение банка отменено');
+    if(sessionHistory.length>0){
+      sessionHistory.shift();
+      saveKeyEverywhere('aibet_session_hist',JSON.stringify(sessionHistory));
+      renderSessionHistory();
+    }
+    undoWrap.classList.remove('visible');calculate(true,false);showToast('↺ Последнее действие отменено');
   }
 });
-resultBox.addEventListener('click',()=>{if(currentBetRaw<=0)return;triggerHaptic('success');if(navigator.clipboard)navigator.clipboard.writeText(String(currentBetRaw));resultBox.classList.add('copied-flash');setTimeout(()=>resultBox.classList.remove('copied-flash'),450);showToast('✓ Сумма '+formatSpaces(currentBetRaw)+' ₽ скопирована');});
+resultBox.addEventListener('click',()=>{
+  if(currentBetRaw<=0)return;
+  triggerHaptic('success');
+  copyTextSafe(String(currentBetRaw));
+  resultBox.classList.add('copied-flash');
+  setTimeout(()=>resultBox.classList.remove('copied-flash'),450);
+  showToast('✓ Сумма '+formatSpaces(currentBetRaw)+' ₽ скопирована');
+});
 spoilerBtn.addEventListener('click',()=>{triggerHaptic('light');const op=spoilerContent.classList.toggle('open');spoilerArrow.textContent=op?'▲':'▼';});
 calculate(false,true);
+
+(function initCloudStorageSync(){
+  if(!hasTgCloudStorage())return;
+  try{
+    tg.CloudStorage.getItems(CLOUD_KEYS,(err,vals)=>{
+      if(err||!vals)return;
+      let changed=false;
+      CLOUD_KEYS.forEach(k=>{
+        if(vals[k]&&vals[k]!==localStorage.getItem(k)){
+          try{localStorage.setItem(k,vals[k]);changed=true;}catch(e){}
+        }
+      });
+      if(changed){
+        try{waitlistMap=JSON.parse(localStorage.getItem('aibet_waitlist_v1')||'{}');}catch(e){}
+        loadLocalCalcState();
+        calculate(false,true);
+        renderSessionHistory();
+        renderHubCards();
+      }
+    });
+  }catch(e){}
+})();
 </script>
 </body>
 </html>
