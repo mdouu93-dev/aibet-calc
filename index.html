@@ -42,7 +42,7 @@ header,section{position:relative;z-index:2}
 .menu-card:active{transform:scale(.975)}
 .menu-card.available{border:1.5px solid var(--gold);background:linear-gradient(165deg,rgba(22,36,64,0.76) 0%,rgba(10,17,32,0.84) 100%);box-shadow:0 12px 30px rgba(0,0,0,0.65),0 0 24px rgba(201,168,118,0.16);animation:goldBorderBreathe 3.8s ease-in-out infinite alternate}
 @keyframes goldBorderBreathe{0%{border-color:rgba(201,168,118,0.55);box-shadow:0 12px 28px rgba(0,0,0,0.65),0 0 14px rgba(201,168,118,0.10)}100%{border-color:rgba(229,185,111,0.98);box-shadow:0 12px 32px rgba(0,0,0,0.75),0 0 26px rgba(229,185,111,0.26)}}
-.card-cover{width:100%;height:78px;background:rgba(5,9,18,0.65);border-bottom:1px solid var(--border-subtle);position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.card-cover{width:100%;height:76px;background:rgba(5,9,18,0.65);border-bottom:1px solid var(--border-subtle);position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
 .menu-card.available .card-cover{background:radial-gradient(circle at 50% 45%,rgba(201,168,118,0.24) 0%,rgba(6,10,20,0.8) 82%);border-bottom:1px solid rgba(201,168,118,0.26)}
 .card-cover-img{width:100%;height:100%;object-fit:cover;display:block}
 .status-pill{position:absolute;top:5px;right:5px;font-family:'Montserrat',sans-serif;font-size:7.5px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;padding:2.5px 6.5px;border-radius:999px;z-index:4;display:inline-flex;align-items:center;gap:4px}
@@ -172,9 +172,6 @@ header,section{position:relative;z-index:2}
 .adm-publish-desc{font-size:12px;color:var(--text-muted);line-height:1.45;margin-bottom:14px}.adm-export-btns{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .adm-main-btn{padding:11px 14px;border-radius:9px;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;cursor:pointer;border:none;text-align:center}
 .adm-main-btn.gold{background:var(--cream);border:1.5px solid var(--gold);color:var(--text-dark)}.adm-main-btn.secondary{background:var(--bg-dark-inner);border:1px solid var(--gold-border);color:var(--gold-light)}
-.cover-gen-preview-wrap{width:100%;background:#04070E;border:1.5px solid var(--gold-border);border-radius:12px;overflow:hidden;margin:10px 0 12px 0;display:flex;align-items:center;justify-content:center;box-shadow:0 12px 32px rgba(0,0,0,0.8)}
-#coverGenCanvas{width:100%;max-height:320px;object-fit:contain;display:block}
-.gen-preset-chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
 .modal-overlay{position:fixed;inset:0;background:rgba(4,7,14,0.86);backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center;padding:16px;z-index:100}.modal-overlay.open{display:flex;animation:screenFade .18s ease-out}
 .modal-box{width:100%;max-width:375px;background:linear-gradient(165deg,#131F36 0%,#0B1220 100%);border:1.5px solid var(--gold);border-radius:16px;padding:20px 18px;text-align:center;box-shadow:0 18px 46px rgba(0,0,0,0.75)}
 .modal-pill{display:inline-block;font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;color:var(--gold-light);background:var(--gold-glow);border:1px solid var(--gold-border);padding:4px 10px;border-radius:999px;margin-bottom:8px;text-transform:uppercase}
@@ -337,46 +334,10 @@ header,section{position:relative;z-index:2}
   <div class="container">
     <div class="admin-wrap">
       <div class="admin-top-bar">
-        <div><div class="admin-top-title">⚙️ Админ-панель платформы</div><div class="admin-top-sub">Управление ссылками, обложками, карточками и статистикой</div></div>
-        <button type="button" class="back-to-menu-btn" onclick="showScreen('hub')">✓ Готово (В меню)</button>
-      </div>
-
-      <div class="stats-panel" style="border:1.5px solid var(--gold)">
-        <div class="admin-item-head" style="margin-bottom:10px">
-          <strong>🎨 Генератор строгих баннеров AiBet</strong>
-          <div class="admin-head-btns">
-            <label class="adm-mini-btn gold-outline" style="cursor:pointer">🖼️ Свой фон-шаблон<input type="file" accept="image/*" style="display:none" onchange="loadCustomBgTemplate(this)"></label>
-            <button type="button" class="adm-mini-btn danger" onclick="resetAllCoversToWidgets()">↺ Вернуть фирменные виджеты</button>
-          </div>
-        </div>
-        <div class="gen-preset-chips">
-          <span style="font-size:11px;color:var(--text-muted);align-self:center;margin-right:4px">Раздел:</span>
-          <button type="button" class="adm-mini-btn" onclick="applyGenPreset(0,'КАЛЬКУЛЯТОР','СТАВОК')">1. Калькулятор</button>
-          <button type="button" class="adm-mini-btn" onclick="applyGenPreset(1,'ЗАКРЫТЫЙ','VIP-КЛУБ')">2. VIP-клуб</button>
-          <button type="button" class="adm-mini-btn" onclick="applyGenPreset(2,'ЛИЧНОЕ','ВЕДЕНИЕ')">3. Личное ведение</button>
-          <button type="button" class="adm-mini-btn" onclick="applyGenPreset(3,'КУПИТЬ','СТАВКИ')">4. Купить ставки</button>
-        </div>
-        <div class="adm-grid-2">
-          <div class="adm-field"><label>1-я строка (Белый текст)</label><input type="text" class="adm-input" id="genLine1" value="ЗАКРЫТЫЙ" oninput="renderBrandCoverPreview()"></div>
-          <div class="adm-field"><label>2-я строка (Золотой текст)</label><input type="text" class="adm-input" id="genLine2" value="VIP-КЛУБ" oninput="renderBrandCoverPreview()"></div>
-        </div>
-        <div class="adm-grid-2">
-          <div class="adm-field">
-            <label>Куда применить при установке</label>
-            <select class="adm-select" id="genTargetCardSelect" onchange="syncPresetFromDropdown(this.value)"></select>
-          </div>
-          <div class="adm-field">
-            <label>Пропорции для скачивания</label>
-            <select class="adm-select" id="genAspectSelect" onchange="renderBrandCoverPreview()">
-              <option value="card">800×400 px (Баннер карточки)</option>
-              <option value="square">1080×1080 px (Квадрат для поста в ТГ)</option>
-            </select>
-          </div>
-        </div>
-        <div class="cover-gen-preview-wrap"><canvas id="coverGenCanvas" width="800" height="400"></canvas></div>
-        <div class="adm-grid-2" style="margin-bottom:0">
-          <button type="button" class="adm-main-btn gold" onclick="applyGeneratedCoverToCard()">✨ Поставить на выбранную карточку</button>
-          <button type="button" class="adm-main-btn secondary" onclick="downloadGeneratedCoverPng()">💾 Скачать картинку (PNG)</button>
+        <div><div class="admin-top-title">⚙️ Админ-панель платформы</div><div class="admin-top-sub">Управление ссылками, карточками и статистикой</div></div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <button type="button" class="adm-mini-btn gold-outline" onclick="forceBypassCacheReload()">🔄 Сбросить кэш ТГ</button>
+          <button type="button" class="back-to-menu-btn" onclick="showScreen('hub')">✓ Готово (В меню)</button>
         </div>
       </div>
 
@@ -492,6 +453,12 @@ window.INITIAL_BLOCKS = [
 const CIPHER_SALT='AiBetClub_2026_SecureKey';
 function encodeSecret(str){if(!str)return '';try{const c=str.trim();let x='';for(let i=0;i<c.length;i++)x+=String.fromCharCode(c.charCodeAt(i)^CIPHER_SALT.charCodeAt(i%CIPHER_SALT.length));return 'v2:'+btoa(unescape(encodeURIComponent(x)));}catch(e){return '';}}
 function decodeSecret(enc){if(!enc)return '';try{const r=enc.trim();if(r.indexOf('v2:')===0){const d=decodeURIComponent(escape(atob(r.substring(3))));let o='';for(let i=0;i<d.length;i++)o+=String.fromCharCode(d.charCodeAt(i)^CIPHER_SALT.charCodeAt(i%CIPHER_SALT.length));return o;}const leg=decodeURIComponent(escape(atob(r))).split('').reverse().join('');return /^\d+:[A-Za-z0-9_-]+$/.test(leg)?leg:'';}catch(e){return '';}}
+
+function forceBypassCacheReload(){
+  triggerHaptic('medium');
+  try{localStorage.removeItem('aibet_menu_blocks_v9');localStorage.removeItem('aibet_menu_blocks_v10');}catch(e){}
+  window.location.replace(window.location.pathname+'?v='+Date.now());
+}
 
 (function initCyberConstellationBg(){
   const canvas=document.getElementById('bgCanvas');if(!canvas)return;
@@ -641,170 +608,10 @@ async function refreshBotVisitors(){
 }
 
 let menuBlocks=[];
-try{const sv=localStorage.getItem('aibet_menu_blocks_v10'),pr=sv?JSON.parse(sv):null;menuBlocks=(Array.isArray(pr)&&pr.length>0)?pr:JSON.parse(JSON.stringify(window.INITIAL_BLOCKS));}catch(e){menuBlocks=JSON.parse(JSON.stringify(window.INITIAL_BLOCKS));}
-function saveBlocksDraft(){try{localStorage.setItem('aibet_menu_blocks_v10',JSON.stringify(menuBlocks));}catch(e){}}
+try{const sv=localStorage.getItem('aibet_menu_blocks_v11'),pr=sv?JSON.parse(sv):null;menuBlocks=(Array.isArray(pr)&&pr.length>0)?pr:JSON.parse(JSON.stringify(window.INITIAL_BLOCKS));}catch(e){menuBlocks=JSON.parse(JSON.stringify(window.INITIAL_BLOCKS));}
+function saveBlocksDraft(){try{localStorage.setItem('aibet_menu_blocks_v11',JSON.stringify(menuBlocks));}catch(e){}}
 let waitlistMap={};try{waitlistMap=JSON.parse(localStorage.getItem('aibet_waitlist_v1')||'{}');}catch(e){waitlistMap={};}
 let activeModalBlockIndex=null;
-
-// =========================================================
-// ЧИСТЫЙ ГЕНЕРАТОР БАННЕРОВ AIBET (БЕЗ ТОЧЕК И СТРАННЫХ УЗОРОВ + ПОДДЕРЖКА СВОЕГО ФОНА)
-// =========================================================
-let customBgImg=null;
-const CARD_PRESETS=[
-  {l1:'КАЛЬКУЛЯТОР',l2:'СТАВОК'},
-  {l1:'ЗАКРЫТЫЙ',l2:'VIP-КЛУБ'},
-  {l1:'ЛИЧНОЕ',l2:'ВЕДЕНИЕ'},
-  {l1:'КУПИТЬ',l2:'СТАВКИ'}
-];
-
-function loadCustomBgTemplate(inp){
-  const f=inp.files&&inp.files[0];if(!f)return;
-  const r=new FileReader();
-  r.onload=e=>{
-    const img=new Image();
-    img.onload=()=>{customBgImg=img;renderBrandCoverPreview();triggerHaptic('success');showToast('✓ Свой фон-шаблон загружен');};
-    img.src=e.target.result;
-  };
-  r.readAsDataURL(f);
-}
-
-function resetAllCoversToWidgets(){
-  menuBlocks.forEach(b=>{b.coverUrl='';});
-  saveBlocksDraft();renderAdminPanel();renderHubCards();
-  triggerHaptic('success');showToast('↺ Включены фирменные виджеты на всех карточках');
-}
-
-function syncPresetFromDropdown(val){
-  const idx=parseInt(val,10)||0;
-  const p=CARD_PRESETS[idx]||{l1:(menuBlocks[idx]?menuBlocks[idx].title.toUpperCase():'AIBET'),l2:'MONEY'};
-  document.getElementById('genLine1').value=p.l1;
-  document.getElementById('genLine2').value=p.l2;
-  renderBrandCoverPreview();
-}
-
-function applyGenPreset(idx,l1,l2){
-  triggerHaptic('light');
-  document.getElementById('genLine1').value=l1;
-  document.getElementById('genLine2').value=l2;
-  const sel=document.getElementById('genTargetCardSelect');
-  if(sel&&sel.options[idx])sel.value=String(idx);
-  renderBrandCoverPreview();
-}
-
-function drawSharpGoldRim(ctx,x1,y1,x2,y2,hot=0.5,w=1.5){
-  ctx.save();
-  const g=ctx.createLinearGradient(x1,y1,x2,y2);
-  g.addColorStop(0,'rgba(201,168,118,0)');
-  g.addColorStop(Math.max(0.05,hot-0.32),'rgba(201,168,118,0.45)');
-  g.addColorStop(hot,'#FFF3D1');
-  g.addColorStop(Math.min(0.95,hot+0.32),'rgba(229,185,111,0.45)');
-  g.addColorStop(1,'rgba(201,168,118,0)');
-  ctx.shadowColor='rgba(229,185,111,0.75)';ctx.shadowBlur=14;
-  ctx.strokeStyle=g;ctx.lineWidth=w;
-  ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);ctx.stroke();
-  ctx.restore();
-}
-
-function drawCoverOnCanvas(canvas,line1,line2,isSquare){
-  const W=isSquare?1000:800,H=isSquare?1000:400;
-  canvas.width=W;canvas.height=H;
-  const ctx=canvas.getContext('2d');
-
-  if(customBgImg){
-    const sc=Math.max(W/customBgImg.width,H/customBgImg.height),sw=W/sc,sh=H/sc;
-    ctx.drawImage(customBgImg,(customBgImg.width-sw)/2,(customBgImg.height-sh)/2,sw,sh,0,0,W,H);
-  }else{
-    // Чистый матовый графитово-сапфировый фон со строгими тонкими гранями по углам
-    const bg=ctx.createRadialGradient(W*0.5,H*0.42,W*0.05,W*0.5,H*0.5,W*0.85);
-    bg.addColorStop(0,'#10192D');bg.addColorStop(0.55,'#080D18');bg.addColorStop(1,'#04060B');
-    ctx.fillStyle=bg;ctx.fillRect(0,0,W,H);
-
-    // Верхняя левая матовая плоскость + тонкая золотая грань
-    ctx.beginPath();ctx.moveTo(0,0);ctx.lineTo(W*0.18,0);ctx.lineTo(0,H*0.28);ctx.closePath();
-    ctx.fillStyle='rgba(20,30,50,0.45)';ctx.fill();
-    drawSharpGoldRim(ctx,0,H*0.28,W*0.18,0,0.4,isSquare?2.0:1.5);
-
-    // Нижняя левая плавная грань
-    ctx.beginPath();ctx.moveTo(0,H*0.58);ctx.quadraticCurveTo(W*0.22,H*0.72,W*0.52,H);ctx.lineTo(0,H);ctx.closePath();
-    const lg=ctx.createLinearGradient(0,H*0.58,W*0.4,H);
-    lg.addColorStop(0,'rgba(18,28,48,0.55)');lg.addColorStop(1,'rgba(5,8,15,0.9)');
-    ctx.fillStyle=lg;ctx.fill();
-    ctx.save();
-    const cg=ctx.createLinearGradient(0,H*0.58,W*0.52,H);
-    cg.addColorStop(0,'rgba(201,168,118,0.05)');cg.addColorStop(0.45,'#FFEAB5');cg.addColorStop(0.8,'rgba(201,168,118,0.4)');cg.addColorStop(1,'rgba(201,168,118,0)');
-    ctx.strokeStyle=cg;ctx.lineWidth=isSquare?2.0:1.5;ctx.shadowColor='#E5B96F';ctx.shadowBlur=12;
-    ctx.beginPath();ctx.moveTo(0,H*0.58);ctx.quadraticCurveTo(W*0.22,H*0.72,W*0.52,H);ctx.stroke();
-    ctx.restore();
-
-    // Правая нижняя строгая геометрия (две пересекающиеся грани как в оригинале)
-    ctx.beginPath();ctx.moveTo(W*0.60,H);ctx.lineTo(W,H*0.22);ctx.lineTo(W,H);ctx.closePath();
-    ctx.fillStyle='rgba(16,24,42,0.42)';ctx.fill();
-    drawSharpGoldRim(ctx,W*0.60,H,W,H*0.22,0.5,1.0);
-    drawSharpGoldRim(ctx,W*0.52,H,W,H*0.56,0.48,isSquare?2.2:1.6);
-  }
-
-  // Оригинальный векторный логотип AiBet — MONEY —
-  const svgEl=document.getElementById('brandLogoSvg');
-  if(svgEl&&typeof Path2D!=='undefined'){
-    const paths=svgEl.querySelectorAll('path');
-    if(paths.length>=2){
-      ctx.save();
-      const logoScale=isSquare?0.90:0.48;
-      const logoW=308*logoScale,logoX=(W-logoW)/2-48*logoScale,logoY=(isSquare?H*0.32:H*0.14)-24*logoScale;
-      ctx.translate(logoX,logoY);ctx.scale(logoScale,logoScale);
-      ctx.shadowColor='rgba(0,0,0,0.7)';ctx.shadowBlur=10;
-      ctx.fillStyle='#F8FAFC';ctx.fill(new Path2D(paths[0].getAttribute('d')),'evenodd');
-      ctx.fillRect(144,51,14,56.2);
-      ctx.fillStyle='#C9A876';ctx.beginPath();ctx.arc(151,35.5,8.2,0,Math.PI*2);ctx.fill();
-      ctx.fillRect(54,139.2,47,2.4);ctx.fillRect(304,139.2,45,2.4);
-      ctx.fill(new Path2D(paths[1].getAttribute('d')),'evenodd');
-      ctx.restore();
-    }
-  }
-
-  // Крупная чистая типографика
-  ctx.save();
-  ctx.textAlign='center';ctx.textBaseline='middle';
-  const f1=isSquare?64:42,f2=isSquare?62:40;
-  const y1=isSquare?H*0.545:H*0.57,y2=isSquare?H*0.635:H*0.735,yBar=isSquare?H*0.715:H*0.87;
-
-  ctx.font='800 '+f1+'px Montserrat, sans-serif';
-  ctx.fillStyle='#FFFFFF';ctx.shadowColor='rgba(0,0,0,0.8)';ctx.shadowBlur=12;
-  ctx.fillText(String(line1||'').toUpperCase(),W/2,y1);
-
-  const gGrad=ctx.createLinearGradient(W*0.3,y2-20,W*0.7,y2+20);
-  gGrad.addColorStop(0,'#F0CA86');gGrad.addColorStop(0.5,'#C9A876');gGrad.addColorStop(1,'#9E7B47');
-  ctx.font='800 '+f2+'px Montserrat, sans-serif';
-  ctx.fillStyle=gGrad;
-  ctx.fillText(String(line2||'').toUpperCase(),W/2,y2);
-
-  const barW=isSquare?114:72;
-  ctx.fillStyle='#C9A876';
-  ctx.fillRect((W-barW)/2,yBar,barW,2);
-  ctx.restore();
-}
-
-function renderBrandCoverPreview(){
-  const c=document.getElementById('coverGenCanvas');if(!c)return;
-  drawCoverOnCanvas(c,document.getElementById('genLine1').value||'AIBET',document.getElementById('genLine2').value||'MONEY',document.getElementById('genAspectSelect').value==='square');
-}
-
-function applyGeneratedCoverToCard(){
-  const sel=document.getElementById('genTargetCardSelect'),idx=sel?parseInt(sel.value,10):1;
-  if(!menuBlocks[idx])return;
-  const tc=document.createElement('canvas');
-  drawCoverOnCanvas(tc,document.getElementById('genLine1').value||'AIBET',document.getElementById('genLine2').value||'MONEY',false);
-  let url=tc.toDataURL('image/webp',0.86);if(url.indexOf('data:image/webp')!==0)url=tc.toDataURL('image/jpeg',0.88);
-  menuBlocks[idx].coverUrl=url;saveBlocksDraft();renderAdminPanel();renderHubCards();
-  triggerHaptic('success');showToast('✓ Баннер установлен на «'+menuBlocks[idx].title+'»');
-}
-
-function downloadGeneratedCoverPng(){
-  renderBrandCoverPreview();
-  const c=document.getElementById('coverGenCanvas'),a=document.createElement('a');
-  a.href=c.toDataURL('image/png');a.download='aibet-cover-'+Date.now()+'.png';a.click();
-  triggerHaptic('success');showToast('✓ Картинка скачана');
-}
 
 let spoilerAnimId=null,activeSpoilerSystems=[];
 function stopSpoilerCanvases(){if(spoilerAnimId){cancelAnimationFrame(spoilerAnimId);spoilerAnimId=null;}}
@@ -847,7 +654,6 @@ function initSpoilerCanvases(){
 
 const hubCardsGrid=document.getElementById('hubCardsGrid');
 
-// Единые фирменные золотые мини-виджеты для всех 4 карточек (в стиле виджета Калькулятора)
 function getSignatureWidgetHtml(b,idx,pBank,pBet){
   if(b.icon==='calc'||b.actionType==='calc'){
     return '<div class="default-cover-art"><div class="calc-mini-widget"><div class="calc-mini-left"><div class="calc-mini-pill">'+formatSpaces(pBank)+' ₽</div><div class="calc-mini-pill">КЭФ 1.5</div></div><div class="calc-mini-right"><span>Ставка</span><strong>'+formatSpaces(pBet)+' ₽</strong></div></div></div>';
@@ -884,7 +690,6 @@ function renderHubCards(){
       ?'<img src="'+escapeHtml(b.coverUrl)+'" class="card-cover-img" alt="">'
       :getSignatureWidgetHtml(b,idx,pBank,pBet);
 
-    // Если стоит картинка-баннер, зелёную плашку скрываем, чтобы она не перекрывала логотип AiBet
     const pill=(!isBlur&&!hasCustomCover)
       ?(isAvail?'<span class="status-pill active-pill"><span class="live-dot"></span>Открыто</span>':'<span class="status-pill soon-pill">⏳ Скоро</span>')
       :'';
@@ -947,7 +752,7 @@ function showScreen(name,ev){
   try{
     if(name==='calc'){document.getElementById('screenCalc').classList.add('active');if(tg&&tg.BackButton)tg.BackButton.show();}
     else if(name==='promo'){document.getElementById('screenPromo').classList.add('active');if(tg&&tg.BackButton)tg.BackButton.show();}
-    else if(name==='admin'){renderAdminPanel();renderStatsInAdmin();renderBrandCoverPreview();document.getElementById('screenAdmin').classList.add('active');if(tg&&tg.BackButton)tg.BackButton.show();}
+    else if(name==='admin'){renderAdminPanel();renderStatsInAdmin();document.getElementById('screenAdmin').classList.add('active');if(tg&&tg.BackButton)tg.BackButton.show();}
     else{document.getElementById('screenHub').classList.add('active');renderHubCards();if(tg&&tg.BackButton)tg.BackButton.hide();}
   }catch(e){}
   window.scrollTo({top:0,behavior:'smooth'});
@@ -974,18 +779,12 @@ function renderAdminPanel(){
   document.getElementById('trackerBotToken').value=trackerCfg.botToken||'';
   document.getElementById('trackerAdminId').value=trackerCfg.adminChatId||'';
   document.getElementById('mainChannelUrlInput').value=trackerCfg.channelUrl||'https://t.me/aibetmoney';
-  const ts=document.getElementById('genTargetCardSelect');
-  if(ts){
-    const pv=ts.value!==''?ts.value:'1';
-    ts.innerHTML=menuBlocks.map((b,i)=>'<option value="'+i+'">Карточка #'+(i+1)+': '+escapeHtml(b.title)+'</option>').join('');
-    if(ts.options[pv])ts.value=pv;
-  }
   adminCardsContainer.innerHTML='';
   menuBlocks.forEach((b,idx)=>{
     const item=document.createElement('div');item.className='admin-item-card';
     const isCalc=b.actionType==='calc';
     const ex=!isCalc?'<details style="margin-top:8px;border-top:1px solid var(--border-subtle);padding-top:10px"><summary style="cursor:pointer;font-size:12px;color:var(--gold-light);font-weight:600">📝 Настроить продающий текст и ссылку на ЛС</summary><div style="margin-top:10px"><div class="adm-field"><label>Заголовок внутри страницы</label><input type="text" class="adm-input" value="'+escapeHtml(b.pageTitle||'')+'" oninput="updateBlockField('+idx+',\'pageTitle\',this.value)"></div><div class="adm-field"><label>Продающий текст</label><textarea class="adm-textarea" oninput="updateBlockField('+idx+',\'pageText\',this.value)">'+escapeHtml(b.pageText||'')+'</textarea></div><div class="adm-grid-2"><div class="adm-field"><label>Текст кнопки</label><input type="text" class="adm-input" value="'+escapeHtml(b.ctaText||'')+'" oninput="updateBlockField('+idx+',\'ctaText\',this.value)"></div><div class="adm-field"><label>Ссылка на твой ЛС (https://t.me/...)</label><input type="text" class="adm-input" value="'+escapeHtml(b.ctaUrl||'')+'" oninput="updateBlockField('+idx+',\'ctaUrl\',this.value)"></div></div></div></details>':'';
-    item.innerHTML='<div class="admin-item-head"><strong>Блок #'+(idx+1)+': '+escapeHtml(b.title)+'</strong><div class="admin-head-btns"><button type="button" class="adm-mini-btn" onclick="moveBlock('+idx+',-1)">↑</button><button type="button" class="adm-mini-btn" onclick="moveBlock('+idx+',1)">↓</button>'+(!isCalc?'<button type="button" class="adm-mini-btn danger" onclick="deleteBlock('+idx+')">Удалить</button>':'')+'</div></div><div class="adm-toggles-row"><label class="adm-check-label"><input type="checkbox" '+(b.blurred?'checked':'')+' onchange="updateBlockField('+idx+',\'blurred\',this.checked)"><span>🌫️ Заблюрить как в ТГ (Скрыть что внутри)</span></label><label class="adm-check-label"><input type="checkbox" '+(b.hidden?'checked':'')+' onchange="updateBlockField('+idx+',\'hidden\',this.checked)"><span>👁️ Скрыть из меню совсем</span></label></div><div class="adm-grid-2"><div class="adm-field"><label>Название карточки</label><input type="text" class="adm-input" value="'+escapeHtml(b.title)+'" oninput="updateBlockField('+idx+',\'title\',this.value)"></div><div class="adm-field"><label>Статус раздела</label><select class="adm-select" onchange="updateBlockField('+idx+',\'status\',this.value);renderAdminPanel()"><option value="available" '+(b.status==='available'?'selected':'')+'>● Открыто (Доступно)</option><option value="soon" '+(b.status==='soon'?'selected':'')+'>⏳ Скоро (В разработке)</option></select></div></div><div class="adm-grid-2"><div class="adm-field"><label>Короткое описание</label><input type="text" class="adm-input" value="'+escapeHtml(b.desc)+'" oninput="updateBlockField('+idx+',\'desc\',this.value)"></div><div class="adm-field"><label>Текст на кнопке</label><input type="text" class="adm-input" value="'+escapeHtml(b.btnLabel||'')+'" oninput="updateBlockField('+idx+',\'btnLabel\',this.value)"></div></div><div class="adm-field"><label>Обложка (по умолчанию стоит фирменный виджет)</label><div class="adm-cover-row"><label class="adm-upload-label">📁 Загрузить свою картинку<input type="file" accept="image/*" style="display:none" onchange="handleCoverUpload('+idx+',this)"></label>'+(b.coverUrl?'<button type="button" class="adm-mini-btn danger" onclick="updateBlockField('+idx+',\'coverUrl\',\'\');renderAdminPanel();renderHubCards()">↺ Вернуть фирменный виджет</button>':'')+'</div></div>'+ex;
+    item.innerHTML='<div class="admin-item-head"><strong>Блок #'+(idx+1)+': '+escapeHtml(b.title)+'</strong><div class="admin-head-btns"><button type="button" class="adm-mini-btn" onclick="moveBlock('+idx+',-1)">↑</button><button type="button" class="adm-mini-btn" onclick="moveBlock('+idx+',1)">↓</button>'+(!isCalc?'<button type="button" class="adm-mini-btn danger" onclick="deleteBlock('+idx+')">Удалить</button>':'')+'</div></div><div class="adm-toggles-row"><label class="adm-check-label"><input type="checkbox" '+(b.blurred?'checked':'')+' onchange="updateBlockField('+idx+',\'blurred\',this.checked)"><span>🌫️ Заблюрить как в ТГ (Скрыть что внутри)</span></label><label class="adm-check-label"><input type="checkbox" '+(b.hidden?'checked':'')+' onchange="updateBlockField('+idx+',\'hidden\',this.checked)"><span>👁️ Скрыть из меню совсем</span></label></div><div class="adm-grid-2"><div class="adm-field"><label>Название карточки</label><input type="text" class="adm-input" value="'+escapeHtml(b.title)+'" oninput="updateBlockField('+idx+',\'title\',this.value)"></div><div class="adm-field"><label>Статус раздела</label><select class="adm-select" onchange="updateBlockField('+idx+',\'status\',this.value);renderAdminPanel()"><option value="available" '+(b.status==='available'?'selected':'')+'>● Открыто (Доступно)</option><option value="soon" '+(b.status==='soon'?'selected':'')+'>⏳ Скоро (В разработке)</option></select></div></div><div class="adm-grid-2"><div class="adm-field"><label>Короткое описание</label><input type="text" class="adm-input" value="'+escapeHtml(b.desc)+'" oninput="updateBlockField('+idx+',\'desc\',this.value)"></div><div class="adm-field"><label>Текст на кнопке</label><input type="text" class="adm-input" value="'+escapeHtml(b.btnLabel||'')+'" oninput="updateBlockField('+idx+',\'btnLabel\',this.value)"></div></div><div class="adm-field"><label>Обложка (по умолчанию стоит фирменный виджет)</label><div class="adm-cover-row"><label class="adm-upload-label">📁 Загрузить свою картинку (800×400)<input type="file" accept="image/*" style="display:none" onchange="handleCoverUpload('+idx+',this)"></label>'+(b.coverUrl?'<button type="button" class="adm-mini-btn danger" onclick="updateBlockField('+idx+',\'coverUrl\',\'\');renderAdminPanel();renderHubCards()">↺ Вернуть фирменный виджет</button>':'')+'</div></div>'+ex;
     adminCardsContainer.appendChild(item);
   });
 }
