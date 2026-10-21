@@ -12,10 +12,11 @@
 :root{--bg-page:#03060C;--bg-card:rgba(12,20,36,0.78);--bg-dark-inner:rgba(6,10,19,0.86);--platinum:#E2E8F0;--text-secondary:#CBD5E1;--text-muted:#8E9BAE;--cream:#F5EFE4;--cream-focus:#FFFFFF;--gold:#C9A876;--gold-emblem:#E1A856;--gold-light:#E5B96F;--gold-border:rgba(201,168,118,0.48);--gold-glow:rgba(201,168,118,0.16);--green:#34D399;--green-bg:rgba(52,211,153,0.14);--green-border:rgba(52,211,153,0.4);--red:#F87171;--red-bg:rgba(248,113,113,0.12);--red-border:rgba(248,113,113,0.35);--amber:#FBBF24;--amber-bg:rgba(251,191,36,0.12);--amber-border:rgba(251,191,36,0.42);--text-dark:#070B12;--border-subtle:rgba(226,232,240,0.12)}
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 body{background:var(--bg-page);color:var(--platinum);font-family:'Inter',-apple-system,sans-serif;min-height:100vh;display:flex;flex-direction:column;position:relative;overflow-x:hidden;-webkit-font-smoothing:antialiased}
-.toast-pill,.hub-title,.hub-bank-pill,.rank-pill-badge,.hot-deal-badge,.hot-deal-title,.hot-deal-odd,.hot-deal-timer,.hot-deal-cta,.status-pill,.calc-mini-pill,.calc-mini-right strong,.card-title,.card-action-btn,.tg-spoiler-pill,.admin-open-pill,.promo-title,.promo-cta-btn,.back-to-menu-btn,.block-label,.gold-input-box input,.quick-odd-chip,.seg-btn,.result-sublabel,.result-number,.profit-box-val,.action-btn,.hist-tag,.tilt-alert-title,.tilt-action-btn,.mobile-spoiler-btn,.info-item-title,.rule-heading,.admin-top-title,.stat-kpi strong,.admin-item-head strong,.adm-add-block-btn,.adm-publish-title,.adm-main-btn,.modal-pill,.modal-title,.modal-waitlist-btn,.modal-tg-btn,.modal-close-btn,.studio-badge-top{font-family:'Montserrat',sans-serif}
+.toast-pill,.hub-title,.hub-bank-pill,.rank-pill-badge,.hot-deal-badge,.hot-deal-title,.hot-deal-odd,.hot-deal-timer,.hot-deal-cta,.status-pill,.calc-mini-pill,.calc-mini-right strong,.card-title,.card-action-btn,.tg-spoiler-pill,.admin-open-pill,.promo-title,.promo-cta-btn,.back-to-menu-btn,.block-label,.gold-input-box input,.quick-odd-chip,.seg-btn,.result-sublabel,.result-number,.profit-box-val,.action-btn,.hist-tag,.tilt-alert-title,.tilt-action-btn,.mobile-spoiler-btn,.info-item-title,.rule-heading,.admin-top-title,.stat-kpi strong,.admin-item-head strong,.adm-add-block-btn,.adm-publish-title,.adm-main-btn,.modal-pill,.modal-title,.modal-waitlist-btn,.modal-tg-btn,.modal-close-btn,.studio-badge-top,.timer-live-status{font-family:'Montserrat',sans-serif}
 ::-webkit-scrollbar{width:8px;height:8px}::-webkit-scrollbar-track{background:rgba(255,255,255,0.04)}::-webkit-scrollbar-thumb{background:rgba(201,168,118,0.35);border-radius:4px}
 #bgCanvas{position:fixed;inset:0;width:100vw;height:100vh;z-index:0;pointer-events:none;display:block}
 header,section{position:relative;z-index:2}
+
 .toast-pill{position:fixed;top:14px;left:50%;transform:translate(-50%,-80px);background:rgba(6,10,19,0.96);border:1.5px solid var(--gold);color:var(--cream);font-size:12.5px;font-weight:700;padding:9px 18px;border-radius:999px;box-shadow:0 12px 30px rgba(0,0,0,0.75),0 0 20px rgba(201,168,118,0.25);z-index:200;pointer-events:none;opacity:0;transition:transform .28s cubic-bezier(.22,1,.36,1),opacity .25s ease;white-space:nowrap}
 .toast-pill.show{transform:translate(-50%,0);opacity:1}
 .site-header{background:rgba(4,7,14,0.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(201,168,118,0.24);position:sticky;top:0;z-index:30}
@@ -37,6 +38,7 @@ header,section{position:relative;z-index:2}
 @keyframes rippleExpand{to{transform:scale(3.8);opacity:0}}
 @keyframes livePulseGreen{0%,100%{box-shadow:0 0 0 0 rgba(52,211,153,0.7)}50%{box-shadow:0 0 0 5px rgba(52,211,153,0)}}
 @keyframes livePulseGold{0%,100%{box-shadow:0 0 4px var(--gold),0 0 0 0 rgba(201,168,118,0.65)}50%{box-shadow:0 0 9px var(--gold),0 0 0 5px rgba(201,168,118,0)}}
+
 .hub-wrap{max-width:640px;margin:0 auto;padding:8px 0 12px 0}
 .hub-hero{text-align:center;margin-bottom:10px}
 .hub-title{font-size:17px;font-weight:800;color:var(--platinum);margin-bottom:2px}
@@ -52,7 +54,8 @@ header,section{position:relative;z-index:2}
 .hot-deal-top{display:flex;align-items:center;justify-content:space-between;gap:6px;margin-bottom:6px;flex-wrap:wrap}
 .hot-deal-badge{display:inline-flex;align-items:center;gap:5px;background:rgba(201,168,118,0.16);border:1px solid var(--gold-border);color:var(--gold-light);font-size:9.5px;font-weight:800;padding:2.5px 8px;border-radius:999px;text-transform:uppercase;letter-spacing:.3px}
 .hot-deal-badge .pulse-dot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:livePulseGreen 1.8s infinite;flex-shrink:0}
-.hot-deal-timer{display:inline-flex;align-items:center;gap:4px;background:rgba(6,10,19,0.9);border:1px solid rgba(251,191,36,0.45);color:var(--amber);font-size:10px;font-weight:800;padding:2.5px 8px;border-radius:999px;font-variant-numeric:tabular-nums}
+.hot-deal-timer{display:inline-flex;align-items:center;gap:4px;background:rgba(6,10,19,0.92);border:1px solid rgba(251,191,36,0.5);color:var(--amber);font-size:10px;font-weight:800;padding:2.5px 8px;border-radius:999px;font-variant-numeric:tabular-nums}
+.hot-deal-timer.is-live{border-color:rgba(52,211,153,0.6);color:var(--green);background:rgba(6,20,16,0.92)}
 .hot-deal-main{display:flex;align-items:center;justify-content:space-between;gap:10px}
 .hot-deal-info{display:flex;flex-direction:column;gap:2px;min-width:0;flex:1}
 .hot-deal-title{font-size:13px;font-weight:800;color:#FFF;line-height:1.22;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -101,6 +104,7 @@ header,section{position:relative;z-index:2}
 .home-screen-pill:active{transform:scale(.96);border-color:var(--gold)}
 .admin-open-pill{display:none;background:var(--gold-glow);border:1px solid var(--gold);color:var(--gold-light);font-size:10.5px;font-weight:700;padding:5px 12px;border-radius:999px;cursor:pointer}
 .admin-open-pill.unlocked{display:inline-flex;align-items:center;gap:5px}
+
 .promo-wrap{max-width:600px;margin:0 auto;padding:14px 0 36px 0}
 .promo-card{background:var(--bg-card);backdrop-filter:blur(10px);border:1.5px solid var(--gold-border);border-radius:16px;overflow:hidden;margin-top:12px}
 .promo-cover{width:100%;aspect-ratio:2/1;background:var(--bg-dark-inner);border-bottom:1px solid var(--border-subtle);display:flex;align-items:center;justify-content:center;overflow:hidden}
@@ -167,7 +171,7 @@ header,section{position:relative;z-index:2}
 .session-rank-chip{display:inline-flex;align-items:center;gap:4px;background:var(--gold-glow);border:1px solid var(--gold-border);color:var(--gold-light);padding:2.5px 8px;border-radius:6px;font-size:10.5px;font-weight:700}
 .session-winrate-text{font-size:11px;color:var(--text-secondary);font-weight:600}
 .session-winrate-text strong{color:var(--green)}
-.session-history-bottom{display:flex;align-items:center;justify-content:space-between;gap:6px}
+.session-history-bottom{display:flex;align-items:center;justify-content:space-between;gap:6px;flex-wrap:wrap}
 .history-pills{display:flex;align-items:center;gap:5px;flex-wrap:wrap}
 .hist-tag{padding:2px 6px;border-radius:5px;font-size:10px;font-weight:700}
 .hist-tag.win{background:var(--green-bg);color:var(--green);border:1px solid var(--green-border)}
@@ -186,6 +190,7 @@ header,section{position:relative;z-index:2}
 .rule-heading{font-size:14px;font-weight:700;color:var(--gold-light);text-transform:uppercase;margin-bottom:9px}
 .rule-content{font-size:13.5px;line-height:1.55;color:var(--platinum)}.rule-content p+p{margin-top:10px;font-weight:600;color:var(--gold-light)}
 .footer-note{font-size:12px;font-style:italic;color:var(--text-muted);line-height:1.5}
+
 .admin-wrap{max-width:800px;margin:0 auto;padding:16px 0 50px 0}
 .admin-top-bar{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:16px;background:var(--bg-card);border:1px solid var(--gold-border);padding:14px 16px;border-radius:14px}
 .admin-top-title{font-size:16px;font-weight:800;color:var(--gold-light)}.admin-top-sub{font-size:11.5px;color:var(--text-muted);margin-top:2px}
@@ -202,6 +207,7 @@ header,section{position:relative;z-index:2}
 .admin-item-head strong{font-size:14px;color:var(--gold-light)}.admin-head-btns{display:flex;gap:5px;flex-wrap:wrap}
 .adm-mini-btn{background:var(--bg-dark-inner);border:1px solid var(--border-subtle);color:var(--platinum);border-radius:6px;padding:5px 10px;font-size:11.5px;cursor:pointer;transition:transform .12s ease}
 .adm-mini-btn:active{transform:scale(.95)}.adm-mini-btn.gold-outline{border-color:var(--gold);color:var(--gold-light);background:var(--gold-glow);font-weight:600}.adm-mini-btn.danger{color:var(--red);border-color:var(--red-border)}
+.adm-mini-btn.green-outline{border-color:var(--green);color:var(--green);background:var(--green-bg);font-weight:700}
 .adm-toggles-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px;background:var(--bg-dark-inner);padding:10px 12px;border-radius:10px;border:1px solid var(--border-subtle)}
 .adm-check-label{display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600;color:var(--platinum);cursor:pointer;user-select:none}
 .adm-check-label input{width:16px;height:16px;accent-color:var(--gold);cursor:pointer}
@@ -209,6 +215,7 @@ header,section{position:relative;z-index:2}
 .adm-grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:10px}
 .adm-field{display:flex;flex-direction:column;gap:4px;margin-bottom:10px}.adm-field label{font-size:11.5px;font-weight:600;color:var(--text-muted);display:flex;justify-content:space-between}
 .adm-input,.adm-select,.adm-textarea{width:100%;background:var(--bg-dark-inner);border:1px solid rgba(226,232,240,0.16);border-radius:8px;padding:9px 11px;color:var(--platinum);font-family:inherit;font-size:13px;outline:none}
+.adm-input:focus,.adm-select:focus,.adm-textarea:focus{border-color:var(--gold)}
 .adm-textarea{min-height:80px;resize:vertical;line-height:1.45}.adm-cover-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .adm-upload-label{display:inline-flex;align-items:center;gap:6px;background:var(--gold-glow);border:1px solid var(--gold);color:var(--gold-light);padding:7px 12px;border-radius:7px;font-size:12px;font-weight:600;cursor:pointer}
 .adm-add-block-btn{width:100%;padding:12px;background:rgba(52,211,153,0.1);border:1.5px dashed var(--green);border-radius:12px;color:var(--green);font-size:13px;font-weight:700;cursor:pointer;margin-bottom:18px}
@@ -217,11 +224,19 @@ header,section{position:relative;z-index:2}
 .adm-publish-desc{font-size:12px;color:var(--text-muted);line-height:1.45;margin-bottom:14px}.adm-export-btns{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .adm-main-btn{padding:11px 14px;border-radius:9px;font-size:12px;font-weight:700;cursor:pointer;border:none;text-align:center;position:relative;overflow:hidden}
 .adm-main-btn.secondary{background:var(--bg-dark-inner);border:1px solid var(--gold-border);color:var(--gold-light)}
+.timer-control-box{background:var(--bg-dark-inner);border:1px solid var(--gold-border);border-radius:12px;padding:12px;margin-bottom:12px}
+.timer-status-bar{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;padding-bottom:10px;margin-bottom:10px;border-bottom:1px solid var(--border-subtle)}
+.timer-live-status{font-size:12px;font-weight:800;color:var(--amber);display:inline-flex;align-items:center;gap:6px}
+.timer-live-status.off{color:var(--text-muted);font-weight:600}
+.timer-custom-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;align-items:end}
+.timer-dhms-inputs{display:grid;grid-template-columns:repeat(3,1fr) auto;gap:6px;align-items:center}
+.timer-dhms-inputs input{text-align:center;font-weight:700;padding:8px 6px}
+.timer-dhms-unit{font-size:10px;color:var(--text-muted);text-align:center;display:block;margin-bottom:2px}
 .cover-gen-preview-wrap{width:100%;background:#04070E;border:1.5px solid var(--gold);border-radius:14px;overflow:hidden;margin:10px 0 14px 0;display:flex;align-items:center;justify-content:center;box-shadow:0 16px 40px rgba(0,0,0,0.85),0 0 24px rgba(201,168,118,0.15)}
 #coverGenCanvas{width:100%;max-height:320px;object-fit:contain;display:block}
 .gen-preset-chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
 .modal-overlay{position:fixed;inset:0;background:rgba(4,7,14,0.86);backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center;padding:16px;z-index:100}.modal-overlay.open{display:flex;animation:screenFade .18s ease-out}
-.modal-box{width:100%;max-width:375px;background:linear-gradient(165deg,#131F36 0%,#0B1220 100%);border:1.5px solid var(--gold);border-radius:16px;padding:20px 18px;text-align:center;box-shadow:0 18px 46px rgba(0,0,0,0.75)}
+.modal-box{width:100%;max-width:395px;background:linear-gradient(165deg,#131F36 0%,#0B1220 100%);border:1.5px solid var(--gold);border-radius:16px;padding:20px 18px;text-align:center;box-shadow:0 18px 46px rgba(0,0,0,0.75)}
 .modal-pill{display:inline-block;font-size:10px;font-weight:700;color:var(--gold-light);background:var(--gold-glow);border:1px solid var(--gold-border);padding:4px 10px;border-radius:999px;margin-bottom:8px;text-transform:uppercase}
 .modal-title{font-size:18px;font-weight:800;color:var(--platinum);margin-bottom:8px}.modal-text{font-size:13px;line-height:1.5;color:var(--text-secondary);margin-bottom:16px}
 .modal-actions{display:flex;flex-direction:column;gap:8px}
@@ -230,11 +245,115 @@ header,section{position:relative;z-index:2}
 .modal-tg-btn{width:100%;padding:11px 14px;background:var(--gold-glow);border:1px solid var(--gold-border);border-radius:9px;color:var(--gold-light);font-size:12.5px;font-weight:700;text-decoration:none;cursor:pointer;display:inline-block}
 .modal-close-btn{width:100%;padding:9px 14px;background:transparent;border:1px solid var(--border-subtle);border-radius:9px;color:var(--text-muted);font-size:12.5px;font-weight:600;cursor:pointer}
 .steps-list{text-align:left;font-size:12.5px;line-height:1.55;color:var(--text-secondary);background:var(--bg-dark-inner);border:1px solid var(--border-subtle);border-radius:10px;padding:12px 14px;margin-bottom:16px}.steps-list div+div{margin-top:8px}.steps-list strong{color:var(--gold-light)}
-@media (max-width:820px){.workspace{grid-template-columns:1fr;gap:14px}.adm-grid-2,.adm-grid-3,.adm-export-btns,.adm-toggles-row{grid-template-columns:1fr}.mobile-spoiler-btn{display:flex}.spoiler-content{display:none}.spoiler-content.open{display:flex;margin-top:4px}}
+@media (max-width:820px){.workspace{grid-template-columns:1fr;gap:14px}.adm-grid-2,.adm-grid-3,.adm-export-btns,.adm-toggles-row,.timer-custom-row{grid-template-columns:1fr}.mobile-spoiler-btn{display:flex}.spoiler-content{display:none}.spoiler-content.open{display:flex;margin-top:4px}}
+
+/* === 1. 3D VIP HOLOGRAPHIC TILT & GLARE === */
+.menu-card,.hot-deal-banner{--rx:0deg;--ry:0deg;--gx:50%;--gy:50%;--go:0;--card-scale:1;transform:perspective(880px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) scale(var(--card-scale,1));transform-style:preserve-3d;will-change:transform}
+.menu-card:active{--card-scale:.97;transform:perspective(880px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) scale(.97)}
+.hot-deal-banner:active{--card-scale:.98;transform:perspective(880px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) scale(.98)}
+.vip-glare-layer{position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:7;opacity:var(--go,0);transition:opacity .32s ease;background:radial-gradient(circle 185px at var(--gx,50%) var(--gy,50%),rgba(255,250,235,0.24) 0%,rgba(229,185,111,0.13) 34%,rgba(201,168,118,0.04) 62%,transparent 82%);mix-blend-mode:screen}
+
+/* === 2. LIQUID GOLD LASER BORDER === */
+.menu-card.available{border:1px solid rgba(201,168,118,0.34);animation:none;box-shadow:0 12px 30px rgba(0,0,0,0.72),0 0 22px rgba(201,168,118,0.16)}
+.hot-deal-banner{border:1px solid rgba(201,168,118,0.38);animation:none;box-shadow:0 10px 28px rgba(0,0,0,0.74),0 0 22px rgba(201,168,118,0.18)}
+.liquid-gold-border{position:absolute;inset:0;border-radius:inherit;padding:1.6px;pointer-events:none;z-index:9;-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;overflow:hidden}
+.liquid-gold-border::before{content:"";position:absolute;top:50%;left:50%;width:240%;height:240%;background:conic-gradient(from 0deg,rgba(201,168,118,0.16) 0deg,rgba(201,168,118,0.16) 115deg,rgba(229,185,111,0.5) 150deg,#FFF9E6 174deg,#E5B96F 180deg,rgba(201,168,118,0.16) 195deg,rgba(201,168,118,0.16) 295deg,rgba(229,185,111,0.6) 332deg,#FFFFFF 352deg,#E5B96F 358deg,rgba(201,168,118,0.16) 360deg);transform:translate(-50%,-50%) rotate(0deg);animation:liquidGoldLaserSpin 3.8s linear infinite;will-change:transform}
+.hot-deal-banner .liquid-gold-border::before{animation-duration:3.2s}
+@keyframes liquidGoldLaserSpin{from{transform:translate(-50%,-50%) rotate(0deg)}to{transform:translate(-50%,-50%) rotate(360deg)}}
+
+/* === 3. 0.8s CINEMATIC VAULT INTRO === */
+.vault-intro-overlay{position:fixed;inset:0;z-index:350;pointer-events:none;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.vault-intro-overlay.vault-done{display:none!important}
+.vault-shutter{position:absolute;left:0;right:0;height:50.5%;background:radial-gradient(circle at 50% 50%,#0B1324 0%,#03060C 85%);transition:transform .42s cubic-bezier(.22,1,.36,1),opacity .4s ease;will-change:transform,opacity}
+.vault-shutter.top{top:0;border-bottom:1px solid rgba(229,185,111,0.45);box-shadow:0 4px 24px rgba(0,0,0,0.85)}
+.vault-shutter.bottom{bottom:0;border-top:1px solid rgba(229,185,111,0.45);box-shadow:0 -4px 24px rgba(0,0,0,0.85)}
+.vault-seam-line{position:absolute;left:50%;top:50%;width:0;height:1.5px;background:linear-gradient(90deg,transparent 0%,#E5B96F 20%,#FFF8E7 50%,#E5B96F 80%,transparent 100%);transform:translate(-50%,-50%);box-shadow:0 0 18px rgba(229,185,111,0.9);animation:vaultSeamExpand .42s cubic-bezier(.22,1,.36,1) forwards;z-index:2}
+@keyframes vaultSeamExpand{0%{width:0;opacity:0}45%{width:88vw;opacity:1}100%{width:100vw;opacity:0}}
+.vault-emblem-stage{position:relative;z-index:3;width:86px;height:86px;display:flex;align-items:center;justify-content:center;transition:transform .38s cubic-bezier(.22,1,.36,1),opacity .34s ease}
+.vault-emblem-stage::before{content:"";position:absolute;inset:-14px;border-radius:50%;border:1px solid rgba(229,185,111,0.35);background:radial-gradient(circle,rgba(229,185,111,0.22) 0%,rgba(3,6,12,0) 72%);animation:vaultHaloPulse .45s ease-out forwards}
+@keyframes vaultHaloPulse{0%{transform:scale(.6);opacity:0}60%{transform:scale(1.05);opacity:1}100%{transform:scale(1.25);opacity:.85}}
+.vault-emblem-svg{width:68px;height:auto;overflow:visible;filter:drop-shadow(0 0 16px rgba(229,185,111,0.75))}
+.vault-emblem-svg .vault-stroke-main{stroke:#FFF6DE;stroke-width:16;stroke-linejoin:round;stroke-linecap:round;fill:rgba(226,232,240,0);stroke-dasharray:2400;stroke-dashoffset:2400;animation:vaultDrawArrow .42s cubic-bezier(.25,1,.5,1) forwards}
+.vault-emblem-svg .vault-stroke-wing{stroke:#E5B96F;stroke-width:16;stroke-linejoin:round;stroke-linecap:round;fill:rgba(225,168,86,0);stroke-dasharray:900;stroke-dashoffset:900;animation:vaultDrawWing .4s cubic-bezier(.25,1,.5,1) .05s forwards}
+@keyframes vaultDrawArrow{0%{stroke-dashoffset:2400;fill:rgba(226,232,240,0)}65%{stroke-dashoffset:0;fill:rgba(226,232,240,0.18)}100%{stroke-dashoffset:0;fill:rgba(226,232,240,0.96)}}
+@keyframes vaultDrawWing{0%{stroke-dashoffset:900;fill:rgba(225,168,86,0)}65%{stroke-dashoffset:0;fill:rgba(225,168,86,0.25)}100%{stroke-dashoffset:0;fill:rgba(225,168,86,0.98)}}
+.vault-intro-overlay.vault-opening .vault-shutter.top{transform:translateY(-103%);opacity:0}
+.vault-intro-overlay.vault-opening .vault-shutter.bottom{transform:translateY(103%);opacity:0}
+.vault-intro-overlay.vault-opening .vault-emblem-stage{transform:scale(1.32);opacity:0}
+
+/* === 4. SOUND TOGGLE PILL & MAGNETIC LOCK === */
+.sound-toggle-btn{display:inline-flex;align-items:center;justify-content:center;width:32px;height:30px;background:rgba(12,20,36,0.85);border:1px solid var(--gold-border);border-radius:8px;color:var(--gold-light);font-size:13px;cursor:pointer;transition:transform .15s ease,border-color .2s ease,opacity .2s ease;flex-shrink:0}
+.sound-toggle-btn:active{transform:scale(.92)}
+.sound-toggle-btn.muted{opacity:.55;border-color:var(--border-subtle);color:var(--text-muted)}
+.tg-spoiler-lock-icon{transition:transform .22s cubic-bezier(.34,1.56,.64,1),box-shadow .22s ease,border-color .22s ease}
+.tg-spoiler-lock-icon.lock-magnetic-pulse{transform:scale(1.28);border-color:#FFF8E7;background:rgba(229,185,111,0.32);box-shadow:0 0 24px rgba(229,185,111,0.85),0 0 0 6px rgba(229,185,111,0.22)}
+
+/* === 5. PRIVATE BANKING EQUITY SPARKLINE === */
+.equity-sparkline-box{background:rgba(6,10,19,0.9);border:1px solid rgba(201,168,118,0.26);border-radius:10px;padding:8px 10px 6px 10px;margin:2px 0}
+.equity-sparkline-head{display:flex;align-items:center;justify-content:space-between;font-size:10px;color:var(--text-muted);margin-bottom:4px;font-family:'Montserrat',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.4px}
+.equity-sparkline-delta{font-size:10.5px;font-weight:800;font-variant-numeric:tabular-nums}
+.equity-sparkline-delta.pos{color:var(--green)}
+.equity-sparkline-delta.neg{color:var(--red)}
+.equity-sparkline-delta.zero{color:var(--gold-light)}
+.equity-sparkline-svg{width:100%;height:42px;display:block;overflow:visible}
+.session-rank-chip{cursor:pointer;transition:transform .14s ease,border-color .2s ease}
+.session-rank-chip:active{transform:scale(.95)}
+
+/* === 6. 3D METALLIC VIP MEMBER PASS === */
+.vip-pass-card3d{position:relative;width:100%;aspect-ratio:1.586/1;border-radius:16px;padding:16px 18px;margin:6px 0 14px 0;background:radial-gradient(circle at 82% 22%,rgba(229,185,111,0.22) 0%,rgba(18,30,54,0.94) 48%,rgba(5,9,18,0.98) 100%);border:1px solid rgba(229,185,111,0.45);box-shadow:0 20px 44px rgba(0,0,0,0.85),0 0 28px rgba(201,168,118,0.2);display:flex;flex-direction:column;justify-content:space-between;text-align:left;overflow:hidden;user-select:none;cursor:grab;--rx:0deg;--ry:0deg;--gx:50%;--gy:50%;--go:0.35;transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transform-style:preserve-3d;transition:transform .12s ease-out}
+.vip-pass-card3d::after{content:"";position:absolute;inset:0;background-image:repeating-linear-gradient(135deg,rgba(255,255,255,0.018) 0px,rgba(255,255,255,0.018) 1px,transparent 1px,transparent 7px);pointer-events:none;z-index:1}
+.vip-pass-top{position:relative;z-index:3;display:flex;align-items:center;justify-content:space-between;gap:8px}
+.vip-pass-brand{display:flex;align-items:center;gap:7px;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:800;letter-spacing:1.2px;color:var(--gold-light);text-transform:uppercase}
+.vip-pass-brand svg{width:20px;height:20px;filter:drop-shadow(0 0 8px rgba(229,185,111,0.5))}
+.vip-pass-tier-pill{font-family:'Montserrat',sans-serif;font-size:9.5px;font-weight:800;padding:3px 9px;border-radius:999px;background:rgba(6,10,19,0.88);border:1px solid var(--gold);color:var(--cream);letter-spacing:.4px}
+.vip-pass-chip-row{position:relative;z-index:3;display:flex;align-items:center;justify-content:space-between;margin:4px 0}
+.vip-emv-chip{width:36px;height:26px;border-radius:5px;background:linear-gradient(135deg,#FFF3D1 0%,#D8B47E 50%,#9E7840 100%);border:1px solid rgba(255,255,255,0.45);position:relative;box-shadow:inset 0 1px 2px rgba(255,255,255,0.6),0 2px 6px rgba(0,0,0,0.5)}
+.vip-emv-chip::before{content:"";position:absolute;inset:4px 8px;border:1px solid rgba(7,11,18,0.35);border-radius:2px}
+.vip-pass-id{font-family:'Montserrat',sans-serif;font-size:10.5px;font-weight:700;letter-spacing:1.8px;color:rgba(226,232,240,0.68);font-variant-numeric:tabular-nums}
+.vip-pass-bottom{position:relative;z-index:3;display:flex;align-items:flex-end;justify-content:space-between;gap:10px}
+.vip-pass-holder-label{font-size:8.5px;text-transform:uppercase;letter-spacing:1px;color:var(--text-muted);margin-bottom:2px}
+.vip-pass-holder-name{font-family:'Montserrat',sans-serif;font-size:14px;font-weight:800;color:#FFF;letter-spacing:.4px;text-shadow:0 2px 8px rgba(0,0,0,0.8)}
+.vip-pass-metrics{display:flex;gap:12px;text-align:right}
+.vip-pass-metric span{display:block;font-size:8.5px;text-transform:uppercase;color:var(--text-muted);letter-spacing:.6px}
+.vip-pass-metric strong{font-family:'Montserrat',sans-serif;font-size:12.5px;font-weight:800;color:var(--gold-light);font-variant-numeric:tabular-nums}
+.vip-progress-box{background:var(--bg-dark-inner);border:1px solid var(--border-subtle);border-radius:10px;padding:10px 12px;margin-bottom:14px;text-align:left}
+.vip-progress-head{display:flex;justify-content:space-between;align-items:center;font-size:11px;color:var(--text-secondary);margin-bottom:6px;font-weight:600}
+.vip-progress-head strong{color:var(--gold-light);font-family:'Montserrat',sans-serif}
+.vip-progress-bar-bg{width:100%;height:7px;background:rgba(255,255,255,0.07);border-radius:999px;overflow:hidden}
+.vip-progress-bar-fill{height:100%;background:linear-gradient(90deg,#C9A876 0%,#E5B96F 60%,#34D399 100%);border-radius:999px;width:0%;transition:width .4s cubic-bezier(.22,1,.36,1)}
+
+/* === 7. 8-TIER RANK LADDER & PRESTIGE BADGES === */
+.rank-lvl-tag{display:inline-block;background:rgba(201,168,118,0.22);border:1px solid rgba(229,185,111,0.5);color:#FFF8E7;font-size:9px;font-weight:800;padding:1px 5px;border-radius:4px;letter-spacing:.4px;margin-right:2px}
+.rank-chevron{opacity:.65;font-size:9px;margin-left:2px}
+.ranks-ladder-wrap{display:flex;flex-direction:column;gap:5px;max-height:175px;overflow-y:auto;margin-bottom:14px;padding-right:3px;text-align:left}
+.rank-tier-row{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:7px 10px;border-radius:9px;background:rgba(6,10,19,0.72);border:1px solid var(--border-subtle);transition:border-color .2s ease}
+.rank-tier-row.unlocked{border-color:rgba(201,168,118,0.28);background:rgba(12,20,36,0.75)}
+.rank-tier-row.current{border:1.5px solid var(--gold-light);background:linear-gradient(135deg,rgba(201,168,118,0.2) 0%,rgba(12,20,36,0.95) 100%);box-shadow:0 0 16px rgba(201,168,118,0.18)}
+.rank-tier-row.locked{opacity:.52}
+.rank-tier-left{display:flex;align-items:center;gap:8px;min-width:0}
+.rank-tier-icon{width:28px;height:28px;border-radius:7px;background:rgba(201,168,118,0.12);border:1px solid var(--gold-border);display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0}
+.rank-tier-info{display:flex;flex-direction:column;min-width:0}
+.rank-tier-title{font-family:'Montserrat',sans-serif;font-size:11.5px;font-weight:800;color:var(--platinum);display:flex;align-items:center;gap:5px}
+.rank-tier-sub{font-size:10px;color:var(--text-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rank-tier-right{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;white-space:nowrap;flex-shrink:0}
+.rank-tier-right.curr-tag{color:var(--gold-light);background:rgba(201,168,118,0.16);border:1px solid var(--gold-border);padding:2.5px 7px;border-radius:999px}
+.rank-tier-right.done-tag{color:var(--green)}
+.rank-tier-right.lock-tag{color:var(--text-muted)}
 </style>
 </head>
 <body>
 <canvas id="bgCanvas" aria-hidden="true"></canvas>
+<div class="vault-intro-overlay" id="vaultIntroOverlay" aria-hidden="true">
+<div class="vault-shutter top"></div>
+<div class="vault-shutter bottom"></div>
+<div class="vault-seam-line"></div>
+<div class="vault-emblem-stage">
+<svg class="vault-emblem-svg" viewBox="150 100 725 745" fill="none" xmlns="http://www.w3.org/2000/svg">
+<polygon class="vault-stroke-main" points="512,121 174,824 565,594 401,594 512,365 645,648 805,727"></polygon>
+<polygon class="vault-stroke-wing" points="645,648 725,820 848,820 805,727"></polygon>
+</svg>
+</div>
+</div>
 <div class="toast-pill" id="toastPill">✓ Скопировано</div>
 
 <header class="site-header">
@@ -251,6 +370,7 @@ header,section{position:relative;z-index:2}
 </svg>
 </button>
 <div class="header-right-btns">
+<button type="button" id="soundToggleBtn" onclick="toggleLuxurySound()" class="sound-toggle-btn" title="Звуковой отклик интерфейса" aria-label="Звук">🔊</button>
 <button type="button" id="topStudioBtn" onclick="showScreen('admin')" class="studio-badge-top">⚙️ Админка</button>
 <button type="button" onclick="openMainChannel(event)" class="channel-pill">
 <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.02-1.96 1.25-5.54 3.69-.52.36-1 .53-1.42.52-.47-.01-1.37-.26-2.03-.48-.82-.27-1.47-.42-1.42-.88.03-.24.35-.49.96-.75 3.78-1.65 6.31-2.74 7.58-3.27 3.61-1.51 4.35-1.77 4.84-1.78.11 0 .35.03.5.16.13.1.17.24.18.34.01.07.02.21.01.3z"></path></svg>
@@ -364,8 +484,15 @@ header,section{position:relative;z-index:2}
 </div>
 <div class="session-history-bar" id="sessionHistoryBar">
 <div class="session-stats-top">
-<span class="session-rank-chip" id="calcRankBadge">🌱 Старт</span>
+<span class="session-rank-chip" id="calcRankBadge" onclick="openVipPassModal()" title="Открыть паспорт дисциплины и все ранги">🧭 LVL 1 • Дебютант флэта</span>
 <span class="session-winrate-text" id="calcWinrateText">Winrate: <strong>—</strong></span>
+</div>
+<div class="equity-sparkline-box" id="equitySparklineBox">
+<div class="equity-sparkline-head">
+<span>📈 Динамика банка (сессия)</span>
+<span class="equity-sparkline-delta zero" id="equitySparklineDelta">0 ₽</span>
+</div>
+<svg class="equity-sparkline-svg" id="equitySparklineSvg" viewBox="0 0 260 42" preserveAspectRatio="none"></svg>
 </div>
 <div class="session-history-bottom">
 <div class="history-pills" id="historyPillsBox"></div>
@@ -407,7 +534,7 @@ header,section{position:relative;z-index:2}
 <div class="container">
 <div class="admin-wrap">
 <div class="admin-top-bar">
-<div><div class="admin-top-title">⚙️ Админ-панель и фирменные обложки AiBet Money</div><div class="admin-top-sub">Управление разделами, статистика посетителей и генератор обложек 800×400</div></div>
+<div><div class="admin-top-title">⚙️ Админ-панель и фирменные обложки AiBet Money</div><div class="admin-top-sub">Полное управление «Ставкой дня», таймером, разделами и генератор обложек 800×400</div></div>
 <div style="display:flex;gap:8px;flex-wrap:wrap">
 <button type="button" class="adm-mini-btn gold-outline" onclick="forceBypassCacheReload()">🔄 Сбросить кэш ТГ</button>
 <button type="button" class="back-to-menu-btn" onclick="showScreen('hub')">✓ Готово (В меню)</button>
@@ -416,35 +543,81 @@ header,section{position:relative;z-index:2}
 
 <div class="stats-panel" style="border:1.5px solid var(--amber)">
 <div class="admin-item-head" style="margin-bottom:10px">
-<strong style="color:var(--amber)">🔥 ВИДЖЕТ «СТАВКА ДНЯ / ГЛАВНЫЙ АНОНС» (НАД МЕНЮ)</strong>
+<strong style="color:var(--amber)">🔥 ВИДЖЕТ «СТАВКА ДНЯ / ГЛАВНЫЙ АНОНС» (ПОЛНОЕ УПРАВЛЕНИЕ)</strong>
 <div class="admin-head-btns">
-<button type="button" class="adm-mini-btn gold-outline" onclick="setHotTimerPreset(2)">⏱ +2 часа</button>
-<button type="button" class="adm-mini-btn gold-outline" onclick="setHotTimerPreset(4)">⏱ +4 часа</button>
-<button type="button" class="adm-mini-btn gold-outline" onclick="setHotTimerTonight21()">🕘 Сегодня 21:00</button>
-<button type="button" class="adm-mini-btn" onclick="clearHotTimer()">✕ Без таймера</button>
+<button type="button" class="adm-mini-btn green-outline" onclick="toggleHotBannerQuick(true)">Вкл плашку</button>
+<button type="button" class="adm-mini-btn danger" onclick="toggleHotBannerQuick(false)">Выкл плашку</button>
 </div>
 </div>
+
 <div class="adm-toggles-row">
 <label class="adm-check-label">
 <input type="checkbox" id="hotEnabledCheck" onchange="updateHotBannerFromAdmin()">
 <span>⚡ Показывать плашку «Ставка дня» на главном экране</span>
 </label>
-<label class="adm-check-label">
-<input type="checkbox" id="hotAutoHideCheck" onchange="updateHotBannerFromAdmin()">
-<span>⏳ Авто-отключение плашки по истечении таймера</span>
-</label>
+<div style="display:flex;align-items:center;gap:8px">
+<span style="font-size:11.5px;color:var(--text-muted);white-space:nowrap">Когда таймер вышел:</span>
+<select class="adm-select" id="hotExpireModeSelect" style="padding:5px 8px;font-size:12px" onchange="updateHotBannerFromAdmin()">
+<option value="hide">Скрыть плашку автоматически</option>
+<option value="live">Оставить и показать статус LIVE</option>
+</select>
 </div>
+</div>
+
+<div class="timer-control-box">
+<div class="timer-status-bar">
+<div class="timer-live-status off" id="adminTimerLiveStatus">⏱ Таймер не задан (статичный показ)</div>
+<div class="admin-head-btns">
+<button type="button" class="adm-mini-btn gold-outline" onclick="setHotTimerMinutes(30)">+30 мин</button>
+<button type="button" class="adm-mini-btn gold-outline" onclick="setHotTimerMinutes(60)">+1 час</button>
+<button type="button" class="adm-mini-btn gold-outline" onclick="setHotTimerMinutes(180)">+3 часа</button>
+<button type="button" class="adm-mini-btn gold-outline" onclick="setHotTimerTonight(21,0)">Сегодня 21:00</button>
+<button type="button" class="adm-mini-btn danger" onclick="clearHotTimer()">✕ Выключить таймер</button>
+</div>
+</div>
+
+<div class="timer-custom-row">
+<div>
+<label style="font-size:11px;font-weight:600;color:var(--gold-light);display:block;margin-bottom:5px">1. Запустить свой отсчёт (Дни / Часы / Минуты):</label>
+<div class="timer-dhms-inputs">
+<div><span class="timer-dhms-unit">Дни</span><input type="number" min="0" max="30" value="0" class="adm-input" id="customTimerDays"></div>
+<div><span class="timer-dhms-unit">Часы</span><input type="number" min="0" max="99" value="2" class="adm-input" id="customTimerHours"></div>
+<div><span class="timer-dhms-unit">Минуты</span><input type="number" min="0" max="59" value="30" class="adm-input" id="customTimerMins"></div>
+<button type="button" class="adm-mini-btn green-outline" style="height:36px;align-self:end;padding:0 12px" onclick="applyCustomDurationTimer()">▶ Запустить</button>
+</div>
+</div>
+
+<div>
+<label style="font-size:11px;font-weight:600;color:var(--gold-light);display:block;margin-bottom:5px">2. Или указать точную дату и время окончания:</label>
+<div style="display:flex;gap:6px;align-items:center">
+<input type="datetime-local" class="adm-input" id="hotDeadlineInput" style="flex:1" onchange="applyExactDatetimeTimer()">
+<button type="button" class="adm-mini-btn gold-outline" style="height:36px;white-space:nowrap" onclick="applyExactDatetimeTimer()">📅 Применить</button>
+</div>
+</div>
+</div>
+
+<div class="adm-grid-2" style="margin-top:10px;margin-bottom:0">
+<div class="adm-field" style="margin-bottom:0">
+<label>Текст перед цифрами таймера</label>
+<input type="text" class="adm-input" id="hotTimerPrefixInput" placeholder="⏳ До старта:" oninput="updateHotBannerFromAdmin()">
+</div>
+<div class="adm-field" style="margin-bottom:0">
+<label>Статус после окончания (если не скрывать)</label>
+<input type="text" class="adm-input" id="hotExpiredTextInput" placeholder="⚡ LIVE • МАТЧ В ИГРЕ" oninput="updateHotBannerFromAdmin()">
+</div>
+</div>
+</div>
+
 <div class="adm-grid-3">
 <div class="adm-field"><label>Верхний бейдж</label><input type="text" class="adm-input" id="hotBadgeInput" placeholder="🔥 СТАВКА ДНЯ ГОТОВА" oninput="updateHotBannerFromAdmin()"></div>
 <div class="adm-field"><label>Заголовок (Матч / Событие)</label><input type="text" class="adm-input" id="hotTitleInput" placeholder="Главный матч вечера по спец-модели" oninput="updateHotBannerFromAdmin()"></div>
 <div class="adm-field"><label>Коэффициент (кэф)</label><input type="text" class="adm-input" id="hotOddInput" placeholder="1.85" oninput="updateHotBannerFromAdmin()"></div>
 </div>
-<div class="adm-grid-3">
+<div class="adm-grid-2">
 <div class="adm-field"><label>Подпись рядом с кэфом</label><input type="text" class="adm-input" id="hotSubInput" placeholder="Уверенный ординар • Старт в 21:00 МСК" oninput="updateHotBannerFromAdmin()"></div>
-<div class="adm-field"><label>Текст кнопки</label><input type="text" class="adm-input" id="hotCtaTextInput" placeholder="Забрать →" oninput="updateHotBannerFromAdmin()"></div>
-<div class="adm-field"><label>Таймер отключения (Дата и время)</label><input type="datetime-local" class="adm-input" id="hotDeadlineInput" oninput="updateHotBannerFromAdmin()"></div>
+<div class="adm-field"><label>Текст на кнопке справа</label><input type="text" class="adm-input" id="hotCtaTextInput" placeholder="Забрать →" oninput="updateHotBannerFromAdmin()"></div>
 </div>
-<div class="adm-grid-2" style="margin-bottom:0">
+<div class="adm-grid-2" style="margin-bottom:8px">
 <div class="adm-field" style="margin-bottom:0">
 <label>Куда ведёт клик по плашке:</label>
 <select class="adm-select" id="hotActionTypeSelect" onchange="updateHotBannerFromAdmin()">
@@ -456,6 +629,11 @@ header,section{position:relative;z-index:2}
 <label>Ссылка на твой ЛС или пост (если выбран переход):</label>
 <input type="text" class="adm-input" id="hotUrlInput" placeholder="https://t.me/aibetmoney" oninput="updateHotBannerFromAdmin()">
 </div>
+</div>
+
+<div style="margin-top:10px;padding-top:10px;border-top:1px dashed var(--border-subtle)">
+<div style="font-size:11px;font-weight:700;color:var(--gold-light);margin-bottom:6px">👁️ Живое превью (так плашка выглядит на главном экране прямо сейчас):</div>
+<div class="hot-deal-banner shimmer-effect visible" id="adminHotBannerPreview" style="margin-bottom:0" onclick="handleHotDealClick(event)"></div>
 </div>
 </div>
 
@@ -592,7 +770,7 @@ header,section{position:relative;z-index:2}
 <button type="button" class="adm-add-block-btn" onclick="addNewBlock()">+ Добавить новый блок в меню</button>
 <div class="adm-publish-box">
 <div class="adm-publish-title">🚀 Опубликовать изменения для всех подписчиков</div>
-<div class="adm-publish-desc">Способ 1 (Мгновенно с телефона без GitHub): если в настройках ниже подключён <strong>Live-воркер</strong>, нажми <strong>«⚡ Опубликовать мгновенно с телефона»</strong> — плашка «Ставка дня» и все карточки обновятся у подписчиков за 1 секунду.<br>Способ 2 (Классический): скопируй код или скачай <code>index.html</code> для GitHub:</div>
+<div class="adm-publish-desc">Способ 1 (Мгновенно с телефона без GitHub): если подключён <strong>Live-воркер</strong>, нажми <strong>«⚡ Опубликовать мгновенно с телефона»</strong> — плашка «Ставка дня», таймер и все карточки обновятся у подписчиков за 1 секунду.<br>Способ 2 (Через GitHub): скопируй обновлённый код или скачай <code>index.html</code> — настроенный таймер будет точно так же работать у всех посетителей автоматически:</div>
 <div style="margin-bottom:10px">
 <button type="button" class="adm-main-btn gold shimmer-effect" style="width:100%;font-size:13px;padding:13px" onclick="publishLiveToCloud()">⚡ Опубликовать мгновенно с телефона (Cloud Live Sync)</button>
 </div>
@@ -654,6 +832,51 @@ header,section{position:relative;z-index:2}
 </div>
 </div>
 
+<div class="modal-overlay" id="vipPassModal" onclick="closeVipPassModal()">
+<div class="modal-box" style="max-width:415px" onclick="event.stopPropagation()">
+<div class="modal-pill">🪪 Паспорт дисциплины</div>
+<div class="modal-title">Ранг и статус игрока</div>
+<div class="vip-pass-card3d" id="vipPassCard3d">
+<span class="liquid-gold-border" aria-hidden="true"></span>
+<div class="vip-glare-layer" aria-hidden="true"></div>
+<div class="vip-pass-top">
+<div class="vip-pass-brand">
+<svg viewBox="150 100 725 745" fill="none" xmlns="http://www.w3.org/2000/svg">
+<polygon points="512,121 174,824 565,594 401,594 512,365 645,648 805,727" fill="#E2E8F0"></polygon>
+<polygon points="645,648 725,820 848,820 805,727" fill="#E1A856"></polygon>
+</svg>
+<span>AIBET MONEY • PASS</span>
+</div>
+<span class="vip-pass-tier-pill" id="vipPassTierPill">LVL 1 • ДЕБЮТАНТ</span>
+</div>
+<div class="vip-pass-chip-row">
+<div class="vip-emv-chip"></div>
+<div class="vip-pass-id" id="vipPassIdText">ID • 0000</div>
+</div>
+<div class="vip-pass-bottom">
+<div>
+<div class="vip-pass-holder-label" id="vipPassHolderSub">Профиль игрока платформы</div>
+<div class="vip-pass-holder-name" id="vipPassHolderName">ИГРОК ПЛАТФОРМЫ</div>
+</div>
+<div class="vip-pass-metrics">
+<div class="vip-pass-metric"><span>Winrate</span><strong id="vipPassWrVal">—</strong></div>
+<div class="vip-pass-metric"><span>Баланс</span><strong id="vipPassBankVal">100 000 ₽</strong></div>
+</div>
+</div>
+</div>
+<div class="vip-progress-box">
+<div class="vip-progress-head"><span id="vipProgressLabel">До следующего ранга</span><strong id="vipProgressCount">0 / 3</strong></div>
+<div class="vip-progress-bar-bg"><div class="vip-progress-bar-fill" id="vipProgressBarFill"></div></div>
+</div>
+<div style="font-size:10.5px;font-weight:700;color:var(--gold-light);text-align:left;margin-bottom:6px;font-family:'Montserrat',sans-serif;text-transform:uppercase;letter-spacing:.4px">🏆 Иерархия рангов дисциплины (8 уровней):</div>
+<div class="ranks-ladder-wrap" id="vipRanksLadderBox"></div>
+<div class="modal-actions">
+<button type="button" class="modal-waitlist-btn shimmer-effect" onclick="closeVipPassModal();showScreen('calc')">Открыть терминал расчёта →</button>
+<button type="button" class="modal-close-btn" onclick="closeVipPassModal()">Закрыть</button>
+</div>
+</div>
+</div>
+
 <script id="app-data-script">
 window.TRACKER_CONFIG = {
   "proxyUrl": "",
@@ -664,7 +887,9 @@ window.TRACKER_CONFIG = {
 };
 window.HOT_BANNER = {
   "enabled": false,
-  "autoHide": true,
+  "expireMode": "hide",
+  "timerPrefix": "⏳ До старта:",
+  "expiredText": "⚡ LIVE • В ИГРЕ",
   "badge": "🔥 СТАВКА ДНЯ ГОТОВА",
   "title": "Главный матч вечера по спец-модели",
   "odd": "1.85",
@@ -749,11 +974,63 @@ document.addEventListener('pointerdown',e=>{
   function createStreak(ry=false){return{x:Math.random()*(w+120)-60,y:ry?(Math.random()*h):(h+40+Math.random()*160),len:55+Math.random()*65,speed:1.8+Math.random()*2.4,angle:-Math.PI*0.36,isGold:Math.random()<0.65,alpha:0.25+Math.random()*0.4};}
   for(let i=0;i<6;i++)streaks.push(createStreak(true));
   const touchSparks=[];let pointer={x:-999,y:-999,active:false,ts:0};
+  let cosmosReaction={type:null,startTs:0,duration:0,ox:0,oy:0};
+
   function spawnSparks(x,y,c=3){
     pointer.x=x;pointer.y=y;pointer.active=true;pointer.ts=Date.now();
-    for(let i=0;i<c;i++){const a=Math.random()*Math.PI*2,s=0.6+Math.random()*2.4;touchSparks.push({x:x+(Math.random()-0.5)*8,y:y+(Math.random()-0.5)*8,vx:Math.cos(a)*s,vy:Math.sin(a)*s-0.3,r:1.5+Math.random()*1.8,life:1,decay:0.024+Math.random()*0.02,isGold:Math.random()<0.78});}
-    if(touchSparks.length>65)touchSparks.splice(0,touchSparks.length-65);
+    for(let i=0;i<c;i++){const a=Math.random()*Math.PI*2,s=0.6+Math.random()*2.4;touchSparks.push({x:x+(Math.random()-0.5)*8,y:y+(Math.random()-0.5)*8,vx:Math.cos(a)*s,vy:Math.sin(a)*s-0.3,gravity:0,r:1.5+Math.random()*1.8,life:1,decay:0.024+Math.random()*0.02,rgb:Math.random()<0.78?'229,185,111':'226,232,240'});}
+    if(touchSparks.length>130)touchSparks.splice(0,touchSparks.length-130);
   }
+
+  window.triggerCosmosReaction=function(type,originEl){
+    let ox=w*0.5,oy=h*0.65;
+    if(originEl&&typeof originEl.getBoundingClientRect==='function'){
+      const r=originEl.getBoundingClientRect();
+      if(r.width>0||r.height>0){ox=r.left+r.width*0.5;oy=r.top+r.height*0.5;}
+    }
+    const now=Date.now();
+    if(type==='win'){
+      cosmosReaction={type:'win',startTs:now,duration:1500,ox,oy};
+      for(let i=0;i<44;i++){
+        const spread=(Math.random()-0.5)*Math.PI*0.85 - Math.PI*0.5;
+        const spd=2.8+Math.random()*5.8;
+        const roll=Math.random();
+        const rgb=roll<0.62?'229,185,111':(roll<0.88?'52,211,153':'255,248,231');
+        touchSparks.push({
+          x:ox+(Math.random()-0.5)*36,
+          y:oy+(Math.random()-0.5)*10,
+          vx:Math.cos(spread)*spd + (Math.random()-0.5)*1.2,
+          vy:Math.sin(spread)*spd - 1.4,
+          gravity:0.11,
+          r:1.9+Math.random()*2.3,
+          life:1,
+          decay:0.013+Math.random()*0.012,
+          rgb
+        });
+      }
+      if(touchSparks.length>150)touchSparks.splice(0,touchSparks.length-150);
+    }else if(type==='loss'){
+      cosmosReaction={type:'loss',startTs:now,duration:1050,ox,oy};
+      for(let i=0;i<16;i++){
+        const a=Math.random()*Math.PI*2,spd=0.5+Math.random()*1.6;
+        touchSparks.push({
+          x:ox+(Math.random()-0.5)*28,
+          y:oy+(Math.random()-0.5)*10,
+          vx:Math.cos(a)*spd,
+          vy:Math.abs(Math.sin(a))*spd+0.4,
+          gravity:0.04,
+          r:1.4+Math.random()*1.5,
+          life:1,
+          decay:0.022+Math.random()*0.015,
+          rgb:i%3===0?'201,168,118':'248,113,113'
+        });
+      }
+    }else if(type==='push'){
+      cosmosReaction={type:'push',startTs:now,duration:800,ox,oy};
+      spawnSparks(ox,oy,14);
+    }
+  };
+
   window.addEventListener('touchstart',e=>{if(e.touches&&e.touches[0])spawnSparks(e.touches[0].clientX,e.touches[0].clientY,8);},{passive:true});
   window.addEventListener('touchmove',e=>{if(e.touches&&e.touches[0])spawnSparks(e.touches[0].clientX,e.touches[0].clientY,3);},{passive:true});
   window.addEventListener('pointerdown',e=>{if(e.pointerType!=='touch')spawnSparks(e.clientX,e.clientY,8);},{passive:true});
@@ -761,35 +1038,95 @@ document.addEventListener('pointerdown',e=>{
   let t=0;
   function animateBg(){
     if(document.hidden){requestAnimationFrame(animateBg);return;}
-    t+=0.02;ctx.fillStyle=cachedBgGrad||'#03060C';ctx.fillRect(0,0,w,h);
+    const now=Date.now();
+    let speedMult=1,winBoost=0,lossFreeze=0,pushGlow=0;
+    if(cosmosReaction.type){
+      const elapsed=now-cosmosReaction.startTs;
+      if(elapsed<cosmosReaction.duration){
+        const p=elapsed/cosmosReaction.duration;
+        const env=Math.sin(p*Math.PI);
+        if(cosmosReaction.type==='win'){
+          winBoost=1-Math.pow(p,1.6);
+          speedMult=1+2.6*winBoost;
+        }else if(cosmosReaction.type==='loss'){
+          lossFreeze=env;
+          speedMult=Math.max(0.06,1-0.94*Math.sin(Math.min(1,p*1.3)*Math.PI));
+        }else if(cosmosReaction.type==='push'){
+          pushGlow=env;
+        }
+      }else{
+        cosmosReaction.type=null;
+      }
+    }
+
+    t+=0.02*speedMult;
+    ctx.fillStyle=cachedBgGrad||'#03060C';ctx.fillRect(0,0,w,h);
     const px=w*(0.5+0.25*Math.sin(t*0.5)),py=h*(0.45+0.2*Math.cos(t*0.4)),rad=ctx.createRadialGradient(px,py,10,px,py,Math.max(w,h)*0.55);
     rad.addColorStop(0,'rgba(201,168,118,0.09)');rad.addColorStop(0.45,'rgba(18,34,68,0.12)');rad.addColorStop(1,'rgba(3,6,12,0)');
     ctx.fillStyle=rad;ctx.fillRect(0,0,w,h);
+
+    if(winBoost>0.01){
+      const maxR=Math.max(w,h)*0.85;
+      const rg=ctx.createRadialGradient(cosmosReaction.ox,cosmosReaction.oy,8,cosmosReaction.ox,cosmosReaction.oy,maxR);
+      rg.addColorStop(0,'rgba(52,211,153,'+(0.19*winBoost).toFixed(3)+')');
+      rg.addColorStop(0.38,'rgba(229,185,111,'+(0.16*winBoost).toFixed(3)+')');
+      rg.addColorStop(1,'rgba(3,6,12,0)');
+      ctx.fillStyle=rg;ctx.fillRect(0,0,w,h);
+    }else if(lossFreeze>0.01){
+      const maxR=Math.max(w,h)*0.8;
+      const rg=ctx.createRadialGradient(cosmosReaction.ox,cosmosReaction.oy,10,cosmosReaction.ox,cosmosReaction.oy,maxR);
+      rg.addColorStop(0,'rgba(248,113,113,'+(0.16*lossFreeze).toFixed(3)+')');
+      rg.addColorStop(0.5,'rgba(153,27,27,'+(0.09*lossFreeze).toFixed(3)+')');
+      rg.addColorStop(1,'rgba(3,6,12,0)');
+      ctx.fillStyle=rg;ctx.fillRect(0,0,w,h);
+    }else if(pushGlow>0.01){
+      const rg=ctx.createRadialGradient(cosmosReaction.ox,cosmosReaction.oy,8,cosmosReaction.ox,cosmosReaction.oy,Math.max(w,h)*0.55);
+      rg.addColorStop(0,'rgba(229,185,111,'+(0.14*pushGlow).toFixed(3)+')');
+      rg.addColorStop(1,'rgba(3,6,12,0)');
+      ctx.fillStyle=rg;ctx.fillRect(0,0,w,h);
+    }
+
     for(let i=0;i<streaks.length;i++){
-      const s=streaks[i],dx=Math.cos(s.angle),dy=Math.sin(s.angle);s.x+=dx*s.speed;s.y+=dy*s.speed;
-      const tx=s.x-dx*s.len,ty=s.y-dy*s.len,g=ctx.createLinearGradient(s.x,s.y,tx,ty),col=s.isGold?'229,185,111':'226,232,240';
-      g.addColorStop(0,'rgba('+col+','+s.alpha.toFixed(2)+')');g.addColorStop(0.3,'rgba('+col+','+(s.alpha*0.42).toFixed(2)+')');g.addColorStop(1,'rgba('+col+',0)');
-      ctx.beginPath();ctx.moveTo(s.x,s.y);ctx.lineTo(tx,ty);ctx.strokeStyle=g;ctx.lineWidth=1.6;ctx.stroke();
-      ctx.beginPath();ctx.arc(s.x,s.y,1.4,0,Math.PI*2);ctx.fillStyle=s.isGold?'#E5B96F':'#E2E8F0';ctx.fill();
+      const s=streaks[i],dx=Math.cos(s.angle),dy=Math.sin(s.angle);
+      s.x+=dx*s.speed*speedMult;s.y+=dy*s.speed*speedMult;
+      const curLen=s.len*(1+winBoost*0.65);
+      const tx=s.x-dx*curLen,ty=s.y-dy*curLen,g=ctx.createLinearGradient(s.x,s.y,tx,ty);
+      const col=lossFreeze>0.25?'248,113,113':(winBoost>0.25&&!s.isGold?'52,211,153':(s.isGold?'229,185,111':'226,232,240'));
+      const al=Math.min(0.95,s.alpha*(1+winBoost*0.5));
+      g.addColorStop(0,'rgba('+col+','+al.toFixed(2)+')');g.addColorStop(0.3,'rgba('+col+','+(al*0.42).toFixed(2)+')');g.addColorStop(1,'rgba('+col+',0)');
+      ctx.beginPath();ctx.moveTo(s.x,s.y);ctx.lineTo(tx,ty);ctx.strokeStyle=g;ctx.lineWidth=1.6+(winBoost*0.6);ctx.stroke();
+      ctx.beginPath();ctx.arc(s.x,s.y,1.4+(winBoost*0.5),0,Math.PI*2);ctx.fillStyle=s.isGold?'#E5B96F':'#E2E8F0';ctx.fill();
       if(s.y<-80||s.x>w+100)streaks[i]=createStreak(false);
     }
-    const pFresh=pointer.active&&(Date.now()-pointer.ts<800);
+    const pFresh=pointer.active&&(now-pointer.ts<800);
     for(let i=0;i<nodes.length;i++){
-      const n=nodes[i];n.x+=n.vx+Math.sin(t+n.phase)*0.15;n.y+=n.vy;
+      const n=nodes[i];
+      n.x+=(n.vx+Math.sin(t+n.phase)*0.15)*speedMult;
+      n.y+=n.vy*speedMult;
       if(n.y<-15){n.y=h+15;n.x=Math.random()*w;}if(n.x<-15)n.x=w+15;if(n.x>w+15)n.x=-15;
       for(let j=i+1;j<nodes.length;j++){
         const m=nodes[j],dx=n.x-m.x,dy=n.y-m.y,d2=dx*dx+dy*dy;
-        if(d2<13225){const a=(1-Math.sqrt(d2)/115)*0.28;ctx.beginPath();ctx.moveTo(n.x,n.y);ctx.lineTo(m.x,m.y);ctx.strokeStyle=(n.isGold||m.isGold)?'rgba(201,168,118,'+a.toFixed(3)+')':'rgba(226,232,240,'+a.toFixed(3)+')';ctx.lineWidth=0.9;ctx.stroke();}
+        if(d2<13225){
+          const a=(1-Math.sqrt(d2)/115)*(0.28+winBoost*0.22);
+          let lCol=(n.isGold||m.isGold)?'201,168,118':'226,232,240';
+          if(lossFreeze>0.3)lCol='248,113,113';
+          else if(winBoost>0.3&&!(n.isGold&&m.isGold))lCol='52,211,153';
+          ctx.beginPath();ctx.moveTo(n.x,n.y);ctx.lineTo(m.x,m.y);ctx.strokeStyle='rgba('+lCol+','+Math.min(0.85,a).toFixed(3)+')';ctx.lineWidth=0.9;ctx.stroke();
+        }
       }
       if(pFresh){const pdx=n.x-pointer.x,pdy=n.y-pointer.y,pd2=pdx*pdx+pdy*pdy;if(pd2<19600){const pa=(1-Math.sqrt(pd2)/140)*0.55;ctx.beginPath();ctx.moveTo(pointer.x,pointer.y);ctx.lineTo(n.x,n.y);ctx.strokeStyle='rgba(229,185,111,'+pa.toFixed(2)+')';ctx.lineWidth=1.1;ctx.stroke();}}
-      const pulse=0.5+0.5*Math.sin(t*2.4+n.phase);ctx.beginPath();ctx.arc(n.x,n.y,n.r,0,Math.PI*2);
-      ctx.fillStyle=n.isGold?'rgba(229,185,111,'+(0.5+pulse*0.45).toFixed(2)+')':'rgba(226,232,240,'+(0.4+pulse*0.4).toFixed(2)+')';ctx.fill();
+      const pulse=0.5+0.5*Math.sin(t*2.4+n.phase);ctx.beginPath();ctx.arc(n.x,n.y,n.r*(1+winBoost*0.25),0,Math.PI*2);
+      const nCol=lossFreeze>0.35?'248,113,113':(n.isGold?'229,185,111':(winBoost>0.3?'52,211,153':'226,232,240'));
+      ctx.fillStyle='rgba('+nCol+','+(0.48+pulse*0.45).toFixed(2)+')';ctx.fill();
     }
     for(let i=touchSparks.length-1;i>=0;i--){
-      const sp=touchSparks[i];sp.x+=sp.vx;sp.y+=sp.vy;sp.vx*=0.95;sp.vy*=0.95;sp.life-=sp.decay;
+      const sp=touchSparks[i];
+      sp.x+=sp.vx;sp.y+=sp.vy;
+      if(sp.gravity)sp.vy+=sp.gravity;
+      sp.vx*=0.96;sp.vy*=0.96;sp.life-=sp.decay;
       if(sp.life<=0){touchSparks.splice(i,1);continue;}
       ctx.beginPath();ctx.arc(sp.x,sp.y,sp.r*sp.life,0,Math.PI*2);
-      ctx.fillStyle=sp.isGold?'rgba(229,185,111,'+(sp.life*0.9).toFixed(2)+')':'rgba(226,232,240,'+(sp.life*0.85).toFixed(2)+')';ctx.fill();
+      ctx.fillStyle='rgba('+(sp.rgb||'229,185,111')+','+(sp.life*0.92).toFixed(2)+')';ctx.fill();
     }
     requestAnimationFrame(animateBg);
   }
@@ -809,13 +1146,219 @@ try{
   }
 }catch(e){}
 
+let luxuryAudioCtx=null;
+let isSoundMuted=false;
+try{isSoundMuted=localStorage.getItem('aibet_sound_muted')==='1';}catch(e){}
+
+function syncSoundToggleBtn(){
+  const btn=document.getElementById('soundToggleBtn');
+  if(!btn)return;
+  btn.textContent=isSoundMuted?'🔇':'🔊';
+  btn.classList.toggle('muted',isSoundMuted);
+}
+syncSoundToggleBtn();
+
+function toggleLuxurySound(){
+  isSoundMuted=!isSoundMuted;
+  try{localStorage.setItem('aibet_sound_muted',isSoundMuted?'1':'0');}catch(e){}
+  syncSoundToggleBtn();
+  if(!isSoundMuted){
+    playLuxurySound('tick');
+    showToast('🔊 Тактильный звук включён');
+  }else{
+    showToast('🔇 Звук интерфейса выключен');
+  }
+}
+
+function playLuxurySound(kind='tick'){
+  if(isSoundMuted)return;
+  try{
+    const AC=window.AudioContext||window.webkitAudioContext;
+    if(!AC)return;
+    if(!luxuryAudioCtx)luxuryAudioCtx=new AC();
+    if(luxuryAudioCtx.state==='suspended')luxuryAudioCtx.resume().catch(()=>{});
+    const now=luxuryAudioCtx.currentTime;
+
+    if(kind==='tick'){
+      const osc=luxuryAudioCtx.createOscillator(),gain=luxuryAudioCtx.createGain();
+      osc.type='triangle';
+      osc.frequency.setValueAtTime(165,now);
+      osc.frequency.exponentialRampToValueAtTime(52,now+0.022);
+      gain.gain.setValueAtTime(0.065,now);
+      gain.gain.exponentialRampToValueAtTime(0.001,now+0.024);
+      osc.connect(gain);gain.connect(luxuryAudioCtx.destination);
+      osc.start(now);osc.stop(now+0.026);
+    }else if(kind==='copy'){
+      [587.33,880].forEach((freq,idx)=>{
+        const osc=luxuryAudioCtx.createOscillator(),gain=luxuryAudioCtx.createGain();
+        osc.type='sine';
+        const st=now+idx*0.045;
+        osc.frequency.setValueAtTime(freq,st);
+        gain.gain.setValueAtTime(0.05,st);
+        gain.gain.exponentialRampToValueAtTime(0.0008,st+0.12);
+        osc.connect(gain);gain.connect(luxuryAudioCtx.destination);
+        osc.start(st);osc.stop(st+0.13);
+      });
+    }else if(kind==='win'){
+      [523.25,659.25,783.99,1046.5].forEach((freq,idx)=>{
+        const osc=luxuryAudioCtx.createOscillator(),gain=luxuryAudioCtx.createGain();
+        osc.type='triangle';
+        const st=now+idx*0.038;
+        osc.frequency.setValueAtTime(freq,st);
+        gain.gain.setValueAtTime(0.055,st);
+        gain.gain.exponentialRampToValueAtTime(0.0008,st+0.24);
+        osc.connect(gain);gain.connect(luxuryAudioCtx.destination);
+        osc.start(st);osc.stop(st+0.25);
+      });
+    }else if(kind==='loss'){
+      const osc=luxuryAudioCtx.createOscillator(),gain=luxuryAudioCtx.createGain();
+      osc.type='sine';
+      osc.frequency.setValueAtTime(118,now);
+      osc.frequency.exponentialRampToValueAtTime(46,now+0.14);
+      gain.gain.setValueAtTime(0.07,now);
+      gain.gain.exponentialRampToValueAtTime(0.0008,now+0.15);
+      osc.connect(gain);gain.connect(luxuryAudioCtx.destination);
+      osc.start(now);osc.stop(now+0.16);
+    }else if(kind==='lock'){
+      [340,680].forEach((freq,idx)=>{
+        const osc=luxuryAudioCtx.createOscillator(),gain=luxuryAudioCtx.createGain();
+        osc.type='sine';
+        const st=now+idx*0.035;
+        osc.frequency.setValueAtTime(freq,st);
+        gain.gain.setValueAtTime(0.045,st);
+        gain.gain.exponentialRampToValueAtTime(0.0008,st+0.085);
+        osc.connect(gain);gain.connect(luxuryAudioCtx.destination);
+        osc.start(st);osc.stop(st+0.09);
+      });
+    }
+  }catch(e){}
+}
+
 function triggerHaptic(type='light'){
+  if(type==='success')playLuxurySound('win');
+  else if(type==='warning'||type==='error')playLuxurySound('loss');
+  else playLuxurySound('tick');
   try{
     if(!tg||!tg.HapticFeedback||typeof tg.isVersionAtLeast!=='function'||!tg.isVersionAtLeast('6.1'))return;
     if(type==='success'||type==='warning'||type==='error')tg.HapticFeedback.notificationOccurred(type);
     else tg.HapticFeedback.impactOccurred(type);
   }catch(e){}
 }
+
+(function initCinematicVaultIntro(){
+  const overlay=document.getElementById('vaultIntroOverlay');
+  if(!overlay)return;
+  overlay.classList.remove('vault-opening','vault-done');
+  setTimeout(()=>{
+    triggerHaptic('light');
+    overlay.classList.add('vault-opening');
+  },390);
+  setTimeout(()=>{
+    overlay.classList.add('vault-done');
+  },830);
+})();
+
+(function initVip3dCardsAndGyro(){
+  let gyroActive=false,neutralBeta=null,targetRx=0,targetRy=0,curRx=0,curRy=0;
+  let activePointerCard=null;
+
+  function applyCard3dVars(el,rx,ry,gx,gy,go){
+    el.style.setProperty('--rx',rx.toFixed(2)+'deg');
+    el.style.setProperty('--ry',ry.toFixed(2)+'deg');
+    el.style.setProperty('--gx',gx.toFixed(1)+'%');
+    el.style.setProperty('--gy',gy.toFixed(1)+'%');
+    el.style.setProperty('--go',go.toFixed(2));
+  }
+
+  function resetCard3dVars(el){
+    if(!el)return;
+    el.style.setProperty('--rx','0deg');
+    el.style.setProperty('--ry','0deg');
+    el.style.setProperty('--go','0');
+  }
+
+  function handlePointerMoveOnCard(clientX,clientY){
+    const el=document.elementFromPoint(clientX,clientY);
+    const card=el?el.closest('.menu-card, .hot-deal-banner, .vip-pass-card3d'):null;
+    if(activePointerCard&&activePointerCard!==card){
+      resetCard3dVars(activePointerCard);
+      activePointerCard=null;
+    }
+    if(!card)return;
+    activePointerCard=card;
+    const r=card.getBoundingClientRect();
+    if(r.width<=0||r.height<=0)return;
+    const px=Math.max(0,Math.min(1,(clientX-r.left)/r.width));
+    const py=Math.max(0,Math.min(1,(clientY-r.top)/r.height));
+    const rx=(0.5-py)*9;
+    const ry=(px-0.5)*10;
+    applyCard3dVars(card,rx,ry,px*100,py*100,0.92);
+  }
+
+  window.addEventListener('pointermove',e=>{
+    if(e.pointerType==='touch')return;
+    handlePointerMoveOnCard(e.clientX,e.clientY);
+  },{passive:true});
+
+  window.addEventListener('pointerleave',()=>{
+    if(activePointerCard){resetCard3dVars(activePointerCard);activePointerCard=null;}
+  },{passive:true});
+
+  window.addEventListener('touchmove',e=>{
+    if(e.touches&&e.touches[0]){
+      handlePointerMoveOnCard(e.touches[0].clientX,e.touches[0].clientY);
+    }
+  },{passive:true});
+
+  window.addEventListener('touchend',()=>{
+    if(activePointerCard){resetCard3dVars(activePointerCard);activePointerCard=null;}
+  },{passive:true});
+
+  function onDeviceOrientation(e){
+    if(e.gamma===null||e.beta===null)return;
+    if(neutralBeta===null)neutralBeta=e.beta;
+    const dBeta=Math.max(-28,Math.min(28,e.beta-neutralBeta));
+    const dGamma=Math.max(-28,Math.min(28,e.gamma));
+    gyroActive=true;
+    targetRx=(-dBeta/28)*5.5;
+    targetRy=(dGamma/28)*6.2;
+  }
+
+  function enableGyroListener(){
+    try{
+      if(typeof DeviceOrientationEvent!=='undefined'&&typeof DeviceOrientationEvent.requestPermission==='function'){
+        DeviceOrientationEvent.requestPermission().then(st=>{
+          if(st==='granted')window.addEventListener('deviceorientation',onDeviceOrientation,{passive:true});
+        }).catch(()=>{});
+      }else if(typeof window.DeviceOrientationEvent!=='undefined'){
+        window.addEventListener('deviceorientation',onDeviceOrientation,{passive:true});
+      }
+    }catch(e){}
+  }
+  enableGyroListener();
+  window.addEventListener('pointerdown',function reqGyroOnce(){
+    enableGyroListener();
+  },{once:true,passive:true});
+
+  function gyroLoop(){
+    if(!document.hidden&&gyroActive&&!activePointerCard){
+      curRx+=(targetRx-curRx)*0.12;
+      curRy+=(targetRy-curRy)*0.12;
+      const hub=document.getElementById('screenHub');
+      if(hub&&hub.classList.contains('active')){
+        const gx=50+(curRy/6.2)*38;
+        const gy=50-(curRx/5.5)*38;
+        const tiltMag=Math.min(1,Math.hypot(curRx,curRy)/5.5);
+        const go=0.22+tiltMag*0.62;
+        document.querySelectorAll('#screenHub .menu-card, #screenHub .hot-deal-banner.visible, #vipPassModal.open .vip-pass-card3d').forEach(c=>{
+          applyCard3dVars(c,curRx,curRy,gx,gy,go);
+        });
+      }
+    }
+    requestAnimationFrame(gyroLoop);
+  }
+  requestAnimationFrame(gyroLoop);
+})();
 
 let toastTimer=null;
 function showToast(msg){const el=document.getElementById('toastPill');if(!el)return;el.textContent=msg;el.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('show'),2400);}
@@ -948,6 +1491,17 @@ function formatSpaces(n){return Math.round(n).toString().replace(/\B(?=(\d{3})+(
 
 (function initPersonalGreeting(){const u=getCurrentTgUser(),sub=document.getElementById('hubGreetingSubtitle');if(u&&u.firstName&&sub)sub.innerHTML='<strong>'+escapeHtml(u.firstName)+'</strong>, выбери нужный инструмент или раздел клуба';})();
 
+const RANK_TIERS=[
+  {lvl:1,min:0,icon:'🧭',title:'Дебютант флэта',short:'Дебютант',sub:'Точка входа • Отказ от хаотичных ставок'},
+  {lvl:2,min:3,icon:'🛡️',title:'Хранитель банка',short:'Хранитель',sub:'Базовая защита депозита • Строгий процент'},
+  {lvl:3,min:7,icon:'🧊',title:'Хладнокровный тактик',short:'Тактик',sub:'Иммунитет к тильту и эмоциональным догонам'},
+  {lvl:4,min:15,icon:'🎯',title:'Снайпер линии',short:'Снайпер',sub:'Точечный отбор кэфов с математическим перевесом'},
+  {lvl:5,min:25,icon:'⚡',title:'Алгоритм дисциплины',short:'Алгоритм',sub:'Системная работа на дистанции без отклонений'},
+  {lvl:6,min:45,icon:'💎',title:'Архитектор капитала',short:'Архитектор',sub:'Управление банком как инвестиционным портфелем'},
+  {lvl:7,min:70,icon:'♟️',title:'Гроссмейстер дистанции',short:'Гроссмейстер',sub:'Высшая лига риск-менеджмента и выдержки'},
+  {lvl:8,min:100,icon:'👑',title:'Легенда AiBet',short:'Легенда',sub:'Эталон дисциплины • Высший статус платформы'}
+];
+
 function getDisciplineStats(histArr){
   const list=Array.isArray(histArr)?histArr:[];
   let wins=0,losses=0,pushes=0,net=0,lossStreak=0,streakBroken=false;
@@ -969,11 +1523,24 @@ function getDisciplineStats(histArr){
   const total=list.length;
   const decided=wins+losses;
   const winrate=decided>0?Math.round((wins/decided)*100):null;
-  let rankIcon='🌱',rankTitle='Старт',nextAt=3;
-  if(total>=15){rankIcon='👑';rankTitle='Профи дистанции';nextAt=null;}
-  else if(total>=7){rankIcon='🎯';rankTitle='Снайпер флэта';nextAt=15;}
-  else if(total>=3){rankIcon='🧊';rankTitle='Холодный расчёт';nextAt=7;}
-  return{total,wins,losses,pushes,net,lossStreak,winrate,rankIcon,rankTitle,nextAt};
+  let currentTier=RANK_TIERS[0],nextTier=RANK_TIERS[1];
+  for(let i=0;i<RANK_TIERS.length;i++){
+    if(total>=RANK_TIERS[i].min){
+      currentTier=RANK_TIERS[i];
+      nextTier=RANK_TIERS[i+1]||null;
+    }
+  }
+  return{
+    total,wins,losses,pushes,net,lossStreak,winrate,
+    rankLvl:currentTier.lvl,
+    rankIcon:currentTier.icon,
+    rankTitle:currentTier.title,
+    rankShort:currentTier.short,
+    rankSub:currentTier.sub,
+    prevMin:currentTier.min,
+    nextAt:nextTier?nextTier.min:null,
+    nextTitle:nextTier?nextTier.title:null
+  };
 }
 
 function getSavedBankAndBet(){
@@ -1003,10 +1570,12 @@ function renderHubBankPill(){
     const wrPart=st.winrate!==null?' • WR '+st.winrate+'%':'';
     const isTilt=st.lossStreak>=3;
     const rankCls=isTilt?'rank-pill-badge tilt-warn':'rank-pill-badge';
-    const rankText=isTilt?'⚠️ Анти-тильт ('+st.lossStreak+'L)':(st.rankIcon+' '+st.rankTitle+wrPart);
+    const innerRankHtml=isTilt
+      ?escapeHtml('⚠️ Анти-тильт ('+st.lossStreak+'L)')
+      :'<span class="rank-lvl-tag">LVL '+st.rankLvl+'</span>'+escapeHtml(st.rankIcon+' '+st.rankTitle+wrPart)+'<span class="rank-chevron">▸</span>';
     wrap.innerHTML=
       '<div class="hub-bank-pill" onclick="showScreen(\'calc\')">💼 Твой банк: '+formatSpaces(bv)+' ₽'+dHtml+'</div>'+
-      '<div class="'+rankCls+'" onclick="showScreen(\'calc\')" title="Ранг финансовой дисциплины">'+escapeHtml(rankText)+'</div>';
+      '<div class="'+rankCls+'" onclick="openVipPassModal()" title="Открыть паспорт дисциплины и все ранги">'+innerRankHtml+'</div>';
   }catch(e){wrap.innerHTML='';}
 }
 
@@ -1071,7 +1640,9 @@ let pendingDeleteBlockIdx=null;
 
 const defaultHotBanner=window.HOT_BANNER||{
   enabled:false,
-  autoHide:true,
+  expireMode:'hide',
+  timerPrefix:'⏳ До старта:',
+  expiredText:'⚡ LIVE • В ИГРЕ',
   badge:'🔥 СТАВКА ДНЯ ГОТОВА',
   title:'Главный матч вечера по спец-модели',
   odd:'1.85',
@@ -1083,7 +1654,7 @@ const defaultHotBanner=window.HOT_BANNER||{
 };
 let hotBannerCfg=JSON.parse(JSON.stringify(defaultHotBanner));
 try{
-  const shb=localStorage.getItem('aibet_hot_banner_v1');
+  const shb=localStorage.getItem('aibet_hot_banner_v2');
   if(shb){
     const phb=JSON.parse(shb);
     if(phb&&typeof phb==='object')hotBannerCfg=Object.assign({},defaultHotBanner,phb);
@@ -1091,47 +1662,42 @@ try{
 }catch(e){}
 
 function saveHotBannerDraft(){
-  try{localStorage.setItem('aibet_hot_banner_v1',JSON.stringify(hotBannerCfg));}catch(e){}
+  try{localStorage.setItem('aibet_hot_banner_v2',JSON.stringify(hotBannerCfg));}catch(e){}
 }
 
 function formatCountdown(msLeft){
   const totalSec=Math.max(0,Math.floor(msLeft/1000));
-  const h=Math.floor(totalSec/3600);
+  const d=Math.floor(totalSec/86400);
+  const h=Math.floor((totalSec%86400)/3600);
   const m=Math.floor((totalSec%3600)/60);
   const s=totalSec%60;
-  return String(h).padStart(2,'0')+':'+String(m).padStart(2,'0')+':'+String(s).padStart(2,'0');
+  const hms=String(h).padStart(2,'0')+':'+String(m).padStart(2,'0')+':'+String(s).padStart(2,'0');
+  return d>0?(d+'д '+hms):hms;
 }
 
-function renderHotDealBanner(){
-  const box=document.getElementById('hotDealBanner');
-  if(!box)return;
-  if(!hotBannerCfg||!hotBannerCfg.enabled){
-    box.classList.remove('visible');
-    box.innerHTML='';
-    return;
-  }
+function buildHotBannerInnerHtml(isPreview){
   const now=Date.now();
   const deadline=Number(hotBannerCfg.deadlineTs)||0;
-  if(deadline>0&&hotBannerCfg.autoHide&&now>=deadline){
-    box.classList.remove('visible');
-    box.innerHTML='';
-    return;
-  }
+  const prefix=(hotBannerCfg.timerPrefix||'⏳ До старта:').trim();
+  const expiredTxt=(hotBannerCfg.expiredText||'⚡ LIVE • В ИГРЕ').trim();
   let timerHtml='';
   if(deadline>0){
     const left=deadline-now;
     if(left>0){
-      timerHtml='<span class="hot-deal-timer" id="hotDealLiveTimer">⏳ До старта: '+formatCountdown(left)+'</span>';
+      timerHtml='<span class="hot-deal-timer" data-role="hot-timer">'+escapeHtml(prefix)+' '+formatCountdown(left)+'</span>';
     }else{
-      timerHtml='<span class="hot-deal-timer">⚡ LIVE / Старт</span>';
+      timerHtml='<span class="hot-deal-timer is-live" data-role="hot-timer">'+escapeHtml(expiredTxt)+'</span>';
     }
   }
   const oddPart=hotBannerCfg.odd&&String(hotBannerCfg.odd).trim()!==''
     ?'<span class="hot-deal-odd">КЭФ '+escapeHtml(hotBannerCfg.odd)+'</span>'
     :'';
-  box.innerHTML=
+  const stateNote=isPreview&&!hotBannerCfg.enabled?' <span style="color:var(--red);font-size:9px">(Скрыта на главной)</span>':'';
+  return (
+    '<span class="liquid-gold-border" aria-hidden="true"></span>'+
+    '<div class="vip-glare-layer" aria-hidden="true"></div>'+
     '<div class="hot-deal-top">'+
-      '<span class="hot-deal-badge"><span class="pulse-dot"></span>'+escapeHtml(hotBannerCfg.badge||'🔥 СТАВКА ДНЯ ГОТОВА')+'</span>'+
+      '<span class="hot-deal-badge"><span class="pulse-dot"></span>'+escapeHtml(hotBannerCfg.badge||'🔥 СТАВКА ДНЯ ГОТОВА')+stateNote+'</span>'+
       timerHtml+
     '</div>'+
     '<div class="hot-deal-main">'+
@@ -1140,21 +1706,75 @@ function renderHotDealBanner(){
         '<div class="hot-deal-sub">'+oddPart+'<span>'+escapeHtml(hotBannerCfg.sub||'')+'</span></div>'+
       '</div>'+
       '<div class="hot-deal-cta">'+escapeHtml(hotBannerCfg.ctaText||'Забрать →')+'</div>'+
-    '</div>';
+    '</div>'
+  );
+}
+
+function renderHotDealBanner(){
+  const box=document.getElementById('hotDealBanner');
+  const admPrev=document.getElementById('adminHotBannerPreview');
+  const statusEl=document.getElementById('adminTimerLiveStatus');
+
+  const now=Date.now();
+  const deadline=Number(hotBannerCfg.deadlineTs)||0;
+  const expMode=hotBannerCfg.expireMode||'hide';
+
+  if(admPrev){
+    admPrev.innerHTML=buildHotBannerInnerHtml(true);
+  }
+  if(statusEl){
+    if(deadline<=0){
+      statusEl.className='timer-live-status off';
+      statusEl.textContent='⏱ Таймер выключен (плашка висит без обратного отсчёта)';
+    }else if(deadline>now){
+      statusEl.className='timer-live-status';
+      statusEl.textContent='🟢 Таймер тикает! Осталось: '+formatCountdown(deadline-now);
+    }else{
+      statusEl.className='timer-live-status off';
+      statusEl.textContent=expMode==='hide'?'🔴 Время вышло — плашка автоматически скрыта на главной':'🟢 Время вышло — на плашке горит статус «'+(hotBannerCfg.expiredText||'LIVE')+'»';
+    }
+  }
+
+  if(!box)return;
+  if(!hotBannerCfg||!hotBannerCfg.enabled){
+    box.classList.remove('visible');
+    box.innerHTML='';
+    return;
+  }
+  if(deadline>0&&expMode==='hide'&&now>=deadline){
+    box.classList.remove('visible');
+    box.innerHTML='';
+    return;
+  }
+  box.innerHTML=buildHotBannerInnerHtml(false);
   box.classList.add('visible');
 }
 
 setInterval(()=>{
   if(document.hidden)return;
-  if(!hotBannerCfg||!hotBannerCfg.enabled||!hotBannerCfg.deadlineTs)return;
-  const left=Number(hotBannerCfg.deadlineTs)-Date.now();
-  if(left<=0&&hotBannerCfg.autoHide){
+  const deadline=Number(hotBannerCfg.deadlineTs)||0;
+  if(deadline<=0)return;
+  const left=deadline-Date.now();
+  const expMode=hotBannerCfg.expireMode||'hide';
+  if(left<=0&&expMode==='hide'){
     renderHotDealBanner();
     return;
   }
-  const tEl=document.getElementById('hotDealLiveTimer');
-  if(tEl&&left>0){
-    tEl.textContent='⏳ До старта: '+formatCountdown(left);
+  const prefix=(hotBannerCfg.timerPrefix||'⏳ До старта:').trim();
+  const expiredTxt=(hotBannerCfg.expiredText||'⚡ LIVE • В ИГРЕ').trim();
+  document.querySelectorAll('[data-role="hot-timer"]').forEach(el=>{
+    if(left>0){
+      el.classList.remove('is-live');
+      el.textContent=prefix+' '+formatCountdown(left);
+    }else{
+      el.classList.add('is-live');
+      el.textContent=expiredTxt;
+    }
+  });
+  const statusEl=document.getElementById('adminTimerLiveStatus');
+  if(statusEl&&left>0){
+    statusEl.className='timer-live-status';
+    statusEl.textContent='🟢 Таймер тикает! Осталось: '+formatCountdown(left);
   }
 },1000);
 
@@ -1186,7 +1806,9 @@ function toLocalDatetimeValue(ts){
 function syncHotAdminInputs(){
   const en=document.getElementById('hotEnabledCheck');if(!en)return;
   en.checked=Boolean(hotBannerCfg.enabled);
-  document.getElementById('hotAutoHideCheck').checked=hotBannerCfg.autoHide!==false;
+  document.getElementById('hotExpireModeSelect').value=hotBannerCfg.expireMode||'hide';
+  document.getElementById('hotTimerPrefixInput').value=hotBannerCfg.timerPrefix||'⏳ До старта:';
+  document.getElementById('hotExpiredTextInput').value=hotBannerCfg.expiredText||'⚡ LIVE • В ИГРЕ';
   document.getElementById('hotBadgeInput').value=hotBannerCfg.badge||'';
   document.getElementById('hotTitleInput').value=hotBannerCfg.title||'';
   document.getElementById('hotOddInput').value=hotBannerCfg.odd||'';
@@ -1195,12 +1817,15 @@ function syncHotAdminInputs(){
   document.getElementById('hotActionTypeSelect').value=hotBannerCfg.actionType||'link';
   document.getElementById('hotUrlInput').value=hotBannerCfg.ctaUrl||trackerCfg.channelUrl||'https://t.me/aibetmoney';
   document.getElementById('hotDeadlineInput').value=toLocalDatetimeValue(hotBannerCfg.deadlineTs);
+  renderHotDealBanner();
 }
 
 function updateHotBannerFromAdmin(){
   const en=document.getElementById('hotEnabledCheck');if(!en)return;
   hotBannerCfg.enabled=Boolean(en.checked);
-  hotBannerCfg.autoHide=Boolean(document.getElementById('hotAutoHideCheck').checked);
+  hotBannerCfg.expireMode=document.getElementById('hotExpireModeSelect').value||'hide';
+  hotBannerCfg.timerPrefix=document.getElementById('hotTimerPrefixInput').value.trim()||'⏳ До старта:';
+  hotBannerCfg.expiredText=document.getElementById('hotExpiredTextInput').value.trim()||'⚡ LIVE • В ИГРЕ';
   hotBannerCfg.badge=document.getElementById('hotBadgeInput').value.trim()||'🔥 СТАВКА ДНЯ ГОТОВА';
   hotBannerCfg.title=document.getElementById('hotTitleInput').value.trim()||'Главный матч вечера';
   hotBannerCfg.odd=document.getElementById('hotOddInput').value.trim();
@@ -1208,36 +1833,74 @@ function updateHotBannerFromAdmin(){
   hotBannerCfg.ctaText=document.getElementById('hotCtaTextInput').value.trim()||'Забрать →';
   hotBannerCfg.actionType=document.getElementById('hotActionTypeSelect').value||'link';
   hotBannerCfg.ctaUrl=document.getElementById('hotUrlInput').value.trim()||trackerCfg.channelUrl||'https://t.me/aibetmoney';
-  const dtVal=document.getElementById('hotDeadlineInput').value;
-  hotBannerCfg.deadlineTs=dtVal?new Date(dtVal).getTime():0;
   saveHotBannerDraft();
   renderHotDealBanner();
 }
 
-function setHotTimerPreset(hoursAhead){
-  triggerHaptic('light');
-  const target=Date.now()+Math.round(hoursAhead*3600*1000);
-  hotBannerCfg.deadlineTs=target;
-  hotBannerCfg.enabled=true;
-  hotBannerCfg.autoHide=true;
+function toggleHotBannerQuick(state){
+  triggerHaptic('medium');
+  hotBannerCfg.enabled=Boolean(state);
   saveHotBannerDraft();
   syncHotAdminInputs();
-  renderHotDealBanner();
-  showToast('⏱ Таймер включён на +'+hoursAhead+' ч.');
+  showToast(state?'🔥 Плашка «Ставка дня» включена!':'Плашка «Ставка дня» скрыта');
 }
 
-function setHotTimerTonight21(){
+function applyCustomDurationTimer(){
+  triggerHaptic('medium');
+  const d=Math.max(0,parseInt(document.getElementById('customTimerDays').value||'0',10)||0);
+  const h=Math.max(0,parseInt(document.getElementById('customTimerHours').value||'0',10)||0);
+  const m=Math.max(0,parseInt(document.getElementById('customTimerMins').value||'0',10)||0);
+  const totalMs=((d*86400)+(h*3600)+(m*60))*1000;
+  if(totalMs<=0){
+    showToast('⚠️ Укажи хотя бы 1 минуту для запуска таймера');
+    return;
+  }
+  hotBannerCfg.deadlineTs=Date.now()+totalMs;
+  hotBannerCfg.enabled=true;
+  saveHotBannerDraft();
+  syncHotAdminInputs();
+  showToast('▶ Таймер запущен на '+(d?d+'д ':'')+(h?h+'ч ':'')+m+'м!');
+}
+
+function applyExactDatetimeTimer(){
+  const dtVal=document.getElementById('hotDeadlineInput').value;
+  if(!dtVal){
+    showToast('⚠️ Выбери дату и время в календаре');
+    return;
+  }
+  const ts=new Date(dtVal).getTime();
+  if(isNaN(ts)||ts<=Date.now()){
+    triggerHaptic('warning');
+    showToast('⚠️ Выбери время в будущем');
+    return;
+  }
+  triggerHaptic('success');
+  hotBannerCfg.deadlineTs=ts;
+  hotBannerCfg.enabled=true;
+  saveHotBannerDraft();
+  syncHotAdminInputs();
+  showToast('📅 Таймер установлен к выбранному времени!');
+}
+
+function setHotTimerMinutes(minsAhead){
+  triggerHaptic('light');
+  hotBannerCfg.deadlineTs=Date.now()+Math.round(minsAhead*60*1000);
+  hotBannerCfg.enabled=true;
+  saveHotBannerDraft();
+  syncHotAdminInputs();
+  showToast('⏱ Таймер включён на +'+minsAhead+' мин.');
+}
+
+function setHotTimerTonight(hour,minute){
   triggerHaptic('light');
   const d=new Date();
-  d.setHours(21,0,0,0);
+  d.setHours(hour||21,minute||0,0,0);
   if(d.getTime()<=Date.now())d.setDate(d.getDate()+1);
   hotBannerCfg.deadlineTs=d.getTime();
   hotBannerCfg.enabled=true;
-  hotBannerCfg.autoHide=true;
   saveHotBannerDraft();
   syncHotAdminInputs();
-  renderHotDealBanner();
-  showToast('🕘 Таймер установлен на 21:00');
+  showToast('🕘 Таймер установлен на '+String(hour).padStart(2,'0')+':'+String(minute).padStart(2,'0'));
 }
 
 function clearHotTimer(){
@@ -1245,15 +1908,14 @@ function clearHotTimer(){
   hotBannerCfg.deadlineTs=0;
   saveHotBannerDraft();
   syncHotAdminInputs();
-  renderHotDealBanner();
-  showToast('✕ Таймер отключён');
+  showToast('✕ Таймер отключён (статичный показ)');
 }
 
 async function publishLiveToCloud(){
   const pUrl=(trackerCfg.proxyUrl||'').trim();
   if(!pUrl||pUrl.indexOf('http')!==0){
     triggerHaptic('warning');
-    showToast('⚠️ Для мгновенной публикации укажи Proxy URL или скачай index.html');
+    showToast('⚠️ Для облака укажи Proxy URL или нажми «Скопировать код» ниже');
     return;
   }
   try{
@@ -1633,7 +2295,7 @@ function initSpoilerCanvases(){
     canvas.width=w*dpr;canvas.height=h*dpr;const ctx=canvas.getContext('2d');ctx.scale(dpr,dpr);
     const particles=[];
     for(let i=0;i<36;i++){const ig=i%3===0;particles.push({x:Math.random()*w,y:Math.random()*h,vx:(Math.random()-0.5)*0.35,vy:(Math.random()-0.5)*0.35,r:ig?(1.3+Math.random()):(0.9+Math.random()),alpha:0.25+Math.random()*0.55,dAlpha:(Math.random()*0.015+0.005)*(Math.random()<0.5?1:-1),color:ig?'229,185,111':'226,232,240'});}
-    const sys={canvas,ctx,w,h,particles,pointer:null};
+    const sys={canvas,ctx,w,h,particles,pointer:null,implodeTs:0};
     const rep=(cx,cy)=>{const r=parent.getBoundingClientRect();sys.pointer={x:cx-r.left,y:cy-r.top,time:Date.now()};};
     parent.addEventListener('pointerdown',e=>rep(e.clientX,e.clientY),{passive:true});
     parent.addEventListener('pointermove',e=>rep(e.clientX,e.clientY),{passive:true});
@@ -1645,11 +2307,16 @@ function initSpoilerCanvases(){
       if(document.hidden){spoilerAnimId=requestAnimationFrame(anim);return;}
       const now=Date.now();
       activeSpoilerSystems.forEach(sys=>{
-        const{ctx,w,h,particles,pointer}=sys;ctx.clearRect(0,0,w,h);
+        const{ctx,w,h,particles,pointer,implodeTs}=sys;ctx.clearRect(0,0,w,h);
         const hp=pointer&&(now-pointer.time<320);
+        const isImploding=implodeTs&&(now-implodeTs<260);
+        const cx=w*0.5,cy=h*0.38;
         for(let i=0;i<particles.length;i++){
           const p=particles[i];
-          if(hp){const dx=p.x-pointer.x,dy=p.y-pointer.y,d2=dx*dx+dy*dy;if(d2<3364&&d2>1){const d=Math.sqrt(d2),f=(58-d)/58;p.vx+=(dx/d)*f*0.9;p.vy+=(dy/d)*f*0.9;}}
+          if(isImploding){
+            const idx=cx-p.x,idy=cy-p.y,id=Math.max(1,Math.hypot(idx,idy));
+            p.vx+=(idx/id)*1.85;p.vy+=(idy/id)*1.85;p.alpha=0.95;
+          }else if(hp){const dx=p.x-pointer.x,dy=p.y-pointer.y,d2=dx*dx+dy*dy;if(d2<3364&&d2>1){const d=Math.sqrt(d2),f=(58-d)/58;p.vx+=(dx/d)*f*0.9;p.vy+=(dy/d)*f*0.9;}}
           p.vx*=0.96;p.vy*=0.96;if(Math.abs(p.vx)<0.12)p.vx+=(Math.random()-0.5)*0.06;if(Math.abs(p.vy)<0.12)p.vy+=(Math.random()-0.5)*0.06;
           p.x=(p.x+p.vx+w)%w;p.y=(p.y+p.vy+h)%h;p.alpha+=p.dAlpha;if(p.alpha>0.85||p.alpha<0.15)p.dAlpha=-p.dAlpha;
           ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle='rgba('+p.color+','+p.alpha.toFixed(2)+')';ctx.fill();
@@ -1688,7 +2355,9 @@ function renderHubCards(){
     const btnTxt=b.btnLabel||(isAvail?'Открыть →':'Скоро');
     const spLbl=isWait?'✓ В листе ожидания':'Скоро открытие',spCls=isWait?'tg-spoiler-pill waitlisted':'tg-spoiler-pill';
     const blurOv=isBlur?'<div class="tg-spoiler-overlay"><canvas class="spoiler-canvas"></canvas><div class="tg-spoiler-lock-icon">🔒</div><div class="'+spCls+'"><span class="dot"></span>'+escapeHtml(spLbl)+'</div><div class="tg-spoiler-sub">Нажми, чтобы узнать первым</div></div>':'';
-    card.innerHTML=blurOv+'<div class="card-inner-blur" style="display:flex;flex-direction:column;flex:1"><div class="card-cover">'+pill+cov+'</div><div class="card-body"><div><div class="card-title">'+escapeHtml(b.title)+'</div><div class="card-desc">'+escapeHtml(b.desc)+'</div></div><div class="card-action-btn'+(isAvail?' shimmer-effect':'')+'">'+escapeHtml(btnTxt)+'</div></div></div>';
+    const liquidBorder=isAvail?'<span class="liquid-gold-border" aria-hidden="true"></span>':'';
+    const glareLayer='<div class="vip-glare-layer" aria-hidden="true"></div>';
+    card.innerHTML=liquidBorder+glareLayer+blurOv+'<div class="card-inner-blur" style="display:flex;flex-direction:column;flex:1"><div class="card-cover">'+pill+cov+'</div><div class="card-body"><div><div class="card-title">'+escapeHtml(b.title)+'</div><div class="card-desc">'+escapeHtml(b.desc)+'</div></div><div class="card-action-btn'+(isAvail?' shimmer-effect':'')+'">'+escapeHtml(btnTxt)+'</div></div></div>';
     hubCardsGrid.appendChild(card);
   });
   requestAnimationFrame(()=>initSpoilerCanvases());
@@ -1698,9 +2367,27 @@ renderHubCards();
 
 function handleCardClick(idx){
   const b=menuBlocks[idx];if(!b)return;
-  triggerHaptic('light');activeModalBlockIndex=idx;
+  activeModalBlockIndex=idx;
   logVisitorEvent('Нажал: '+(b.blurred?'Скрытый блок #'+(idx+1)+' ('+b.title+')':b.title),false,false);
-  if(b.blurred){openMysterySoonModal(b);return;}
+  if(b.blurred){
+    playLuxurySound('lock');
+    try{if(tg&&tg.HapticFeedback&&tg.isVersionAtLeast('6.1'))tg.HapticFeedback.impactOccurred('medium');}catch(e){}
+    const cards=document.querySelectorAll('#hubCardsGrid .menu-card');
+    const cardEl=cards[idx];
+    if(cardEl){
+      const lockIcon=cardEl.querySelector('.tg-spoiler-lock-icon');
+      const spCanvas=cardEl.querySelector('.spoiler-canvas');
+      if(lockIcon)lockIcon.classList.add('lock-magnetic-pulse');
+      activeSpoilerSystems.forEach(s=>{if(s.canvas===spCanvas)s.implodeTs=Date.now();});
+      setTimeout(()=>{
+        if(lockIcon)lockIcon.classList.remove('lock-magnetic-pulse');
+        openMysterySoonModal(b);
+      },210);
+      return;
+    }
+    openMysterySoonModal(b);return;
+  }
+  triggerHaptic('light');
   if(b.status==='soon'){openSoonModal(b);return;}
   if(b.actionType==='calc')showScreen('calc');else openPromoPage(b);
 }
@@ -1729,7 +2416,9 @@ function joinWaitlist(){
   if(waitlistMap[b.id]){showToast('✓ Ты уже в списке ожидания');return;}
   waitlistMap[b.id]=true;
   saveKeyEverywhere('aibet_waitlist_v1',JSON.stringify(waitlistMap));
-  triggerHaptic('success');syncWaitlistBtnState(b);renderHubCards();showToast('🔔 Отлично! Сообщим об открытии');
+  triggerHaptic('success');
+  if(typeof window.triggerCosmosReaction==='function')window.triggerCosmosReaction('win',document.getElementById('waitlistBtn'));
+  syncWaitlistBtnState(b);renderHubCards();showToast('🔔 Отлично! Сообщим об открытии');
   logVisitorEvent('🔥 Записался в лист ожидания: '+b.title+' (Блок #'+(activeModalBlockIndex+1)+')',true,false);
   setTimeout(()=>closeSoonModal(),850);
 }
@@ -1879,8 +2568,9 @@ function generateFullSiteHtml(){
   clone.querySelectorAll('.view-screen').forEach(el=>el.classList.remove('active'));
   const hub=clone.querySelector('#screenHub');if(hub)hub.classList.add('active');
   clone.querySelectorAll('.modal-overlay').forEach(el=>el.classList.remove('open'));
-  ['hubCardsGrid','hubBankPillWrap','hotDealBanner','adminCardsContainer','visitorsListBox'].forEach(id=>{const el=clone.querySelector('#'+id);if(el)el.innerHTML='';});
-  const hBanner=clone.querySelector('#hotDealBanner');if(hBanner)hBanner.classList.remove('visible');
+  ['hubCardsGrid','hubBankPillWrap','hotDealBanner','adminHotBannerPreview','adminCardsContainer','visitorsListBox','equitySparklineSvg','vipRanksLadderBox'].forEach(id=>{const el=clone.querySelector('#'+id);if(el)el.innerHTML='';});
+  const hBanner=clone.querySelector('#hotDealBanner');if(hBanner){hBanner.classList.remove('visible');hBanner.removeAttribute('style');}
+  const vIntro=clone.querySelector('#vaultIntroOverlay');if(vIntro)vIntro.classList.remove('vault-opening','vault-done');
   ['statTotalVisits','statUniqueUsers','statCalcClicks'].forEach(id=>{const el=clone.querySelector('#'+id);if(el)el.textContent='0';});
   const qb=clone.querySelector('#adminQuickBtn');if(qb)qb.classList.remove('unlocked');
   const tb=clone.querySelector('#topStudioBtn');if(tb)tb.classList.remove('unlocked');
@@ -1971,6 +2661,133 @@ function dismissTiltRadar(){
   renderTiltRadar(st);
 }
 
+function renderEquitySparkline(stats){
+  const svg=document.getElementById('equitySparklineSvg');
+  const deltaEl=document.getElementById('equitySparklineDelta');
+  if(!svg||!deltaEl)return;
+  const curBank=parseBank(bankInput?bankInput.value:'100000')||100000;
+  const chronological=sessionHistory.slice(0,20).reverse();
+  const points=[curBank-stats.net];
+  let running=points[0];
+  chronological.forEach(it=>{
+    const isPush=Boolean(it.push||it.type==='push');
+    if(!isPush){
+      running+=(it.win?1:-1)*(Number(it.amount)||0);
+    }
+    points.push(running);
+  });
+  if(points.length<2)points.push(curBank);
+  const minV=Math.min(...points),maxV=Math.max(...points),span=Math.max(100,maxV-minV);
+  const W=260,H=42,padX=6,padY=6;
+  const coords=points.map((v,i)=>{
+    const x=padX+(i/(points.length-1))*(W-padX*2);
+    const y=H-padY-((v-minV)/span)*(H-padY*2);
+    return [x,y];
+  });
+  const baseY=H-padY-((points[0]-minV)/span)*(H-padY*2);
+  const pathD=coords.map((pt,i)=>(i===0?'M':'L')+pt[0].toFixed(1)+','+pt[1].toFixed(1)).join(' ');
+  const areaD=pathD+' L'+coords[coords.length-1][0].toFixed(1)+','+H+' L'+coords[0][0].toFixed(1)+','+H+' Z';
+  const isPos=stats.net>=0;
+  const strokeCol=stats.net>0?'#34D399':(stats.net<0?'#F87171':'#E5B96F');
+  const gradId='eqGrad_'+ (stats.net>=0?'pos':'neg');
+  const lastPt=coords[coords.length-1];
+  svg.innerHTML=
+    '<defs><linearGradient id="'+gradId+'" x1="0" y1="0" x2="0" y2="1">'+
+      '<stop offset="0%" stop-color="'+strokeCol+'" stop-opacity="0.32"/>'+
+      '<stop offset="100%" stop-color="'+strokeCol+'" stop-opacity="0.0"/>'+
+    '</linearGradient></defs>'+
+    '<line x1="'+padX+'" y1="'+baseY.toFixed(1)+'" x2="'+(W-padX)+'" y2="'+baseY.toFixed(1)+'" stroke="rgba(226,232,240,0.16)" stroke-dasharray="3,3" stroke-width="1"/>'+
+    '<path d="'+areaD+'" fill="url(#'+gradId+')"/>'+
+    '<path d="'+pathD+'" fill="none" stroke="'+strokeCol+'" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>'+
+    '<circle cx="'+lastPt[0].toFixed(1)+'" cy="'+lastPt[1].toFixed(1)+'" r="3.4" fill="'+strokeCol+'" stroke="#03060C" stroke-width="1.4"/>';
+
+  if(stats.net>0){
+    deltaEl.className='equity-sparkline-delta pos';
+    deltaEl.textContent='+'+formatSpaces(stats.net)+' ₽';
+  }else if(stats.net<0){
+    deltaEl.className='equity-sparkline-delta neg';
+    deltaEl.textContent='−'+formatSpaces(Math.abs(stats.net))+' ₽';
+  }else{
+    deltaEl.className='equity-sparkline-delta zero';
+    deltaEl.textContent='0 ₽';
+  }
+}
+
+function openVipPassModal(){
+  playLuxurySound('lock');
+  try{if(tg&&tg.HapticFeedback&&tg.isVersionAtLeast('6.1'))tg.HapticFeedback.impactOccurred('medium');}catch(e){}
+  const stats=getDisciplineStats(sessionHistory);
+  const u=getCurrentTgUser();
+  const curBank=parseBank(bankInput?bankInput.value:'100000')||100000;
+  const hasTgProfile=Boolean(u&&u.firstName);
+  const holderName=(hasTgProfile?u.name:'ИГРОК ПЛАТФОРМЫ').toUpperCase();
+  const holderSub=hasTgProfile&&u.username?('@'+u.username+' • '+stats.rankSub):stats.rankSub;
+  const numHash=String(u.id||'7788').split('').reduce((a,c)=>((a<<5)-a)+c.charCodeAt(0),0);
+  const clubCode=String(Math.abs(numHash)%9000+1000);
+
+  const tierEl=document.getElementById('vipPassTierPill');
+  if(tierEl)tierEl.textContent='LVL '+stats.rankLvl+' • '+stats.rankIcon+' '+stats.rankShort.toUpperCase();
+  const idEl=document.getElementById('vipPassIdText');
+  if(idEl)idEl.textContent='PASS ID • '+clubCode;
+  const subEl=document.getElementById('vipPassHolderSub');
+  if(subEl)subEl.textContent=holderSub;
+  const nameEl=document.getElementById('vipPassHolderName');
+  if(nameEl)nameEl.textContent=holderName;
+  const wrEl=document.getElementById('vipPassWrVal');
+  if(wrEl)wrEl.textContent=stats.winrate!==null?(stats.winrate+'%'):'—';
+  const bankEl=document.getElementById('vipPassBankVal');
+  if(bankEl)bankEl.textContent=formatSpaces(curBank)+' ₽';
+
+  const progLbl=document.getElementById('vipProgressLabel');
+  const progCnt=document.getElementById('vipProgressCount');
+  const progFill=document.getElementById('vipProgressBarFill');
+  if(stats.nextAt){
+    const span=Math.max(1,stats.nextAt-stats.prevMin);
+    const doneInSpan=Math.max(0,stats.total-stats.prevMin);
+    const pct=Math.min(100,Math.round((doneInSpan/span)*100));
+    const leftCount=Math.max(1,stats.nextAt-stats.total);
+    if(progLbl)progLbl.textContent='До ранга «'+stats.nextTitle+'» (ещё '+leftCount+')';
+    if(progCnt)progCnt.textContent=stats.total+' / '+stats.nextAt+' ставок';
+    if(progFill)progFill.style.width=pct+'%';
+  }else{
+    if(progLbl)progLbl.textContent='Открыт высший ранг дисциплины AiBet';
+    if(progCnt)progCnt.textContent='👑 LVL 8 MAX';
+    if(progFill)progFill.style.width='100%';
+  }
+
+  const ladderBox=document.getElementById('vipRanksLadderBox');
+  if(ladderBox){
+    ladderBox.innerHTML=RANK_TIERS.map(t=>{
+      const isCurr=t.lvl===stats.rankLvl;
+      const isDone=t.lvl<stats.rankLvl;
+      const cls=isCurr?'rank-tier-row current':(isDone?'rank-tier-row unlocked':'rank-tier-row locked');
+      const rightHtml=isCurr
+        ?'<span class="rank-tier-right curr-tag">● Твой ранг</span>'
+        :(isDone?'<span class="rank-tier-right done-tag">✓ Открыт</span>':'<span class="rank-tier-right lock-tag">🔒 от '+t.min+' ставок</span>');
+      return (
+        '<div class="'+cls+'">'+
+          '<div class="rank-tier-left">'+
+            '<div class="rank-tier-icon">'+t.icon+'</div>'+
+            '<div class="rank-tier-info">'+
+              '<div class="rank-tier-title"><span class="rank-lvl-tag">LVL '+t.lvl+'</span><span>'+escapeHtml(t.title)+'</span></div>'+
+              '<div class="rank-tier-sub">'+escapeHtml(t.sub)+'</div>'+
+            '</div>'+
+          '</div>'+
+          rightHtml+
+        '</div>'
+      );
+    }).join('');
+  }
+
+  const modal=document.getElementById('vipPassModal');
+  if(modal)modal.classList.add('open');
+}
+
+function closeVipPassModal(){
+  const modal=document.getElementById('vipPassModal');
+  if(modal)modal.classList.remove('open');
+}
+
 function renderSessionHistory(){
   const stats=getDisciplineStats(sessionHistory);
   renderTiltRadar(stats);
@@ -1982,12 +2799,13 @@ function renderSessionHistory(){
   sessionHistoryBar.classList.add('visible');
   if(calcRankBadge){
     const nextHint=stats.nextAt?(' ('+stats.total+'/'+stats.nextAt+')'):' (MAX)';
-    calcRankBadge.textContent=stats.rankIcon+' '+stats.rankTitle+nextHint;
+    calcRankBadge.innerHTML='<span class="rank-lvl-tag">LVL '+stats.rankLvl+'</span>'+escapeHtml(stats.rankIcon+' '+stats.rankTitle+nextHint)+'<span class="rank-chevron">▸</span>';
   }
   if(calcWinrateText){
     const wrStr=stats.winrate!==null?(stats.winrate+'%'):'—';
     calcWinrateText.innerHTML='Winrate: <strong>'+wrStr+'</strong> <span style="color:var(--text-muted);font-size:10px">('+stats.wins+'W • '+stats.pushes+'🔄 • '+stats.losses+'L)</span>';
   }
+  renderEquitySparkline(stats);
   historyPillsBox.innerHTML=sessionHistory.slice(0,5).map(it=>{
     const isPush=Boolean(it.push||it.type==='push');
     if(isPush)return '<span class="hist-tag push">🔄 0 ₽</span>';
@@ -2058,7 +2876,7 @@ function updateBankBalance(delta,outcomeType,lbl,hap){
     push:isPush,
     amount:isPush?0:Math.abs(delta)
   });
-  if(sessionHistory.length>50)sessionHistory=sessionHistory.slice(0,50);
+  if(sessionHistory.length>200)sessionHistory=sessionHistory.slice(0,200);
   saveKeyEverywhere('aibet_session_hist',JSON.stringify(sessionHistory));
   renderSessionHistory();
   if(!isPush){
@@ -2069,9 +2887,9 @@ function updateBankBalance(delta,outcomeType,lbl,hap){
   calculate(true,false);
   showToast(lbl);
 }
-btnWin.addEventListener('click',()=>updateBankBalance(currentProfitRaw,'win','✅ Заход! Банк увеличен','success'));
-btnPush.addEventListener('click',()=>updateBankBalance(0,'push','🔄 Возврат зафиксирован (банк без изменений)','light'));
-btnLoss.addEventListener('click',()=>updateBankBalance(-currentBetRaw,'loss','Банк пересчитан','warning'));
+btnWin.addEventListener('click',()=>{if(typeof window.triggerCosmosReaction==='function')window.triggerCosmosReaction('win',btnWin);updateBankBalance(currentProfitRaw,'win','✅ Заход! Банк увеличен','success');});
+btnPush.addEventListener('click',()=>{if(typeof window.triggerCosmosReaction==='function')window.triggerCosmosReaction('push',btnPush);updateBankBalance(0,'push','🔄 Возврат зафиксирован (банк без изменений)','light');});
+btnLoss.addEventListener('click',()=>{if(typeof window.triggerCosmosReaction==='function')window.triggerCosmosReaction('loss',btnLoss);updateBankBalance(-currentBetRaw,'loss','Банк пересчитан','warning');});
 
 undoBtn.addEventListener('click',()=>{
   if(previousBankValue!==null){
@@ -2086,7 +2904,8 @@ undoBtn.addEventListener('click',()=>{
 });
 resultBox.addEventListener('click',()=>{
   if(currentBetRaw<=0)return;
-  triggerHaptic('success');
+  playLuxurySound('copy');
+  try{if(tg&&tg.HapticFeedback&&tg.isVersionAtLeast('6.1'))tg.HapticFeedback.notificationOccurred('success');}catch(e){}
   copyTextSafe(String(currentBetRaw));
   resultBox.classList.add('copied-flash');
   setTimeout(()=>resultBox.classList.remove('copied-flash'),450);
