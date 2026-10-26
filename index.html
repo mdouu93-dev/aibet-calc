@@ -339,6 +339,15 @@ header,section{position:relative;z-index:2}
 .rank-tier-right.curr-tag{color:var(--gold-light);background:rgba(201,168,118,0.16);border:1px solid var(--gold-border);padding:2.5px 7px;border-radius:999px}
 .rank-tier-right.done-tag{color:var(--green)}
 .rank-tier-right.lock-tag{color:var(--text-muted)}
+
+/* === 8. SCARCITY & WIN-STREAK LIVE BADGES === */
+.card-scarcity-pill{display:inline-flex;align-items:center;gap:4.5px;align-self:flex-start;background:rgba(251,191,36,0.12);border:1px solid rgba(251,191,36,0.45);color:var(--amber);font-family:'Montserrat',sans-serif;font-size:9px;font-weight:800;padding:2px 7px;border-radius:999px;margin-bottom:4px;letter-spacing:.2px;line-height:1.2}
+.card-scarcity-pill .scarcity-dot{width:5px;height:5px;border-radius:50%;background:var(--amber);box-shadow:0 0 6px var(--amber);flex-shrink:0}
+.tg-spoiler-scarcity{position:relative;z-index:2;display:inline-flex;align-items:center;gap:4px;background:rgba(251,191,36,0.14);border:1px solid rgba(251,191,36,0.5);color:var(--amber);font-family:'Montserrat',sans-serif;font-size:8.5px;font-weight:800;padding:2.5px 8px;border-radius:999px;text-align:center;max-width:calc(100% - 16px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.promo-scarcity-badge{display:none;align-items:center;gap:6px;background:rgba(251,191,36,0.13);border:1px solid rgba(251,191,36,0.5);color:var(--amber);font-family:'Montserrat',sans-serif;font-size:11px;font-weight:800;padding:5px 12px;border-radius:999px;margin-bottom:10px;width:fit-content}
+.promo-scarcity-badge.visible{display:inline-flex}
+.promo-scarcity-badge .scarcity-dot{width:6px;height:6px;border-radius:50%;background:var(--amber);animation:livePulseGold 1.8s infinite;flex-shrink:0}
+.adm-scarcity-presets{display:flex;gap:5px;flex-wrap:wrap;margin-top:5px}
 </style>
 </head>
 <body>
@@ -412,6 +421,7 @@ header,section{position:relative;z-index:2}
 <div class="promo-card">
 <div class="promo-cover" id="promoCoverBox"></div>
 <div class="promo-body">
+<div class="promo-scarcity-badge" id="promoScarcityBadge"></div>
 <h2 class="promo-title" id="promoTitle">Заголовок</h2>
 <div class="promo-text" id="promoText">Описание</div>
 <button type="button" id="promoCtaBtn" class="promo-cta-btn shimmer-effect">Написать в личные сообщения →</button>
@@ -970,9 +980,7 @@ document.addEventListener('pointerdown',e=>{
   resizeBg();window.addEventListener('resize',resizeBg);
   const nodes=[];
   for(let i=0;i<36;i++){const isGold=i%2===0;nodes.push({x:Math.random()*w,y:Math.random()*h,vx:(Math.random()-0.5)*0.55,vy:-0.22-Math.random()*0.45,r:isGold?(1.5+Math.random()*1.6):(1.2+Math.random()*1.2),isGold,phase:Math.random()*Math.PI*2});}
-  const streaks=[];
-  function createStreak(ry=false){return{x:Math.random()*(w+120)-60,y:ry?(Math.random()*h):(h+40+Math.random()*160),len:55+Math.random()*65,speed:1.8+Math.random()*2.4,angle:-Math.PI*0.36,isGold:Math.random()<0.65,alpha:0.25+Math.random()*0.4};}
-  for(let i=0;i<6;i++)streaks.push(createStreak(true));
+
   const touchSparks=[];let pointer={x:-999,y:-999,active:false,ts:0};
   let cosmosReaction={type:null,startTs:0,duration:0,ox:0,oy:0};
 
@@ -1086,18 +1094,7 @@ document.addEventListener('pointerdown',e=>{
       ctx.fillStyle=rg;ctx.fillRect(0,0,w,h);
     }
 
-    for(let i=0;i<streaks.length;i++){
-      const s=streaks[i],dx=Math.cos(s.angle),dy=Math.sin(s.angle);
-      s.x+=dx*s.speed*speedMult;s.y+=dy*s.speed*speedMult;
-      const curLen=s.len*(1+winBoost*0.65);
-      const tx=s.x-dx*curLen,ty=s.y-dy*curLen,g=ctx.createLinearGradient(s.x,s.y,tx,ty);
-      const col=lossFreeze>0.25?'248,113,113':(winBoost>0.25&&!s.isGold?'52,211,153':(s.isGold?'229,185,111':'226,232,240'));
-      const al=Math.min(0.95,s.alpha*(1+winBoost*0.5));
-      g.addColorStop(0,'rgba('+col+','+al.toFixed(2)+')');g.addColorStop(0.3,'rgba('+col+','+(al*0.42).toFixed(2)+')');g.addColorStop(1,'rgba('+col+',0)');
-      ctx.beginPath();ctx.moveTo(s.x,s.y);ctx.lineTo(tx,ty);ctx.strokeStyle=g;ctx.lineWidth=1.6+(winBoost*0.6);ctx.stroke();
-      ctx.beginPath();ctx.arc(s.x,s.y,1.4+(winBoost*0.5),0,Math.PI*2);ctx.fillStyle=s.isGold?'#E5B96F':'#E2E8F0';ctx.fill();
-      if(s.y<-80||s.x>w+100)streaks[i]=createStreak(false);
-    }
+
     const pFresh=pointer.active&&(now-pointer.ts<800);
     for(let i=0;i<nodes.length;i++){
       const n=nodes[i];
@@ -2354,10 +2351,15 @@ function renderHubCards(){
     const pill=isAvail?'<span class="status-pill active-pill"><span class="live-dot"></span>Открыто</span>':'<span class="status-pill soon-pill">⏳ Скоро</span>';
     const btnTxt=b.btnLabel||(isAvail?'Открыть →':'Скоро');
     const spLbl=isWait?'✓ В листе ожидания':'Скоро открытие',spCls=isWait?'tg-spoiler-pill waitlisted':'tg-spoiler-pill';
-    const blurOv=isBlur?'<div class="tg-spoiler-overlay"><canvas class="spoiler-canvas"></canvas><div class="tg-spoiler-lock-icon">🔒</div><div class="'+spCls+'"><span class="dot"></span>'+escapeHtml(spLbl)+'</div><div class="tg-spoiler-sub">Нажми, чтобы узнать первым</div></div>':'';
+    const hasLiveBadge=Boolean(b.liveBadge&&String(b.liveBadge).trim()!=='');
+    const spoilerSubHtml=hasLiveBadge
+      ?'<div class="tg-spoiler-scarcity">'+escapeHtml(b.liveBadge)+'</div>'
+      :'<div class="tg-spoiler-sub">Нажми, чтобы узнать первым</div>';
+    const blurOv=isBlur?'<div class="tg-spoiler-overlay"><canvas class="spoiler-canvas"></canvas><div class="tg-spoiler-lock-icon">🔒</div><div class="'+spCls+'"><span class="dot"></span>'+escapeHtml(spLbl)+'</div>'+spoilerSubHtml+'</div>':'';
+    const cardScarcityHtml=hasLiveBadge?'<div class="card-scarcity-pill"><span class="scarcity-dot"></span><span>'+escapeHtml(b.liveBadge)+'</span></div>':'';
     const liquidBorder=isAvail?'<span class="liquid-gold-border" aria-hidden="true"></span>':'';
     const glareLayer='<div class="vip-glare-layer" aria-hidden="true"></div>';
-    card.innerHTML=liquidBorder+glareLayer+blurOv+'<div class="card-inner-blur" style="display:flex;flex-direction:column;flex:1"><div class="card-cover">'+pill+cov+'</div><div class="card-body"><div><div class="card-title">'+escapeHtml(b.title)+'</div><div class="card-desc">'+escapeHtml(b.desc)+'</div></div><div class="card-action-btn'+(isAvail?' shimmer-effect':'')+'">'+escapeHtml(btnTxt)+'</div></div></div>';
+    card.innerHTML=liquidBorder+glareLayer+blurOv+'<div class="card-inner-blur" style="display:flex;flex-direction:column;flex:1"><div class="card-cover">'+pill+cov+'</div><div class="card-body"><div>'+cardScarcityHtml+'<div class="card-title">'+escapeHtml(b.title)+'</div><div class="card-desc">'+escapeHtml(b.desc)+'</div></div><div class="card-action-btn'+(isAvail?' shimmer-effect':'')+'">'+escapeHtml(btnTxt)+'</div></div></div>';
     hubCardsGrid.appendChild(card);
   });
   requestAnimationFrame(()=>initSpoilerCanvases());
@@ -2428,6 +2430,16 @@ function openPromoPage(b){
   const cb=document.getElementById('promoCoverBox'),{pBank,pBet}=getSavedBankAndBet();
   if(b.coverUrl&&b.coverUrl.trim()!=='')cb.innerHTML='<img src="'+escapeHtml(b.coverUrl)+'" alt="">';
   else cb.innerHTML=getSignatureWidgetHtml(b,menuBlocks.indexOf(b),pBank,pBet);
+  const scBadge=document.getElementById('promoScarcityBadge');
+  if(scBadge){
+    if(b.liveBadge&&String(b.liveBadge).trim()!==''){
+      scBadge.innerHTML='<span class="scarcity-dot"></span><span>'+escapeHtml(b.liveBadge)+'</span>';
+      scBadge.classList.add('visible');
+    }else{
+      scBadge.innerHTML='';
+      scBadge.classList.remove('visible');
+    }
+  }
   document.getElementById('promoTitle').textContent=b.pageTitle||b.title;
   document.getElementById('promoText').textContent=b.pageText||b.desc;
   const cta=document.getElementById('promoCtaBtn'),url=b.ctaUrl||trackerCfg.channelUrl||'https://t.me/aibetmoney';
@@ -2507,11 +2519,21 @@ function renderAdminPanel(){
     const item=document.createElement('div');item.className='admin-item-card';
     const isCalc=b.actionType==='calc';
     const ex=!isCalc?'<details style="margin-top:8px;border-top:1px solid var(--border-subtle);padding-top:10px"><summary style="cursor:pointer;font-size:12px;color:var(--gold-light);font-weight:600">📝 Настроить продающий текст и ссылку на ЛС</summary><div style="margin-top:10px"><div class="adm-field"><label>Заголовок внутри страницы</label><input type="text" class="adm-input" value="'+escapeHtml(b.pageTitle||'')+'" oninput="updateBlockField('+idx+',\'pageTitle\',this.value)"></div><div class="adm-field"><label>Продающий текст</label><textarea class="adm-textarea" oninput="updateBlockField('+idx+',\'pageText\',this.value)">'+escapeHtml(b.pageText||'')+'</textarea></div><div class="adm-grid-2"><div class="adm-field"><label>Текст кнопки</label><input type="text" class="adm-input" value="'+escapeHtml(b.ctaText||'')+'" oninput="updateBlockField('+idx+',\'ctaText\',this.value)"></div><div class="adm-field"><label>Ссылка на твой ЛС (https://t.me/...)</label><input type="text" class="adm-input" value="'+escapeHtml(b.ctaUrl||'')+'" oninput="updateBlockField('+idx+',\'ctaUrl\',this.value)"></div></div></div></details>':'';
-    item.innerHTML='<div class="admin-item-head"><strong>Блок #'+(idx+1)+': '+escapeHtml(b.title)+'</strong><div class="admin-head-btns"><button type="button" class="adm-mini-btn" onclick="moveBlock('+idx+',-1)">↑</button><button type="button" class="adm-mini-btn" onclick="moveBlock('+idx+',1)">↓</button>'+(!isCalc?'<button type="button" class="adm-mini-btn danger" onclick="deleteBlock('+idx+')">Удалить</button>':'')+'</div></div><div class="adm-toggles-row"><label class="adm-check-label"><input type="checkbox" '+(b.blurred?'checked':'')+' onchange="updateBlockField('+idx+',\'blurred\',this.checked)"><span>🌫️ Закрыть спойлером «Скоро открытие»</span></label><label class="adm-check-label"><input type="checkbox" '+(b.hidden?'checked':'')+' onchange="updateBlockField('+idx+',\'hidden\',this.checked)"><span>👁️ Скрыть из меню совсем</span></label></div><div class="adm-grid-2"><div class="adm-field"><label>Название карточки</label><input type="text" class="adm-input" value="'+escapeHtml(b.title)+'" oninput="updateBlockField('+idx+',\'title\',this.value)"></div><div class="adm-field"><label>Статус раздела</label><select class="adm-select" onchange="updateBlockField('+idx+',\'status\',this.value);renderAdminPanel()"><option value="available" '+(b.status==='available'?'selected':'')+'>● Открыто (Доступно)</option><option value="soon" '+(b.status==='soon'?'selected':'')+'>⏳ Скоро (В разработке)</option></select></div></div><div class="adm-grid-2"><div class="adm-field"><label>Короткое описание</label><input type="text" class="adm-input" value="'+escapeHtml(b.desc)+'" oninput="updateBlockField('+idx+',\'desc\',this.value)"></div><div class="adm-field"><label>Текст на кнопке</label><input type="text" class="adm-input" value="'+escapeHtml(b.btnLabel||'')+'" oninput="updateBlockField('+idx+',\'btnLabel\',this.value)"></div></div><div class="adm-field"><label>Обложка карточки (800×400)</label><div class="adm-cover-row"><label class="adm-upload-label">📁 Загрузить свою картинку (800×400)<input type="file" accept="image/*" style="display:none" onchange="handleCoverUpload('+idx+',this)"></label>'+(b.coverUrl?'<button type="button" class="adm-mini-btn danger" onclick="updateBlockField('+idx+',\'coverUrl\',\'\');renderAdminPanel();renderHubCards()">↺ Вернуть мини-виджет</button>':'')+'</div></div>'+ex;
+    item.innerHTML='<div class="admin-item-head"><strong>Блок #'+(idx+1)+': '+escapeHtml(b.title)+'</strong><div class="admin-head-btns"><button type="button" class="adm-mini-btn" onclick="moveBlock('+idx+',-1)">↑</button><button type="button" class="adm-mini-btn" onclick="moveBlock('+idx+',1)">↓</button>'+(!isCalc?'<button type="button" class="adm-mini-btn danger" onclick="deleteBlock('+idx+')">Удалить</button>':'')+'</div></div><div class="adm-toggles-row"><label class="adm-check-label"><input type="checkbox" '+(b.blurred?'checked':'')+' onchange="updateBlockField('+idx+',\'blurred\',this.checked)"><span>🌫️ Закрыть спойлером «Скоро открытие»</span></label><label class="adm-check-label"><input type="checkbox" '+(b.hidden?'checked':'')+' onchange="updateBlockField('+idx+',\'hidden\',this.checked)"><span>👁️ Скрыть из меню совсем</span></label></div><div class="adm-grid-2"><div class="adm-field"><label>Название карточки</label><input type="text" class="adm-input" value="'+escapeHtml(b.title)+'" oninput="updateBlockField('+idx+',\'title\',this.value)"></div><div class="adm-field"><label>Статус раздела</label><select class="adm-select" onchange="updateBlockField('+idx+',\'status\',this.value);renderAdminPanel()"><option value="available" '+(b.status==='available'?'selected':'')+'>● Открыто (Доступно)</option><option value="soon" '+(b.status==='soon'?'selected':'')+'>⏳ Скоро (В разработке)</option></select></div></div><div class="adm-grid-2"><div class="adm-field"><label>Короткое описание</label><input type="text" class="adm-input" value="'+escapeHtml(b.desc)+'" oninput="updateBlockField('+idx+',\'desc\',this.value)"></div><div class="adm-field"><label>Текст на кнопке</label><input type="text" class="adm-input" value="'+escapeHtml(b.btnLabel||'')+'" oninput="updateBlockField('+idx+',\'btnLabel\',this.value)"></div></div><div class="adm-field"><label><span>🔥 Индикатор дефицита мест / серии побед (необязательно)</span></label><input type="text" class="adm-input" id="admLiveBadgeInput_'+idx+'" placeholder="Например: Осталось 2 места • Серия VIP: 9✅ 1❌" value="'+escapeHtml(b.liveBadge||'')+'" oninput="updateBlockField('+idx+',\'liveBadge\',this.value)"><div class="adm-scarcity-presets"><button type="button" class="adm-mini-btn gold-outline" onclick="setBlockLiveBadge('+idx+',\'🔥 Серия VIP: 9✅ 1❌\')">🔥 Серия 9✅ 1❌</button><button type="button" class="adm-mini-btn gold-outline" onclick="setBlockLiveBadge('+idx+',\'⏳ Осталось 2 из 5 мест\')">⏳ Осталось 2 места</button><button type="button" class="adm-mini-btn gold-outline" onclick="setBlockLiveBadge('+idx+',\'⚡ Готов уверенный ординар\')">⚡ Готов ординар</button><button type="button" class="adm-mini-btn danger" onclick="setBlockLiveBadge('+idx+',\'\')">✕ Убрать плашку</button></div></div><div class="adm-field"><label>Обложка карточки (800×400)</label><div class="adm-cover-row"><label class="adm-upload-label">📁 Загрузить свою картинку (800×400)<input type="file" accept="image/*" style="display:none" onchange="handleCoverUpload('+idx+',this)"></label>'+(b.coverUrl?'<button type="button" class="adm-mini-btn danger" onclick="updateBlockField('+idx+',\'coverUrl\',\'\');renderAdminPanel();renderHubCards()">↺ Вернуть мини-виджет</button>':'')+'</div></div>'+ex;
     adminCardsContainer.appendChild(item);
   });
 }
 
+function setBlockLiveBadge(idx,txt){
+  if(!menuBlocks[idx])return;
+  triggerHaptic('light');
+  menuBlocks[idx].liveBadge=txt;
+  const inp=document.getElementById('admLiveBadgeInput_'+idx);
+  if(inp)inp.value=txt;
+  saveBlocksDraft();
+  renderHubCards();
+  showToast(txt?'🔥 Плашка установлена: '+txt:'Плашка убрана');
+}
 function updateBlockField(idx,f,v){
   if(!menuBlocks[idx])return;
   menuBlocks[idx][f]=v;
@@ -2568,7 +2590,7 @@ function generateFullSiteHtml(){
   clone.querySelectorAll('.view-screen').forEach(el=>el.classList.remove('active'));
   const hub=clone.querySelector('#screenHub');if(hub)hub.classList.add('active');
   clone.querySelectorAll('.modal-overlay').forEach(el=>el.classList.remove('open'));
-  ['hubCardsGrid','hubBankPillWrap','hotDealBanner','adminHotBannerPreview','adminCardsContainer','visitorsListBox','equitySparklineSvg','vipRanksLadderBox'].forEach(id=>{const el=clone.querySelector('#'+id);if(el)el.innerHTML='';});
+  ['hubCardsGrid','hubBankPillWrap','hotDealBanner','adminHotBannerPreview','adminCardsContainer','visitorsListBox','equitySparklineSvg','vipRanksLadderBox','promoScarcityBadge'].forEach(id=>{const el=clone.querySelector('#'+id);if(el)el.innerHTML='';});
   const hBanner=clone.querySelector('#hotDealBanner');if(hBanner){hBanner.classList.remove('visible');hBanner.removeAttribute('style');}
   const vIntro=clone.querySelector('#vaultIntroOverlay');if(vIntro)vIntro.classList.remove('vault-opening','vault-done');
   ['statTotalVisits','statUniqueUsers','statCalcClicks'].forEach(id=>{const el=clone.querySelector('#'+id);if(el)el.textContent='0';});
