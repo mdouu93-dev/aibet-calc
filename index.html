@@ -393,21 +393,19 @@ header,section{position:relative;z-index:2}
 .menu-card.card-locked .card-action-btn{background:rgba(15,23,42,0.92)!important;border:1px solid rgba(148,163,184,0.34)!important;color:#94A3B8!important;box-shadow:none!important;font-weight:700}
 .menu-card.card-locked .card-action-btn .strike-old-btn{text-decoration:line-through;opacity:0.65;margin-right:5px}
 
-/* Оверлей замка и перечёркивания поверх обложки (без блюра!) */
-.card-lock-overlay{position:absolute;inset:0;z-index:6;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:6px;background:radial-gradient(circle at 50% 50%,rgba(4,7,14,0.52) 0%,rgba(4,7,14,0.28) 100%);pointer-events:none;overflow:hidden}
+/* Оверлей замка и перечёркивания поверх обложки (без блюра, аккуратно по центру без обрезания!) */
+.card-lock-overlay{position:absolute;inset:0;z-index:6;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:8px;background:radial-gradient(circle at 50% 50%,rgba(4,7,14,0.56) 0%,rgba(4,7,14,0.25) 100%);pointer-events:none;overflow:hidden}
 /* Диагональные линии перечёркивания */
-.lock-strike-slash{position:absolute;top:50%;left:-20%;width:140%;height:2px;background:linear-gradient(90deg,transparent 0%,rgba(248,113,113,0.88) 18%,#FFF 50%,rgba(248,113,113,0.88) 82%,transparent 100%);box-shadow:0 0 10px rgba(248,113,113,0.65),0 0 3px rgba(0,0,0,0.95);transform:translateY(-50%) rotate(-16deg);z-index:1;pointer-events:none}
-.lock-strike-slash.slash-second{height:1.5px;opacity:0.55;transform:translateY(-50%) rotate(16deg);background:linear-gradient(90deg,transparent 0%,rgba(226,232,240,0.65) 20%,rgba(248,113,113,0.75) 50%,rgba(226,232,240,0.65) 80%,transparent 100%)}
+.lock-strike-slash{position:absolute;top:50%;left:-18%;width:136%;height:2px;background:linear-gradient(90deg,transparent 0%,rgba(248,113,113,0.88) 18%,#FFF 50%,rgba(248,113,113,0.88) 82%,transparent 100%);box-shadow:0 0 10px rgba(248,113,113,0.65),0 0 3px rgba(0,0,0,0.95);transform:translateY(-50%) rotate(-17deg);z-index:1;pointer-events:none}
+.lock-strike-slash.slash-second{height:1.5px;opacity:0.5;transform:translateY(-50%) rotate(17deg);background:linear-gradient(90deg,transparent 0%,rgba(226,232,240,0.6) 20%,rgba(248,113,113,0.7) 50%,rgba(226,232,240,0.6) 80%,transparent 100%)}
 .menu-card.card-locked.lock-style-bw_strike .lock-strike-slash{background:linear-gradient(90deg,transparent 0%,rgba(226,232,240,0.85) 18%,#FFFFFF 50%,rgba(226,232,240,0.85) 82%,transparent 100%);box-shadow:0 0 10px rgba(255,255,255,0.45),0 0 4px rgba(0,0,0,0.95)}
 
-.card-lock-icon-badge{position:relative;z-index:3;width:28px;height:28px;border-radius:50%;background:rgba(8,13,23,0.94);border:1.5px solid rgba(226,232,240,0.55);display:flex;align-items:center;justify-content:center;font-size:12.5px;box-shadow:0 4px 14px rgba(0,0,0,0.85);transition:transform .22s cubic-bezier(.34,1.56,.64,1),border-color .22s ease}
+.card-lock-icon-badge{position:relative;z-index:3;width:28px;height:28px;border-radius:50%;background:rgba(8,13,23,0.95);border:1.5px solid rgba(226,232,240,0.6);display:flex;align-items:center;justify-content:center;font-size:13px;box-shadow:0 4px 14px rgba(0,0,0,0.85);transition:transform .22s cubic-bezier(.34,1.56,.64,1),border-color .22s ease;flex-shrink:0}
 .menu-card.card-locked.lock-style-strike .card-lock-icon-badge{border-color:rgba(248,113,113,0.75)}
 .card-lock-icon-badge.lock-magnetic-pulse{transform:scale(1.26);border-color:#FFF;box-shadow:0 0 20px rgba(255,255,255,0.75)}
 
-.card-lock-stamp-pill{position:relative;z-index:3;display:inline-flex;align-items:center;justify-content:center;gap:5px;max-width:calc(100% - 12px);background:rgba(6,10,19,0.95);border:1.5px solid rgba(226,232,240,0.65);box-shadow:0 6px 18px rgba(0,0,0,0.92);color:#F8FAFC;font-family:'Montserrat',sans-serif;font-size:9.5px;font-weight:800;padding:4px 10px;border-radius:6px;letter-spacing:.4px;text-transform:uppercase;text-align:center;line-height:1.15}
-.menu-card.card-locked.lock-style-strike .card-lock-stamp-pill{border-color:rgba(248,113,113,0.8);color:#FFE4E6;background:rgba(20,8,14,0.94);box-shadow:0 6px 18px rgba(0,0,0,0.9),0 0 14px rgba(248,113,113,0.22)}
-.card-lock-stamp-pill .strike-text-inner{text-decoration:line-through;text-decoration-color:rgba(248,113,113,0.95);text-decoration-thickness:1.5px}
-.card-lock-stamp-sub{position:relative;z-index:3;font-family:'Montserrat',sans-serif;font-size:8.5px;font-weight:700;color:#CBD5E1;background:rgba(4,7,14,0.82);padding:2px 7px;border-radius:4px;text-align:center;max-width:calc(100% - 14px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.card-lock-stamp-pill{position:relative;z-index:3;display:inline-flex;align-items:center;justify-content:center;gap:5px;max-width:calc(100% - 14px);background:rgba(6,10,19,0.96);border:1.5px solid rgba(226,232,240,0.7);box-shadow:0 6px 18px rgba(0,0,0,0.92);color:#F8FAFC;font-family:'Montserrat',sans-serif;font-size:10px;font-weight:800;padding:4.5px 11px;border-radius:7px;letter-spacing:.45px;text-transform:uppercase;text-align:center;line-height:1.15;flex-shrink:0}
+.menu-card.card-locked.lock-style-strike .card-lock-stamp-pill{border-color:rgba(248,113,113,0.8);color:#FFE4E6;background:rgba(20,8,14,0.95);box-shadow:0 6px 18px rgba(0,0,0,0.9),0 0 14px rgba(248,113,113,0.22)}
 
 .adm-lock-config-box{background:rgba(201,168,118,0.06);border:1px solid var(--gold-border);border-radius:10px;padding:10px 12px;margin-bottom:12px}
 .adm-lock-config-title{font-family:'Montserrat',sans-serif;font-size:11.5px;font-weight:800;color:var(--gold-light);margin-bottom:8px;display:flex;align-items:center;justify-content:space-between;gap:6px;flex-wrap:wrap}
@@ -699,10 +697,6 @@ header,section{position:relative;z-index:2}
 <div class="stats-panel" style="border:1.5px solid var(--amber)">
 <div class="admin-item-head" style="margin-bottom:10px">
 <strong style="color:var(--amber)">🔥 ВИДЖЕТ «СТАВКА ДНЯ / ГЛАВНЫЙ АНОНС»</strong>
-<div class="admin-head-btns">
-<button type="button" class="adm-mini-btn green-outline" onclick="toggleHotBannerQuick(true)">Вкл плашку</button>
-<button type="button" class="adm-mini-btn danger" onclick="toggleHotBannerQuick(false)">Выкл плашку</button>
-</div>
 </div>
 
 <div style="margin-bottom:12px;padding:10px 12px;background:rgba(6,10,19,0.75);border:1px dashed var(--gold-border);border-radius:11px">
@@ -2635,6 +2629,16 @@ function getSignatureWidgetHtml(b,idx,pBank,pBet,pOddsStr){
   return '<div class="default-cover-art"><div class="cover-icon-circle">'+escapeHtml(b.icon||'⭐')+'</div></div>';
 }
 
+function formatLockBtnText(rawTitle){
+  const s=String(rawTitle||'Мест нет').trim();
+  if(!s)return 'Мест нет';
+  // Если введено КАПСОМ (например "МЕСТ НЕТ"), делаем аккуратно "Мест нет" для кнопки, или оставляем как ввёл пользователь
+  if(s===s.toUpperCase()&&s.length>2){
+    return s.charAt(0).toUpperCase()+s.slice(1).toLowerCase();
+  }
+  return s;
+}
+
 function renderHubCards(){
   renderHubBankPill();
   renderHotDealBanner();
@@ -2673,18 +2677,16 @@ function renderHubCards(){
     const cov=hasCustomCover?'<img src="'+escapeHtml(b.coverUrl)+'" class="card-cover-img" alt="">':getSignatureWidgetHtml(b,idx,pBank,pBet,pOddsStr);
     const pill=hidePill?'':(isLocked?'<span class="status-pill soon-pill" style="border-color:rgba(226,232,240,0.45);color:#CBD5E1">🔒 Закрыто</span>':(isAvail?'<span class="status-pill active-pill"><span class="live-dot"></span>Открыто</span>':'<span class="status-pill soon-pill">⏳ Скоро</span>'));
 
-    // Отдельные независимые поля для СПОЙЛЕРА («Скоро открытие») и для ЗАМКА («Мест нет»)
     const spIcon=(b.spoilerIcon&&String(b.spoilerIcon).trim()!=='')?String(b.spoilerIcon).trim():'🔒';
     const spTitle=(b.spoilerTitle&&String(b.spoilerTitle).trim()!=='')?String(b.spoilerTitle).trim():'Скоро открытие';
     const spSub=(b.spoilerSub!==undefined)?String(b.spoilerSub).trim():'Нажми, чтобы узнать первым';
 
     const lkIcon=(b.lockIcon&&String(b.lockIcon).trim()!=='')?String(b.lockIcon).trim():'🔒';
     const lkTitle=(b.lockTitle&&String(b.lockTitle).trim()!=='')?String(b.lockTitle).trim():'МЕСТ НЕТ';
-    const lkSub=(b.lockSub!==undefined)?String(b.lockSub).trim():'';
 
     const hasLiveBadge=Boolean(b.liveBadge&&String(b.liveBadge).trim()!=='');
 
-    // 1) Туманный спойлер («Скоро / В разработке») — всегда использует spIcon / spTitle / spSub
+    // 1) Туманный спойлер («Скоро / В разработке»)
     const spDisplayLbl=isWait?'✓ В листе ожидания':spTitle;
     const spCls=isWait?'tg-spoiler-pill waitlisted':'tg-spoiler-pill';
     const spoilerSubHtml=hasLiveBadge
@@ -2692,27 +2694,24 @@ function renderHubCards(){
       :(spSub?'<div class="tg-spoiler-sub">'+escapeHtml(spSub)+'</div>':'');
     const blurOv=isBlur?'<div class="tg-spoiler-overlay"><canvas class="spoiler-canvas"></canvas><div class="tg-spoiler-lock-icon">'+escapeHtml(spIcon)+'</div><div class="'+spCls+'"><span class="dot"></span>'+escapeHtml(spDisplayLbl)+'</div>'+spoilerSubHtml+'</div>':'';
 
-    // 2) Замок поверх видимой карточки (Ч/Б или перечёркивание) — всегда использует lkIcon / lkTitle / lkSub
+    // 2) Замок поверх видимой карточки (Ч/Б или перечёркивание) — всегда показывает только значок и главную надпись без обрезающихся подстрок!
     const hasStrike=(lockStyle==='strike'||lockStyle==='bw_strike');
     const strikeLinesHtml=hasStrike?'<div class="lock-strike-slash"></div><div class="lock-strike-slash slash-second"></div>':'';
-    const lockSubHtml=lkSub?'<div class="card-lock-stamp-sub">'+escapeHtml(lkSub)+'</div>':'';
-    const lkDisplayLbl=isWait?'✓ В листе ожидания':lkTitle;
     const lockStampOv=isLocked?(
       '<div class="card-lock-overlay">'+
         strikeLinesHtml+
         '<div class="card-lock-icon-badge">'+escapeHtml(lkIcon)+'</div>'+
-        '<div class="card-lock-stamp-pill"><span>'+escapeHtml(lkDisplayLbl)+'</span></div>'+
-        lockSubHtml+
+        '<div class="card-lock-stamp-pill"><span>'+escapeHtml(lkTitle)+'</span></div>'+
       '</div>'
     ):'';
 
-    // Текст нижней кнопки карточки
+    // Нижняя кнопка карточки: на замке всегда ОДНА чистая надпись (например "Мест нет"), без двойного текста!
     let btnInnerHtml='';
     if(isLocked){
-      const customLockedBtn=(b.lockBtnLabel&&String(b.lockBtnLabel).trim()!=='')?String(b.lockBtnLabel).trim():(lkIcon+' '+lkTitle);
-      btnInnerHtml=hasStrike
-        ?'<span class="strike-old-btn">Открыть →</span><span>'+escapeHtml(customLockedBtn)+'</span>'
-        :escapeHtml(customLockedBtn);
+      const singleLockBtn=(b.lockBtnLabel&&String(b.lockBtnLabel).trim()!=='')
+        ?String(b.lockBtnLabel).trim()
+        :formatLockBtnText(lkTitle);
+      btnInnerHtml=escapeHtml(singleLockBtn);
     }else if(isBlur||b.status==='soon'){
       const soonBtn=(b.btnLabel&&b.btnLabel!=='Открыть →')?b.btnLabel:'Скоро';
       btnInnerHtml=escapeHtml(soonBtn);
@@ -2751,8 +2750,7 @@ function handleCardClick(idx){
     if(clickMode==='toast'){
       const ico=(b.lockIcon||'🔒').trim();
       const ttl=(b.lockTitle||'МЕСТ НЕТ').trim();
-      const sub=(b.lockSub||'').trim();
-      showToast(ico+' '+b.title+': '+ttl+(sub?' ('+sub+')':''));
+      showToast(ico+' '+b.title+': '+ttl);
       return;
     }
     if(clickMode==='page'){
@@ -2789,9 +2787,10 @@ function handleCardClick(idx){
 function openLockedCardModal(b){
   const ico=(b&&b.lockIcon&&String(b.lockIcon).trim()!=='')?String(b.lockIcon).trim():'🔒';
   const ttl=(b&&b.lockTitle&&String(b.lockTitle).trim()!=='')?String(b.lockTitle).trim():'МЕСТ НЕТ';
-  const sub=(b&&b.lockSub&&String(b.lockSub).trim()!=='')?String(b.lockSub).trim():'Набор в этот раздел временно закрыт.';
   document.getElementById('modalTitle').textContent=b.title+' — '+ico+' '+ttl;
-  document.getElementById('modalText').textContent=sub+'\n\nОставь заявку ниже или напиши в личные сообщения, чтобы узнать об освободившихся местах:';
+  document.getElementById('modalText').textContent=(b.pageText&&String(b.pageText).trim()!=='')
+    ?b.pageText
+    :'Набор в этот раздел сейчас закрыт. Оставь заявку ниже или напиши в личные сообщения, чтобы узнать об освободившихся местах:';
   syncWaitlistBtnState(b);
   document.getElementById('soonModal').classList.add('open');
 }
@@ -2830,7 +2829,7 @@ function joinWaitlist(){
 function closeSoonModal(){document.getElementById('soonModal').classList.remove('open');}
 
 function openPromoPage(b){
-  const cb=document.getElementById('promoCoverBox'),{pBank,pBet}=getSavedBankAndBet();
+  const cb=document.getElementById('promoCoverBox'),{pBank,pBet,pOddsStr}=getSavedBankAndBet();
   if(b.coverUrl&&b.coverUrl.trim()!=='')cb.innerHTML='<img src="'+escapeHtml(b.coverUrl)+'" alt="">';
   else cb.innerHTML=getSignatureWidgetHtml(b,menuBlocks.indexOf(b),pBank,pBet,pOddsStr);
   const scBadge=document.getElementById('promoScarcityBadge');
@@ -2907,7 +2906,6 @@ function verifyPinCode(){
 const adminCardsContainer=document.getElementById('adminCardsContainer');
 let activeAdminMainTab='cards';
 let expandedAdminCards=new Set([3]);
-let activeCardSubTabMap={};
 
 function switchAdminMainTab(tabName){
   activeAdminMainTab=tabName||'cards';
@@ -2926,6 +2924,15 @@ function switchAdminMainTab(tabName){
   }
 }
 
+function openCoverGenForCard(idx){
+  const ts=document.getElementById('genTargetCardSelect');
+  if(ts){
+    ts.value=String(idx);
+    if(typeof syncPresetFromDropdown==='function')syncPresetFromDropdown(String(idx));
+  }
+  switchAdminMainTab('covers');
+}
+
 function toggleAdminCardAccordion(idx,ev){
   if(ev&&ev.target&&ev.target.closest('button'))return;
   if(expandedAdminCards.has(idx))expandedAdminCards.delete(idx);
@@ -2940,18 +2947,6 @@ function expandAllAdminCards(openAll){
     expandedAdminCards.clear();
   }
   renderAdminPanel();
-}
-
-function switchCardSubTab(idx,subTab){
-  activeCardSubTabMap[idx]=subTab;
-  const cardEl=document.getElementById('admAccCard_'+idx);
-  if(!cardEl)return;
-  ['mode','content','size','promo'].forEach(st=>{
-    const b=cardEl.querySelector('[data-subtab-btn="'+st+'"]');
-    const p=cardEl.querySelector('[data-subtab-pane="'+st+'"]');
-    if(b)b.classList.toggle('active',st===subTab);
-    if(p)p.classList.toggle('active',st===subTab);
-  });
 }
 
 function setCardPrimaryMode(idx,mode){
@@ -2987,7 +2982,6 @@ function setCardPrimaryMode(idx,mode){
     if(!b.lockStyle)b.lockStyle='bw_strike';
     if(!b.lockIcon)b.lockIcon='🔒';
     if(!b.lockTitle)b.lockTitle='МЕСТ НЕТ';
-    if(b.lockSub===undefined)b.lockSub='Набор временно закрыт';
   }else if(mode==='hidden'){
     b.hidden=true;
   }
@@ -3024,7 +3018,6 @@ function renderAdminPanel(){
   adminCardsContainer.innerHTML='';
   menuBlocks.forEach((b,idx)=>{
     const isOpenAcc=expandedAdminCards.has(idx);
-    const curSubTab=activeCardSubTabMap[idx]||'mode';
 
     const item=document.createElement('div');
     item.className='adm-acc-card'+(isOpenAcc?' open':'');
@@ -3051,7 +3044,6 @@ function renderAdminPanel(){
 
     const lkIcon=b.lockIcon||'🔒';
     const lkTitle=b.lockTitle||'МЕСТ НЕТ';
-    const lkSub=b.lockSub!==undefined?b.lockSub:'Набор временно закрыт';
     const lkBtnLabel=b.lockBtnLabel||'';
 
     let stateChipHtml='';
@@ -3075,47 +3067,56 @@ function renderAdminPanel(){
 
     const curPrimaryMode=isHidden?'hidden':(isLocked?'locked':(isBlur?'spoiler':(isSoonPlain?'soon':'open')));
 
-    // Динамический блок настроек в зависимости от выбранного режима (чтобы ничего не путалось!)
+    // Динамический блок только для выбранного режима (Спойлер или Замок) — без дублей и лишних полей!
     let modeSpecificPanelHtml='';
     if(curPrimaryMode==='spoiler'){
       modeSpecificPanelHtml=
-        '<div class="adm-lock-config-box" style="margin-bottom:0;border-color:var(--amber-border);background:rgba(251,191,36,0.05)">'+
-          '<div class="adm-lock-config-title"><span style="color:var(--amber)">🌫️ Настройка текста на туманном спойлере («Скоро открытие»)</span></div>'+
+        '<div class="adm-lock-config-box" style="margin-bottom:12px;border-color:var(--amber-border);background:rgba(251,191,36,0.05)">'+
+          '<div class="adm-lock-config-title"><span style="color:var(--amber)">🌫️ Текст на туманном спойлере («Скоро открытие»)</span></div>'+
           '<div class="adm-grid-3" style="margin-bottom:0">'+
-            '<div class="adm-field" style="margin-bottom:0"><label>Значок спойлера</label><input type="text" class="adm-input" value="'+escapeHtml(spIcon)+'" placeholder="🔒 или ⏳" oninput="updateBlockField('+idx+',\'spoilerIcon\',this.value)"></div>'+
-            '<div class="adm-field" style="margin-bottom:0"><label>Текст на плашке спойлера</label><input type="text" class="adm-input" value="'+escapeHtml(spTitle)+'" placeholder="Скоро открытие" oninput="updateBlockField('+idx+',\'spoilerTitle\',this.value)"></div>'+
-            '<div class="adm-field" style="margin-bottom:0"><label>Подпись снизу (пусто = без неё)</label><input type="text" class="adm-input" value="'+escapeHtml(spSub)+'" placeholder="Нажми, чтобы узнать первым" oninput="updateBlockField('+idx+',\'spoilerSub\',this.value)"></div>'+
+            '<div class="adm-field" style="margin-bottom:0"><label>Значок</label><input type="text" class="adm-input" value="'+escapeHtml(spIcon)+'" placeholder="🔒 или ⏳" oninput="updateBlockField('+idx+',\'spoilerIcon\',this.value)"></div>'+
+            '<div class="adm-field" style="margin-bottom:0"><label>Плашка по центру</label><input type="text" class="adm-input" value="'+escapeHtml(spTitle)+'" placeholder="Скоро открытие" oninput="updateBlockField('+idx+',\'spoilerTitle\',this.value)"></div>'+
+            '<div class="adm-field" style="margin-bottom:0"><label>Подпись снизу (пусто = скрыть)</label><input type="text" class="adm-input" value="'+escapeHtml(spSub)+'" placeholder="Нажми, чтобы узнать первым" oninput="updateBlockField('+idx+',\'spoilerSub\',this.value)"></div>'+
           '</div>'+
         '</div>';
     }else if(curPrimaryMode==='locked'){
       modeSpecificPanelHtml=
-        '<div class="adm-lock-config-box" style="margin-bottom:0;border-color:rgba(248,113,113,0.45);background:rgba(248,113,113,0.05)">'+
-          '<div class="adm-lock-config-title"><span style="color:#FCA5A5">🔒 Внешний вид замка и твоя надпись (текст при смене вида НЕ сбрасывается)</span></div>'+
-          '<div style="font-size:11px;color:var(--text-muted);margin-bottom:6px">1. Выбери оформление карточки с замком:</div>'+
+        '<div class="adm-lock-config-box" style="margin-bottom:12px;border-color:rgba(248,113,113,0.45);background:rgba(248,113,113,0.05)">'+
+          '<div class="adm-lock-config-title"><span style="color:#FCA5A5">🔒 Настройка замка (визуальный вид и надпись)</span></div>'+
           '<div class="adm-style-pick-grid">'+
             '<button type="button" class="adm-style-pick-btn '+(lockStyle==='bw'?'active':'')+'" onclick="setCardLockStyleOnly('+idx+',\'bw\')">⚫🔒 Ч/Б карточка + Замок</button>'+
             '<button type="button" class="adm-style-pick-btn '+(lockStyle==='strike'?'active':'')+'" onclick="setCardLockStyleOnly('+idx+',\'strike\')">✂️🔒 Замок + Перечёркивание</button>'+
             '<button type="button" class="adm-style-pick-btn '+(lockStyle==='bw_strike'?'active':'')+'" onclick="setCardLockStyleOnly('+idx+',\'bw_strike\')">⚫✂️ Ч/Б + Замок + Перечёркивание</button>'+
           '</div>'+
-          '<div style="font-size:11px;color:var(--text-muted);margin-bottom:6px">2. Впиши свою надпись (например: МЕСТ НЕТ, НАБОР ЗАКРЫТ и т.д.):</div>'+
-          '<div class="adm-grid-3" style="margin-bottom:8px">'+
-            '<div class="adm-field" style="margin-bottom:0"><label>Значок</label><input type="text" class="adm-input" value="'+escapeHtml(lkIcon)+'" placeholder="🔒" oninput="updateBlockField('+idx+',\'lockIcon\',this.value)"></div>'+
-            '<div class="adm-field" style="margin-bottom:0"><label>Надпись на замке (поверх обложки)</label><input type="text" class="adm-input" value="'+escapeHtml(lkTitle)+'" placeholder="Впиши текст (напр. МЕСТ НЕТ)" oninput="updateBlockField('+idx+',\'lockTitle\',this.value)"></div>'+
-            '<div class="adm-field" style="margin-bottom:0"><label>Мелкая подпись под замком (необязательно)</label><input type="text" class="adm-input" value="'+escapeHtml(lkSub)+'" placeholder="Оставь пустым, если не нужна" oninput="updateBlockField('+idx+',\'lockSub\',this.value)"></div>'+
-          '</div>'+
-          '<div class="adm-grid-2" style="margin-bottom:0">'+
-            '<div class="adm-field" style="margin-bottom:0"><label>Текст на нижней кнопке (пусто = как на замке)</label><input type="text" class="adm-input" value="'+escapeHtml(lkBtnLabel)+'" placeholder="По умолч.: '+escapeHtml(lkIcon+' '+lkTitle)+'" oninput="updateBlockField('+idx+',\'lockBtnLabel\',this.value)"></div>'+
+          '<div class="adm-grid-3" style="margin-bottom:0">'+
+            '<div class="adm-field" style="margin-bottom:0"><label>Надпись на штампе (обложка)</label><input type="text" class="adm-input" value="'+escapeHtml(lkTitle)+'" placeholder="МЕСТ НЕТ" oninput="updateBlockField('+idx+',\'lockTitle\',this.value)"></div>'+
+            '<div class="adm-field" style="margin-bottom:0"><label>Текст на нижней кнопке</label><input type="text" class="adm-input" value="'+escapeHtml(lkBtnLabel)+'" placeholder="По умолч.: '+escapeHtml(formatLockBtnText(lkTitle))+'" oninput="updateBlockField('+idx+',\'lockBtnLabel\',this.value)"></div>'+
             '<div class="adm-field" style="margin-bottom:0">'+
-              '<label>Что делать при нажатии на карточку с замком</label>'+
+              '<label>При клике на карточку</label>'+
               '<select class="adm-select" onchange="updateBlockField('+idx+',\'lockClickMode\',this.value)">'+
-                '<option value="modal" '+(lockClickMode==='modal'?'selected':'')+'>Открыть окно с этим текстом и записью в очередь / ЛС</option>'+
-                '<option value="toast" '+(lockClickMode==='toast'?'selected':'')+'>Показать всплывающее уведомление сверху (не открывать)</option>'+
-                '<option value="page" '+(lockClickMode==='page'?'selected':'')+'>Всё равно открывать внутреннюю страницу карточки</option>'+
+                '<option value="modal" '+(lockClickMode==='modal'?'selected':'')+'>Окно записи в очередь / ЛС</option>'+
+                '<option value="toast" '+(lockClickMode==='toast'?'selected':'')+'>Только уведомление сверху</option>'+
+                '<option value="page" '+(lockClickMode==='page'?'selected':'')+'>Открывать страницу карточки</option>'+
               '</select>'+
             '</div>'+
           '</div>'+
         '</div>';
     }
+
+    // Секция внутренней промо-страницы (свёрнута в аккуратный спойлер, чтобы не загромождать карточку)
+    const promoDetailsHtml=!isCalc?(
+      '<details style="margin-top:10px;border-top:1px solid var(--border-subtle);padding-top:10px">'+
+        '<summary style="cursor:pointer;font-size:12px;color:var(--gold-light);font-weight:700;user-select:none">📄 Внутренняя страница раздела и ссылка на твой ЛС (нажми, чтобы редактировать текст внутри)</summary>'+
+        '<div style="margin-top:10px">'+
+          '<div class="adm-grid-2">'+
+            '<div class="adm-field"><label>Заголовок внутри открытой страницы</label><input type="text" class="adm-input" value="'+escapeHtml(b.pageTitle||'')+'" oninput="updateBlockField('+idx+',\'pageTitle\',this.value)"></div>'+
+            '<div class="adm-field"><label>Ссылка на твой ЛС (https://t.me/...)</label><input type="text" class="adm-input" value="'+escapeHtml(b.ctaUrl||'')+'" oninput="updateBlockField('+idx+',\'ctaUrl\',this.value)"></div>'+
+          '</div>'+
+          '<div class="adm-field"><label>Продающий текст / условия внутри раздела</label><textarea class="adm-textarea" oninput="updateBlockField('+idx+',\'pageText\',this.value)">'+escapeHtml(b.pageText||'')+'</textarea></div>'+
+          '<div class="adm-field" style="margin-bottom:0"><label>Текст на большой кнопке внутри раздела</label><input type="text" class="adm-input" value="'+escapeHtml(b.ctaText||'')+'" oninput="updateBlockField('+idx+',\'ctaText\',this.value)"></div>'+
+        '</div>'+
+      '</details>'
+    ):'';
 
     item.innerHTML=
       '<div class="adm-acc-head" onclick="toggleAdminCardAccordion('+idx+',event)">'+
@@ -3132,127 +3133,84 @@ function renderAdminPanel(){
         '</div>'+
       '</div>'+
       '<div class="adm-acc-body">'+
-        '<div class="adm-subtabs-bar">'+
-          '<button type="button" class="adm-subtab-btn '+(curSubTab==='mode'?'active':'')+'" data-subtab-btn="mode" onclick="switchCardSubTab('+idx+',\'mode\')">🔒 1. Режим, Замок и Рамка</button>'+
-          '<button type="button" class="adm-subtab-btn '+(curSubTab==='content'?'active':'')+'" data-subtab-btn="content" onclick="switchCardSubTab('+idx+',\'content\')">✏️ 2. Тексты и Обложка</button>'+
-          '<button type="button" class="adm-subtab-btn '+(curSubTab==='size'?'active':'')+'" data-subtab-btn="size" onclick="switchCardSubTab('+idx+',\'size\')">📐 3. Размер карточки</button>'+
-          (!isCalc
-            ?'<button type="button" class="adm-subtab-btn '+(curSubTab==='promo'?'active':'')+'" data-subtab-btn="promo" onclick="switchCardSubTab('+idx+',\'promo\')">📄 4. Внутренняя страница</button>'
-            :'<button type="button" class="adm-subtab-btn" style="opacity:.4;cursor:default" disabled>🧮 Системный калькулятор</button>')+
-        '</div>'+
-
-        /* ПОДВКЛАДКА 1: РЕЖИМ, ЗАМОК И РАМКА */
-        '<div class="adm-subpane '+(curSubTab==='mode'?'active':'')+'" data-subtab-pane="mode">'+
-          '<div style="font-size:11.5px;font-weight:700;color:var(--gold-light);margin-bottom:6px">Режим карточки (выбери нужный):</div>'+
-          '<div class="adm-mode-grid">'+
-            '<div class="adm-mode-card '+(curPrimaryMode==='open'?'active-open':'')+'" onclick="setCardPrimaryMode('+idx+',\'open\')">'+
-              '<strong>🟢 Открыто</strong>'+
-              '<span>Рабочая карточка</span>'+
-            '</div>'+
-            '<div class="adm-mode-card '+(curPrimaryMode==='soon'?'active-soon':'')+'" onclick="setCardPrimaryMode('+idx+',\'soon\')">'+
-              '<strong>⏳ Скоро</strong>'+
-              '<span>Видна, статус «Скоро»</span>'+
-            '</div>'+
-            '<div class="adm-mode-card '+(curPrimaryMode==='spoiler'?'active-spoiler':'')+'" onclick="setCardPrimaryMode('+idx+',\'spoiler\')">'+
-              '<strong>🌫️ Спойлер</strong>'+
-              '<span>Размытие «В разработке»</span>'+
-            '</div>'+
-            '<div class="adm-mode-card '+(curPrimaryMode==='locked'?'active-lock':'')+'" onclick="setCardPrimaryMode('+idx+',\'locked\')">'+
-              '<strong>🔒 Замок</strong>'+
-              '<span>Ч/Б или перечёркнуто</span>'+
-            '</div>'+
-            '<div class="adm-mode-card '+(curPrimaryMode==='hidden'?'active-hidden':'')+'" onclick="setCardPrimaryMode('+idx+',\'hidden\')">'+
-              '<strong>👁️ Скрыта</strong>'+
-              '<span>Убрать из меню</span>'+
-            '</div>'+
+        /* 1. РЕЖИМ КАРТОЧКИ (БЕЗ ДУБЛЕЙ!) */
+        '<div style="font-size:11px;font-weight:700;color:var(--gold-light);margin-bottom:6px;text-transform:uppercase;letter-spacing:.4px">1. Состояние карточки:</div>'+
+        '<div class="adm-mode-grid">'+
+          '<div class="adm-mode-card '+(curPrimaryMode==='open'?'active-open':'')+'" onclick="setCardPrimaryMode('+idx+',\'open\')">'+
+            '<strong>🟢 Открыто</strong>'+
+            '<span>Рабочая карточка</span>'+
           '</div>'+
-
-          '<div class="adm-toggles-row" style="margin-bottom:'+(modeSpecificPanelHtml?'12px':'0')+'">'+
-            '<label class="adm-check-label"><input type="checkbox" '+(hidePill?'checked':'')+' onchange="updateBlockField('+idx+',\'hideStatusPill\',this.checked);renderAdminPanel()"><span>🚫 Убрать плашку «Открыто / Скоро» в углу (не горит)</span></label>'+
-            '<label class="adm-check-label"><input type="checkbox" '+(useGoldAnim?'checked':'')+' onchange="updateBlockField('+idx+',\'goldBorder\',this.checked);renderAdminPanel()"><span>✨ Золотая бегущая анимация вокруг карточки</span></label>'+
+          '<div class="adm-mode-card '+(curPrimaryMode==='soon'?'active-soon':'')+'" onclick="setCardPrimaryMode('+idx+',\'soon\')">'+
+            '<strong>⏳ Скоро</strong>'+
+            '<span>Видна, кнопка «Скоро»</span>'+
           '</div>'+
-
-          modeSpecificPanelHtml+
-        '</div>'+
-
-        /* ПОДВКЛАДКА 2: ТЕКСТЫ, ПЛАШКА И ОБЛОЖКА */
-        '<div class="adm-subpane '+(curSubTab==='content'?'active':'')+'" data-subtab-pane="content">'+
-          '<div class="adm-grid-2">'+
-            '<div class="adm-field"><label>Название карточки</label><input type="text" class="adm-input" value="'+escapeHtml(b.title)+'" oninput="updateBlockField('+idx+',\'title\',this.value)"></div>'+
-            '<div class="adm-field"><label>Плашка статуса в правом верхнем углу</label><select class="adm-select" onchange="handleStatusSelectChange('+idx+',this.value)"><option value="available" '+(!hidePill&&b.status==='available'?'selected':'')+'>● Открыто (зелёная плашка)</option><option value="soon" '+(!hidePill&&b.status==='soon'?'selected':'')+'>⏳ Скоро (золотая плашка)</option><option value="none" '+(hidePill?'selected':'')+'>🚫 Без плашки вообще (не горит)</option></select></div>'+
+          '<div class="adm-mode-card '+(curPrimaryMode==='spoiler'?'active-spoiler':'')+'" onclick="setCardPrimaryMode('+idx+',\'spoiler\')">'+
+            '<strong>🌫️ Спойлер</strong>'+
+            '<span>Размытие «В разработке»</span>'+
           '</div>'+
-          '<div class="adm-grid-2">'+
-            '<div class="adm-field"><label>Короткое описание под заголовком</label><input type="text" class="adm-input" value="'+escapeHtml(b.desc)+'" oninput="updateBlockField('+idx+',\'desc\',this.value)"></div>'+
-            '<div class="adm-field"><label>Текст на нижней кнопке</label><input type="text" class="adm-input" value="'+escapeHtml(b.btnLabel||'')+'" oninput="updateBlockField('+idx+',\'btnLabel\',this.value)"></div>'+
+          '<div class="adm-mode-card '+(curPrimaryMode==='locked'?'active-lock':'')+'" onclick="setCardPrimaryMode('+idx+',\'locked\')">'+
+            '<strong>🔒 Замок</strong>'+
+            '<span>Ч/Б или перечёркнуто</span>'+
           '</div>'+
-          '<div class="adm-field"><label><span>🔥 Мини-плашка дефицита мест / серии побед над заголовком (необязательно)</span></label><input type="text" class="adm-input" id="admLiveBadgeInput_'+idx+'" placeholder="Например: Осталось 2 места • Серия VIP: 9✅ 1❌" value="'+escapeHtml(b.liveBadge||'')+'" oninput="updateBlockField('+idx+',\'liveBadge\',this.value)"><div class="adm-scarcity-presets"><button type="button" class="adm-mini-btn gold-outline" onclick="setBlockLiveBadge('+idx+',\'🔥 Серия VIP: 9✅ 1❌\')">🔥 Серия 9✅ 1❌</button><button type="button" class="adm-mini-btn gold-outline" onclick="setBlockLiveBadge('+idx+',\'⏳ Осталось 2 из 5 мест\')">⏳ Осталось 2 места</button><button type="button" class="adm-mini-btn gold-outline" onclick="setBlockLiveBadge('+idx+',\'⚡ Готов уверенный ординар\')">⚡ Готов ординар</button><button type="button" class="adm-mini-btn danger" onclick="setBlockLiveBadge('+idx+',\'\')">✕ Убрать плашку</button></div></div>'+
-          '<div class="adm-field" style="margin-bottom:0"><label>Обложка карточки (800×400)</label><div class="adm-cover-row"><label class="adm-upload-label">📁 Загрузить свою картинку с устройства<input type="file" accept="image/*" style="display:none" onchange="handleCoverUpload('+idx+',this)"></label><button type="button" class="adm-mini-btn gold-outline" onclick="switchAdminMainTab(\'covers\')">🎨 Создать в генераторе обложек</button>'+(b.coverUrl?'<button type="button" class="adm-mini-btn danger" onclick="updateBlockField('+idx+',\'coverUrl\',\'\');renderAdminPanel();renderHubCards()">↺ Вернуть мини-виджет</button>':'')+'</div></div>'+
-        '</div>'+
-
-        /* ПОДВКЛАДКА 3: РАЗМЕР И РАСТЯГИВАНИЕ */
-        '<div class="adm-subpane '+(curSubTab==='size'?'active':'')+'" data-subtab-pane="size">'+
-          '<div class="adm-lock-config-box" style="background:rgba(12,20,36,0.65);border-color:var(--border-subtle);margin-bottom:0">'+
-            '<div class="adm-lock-config-title"><span>📐 Настройка ширины, пропорций и высоты этой карточки</span></div>'+
-            '<div class="adm-grid-3" style="margin-bottom:0">'+
-              '<div class="adm-field" style="margin-bottom:0">'+
-                '<label>Ширина в сетке меню</label>'+
-                '<select class="adm-select" onchange="updateBlockField('+idx+',\'cardSpan\',this.value);renderAdminPanel()">'+
-                  '<option value="1" '+(cardSpan==='1'?'selected':'')+'>Обычная (1 колонка — пол-экрана)</option>'+
-                  '<option value="2" '+(cardSpan==='2'?'selected':'')+'>На всю ширину (растянуть в 2 колонки)</option>'+
-                '</select>'+
-              '</div>'+
-              '<div class="adm-field" style="margin-bottom:0">'+
-                '<label>Пропорции / Высота</label>'+
-                '<select class="adm-select" onchange="updateBlockField('+idx+',\'cardHeight\',this.value);renderAdminPanel()">'+
-                  '<option value="normal" '+(cardHeight==='normal'?'selected':'')+'>Стандартная карточка</option>'+
-                  '<option value="tall" '+(cardHeight==='tall'?'selected':'')+'>Увеличенная (высокая обложка)</option>'+
-                  '<option value="rows2" '+(cardHeight==='rows2'?'selected':'')+'>Растянуть вниз на 2 ряда</option>'+
-                  '<option value="compact" '+(cardHeight==='compact'?'selected':'')+'>Компактная (узкая)</option>'+
-                '</select>'+
-              '</div>'+
-              '<div class="adm-field" style="margin-bottom:0">'+
-                '<label>Своя мин. высота в px (0 = авто)</label>'+
-                '<input type="number" min="0" max="600" step="10" class="adm-input" value="'+customHeightPx+'" placeholder="Напр. 240" oninput="updateBlockField('+idx+',\'customHeightPx\',parseInt(this.value||\'0\',10)||0)">'+
-              '</div>'+
-            '</div>'+
+          '<div class="adm-mode-card '+(curPrimaryMode==='hidden'?'active-hidden':'')+'" onclick="setCardPrimaryMode('+idx+',\'hidden\')">'+
+            '<strong>👁️ Скрыта</strong>'+
+            '<span>Убрать из меню</span>'+
           '</div>'+
         '</div>'+
 
-        /* ПОДВКЛАДКА 4: ВНУТРЕННЯЯ ПРОМО-СТРАНИЦА И ССЫЛКА НА ЛС */
-        (!isCalc?(
-          '<div class="adm-subpane '+(curSubTab==='promo'?'active':'')+'" data-subtab-pane="promo">'+
-            '<div class="adm-field"><label>Заголовок внутри открытой страницы</label><input type="text" class="adm-input" value="'+escapeHtml(b.pageTitle||'')+'" oninput="updateBlockField('+idx+',\'pageTitle\',this.value)"></div>'+
-            '<div class="adm-field"><label>Продающий текст / условия внутри раздела</label><textarea class="adm-textarea" oninput="updateBlockField('+idx+',\'pageText\',this.value)">'+escapeHtml(b.pageText||'')+'</textarea></div>'+
-            '<div class="adm-grid-2" style="margin-bottom:0">'+
-              '<div class="adm-field" style="margin-bottom:0"><label>Текст на большой кнопке внутри</label><input type="text" class="adm-input" value="'+escapeHtml(b.ctaText||'')+'" oninput="updateBlockField('+idx+',\'ctaText\',this.value)"></div>'+
-              '<div class="adm-field" style="margin-bottom:0"><label>Ссылка на твой ЛС (https://t.me/...)</label><input type="text" class="adm-input" value="'+escapeHtml(b.ctaUrl||'')+'" oninput="updateBlockField('+idx+',\'ctaUrl\',this.value)"></div>'+
-            '</div>'+
-          '</div>'
-        ):'')+
+        modeSpecificPanelHtml+
+
+        /* 2. ПЛАШКА В УГЛУ, ЗОЛОТАЯ РАМКА И РАЗМЕР (В ОДНОМ МЕСТЕ БЕЗ ДУБЛИРОВАНИЯ!) */
+        '<div class="adm-toggles-row" style="margin-bottom:12px">'+
+          '<label class="adm-check-label"><input type="checkbox" '+(hidePill?'checked':'')+' onchange="updateBlockField('+idx+',\'hideStatusPill\',this.checked);renderAdminPanel()"><span>🚫 Скрыть угловую плашку («Открыто / Скоро» не горит)</span></label>'+
+          '<label class="adm-check-label"><input type="checkbox" '+(useGoldAnim?'checked':'')+' onchange="updateBlockField('+idx+',\'goldBorder\',this.checked);renderAdminPanel()"><span>✨ Золотая бегущая анимация вокруг карточки</span></label>'+
+        '</div>'+
+
+        '<div class="adm-grid-3" style="margin-bottom:12px">'+
+          '<div class="adm-field" style="margin-bottom:0">'+
+            '<label>Ширина карточки в меню</label>'+
+            '<select class="adm-select" onchange="updateBlockField('+idx+',\'cardSpan\',this.value);renderAdminPanel()">'+
+              '<option value="1" '+(cardSpan==='1'?'selected':'')+'>Обычная (1 колонка — пол-экрана)</option>'+
+              '<option value="2" '+(cardSpan==='2'?'selected':'')+'>На всю ширину (растянуть в 2 колонки)</option>'+
+            '</select>'+
+          '</div>'+
+          '<div class="adm-field" style="margin-bottom:0">'+
+            '<label>Высота / Пропорции</label>'+
+            '<select class="adm-select" onchange="updateBlockField('+idx+',\'cardHeight\',this.value);renderAdminPanel()">'+
+              '<option value="normal" '+(cardHeight==='normal'?'selected':'')+'>Стандартная</option>'+
+              '<option value="tall" '+(cardHeight==='tall'?'selected':'')+'>Увеличенная (высокая)</option>'+
+              '<option value="rows2" '+(cardHeight==='rows2'?'selected':'')+'>На 2 ряда вниз</option>'+
+              '<option value="compact" '+(cardHeight==='compact'?'selected':'')+'>Компактная (узкая)</option>'+
+            '</select>'+
+          '</div>'+
+          '<div class="adm-field" style="margin-bottom:0">'+
+            '<label>Точная мин. высота в px (0 = авто)</label>'+
+            '<input type="number" min="0" max="600" step="10" class="adm-input" value="'+customHeightPx+'" placeholder="0" oninput="updateBlockField('+idx+',\'customHeightPx\',parseInt(this.value||\'0\',10)||0)">'+
+          '</div>'+
+        '</div>'+
+
+        /* 3. НАЗВАНИЕ, ОПИСАНИЕ, КНОПКА И ОБЛОЖКА (ВСЁ НА ВИДУ!) */
+        '<div class="adm-grid-2">'+
+          '<div class="adm-field"><label>Название карточки</label><input type="text" class="adm-input" value="'+escapeHtml(b.title)+'" oninput="updateBlockField('+idx+',\'title\',this.value)"></div>'+
+          '<div class="adm-field"><label>Текст на кнопке (в обычном режиме)</label><input type="text" class="adm-input" value="'+escapeHtml(b.btnLabel||'')+'" placeholder="Открыть →" oninput="updateBlockField('+idx+',\'btnLabel\',this.value)"></div>'+
+        '</div>'+
+        '<div class="adm-grid-2">'+
+          '<div class="adm-field" style="margin-bottom:0"><label>Короткое описание под названием</label><input type="text" class="adm-input" value="'+escapeHtml(b.desc)+'" oninput="updateBlockField('+idx+',\'desc\',this.value)"></div>'+
+          '<div class="adm-field" style="margin-bottom:0"><label>Мини-плашка над названием (напр. 🔥 Серия 9✅ 1❌)</label><input type="text" class="adm-input" id="admLiveBadgeInput_'+idx+'" placeholder="Пусто = без плашки" value="'+escapeHtml(b.liveBadge||'')+'" oninput="updateBlockField('+idx+',\'liveBadge\',this.value)"></div>'+
+        '</div>'+
+
+        '<div style="display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-top:12px;padding-top:10px;border-top:1px solid var(--border-subtle)">'+
+          '<div class="adm-cover-row">'+
+            '<label class="adm-upload-label">📁 Загрузить обложку 800×400<input type="file" accept="image/*" style="display:none" onchange="handleCoverUpload('+idx+',this)"></label>'+
+            '<button type="button" class="adm-mini-btn gold-outline" onclick="openCoverGenForCard('+idx+')">🎨 Создать обложку в генераторе</button>'+
+            (b.coverUrl?'<button type="button" class="adm-mini-btn danger" onclick="updateBlockField('+idx+',\'coverUrl\',\'\');renderAdminPanel();renderHubCards()">↺ Сбросить к виджету</button>':'')+
+          '</div>'+
+        '</div>'+
+
+        promoDetailsHtml+
       '</div>';
     adminCardsContainer.appendChild(item);
   });
-}
-
-function handleStatusSelectChange(idx,val){
-  if(!menuBlocks[idx])return;
-  if(val==='none'){
-    menuBlocks[idx].hideStatusPill=true;
-  }else{
-    menuBlocks[idx].hideStatusPill=false;
-    menuBlocks[idx].status=val;
-    if(val==='available'){
-      menuBlocks[idx].locked=false;
-      menuBlocks[idx].blurred=false;
-      if(!menuBlocks[idx].btnLabel||menuBlocks[idx].btnLabel==='Скоро')menuBlocks[idx].btnLabel='Открыть →';
-    }else if(val==='soon'){
-      menuBlocks[idx].locked=false;
-      if(!menuBlocks[idx].btnLabel||menuBlocks[idx].btnLabel==='Открыть →')menuBlocks[idx].btnLabel='Скоро';
-    }
-  }
-  saveBlocksDraft();
-  renderAdminPanel();
-  renderHubCards();
 }
 
 function setBlockLiveBadge(idx,txt){
